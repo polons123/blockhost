@@ -8,6 +8,7 @@ proxies:
   password: PCG88QQI69oLYhPsr7EB2A==
   udp: true
   sni: hostvds-ru.ydns.eu
+  multiplex: true
   
 # VDSinaRU
 - name: "VDSinaRU"
