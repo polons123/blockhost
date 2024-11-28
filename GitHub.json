@@ -258,6 +258,22 @@
         "outbound": "direct"
       },
       {
+       "port":
+        [
+            25,
+            465,
+            587,
+            993,
+            995,
+            18090,
+            18092,
+            22123,
+            59090,
+            62222 //FTP hostvds-ru
+        ],
+        "outbound": "direct"
+      },
+      {
         "ip_is_private": true,
         "outbound": "direct"
       },
@@ -357,22 +373,6 @@
         [
             "194.164.245.30",//HostVDS-Ru - Torrserver
             "45.91.193.139" // HostVDS-Fin2 - Lampac
-        ],
-        "outbound": "direct"
-      },
-      {
-       "port":
-        [
-            25,
-            465,
-            587,
-            993,
-            995,
-            18090,
-            18092,
-            22123,
-            59090,
-            62222 //FTP hostvds-ru
         ],
         "outbound": "direct"
       },
