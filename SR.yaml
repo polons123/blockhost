@@ -10,7 +10,7 @@ proxies:
   sni: hostvds-ru.ydns.eu
   mux:
   enabled: true  # Включение multiplex
-  concurrency: 8 # Количество одновременных соединений (рекомендуется от 6 до 10)
+  # concurrency: 8 # Количество одновременных соединений (рекомендуется от 6 до 10)
   
 # VDSinaRU
 - name: "VDSinaRU"
