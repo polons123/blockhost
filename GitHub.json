@@ -1,0 +1,492 @@
+{
+  "log": {
+    "level": "error",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-word",
+        "address": "https://hostvds-fin1.ydns.eu/dns-query",
+        "address": "https://4vps-lv.ydns.eu/dns-query",
+        "address_resolver": "dns-resolve",
+        "address_strategy": "ipv4_only",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-resolve",
+        "address": "77.88.8.8",
+        "address_strategy": "ipv4_only",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain_suffix": [
+          ".arpa.",
+          ".arpa"
+        ],
+        "server": "dns-block"
+      },
+      {
+        "outbound": "any",
+        "server": "dns-word"
+      }
+    ],
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
+    "strategy": "ipv4_only",
+    "independent_cache": false,
+    "disable_cache": false,
+    "disable_expire": false
+  },
+  "inbounds": [
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "::",
+      "listen_port": 6450,
+      "domain_strategy": "ipv4_only",
+      "override_address": "46.8.232.156",
+      "override_port": 853
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "mtu": 9000,
+      //"gso": true,
+      "address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "route_exclude_address": [
+        "10.0.0.0/8",
+        "100.64.0.0/10",
+        "169.254.0.0/16",
+        "172.16.0.0/12",
+        "192.0.0.0/24",
+        "192.0.2.0/24",
+        "192.88.99.0/24",
+        "192.168.0.0/16",
+        "198.51.100.0/24",
+        "203.0.113.0/24",
+        "224.0.0.0/4",
+        "255.255.255.255/32"
+      ],
+      "sniff": true,
+      //"sniff_override_destination": false,
+      "domain_strategy": "ipv4_only"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "url": "http://detectportal.firefox.com/success.txt?ipv4",
+      "interval": "15m",
+      "tolerance": 300,
+      "idle_timeout": "15m",
+      "outbounds": [
+        "HostingVDS-TR",
+        "VDSinaRU-TR"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "selector",
+      "outbounds": [
+        "HostingVDS-TR",
+        "VDSinaRU-TR",
+        "HostVDS-Fin2-TR",
+        "VDSinaNL-TR",
+        "AezaDe-Trojan"
+      ],
+      "default": "HostingVDS-TR",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "trojan",
+      "tag": "HostingVDS-TR",
+      "domain_strategy": "ipv4_only",
+      "server": "194.164.245.30",
+      "server_port": 443,
+      "password": "PCG88QQI69oLYhPsr7EB2A==",
+      "tls": {
+        "enabled": true,
+        "server_name": "hostvds-ru.ydns.eu",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      },
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 8,
+        "min_streams": 16,
+        "padding": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "VDSinaRU-TR",
+      "domain_strategy": "ipv4_only",
+      "server": "95.142.45.98",
+      "server_port": 443,
+      "password": "BTH0wCG/lTl64aRmDm+Evg==",
+      "tls": {
+        "enabled": true,
+        "server_name": "vdsina-ru.duckdns.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      },
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 8,
+        "min_streams": 16,
+        "padding": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "HostVDS-Fin2-TR",
+      "domain_strategy": "ipv4_only",
+      "server": "45.91.193.139",
+      "server_port": 443,
+      "password": "qMXiimf0QadwYA/1N2yjpA==",
+      "tls": {
+        "enabled": true,
+        "server_name": "hostvds-fin2.ydns.eu",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
+    },
+    {
+      "type": "trojan",
+      "tag": "VDSinaNL-TR",
+      "domain_strategy": "ipv4_only",
+      "server": "5.35.71.88",
+      "server_port": 443,
+      "password": "4sxZBW31DapJMMOGTQuyLg==",
+      "tls": {
+        "enabled": true,
+        "server_name": "vdsina-nl.duckdns.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      },
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 8,
+        "min_streams": 16,
+        "padding": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "AezaDe-Trojan",
+      "domain_strategy": "ipv4_only",
+      "server": "150.241.100.83",
+      "server_port": 443,
+      "password": "LdyGFYjsDoVPORXBKTVTsw==",
+      "tls": {
+        "enabled": true,
+        "server_name": "aeza-de.ddns.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "protocol": "quic",
+        "outbound": "block"
+      },
+      {
+        "process_name": [
+          "qbittorrent.exe",
+          "uTorrent.exe"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "domain_keyword": [
+          "habr"
+        ],
+        "outbound": "selector"
+      },
+      {
+        "domain": [
+          "themoviedb.org",
+          "tmbd.org"
+        ],
+        "outbound": "selector"
+      },
+      {
+        "domain_suffix": [
+          ".themoviedb.org",
+          ".tmbd.org"
+        ],
+        "outbound": "selector"
+      },
+      {
+        "ip_cidr": [
+           "89.179.162.96/28"
+        ],
+        "outbound": "selector"
+      },
+      {
+        "rule_set": [
+          "sony"
+        ],
+        "outbound": "selector"
+      },
+      {
+        "rule_set": [
+          "geoip-facebook",
+          "geosite-meta"
+        ],
+        "outbound": "selector"
+      },
+      {
+        "rule_set": [
+          "geoip-google",
+          "geosite-google"
+        ],
+        "outbound": "selector"
+      },
+      {
+        "rule_set": [
+          "apple",
+          "geoip-telegram",
+          "geosite-telegram"
+        ],
+        "outbound": "selector"
+      },
+      {
+        "domain": [
+           "vokino.tv",
+           "polons.synology.me",
+           "evpolondacha.keenetic.link",
+           "evpolondom.keenetic.name",
+           "yandex.net",
+           "werkecdn.me",
+           "cdntogo.net",
+           "femeretes.org",
+           "hdvideobox.me",
+           "deliveryv.ws",
+           "fotpro135alto.com",
+           "cub.red",
+           "cdnsqu.com"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+           ".ru",
+           ".su",
+           ".рф",
+           ".vokino.tv",
+           ".xn--",
+           ".yandex.net",
+           ".werkecdn.me",
+           ".cdntogo.net",
+           ".femeretes.org",
+           ".hdvideobox.me",
+           ".deliveryv.ws",
+           ".fotpro135alto.com",
+           ".cub.red",
+           ".cdnsqu.com"
+        ],
+        "outbound": "direct"
+      },
+      {
+       "ip_cidr":
+        [
+            "194.164.245.30",//HostVDS-Ru - Torrserver
+            "45.91.193.139" // HostVDS-Fin2 - Lampac
+        ],
+        "outbound": "direct"
+      },
+      {
+       "port":
+        [
+            25,
+            465,
+            587,
+            993,
+            995,
+            18090,
+            18092,
+            22123,
+            59090,
+            62222 //FTP hostvds-ru
+        ],
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ru",
+          "gov-ru"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "gov-ru",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-facebook",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-facebook.srs",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-meta",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-meta.srs",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-telegram",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-telegram.srs",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-telegram",
+        "format": "binary",
+        "url": "https://github.com/polons123/blockhost/raw/main/geosite-telegram.srs",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "apple",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-apple.srs",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "youtube",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-youtube.srs",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "sony",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-sony.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-google",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-google.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-google",
+        "format": "binary",
+        "url": "https://github.com/runetfreedom/russia-blocked-geoip/raw/refs/heads/release/srs/google.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      }
+    ],
+    "final": "selector",
+    "auto_detect_interface": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "store_rdrc": true
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "external_ui_download_detour": "direct"
+    }
+  }
+}
