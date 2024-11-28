@@ -1,0 +1,19 @@
+proxies:
+
+# HostingVDS
+- name: "HostingVDS"
+  type: trojan
+  server: 194.164.245.30
+  port: 443
+  password: PCG88QQI69oLYhPsr7EB2A==
+  udp: true
+  sni: hostvds-ru.ydns.eu
+  
+# VDSinaRU
+- name: "VDSinaRU"
+  type: trojan
+  server: 95.142.45.98
+  port: 443
+  password: BTH0wCG/lTl64aRmDm+Evg==
+  udp: true
+  sni: vdsina-ru.duckdns.org
