@@ -63,7 +63,6 @@
       "tag": "tun-in",
       "interface_name": "tun0",
       "mtu": 9000,
-      //"gso": true,
       "address": "172.19.0.1/28",
       "auto_route": true,
       "strict_route": true,
@@ -84,7 +83,6 @@
         "255.255.255.255/32"
       ],
       "sniff": true,
-      //"sniff_override_destination": false,
       "domain_strategy": "ipv4_only"
     }
   ],
@@ -107,6 +105,7 @@
       "tag": "selector",
       "outbounds": [
         "HostingVDS-TR",
+        "HostingVDS-VL",
         "VDSinaRU-TR",
         "HostVDS-Fin2-TR",
         "VDSinaNL-TR",
@@ -142,6 +141,30 @@
           "fingerprint": "random"
         }
       },
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 8,
+        "min_streams": 16,
+        "padding": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "HostingVDS-VL",
+      "domain_strategy": "ipv4_only",
+      "server": "194.164.245.30",
+      "server_port": 10443,
+      "uuid": "68cbc8b1-003c-4cb3-82db-0ba7b1b21068",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hostvds-ru.ydns.eu",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      },
+      "packet_encoding": "xudp"
       "multiplex": {
         "enabled": true,
         "max_connections": 8,
