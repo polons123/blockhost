@@ -192,6 +192,10 @@
           "fingerprint": "random"
         }
       },
+      "transport": {
+        "type": "httpupgrade",
+        "path": ""
+      },
       "multiplex": 
           {
             "enabled": true,
@@ -215,6 +219,10 @@
           "fingerprint": "random"
         }
       },
+      "transport": {
+        "type": "httpupgrade",
+        "path": ""
+      },
       "multiplex": {
         "enabled": true,
         "max_connections": 8,
@@ -236,6 +244,10 @@
           "enabled": true,
           "fingerprint": "random"
         }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": ""
       },
       "multiplex": 
           {
