@@ -105,7 +105,6 @@
       "tag": "selector",
       "outbounds": [
         "HostingVDS-TR",
-        "HostingVDS-TR-up",
         "VDSinaRU-TR",
         "HostVDS-Fin2-TR",
         "VDSinaNL-TR",
@@ -132,28 +131,6 @@
       "domain_strategy": "ipv4_only",
       "server": "194.164.245.30",
       "server_port": 443,
-      "password": "PCG88QQI69oLYhPsr7EB2A==",
-      "tls": {
-        "enabled": true,
-        "server_name": "hostvds-ru.ydns.eu",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "multiplex": {
-        "enabled": true,
-        "max_connections": 8,
-        "min_streams": 16,
-        "padding": true
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "HostingVDS-TR-up",
-      "domain_strategy": "ipv4_only",
-      "server": "194.164.245.30",
-      "server_port": 10443,
       "password": "PCG88QQI69oLYhPsr7EB2A==",
       "tls": {
         "enabled": true,
