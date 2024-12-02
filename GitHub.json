@@ -153,7 +153,7 @@
       "tag": "HostingVDS-TR-up",
       "domain_strategy": "ipv4_only",
       "server": "194.164.245.30",
-      "server_port": 1443,
+      "server_port": 10443,
       "password": "PCG88QQI69oLYhPsr7EB2A==",
       "tls": {
         "enabled": true,
