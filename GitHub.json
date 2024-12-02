@@ -164,7 +164,7 @@
           "fingerprint": "random"
         }
       },
-      "packet_encoding": "xudp"
+      "packet_encoding": "xudp",
       "multiplex": {
         "enabled": true,
         "max_connections": 8,
