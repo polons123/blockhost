@@ -8,8 +8,7 @@
     "servers": [
       {
         "tag": "dns-word",
-        "address": "185.222.222.222",
-       // "address": "https://hostvds-fin1.ydns.eu/dns-query",
+        "address": "https:// 4vps-lv.ydns.eu/dns-quer",
        // "address": "https://hostvds-nl.ydns.eu/dns-query",
         "address_resolver": "dns-resolve",
         "address_strategy": "ipv4_only",
@@ -56,8 +55,8 @@
       "listen": "::",
       "listen_port": 6450,
       "domain_strategy": "ipv4_only",
-      "override_address": "46.8.232.156",
-      "override_port": 853
+      "override_address": "2.59.162.88",
+      "override_port": 53
     },
     {
       "type": "tun",
