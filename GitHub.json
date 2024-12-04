@@ -8,7 +8,8 @@
     "servers": [
       {
         "tag": "dns-word",
-        "address": "https://hostvds-fin1.ydns.eu/dns-query",
+        "address": "185.222.222.222",
+       // "address": "https://hostvds-fin1.ydns.eu/dns-query",
        // "address": "https://hostvds-nl.ydns.eu/dns-query",
         "address_resolver": "dns-resolve",
         "address_strategy": "ipv4_only",
