@@ -87,17 +87,17 @@
     }
   ],
   "outbounds": [
-    {
-      "type": "urltest",
-      "tag": "auto",
-      "url": "http://detectportal.firefox.com/success.txt?ipv4",
-      "interval": "15m",
-      "tolerance": 300,
-      "idle_timeout": "15m",
-      "outbounds": [
-        "HostingVDS-TR",
-        "VDSinaRU-TR"
-      ],
+    //{
+    //  "type": "urltest",
+    //  "tag": "auto",
+    //  "url": "http://detectportal.firefox.com/success.txt?ipv4",
+    //  "interval": "15m",
+    //  "tolerance": 300,
+    //  "idle_timeout": "15m",
+    //  "outbounds": [
+    //    "HostingVDS-TR",
+    //    "VDSinaRU-TR"
+    //  ],
       "interrupt_exist_connections": true
     },
     {
@@ -301,14 +301,16 @@
       {
         "domain": [
           "themoviedb.org",
-          "tmbd.org"
+          "tmbd.org",
+          "tmdb-image-prod.b-cdn.net"
         ],
         "outbound": "selector"
       },
       {
         "domain_suffix": [
           ".themoviedb.org",
-          ".tmbd.org"
+          ".tmbd.org",
+          ".tmdb-image-prod.b-cdn.net"
         ],
         "outbound": "selector"
       },
