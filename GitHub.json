@@ -98,8 +98,8 @@
     //    "HostingVDS-TR",
     //    "VDSinaRU-TR"
     //  ],
-      "interrupt_exist_connections": true
-    },
+    //  "interrupt_exist_connections": true
+    //},
     {
       "type": "selector",
       "tag": "selector",
