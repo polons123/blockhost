@@ -9,8 +9,14 @@
       {
         "tag": "dns-word",
         "address": "https://4vps-lv.ydns.eu/dns-query",
-       // "address": "https://hostvds-nl.ydns.eu/dns-query",
+        //"address": "https://hostvds-nl.ydns.eu/dns-query",
         "address_resolver": "dns-resolve",
+        "address_strategy": "ipv4_only",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-ru",
+        "address": "185.222.222.222",
         "address_strategy": "ipv4_only",
         "detour": "direct"
       },
@@ -26,6 +32,13 @@
       }
     ],
     "rules": [
+      {
+        "domain_keyword": [
+          "kommersant",
+          "habr"
+        ],
+        "server": "dns-ru"
+      },
       {
         "domain_suffix": [
           ".arpa.",
@@ -55,8 +68,8 @@
       "listen": "::",
       "listen_port": 6450,
       "domain_strategy": "ipv4_only",
-      "override_address": "2.59.162.88",
-      "override_port": 53
+      "override_address": "46.8.232.156",
+      "override_port": 853
     },
     {
       "type": "tun",
@@ -105,7 +118,11 @@
       "tag": "selector",
       "outbounds": [
         "HostingVDS-TR",
+        "MskHostRU-TR",
         "VDSinaRU-TR"
+     //   "HostVDS-Fin2-TR",
+     //   "VDSinaNL-TR",
+     //   "AezaDe-Trojan"
       ],
       "default": "HostingVDS-TR",
       "interrupt_exist_connections": true
@@ -132,6 +149,32 @@
       "tls": {
         "enabled": true,
         "server_name": "hostvds-ru.ydns.eu",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      },
+      "transport": {
+          "type": "httpupgrade",
+          "path": ""
+      },
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 8,
+        "min_streams": 16,
+        "padding": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "MskHostRU-TR",
+      "domain_strategy": "ipv4_only",
+      "server": "5.42.66.183",
+      "server_port": 443,
+      "password": "KFYzTcQ8D2BnsfC+m3pw+Q==",
+      "tls": {
+        "enabled": true,
+        "server_name": "mskhostru.ydns.eu",
         "utls": {
           "enabled": true,
           "fingerprint": "random"
@@ -301,16 +344,14 @@
       {
         "domain": [
           "themoviedb.org",
-          "tmbd.org",
-          "tmdb-image-prod.b-cdn.net"
+          "tmbd.org"
         ],
         "outbound": "selector"
       },
       {
         "domain_suffix": [
           ".themoviedb.org",
-          ".tmbd.org",
-          ".tmdb-image-prod.b-cdn.net"
+          ".tmbd.org"
         ],
         "outbound": "selector"
       },
