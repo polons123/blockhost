@@ -118,11 +118,7 @@
       "tag": "selector",
       "outbounds": [
         "HostingVDS-TR",
-        "MskHostRU-TR",
         "VDSinaRU-TR"
-     //   "HostVDS-Fin2-TR",
-     //   "VDSinaNL-TR",
-     //   "AezaDe-Trojan"
       ],
       "default": "HostingVDS-TR",
       "interrupt_exist_connections": true
@@ -167,32 +163,6 @@
     },
     {
       "type": "trojan",
-      "tag": "MskHostRU-TR",
-      "domain_strategy": "ipv4_only",
-      "server": "5.42.66.183",
-      "server_port": 443,
-      "password": "KFYzTcQ8D2BnsfC+m3pw+Q==",
-      "tls": {
-        "enabled": true,
-        "server_name": "mskhostru.ydns.eu",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "transport": {
-          "type": "httpupgrade",
-          "path": ""
-      },
-      "multiplex": {
-        "enabled": true,
-        "max_connections": 8,
-        "min_streams": 16,
-        "padding": true
-      }
-    },
-    {
-      "type": "trojan",
       "tag": "VDSinaRU-TR",
       "domain_strategy": "ipv4_only",
       "server": "95.142.45.98",
@@ -216,86 +186,6 @@
         "min_streams": 16,
         "padding": true
       }
-    },
-    {
-      "type": "trojan",
-      "tag": "HostVDS-Fin2-TR",
-      "domain_strategy": "ipv4_only",
-      "server": "45.91.193.139",
-      "server_port": 443,
-      "password": "qMXiimf0QadwYA/1N2yjpA==",
-      "tls": {
-        "enabled": true,
-        "server_name": "hostvds-fin2.ydns.eu",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": ""
-      },
-      "multiplex": 
-          {
-            "enabled": true,
-            "max_connections": 8,
-            "min_streams": 16,
-            "padding": true
-          }
-    },
-    {
-      "type": "trojan",
-      "tag": "VDSinaNL-TR",
-      "domain_strategy": "ipv4_only",
-      "server": "5.35.71.88",
-      "server_port": 443,
-      "password": "4sxZBW31DapJMMOGTQuyLg==",
-      "tls": {
-        "enabled": true,
-        "server_name": "vdsina-nl.duckdns.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": ""
-      },
-      "multiplex": {
-        "enabled": true,
-        "max_connections": 8,
-        "min_streams": 16,
-        "padding": true
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "AezaDe-Trojan",
-      "domain_strategy": "ipv4_only",
-      "server": "150.241.100.83",
-      "server_port": 443,
-      "password": "LdyGFYjsDoVPORXBKTVTsw==",
-      "tls": {
-        "enabled": true,
-        "server_name": "aeza-de.ddns.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": ""
-      },
-      "multiplex": 
-          {
-            "enabled": true,
-            "max_connections": 8,
-            "min_streams": 16,
-            "padding": true
-          }
     }
   ],
   "route": {
@@ -430,7 +320,8 @@
        "ip_cidr":
         [
             "194.164.245.30",//HostVDS-Ru - Torrserver
-            "45.91.193.139" // HostVDS-Fin2 - Lampac
+            "45.91.193.139",// HostVDS-Fin2 - Lampac
+            "95.165.6.169"
         ],
         "outbound": "direct"
       },
