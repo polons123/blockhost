@@ -41,8 +41,8 @@
       },
       {
         "domain_suffix": [
-          ".arpa.",
-          ".arpa"
+          "arpa.",
+          "arpa"
         ],
         "server": "dns-block"
       },
@@ -240,8 +240,8 @@
       },
       {
         "domain_suffix": [
-          ".themoviedb.org",
-          ".tmbd.org"
+          "themoviedb.org",
+          "tmbd.org"
         ],
         "outbound": "selector"
       },
@@ -299,20 +299,20 @@
       },
       {
         "domain_suffix": [
-           ".ru",
-           ".su",
-           ".рф",
-           ".vokino.tv",
-           ".xn--",
-           ".yandex.net",
-           ".werkecdn.me",
-           ".cdntogo.net",
-           ".femeretes.org",
-           ".hdvideobox.me",
-           ".deliveryv.ws",
-           ".fotpro135alto.com",
-           ".cub.red",
-           ".cdnsqu.com"
+           "ru",
+           "su",
+           "рф",
+           "vokino.tv",
+           "xn--",
+           "yandex.net",
+           "werkecdn.me",
+           "cdntogo.net",
+           "femeretes.org",
+           "hdvideobox.me",
+           "deliveryv.ws",
+           "fotpro135alto.com",
+           "cub.red",
+           "cdnsqu.com"
         ],
         "outbound": "direct"
       },
