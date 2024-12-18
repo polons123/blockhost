@@ -246,6 +246,18 @@
         "outbound": "selector"
       },
       {
+        "domain": [
+          "google.ru"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "google.ru"
+        ],
+        "outbound": "direct"
+      },
+      {
         "ip_cidr": [
            "89.179.162.96/28"
         ],
