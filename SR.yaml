@@ -17,30 +17,3 @@ proxies:
   password: BTH0wCG/lTl64aRmDm+Evg==
   udp: true
   sni: vdsina-ru.duckdns.org
-
-# HostVDS-Fin2
-- name: "HostVDS-Fin2"
-  type: trojan
-  server: 95.142.45.98
-  port: 443
-  password: qMXiimf0QadwYA/1N2yjpA==
-  udp: true
-  sni: hostvds-fin2.ydns.eu
-
-# VDSinaNL-TR
-- name: "VDSinaNL-TR"
-  type: trojan
-  server: 5.35.71.88
-  port: 443
-  password: 4sxZBW31DapJMMOGTQuyLg==
-  udp: true
-  sni: vdsina-nl.duckdns.org
-
-# AezaDe-Trojan
-- name: "AezaDe-Trojan"
-  type: trojan
-  server: 150.241.100.83
-  port: 443
-  password: LdyGFYjsDoVPORXBKTVTsw==
-  udp: true
-  sni: aeza-de.ddns.net
