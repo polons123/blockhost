@@ -3,7 +3,7 @@ proxies:
 # HostingVDS
 - name: "HostingVDS"
   type: trojan
-  obfs: httpupgrade
+  obfs: "httpupgrade"
   server: 194.164.245.30
   port: 443
   password: PCG88QQI69oLYhPsr7EB2A==
