@@ -9,6 +9,15 @@ proxies:
   password: PCG88QQI69oLYhPsr7EB2A==
   udp: true
   sni: hostvds-ru.ydns.eu
+
+  # HostingVDS-SS
+- name: "HostingVDS-SS"
+  type: Shadowsocks
+  server: 194.164.245.30
+  port: 48081
+  method: 2022-blake3-chacha20-poly1305
+  password: x8j+Sg2s4LivNb7W8Le6BokpNbnAEacTXNrL5Bbv2sg=
+  udp: true
   
 # VDSinaRU
 - name: "VDSinaRU"
