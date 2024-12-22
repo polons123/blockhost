@@ -13,6 +13,7 @@ proxies:
 # VDSinaRU
 - name: "VDSinaRU"
   type: trojan
+  obfs: "httpupgrade"
   server: 45.91.193.139
   port: 443
   password: BTH0wCG/lTl64aRmDm+Evg==
