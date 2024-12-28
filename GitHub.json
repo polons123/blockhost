@@ -118,7 +118,7 @@
       "tag": "selector",
       "outbounds": [
         "HostingVDS-TR",
-        "VDSinaRU-TR"
+        "VDSinaRU-SS"
       ],
       "default": "HostingVDS-TR",
       "interrupt_exist_connections": true
@@ -162,31 +162,23 @@
       }
     },
     {
-      "type": "trojan",
-      "tag": "VDSinaRU-TR",
+      "type": "shadowsocks",
+      "tag": "VDSinaRU-SS",
       "domain_strategy": "ipv4_only",
       "server": "95.142.45.98",
-      "server_port": 443,
-      "password": "BTH0wCG/lTl64aRmDm+Evg==",
-      "tls": {
-        "enabled": true,
-        "server_name": "vdsina-ru.duckdns.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": ""
-      },
+      "udp_over_tcp": false,
+      "udp_fragment": true,
+      "tcp_fast_open": true,
+      "server_port": 48081,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "USKXjinhZltHugfeZBLWJypkniOqFAigPgM6FdBx56k=",
       "multiplex": {
         "enabled": true,
         "max_connections": 8,
         "min_streams": 16,
         "padding": true
       }
-    }
+    },
   ],
   "route": {
     "rules": [
