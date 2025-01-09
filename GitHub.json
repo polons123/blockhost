@@ -117,10 +117,10 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "HostingVDS-TR",
+        "HostingVDS-SS",
         "VDSinaRU-SS"
       ],
-      "default": "HostingVDS-TR",
+      "default": "HostingVDS-SS",
       "interrupt_exist_connections": true
     },
     {
@@ -135,25 +135,43 @@
       "type": "dns",
       "tag": "dns-out"
     },
+    //{
+    //  "type": "trojan",
+    //  "tag": "HostingVDS-TR",
+    //  "domain_strategy": "ipv4_only",
+    //  "server": "194.164.245.30",
+    //  "server_port": 443,
+    //  "password": "PCG88QQI69oLYhPsr7EB2A==",
+    //  "tls": {
+    //    "enabled": true,
+    //    "server_name": "hostvds-ru.ydns.eu",
+    //    "utls": {
+    //      "enabled": true,
+    //      "fingerprint": "random"
+    //    }
+    //  },
+    //  "transport": {
+    //      "type": "httpupgrade",
+    //      "path": ""
+    //  },
+    //  "multiplex": {
+    //    "enabled": true,
+    //    "max_connections": 8,
+    //    "min_streams": 16,
+    //    "padding": true
+    //  }
+    //},
     {
-      "type": "trojan",
-      "tag": "HostingVDS-TR",
+      "type": "shadowsocks",
+      "tag": "HostingVDS-SS",
       "domain_strategy": "ipv4_only",
       "server": "194.164.245.30",
-      "server_port": 443,
-      "password": "PCG88QQI69oLYhPsr7EB2A==",
-      "tls": {
-        "enabled": true,
-        "server_name": "hostvds-ru.ydns.eu",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "transport": {
-          "type": "httpupgrade",
-          "path": ""
-      },
+      "udp_over_tcp": false,
+      "udp_fragment": true,
+      "tcp_fast_open": true,
+      "server_port": 48081,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "x8j+Sg2s4LivNb7W8Le6BokpNbnAEacTXNrL5Bbv2sg=",
       "multiplex": {
         "enabled": true,
         "max_connections": 8,
@@ -178,7 +196,7 @@
         "min_streams": 16,
         "padding": true
       }
-    },
+    }
   ],
   "route": {
     "rules": [
