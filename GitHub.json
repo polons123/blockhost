@@ -22,7 +22,7 @@
       },
       {
         "tag": "dns-resolve",
-        "address": "77.88.8.8",
+        "address": "185.222.222.222",
         "address_strategy": "ipv4_only",
         "detour": "direct"
       },
