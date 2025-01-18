@@ -100,29 +100,43 @@
     }
   ],
   "outbounds": [
-    //{
-    //  "type": "urltest",
-    //  "tag": "auto",
-    //  "url": "http://detectportal.firefox.com/success.txt?ipv4",
-    //  "interval": "15m",
-    //  "tolerance": 300,
-    //  "idle_timeout": "15m",
-    //  "outbounds": [
-    //    "HostingVDS-TR",
-    //    "VDSinaRU-TR"
-    //  ],
-    //  "interrupt_exist_connections": true
-    //},
     {
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "HostingVDS-SS",
-        "VDSinaRU-SS"
+       // "url-test",
+        "HostingVDS-RU",
+        "HostingVDS-RU-VM",
+        "HostVds-Fin2",
+        "HostVds-Fin2-VM",
+        "Aeza-DE",
+        "Aeza-DE-VM",
+        "H2Nexus",
+        "H2Nexus-VM",
+        "4VPS-Fin",
+        "4VPS-Fin-WM"
       ],
-      "default": "HostingVDS-SS",
-      "interrupt_exist_connections": true
+      "default": "HostingVDS-RU-VM"
     },
+    //{
+    //  "type": "urltest",
+    //  "tag": "url-test",
+    //  "outbounds": [
+    //    "Vless",
+    //    "defaultName",
+    //    "HostVds-Fin2",
+    //    "HostVds-Fin2-VM",
+    //    "Aeza-DE",
+    //    "Aeza-DE-VM",
+    //    "H2Nexus",
+    //    "H2Nexus-VM",
+    //    "4VPS-Fin",
+    //    "4VPS-Fin-WM"
+    //  ],
+    //  "url": "https://www.gstatic.com/generate_204",
+    //  "interval": "3m",
+    //  "tolerance": 50
+    //},
     {
       "type": "direct",
       "tag": "direct"
@@ -135,66 +149,159 @@
       "type": "dns",
       "tag": "dns-out"
     },
-    //{
-    //  "type": "trojan",
-    //  "tag": "HostingVDS-TR",
-    //  "domain_strategy": "ipv4_only",
-    //  "server": "194.164.245.30",
-    //  "server_port": 443,
-    //  "password": "PCG88QQI69oLYhPsr7EB2A==",
-    //  "tls": {
-    //    "enabled": true,
-    //    "server_name": "hostvds-ru.ydns.eu",
-    //    "utls": {
-    //      "enabled": true,
-    //      "fingerprint": "random"
-    //    }
-    //  },
-    //  "transport": {
-    //      "type": "httpupgrade",
-    //      "path": ""
-    //  },
-    //  "multiplex": {
-    //    "enabled": true,
-    //    "max_connections": 8,
-    //    "min_streams": 16,
-    //    "padding": true
-    //  }
-    //},
     {
-      "type": "shadowsocks",
-      "tag": "HostingVDS-SS",
+      "type": "vless",
+      "tag": "HostingVDS-RU",
+      "server": "hostvds-ru.ydns.eu",
       "domain_strategy": "ipv4_only",
-      "server": "194.164.245.30",
-      "udp_over_tcp": false,
-      "udp_fragment": true,
-      "tcp_fast_open": true,
-      "server_port": 48081,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "x8j+Sg2s4LivNb7W8Le6BokpNbnAEacTXNrL5Bbv2sg=",
-      "multiplex": {
+      "server_port": 443,
+      "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
+      "tls": {
         "enabled": true,
-        "max_connections": 8,
-        "min_streams": 16,
-        "padding": true
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
       }
     },
     {
-      "type": "shadowsocks",
-      "tag": "VDSinaRU-SS",
+      "type": "vmess",
+      "tag": "HostingVDS-RU-VM",
+      "server": "hostvds-ru.ydns.eu",
       "domain_strategy": "ipv4_only",
-      "server": "95.142.45.98",
-      "udp_over_tcp": false,
-      "udp_fragment": true,
-      "tcp_fast_open": true,
-      "server_port": 48081,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "USKXjinhZltHugfeZBLWJypkniOqFAigPgM6FdBx56k=",
-      "multiplex": {
+      "server_port": 64358,
+      "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "HostVds-Fin2",
+      "server": "hostvds-fin2.ydns.eu",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "56254be6-30af-4cf9-80b0-0a8672798fab",
+      "tls": {
         "enabled": true,
-        "max_connections": 8,
-        "min_streams": 16,
-        "padding": true
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "HostVds-Fin2-VM",
+      "server": "hostvds-fin2.ydns.eu",
+      "domain_strategy": "ipv4_only",
+      "server_port": 63452,
+      "uuid": "13d50b38-c204-497d-b904-e7a00ae04fe8",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Aeza-DE",
+      "server": "aeza-de.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "36e2dcc5-8770-4b5f-ac9a-1c4ad52bc6a6",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Aeza-DE-VM",
+      "server": "aeza-de.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 20942,
+      "uuid": "590d53c3-598d-4fce-982c-fa7f86b64b9b",
+      "security": "auto",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "H2Nexus",
+      "server": "h2nexus.ydns.eu",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "f6ebb48f-9661-4ed9-b221-3026f49af63f",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "H2Nexus-VM",
+      "server": "h2nexus.ydns.eu",
+      "domain_strategy": "ipv4_only",
+      "server_port": 26962,
+      "uuid": "0ccee7c1-25fa-4e59-a1fa-452f0be772a4",
+      "security": "auto",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "4VPS-Fin",
+      "server": "4vps-fin.ydns.eu",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "1a54d076-491e-46f5-8028-f7f7f9f4c28e",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "4VPS-Fin-WM",
+      "server": "4vps-fin.ydns.eu",
+      "domain_strategy": "ipv4_only",
+      "server_port": 62341,
+      "uuid": "0744fa38-5c49-4c3c-a9a2-c3b1a31a97ce",
+      "security": "auto",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
       }
     }
   ],
