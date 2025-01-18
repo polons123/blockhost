@@ -9,7 +9,7 @@
       {
         "tag": "dns-word",
         "address": "https://4vps-lv.ydns.eu/dns-query",
-        //"address": "https://hostvds-nl.ydns.eu/dns-query",
+        //"address": "https://yun-fin.ydns.eu/dns-query",
         "address_resolver": "dns-resolve",
         "address_strategy": "ipv4_only",
         "detour": "direct"
