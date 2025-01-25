@@ -8,20 +8,7 @@
     "servers": [
       {
         "tag": "dns-word",
-        "address": "https://4vps-lv.ydns.eu/dns-query",
-        "address_resolver": "dns-resolve",
-        "address_strategy": "ipv4_only",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-ru",
-        "address": "185.222.222.222",
-        "address_strategy": "ipv4_only",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-resolve",
-        "address": "185.222.222.222",
+        "address": "2.59.162.88",
         "address_strategy": "ipv4_only",
         "detour": "direct"
       },
@@ -31,13 +18,6 @@
       }
     ],
     "rules": [
-      {
-        "domain_suffix": [
-          "arpa.",
-          "arpa"
-        ],
-        "server": "dns-block"
-      },
       {
         "outbound": "any",
         "server": "dns-word"
@@ -60,7 +40,7 @@
       "listen": "::",
       "listen_port": 6450,
       "domain_strategy": "ipv4_only",
-      "override_address": "46.8.232.156",
+      "override_address": "2.59.162.88",
       "override_port": 853
     },
     {
