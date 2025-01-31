@@ -71,8 +71,7 @@
       "outbounds": [
         "Local-Dom",
         "HostingVDS-RU",
-        "HostingVDS-RU-VM",
-        "HostingVDS-RU-VM-SB"
+        "HostingVDS-RU-VM"
       ],
       "default": "HostingVDS-RU-VM"
     },
@@ -110,19 +109,6 @@
       "server": "hostvds-ru.ydns.eu",
       "domain_strategy": "prefer_ipv4",
       "server_port": 64358,
-      "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "HostingVDS-RU-VM-SB",
-      "server": "hostvds-ru.ydns.eu",
-      "domain_strategy": "prefer_ipv4",
-      "server_port": 63444,
       "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
       "security": "chacha20-poly1305",
       "alter_id": null,
