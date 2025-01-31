@@ -8,7 +8,7 @@
     "servers": [
       {
         "tag": "dns-word",
-        "address": "2.59.162.88",
+        "address": "udp://185.56.162.11:53",
         "address_strategy": "ipv4_only",
         "detour": "direct"
       },
@@ -40,8 +40,8 @@
       "listen": "::",
       "listen_port": 6450,
       "domain_strategy": "ipv4_only",
-      "override_address": "2.59.162.88",
-      "override_port": 853
+      "override_address": "185.56.162.11",
+      "override_port": 53
     },
     {
       "type": "tun",
@@ -80,7 +80,7 @@
         "HostingVDS-RU",
         "HostingVDS-RU-VM"
       ],
-      "default": "HostingVDS-RU"
+      "default": "HostingVDS-RU-VM"
     },
     {
       "type": "direct",
