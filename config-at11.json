@@ -9,7 +9,7 @@
       {
         "tag": "dns-word",
         "address": "udp://185.56.162.11:53",
-        "address_strategy": "ipv4_only",
+        "address_strategy": "prefer_ipv4",
         "detour": "direct"
       },
       {
@@ -30,7 +30,7 @@
       "inet6_range": "fc00::/18"
     },
     "final": "dns-word",
-    "strategy": "ipv4_only",
+    "strategy": "prefer_ipv4",
     "independent_cache": false,
     "disable_cache": false,
     "disable_expire": false
@@ -60,7 +60,7 @@
         "224.0.0.0/4",
         "255.255.255.255/32"
       ],
-      "domain_strategy": "ipv4_only"
+      "domain_strategy": "prefer_ipv4"
     },
     {
       "type": "mixed",
@@ -94,7 +94,7 @@
       "type": "vless",
       "tag": "HostingVDS-RU",
       "server": "hostvds-ru.ydns.eu",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv4",
       "server_port": 443,
       "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
       "tls": {
@@ -112,7 +112,7 @@
       "type": "vmess",
       "tag": "HostingVDS-RU-VM",
       "server": "hostvds-ru.ydns.eu",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv4",
       "server_port": 64358,
       "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
       "security": "chacha20-poly1305",
@@ -127,6 +127,12 @@
       {
         "inbound": ["mixed-in", "tun-in"],
         "action": "sniff"
+      },
+      {
+       "port":
+        [25, 465, 587, 993, 995, 18090, 22123, 59090],
+        "action": "route",
+        "outbound": "direct"
       },
       {
         "type": "logical",
