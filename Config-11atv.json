@@ -200,7 +200,7 @@
           "gov-ru"
         ],
         "action": "route",
-        "outbound": "selector"
+        "outbound": "direct"
       }
     ],
     "rule_set": [
