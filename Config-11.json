@@ -73,18 +73,24 @@
   ],
   "outbounds": [
     {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
       "type": "selector",
       "tag": "selector",
       "outbounds": [
         "Local-Dom",
         "HostingVDS-RU",
         "HostingVDS-RU-VM"
+        //"Aeza",
+        //"Aeza-VM",
+        //"H2nexus",
+        //"H2nexus-VM",
+        //"HostVDS",
+        //"HostVDS-VM"
       ],
       "default": "HostingVDS-RU-VM"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
     },
     {
       "type": "http",
@@ -117,6 +123,99 @@
       "domain_strategy": "prefer_ipv4",
       "server_port": 64358,
       "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Aeza",
+      "server": "aeza-de.ddns.net",
+      "domain_strategy": "prefer_ipv4",
+      "server_port": 443,
+      "uuid": "644cd9d2-58ac-449c-883c-6a1afa9fd8d3",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Aeza-VM",
+      "server": "85.192.24.24",
+      "domain_strategy": "prefer_ipv4",
+      "server_port": 63215,
+      "uuid": "69bc3848-e47f-45ed-9a37-0e5f5f319c1c",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "H2nexus",
+      "server": "h2nexus.ydns.eu",
+      "domain_strategy": "prefer_ipv4",
+      "server_port": 443,
+      "uuid": "f6ebb48f-9661-4ed9-b221-3026f49af63f",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "H2nexus-VM",
+      "server": "94.159.99.187",
+      "domain_strategy": "prefer_ipv4",
+      "server_port": 26962,
+      "uuid": "0ccee7c1-25fa-4e59-a1fa-452f0be772a4",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "HostVDS",
+      "server": "hostvds-fra.ddns.net",
+      "domain_strategy": "prefer_ipv4",
+      "server_port": 443,
+      "uuid": "1ef3dabf-7ddf-4b15-86b0-5294aedc10c3",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "HostVDS-VM",
+      "server": "194.116.214.203",
+      "domain_strategy": "prefer_ipv4",
+      "server_port": 62398,
+      "uuid": "c6b751ef-ad48-476d-88ef-0deba838e4fe",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
@@ -159,6 +258,201 @@
         "ip_is_private": true,
         "action": "route",
         "outbound": "direct"
+      },
+      {
+        "domain_keyword": [
+          "habr"
+        ],
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "domain": [
+          "themoviedb.org",
+          "tmbd.org",
+          "tmdb-image-prod.b-cdn.net",
+          "kino.pub"
+        ],
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "domain_suffix": [
+          "themoviedb.org",
+          "tmbd.org",
+          "tmdb-image-prod.b-cdn.net",
+          "kino.pub"
+        ],
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "rule_set": [
+          "geoip-google",
+          "geosite-google",
+          "openai",
+          "microsoft",
+          "geosite-whatsapp",
+          "geoip-facebook",
+          "geosite-meta",
+          "apple",
+          "geoip-telegram",
+          "geosite-telegram",
+          "discord",
+          "tiktok"
+        ],
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "domain": [
+          "polons.synology.me",
+          "evpolondacha.keenetic.link",
+          "evpolondom.keenetic.name",
+          "yandex.net"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "ru",
+          "su",
+          "xn--",
+          "yandex.net"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ru",
+          "gov-ru"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "gov-ru",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "10d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ads-all",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-google",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-google.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-google",
+        "format": "binary",
+        "url": "https://github.com/runetfreedom/russia-blocked-geoip/raw/refs/heads/release/srs/google.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-whatsapp",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-whatsapp.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-facebook",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-facebook.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-meta",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-meta.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-telegram",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-telegram.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-telegram",
+        "format": "binary",
+        "url": "https://github.com/polons123/blockhost/raw/main/geosite-telegram.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "apple",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-apple.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "openai",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-openai.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "tiktok",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-tiktok.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "discord",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-discord.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "microsoft",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-microsoft.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
       }
     ],
     "final": "selector",
