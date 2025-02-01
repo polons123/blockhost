@@ -8,7 +8,7 @@
     "servers": [
       {
         "tag": "dns-word",
-        "address": "udp://185.56.162.11:53",
+        "address": "udp://2.59.162.88:53",
         "address_strategy": "prefer_ipv4",
         "detour": "direct"
       }
