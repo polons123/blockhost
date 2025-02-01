@@ -159,7 +159,8 @@
           "themoviedb.org",
           "tmbd.org",
           "tmdb-image-prod.b-cdn.net",
-          "kino.pub"
+          "kino.pub",
+          "troya.info"
         ],
         "action": "route",
         "outbound": "selector"
@@ -169,7 +170,8 @@
           "themoviedb.org",
           "tmbd.org",
           "tmdb-image-prod.b-cdn.net",
-          "kino.pub"
+          "kino.pub",
+          "troya.info"
         ],
         "action": "route",
         "outbound": "selector"
