@@ -464,6 +464,11 @@
       "enabled": true,
       "path": "cache.db",
       "store_rdrc": true
+    },
+    "clash_api": {
+      "external_controller": "0.0.0.0:59090",
+      "external_ui": "ui",
+      "external_ui_download_detour": "direct"
     }
   }
 }
