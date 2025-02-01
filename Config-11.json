@@ -82,13 +82,13 @@
       "outbounds": [
         "Local-Dom",
         "HostingVDS-RU",
-        "HostingVDS-RU-VM"
-        //"Aeza",
-        //"Aeza-VM",
-        //"H2nexus",
-        //"H2nexus-VM",
-        //"HostVDS",
-        //"HostVDS-VM"
+        "HostingVDS-RU-VM",
+        "Aeza",
+        "Aeza-VM",
+        "H2nexus",
+        "H2nexus-VM",
+        "HostVDS",
+        "HostVDS-VM"
       ],
       "default": "HostingVDS-RU-VM"
     },
