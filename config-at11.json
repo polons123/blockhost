@@ -8,7 +8,14 @@
     "servers": [
       {
         "tag": "dns-word",
-        "address": "udp://185.56.162.11:53",
+        "address": "https://hostvds-ru1.ydns.eu/dns-query",
+        "address_resolver": "dns-resolve",
+        "address_strategy": "prefer_ipv4",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-resolve",
+        "address": "77.88.8.8",
         "address_strategy": "prefer_ipv4",
         "detour": "direct"
       }
@@ -71,9 +78,7 @@
       "outbounds": [
         "Local-Dom",
         "HostingVDS-RU",
-        "HostingVDS-RU-VM",
-        "Aeza-SW",
-        "Aeza-SW-VM"
+        "HostingVDS-RU-VM"
       ],
       "default": "HostingVDS-RU-VM"
     },
@@ -111,37 +116,6 @@
       "server": "hostvds-ru.ydns.eu",
       "domain_strategy": "prefer_ipv4",
       "server_port": 64358,
-      "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Aeza-SW",
-      "server": "aeza-sw.ydns.eu",
-      "domain_strategy": "prefer_ipv4",
-      "server_port": 443,
-      "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "Aeza-SW-VM",
-      "server": "aeza-sw.ydns.eu",
-      "domain_strategy": "prefer_ipv4",
-      "server_port": 63444,
       "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
       "security": "chacha20-poly1305",
       "alter_id": null,
