@@ -130,6 +130,10 @@
         "server": "dns-word"
       },
       {
+        "protocol": "QUIC",
+        "action": "reject"
+      },
+      {
        "port":
         [25, 465, 587, 993, 995, 18090, 22123, 59090],
         "action": "route",
@@ -147,11 +151,6 @@
           }
         ],
         "action": "hijack-dns"
-      },
-      {
-        "ip_is_private": true,
-        "action": "route",
-        "outbound": "direct"
       }
     ],
     "final": "selector",
