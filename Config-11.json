@@ -236,8 +236,7 @@
       },
       {
         "protocol": "QUIC",
-        "action": "route",
-        "outbound": "block"
+        "action": "reject"
       },
       {
        "port":
