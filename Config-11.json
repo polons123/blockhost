@@ -226,12 +226,12 @@
   "route": {
     "rules": [
       {
-        "inbound": ["mixed-in", "tun-in"],
+       // "inbound": ["mixed-in", "tun-in"],
         "action": "sniff",
         "timeout": "1s"
       },
       {
-        "inbound": ["mixed-in", "tun-in"],
+       // "inbound": ["mixed-in", "tun-in"],
         "action": "resolve",
         "strategy": "prefer_ipv4",
         "server": "dns-word"
