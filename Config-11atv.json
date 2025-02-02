@@ -29,7 +29,7 @@
       }
     ],
     "fakeip": {
-      "enabled": true,
+      "enabled": false,
       "inet4_range": "198.18.0.0/15",
       "inet6_range": "fc00::/18"
     },
@@ -122,7 +122,8 @@
     "rules": [
       {
         "inbound": ["mixed-in", "tun-in"],
-        "action": "sniff"
+        "action": "sniff",
+        "timeout": "1s"
       },
       {
         "inbound": ["mixed-in", "tun-in"],
