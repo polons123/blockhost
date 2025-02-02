@@ -130,7 +130,7 @@
         "server": "dns-word"
       },
       {
-        "protocol": "QUIC",
+        "protocol": "quic",
         "action": "reject"
       },
       {
