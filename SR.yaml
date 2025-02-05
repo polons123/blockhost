@@ -17,5 +17,6 @@ proxies:
   server: 194.164.245.30
   port: 64358
   method: chacha20-poly1305
+  alterId: 0
   password: c3255d49-443d-46cb-83d5-d8d88b816444
   udp: true
