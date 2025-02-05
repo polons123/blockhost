@@ -6,6 +6,7 @@ proxies:
   obfs: "httpupgrade"
   server: 194.164.245.30
   port: 443
+  tls: true
   password: e4cb6eca-18d4-48d5-9562-86a5e8740d07
   udp: true
   sni: hostvds-ru.ydns.eu
