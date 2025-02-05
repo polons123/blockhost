@@ -13,7 +13,7 @@ proxies:
 
 # HostingVDS-WM
 - name: "HostingVDS-WM"
-  type: Shadowsocks
+  type: Vmess
   server: 194.164.245.30
   port: 64358
   method: chacha20-poly1305
