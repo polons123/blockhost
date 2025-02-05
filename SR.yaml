@@ -79,3 +79,10 @@ proxies:
   alterId: 0
   password: c6b751ef-ad48-476d-88ef-0deba838e4fe
   udp: true
+
+- name: "Dom-local"
+  type: Socks5
+  server: 192.168.1.151
+  port: 10808
+  method: strict
+  udp: true
