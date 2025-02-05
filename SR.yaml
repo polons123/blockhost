@@ -1,39 +1,20 @@
 proxies:
 
 # HostingVDS
-#- name: "HostingVDS"
-#  type: trojan
-#  obfs: "httpupgrade"
-#  server: 194.164.245.30
-#  port: 443
-#  password: PCG88QQI69oLYhPsr7EB2A==
-#  udp: true
-#  sni: hostvds-ru.ydns.eu
-
-# HostingVDS-SS
 - name: "HostingVDS"
+  type: VLESS
+  obfs: "httpupgrade"
+  server: 194.164.245.30
+  port: 443
+  password: e4cb6eca-18d4-48d5-9562-86a5e8740d07
+  udp: true
+  sni: hostvds-ru.ydns.eu
+
+# HostingVDS-WM
+- name: "HostingVDS-WM"
   type: Shadowsocks
   server: 194.164.245.30
-  port: 48081
-  method: 2022-blake3-chacha20-poly1305
-  password: x8j+Sg2s4LivNb7W8Le6BokpNbnAEacTXNrL5Bbv2sg=
+  port: 64358
+  method: chacha20-poly1305
+  password: c3255d49-443d-46cb-83d5-d8d88b816444
   udp: true
-
-# VDSinaRU-SS
-- name: "VDSinaRU"
-  type: Shadowsocks
-  server: 95.142.45.98
-  port: 48081
-  method: 2022-blake3-chacha20-poly1305
-  password: USKXjinhZltHugfeZBLWJypkniOqFAigPgM6FdBx56k=
-  udp: true
-  
-# VDSinaRU
-#- name: "VDSinaRU"
-#  type: trojan
-#  obfs: "httpupgrade"
-#  server: 95.142.45.98
-#  port: 443
-#  password: BTH0wCG/lTl64aRmDm+Evg==
-#  udp: true
-#  sni: vdsina-ru.duckdns.org
