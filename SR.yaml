@@ -1,6 +1,5 @@
 proxies:
 
-# HostingVDS
 - name: "HostingVDS"
   type: VLESS
   obfs: "httpupgrade"
@@ -11,7 +10,6 @@ proxies:
   udp: true
   sni: hostvds-ru.ydns.eu
 
-# HostingVDS-WM
 - name: "HostingVDS-WM"
   type: Vmess
   obfs: "httpupgrade"
@@ -20,4 +18,24 @@ proxies:
   method: chacha20-poly1305
   alterId: 0
   password: c3255d49-443d-46cb-83d5-d8d88b816444
+  udp: true
+
+- name: "Aeza"
+  type: VLESS
+  obfs: "httpupgrade"
+  server: 85.192.24.24
+  port: 443
+  tls: true
+  password: 644cd9d2-58ac-449c-883c-6a1afa9fd8d3
+  udp: true
+  sni: aeza-de.ddns.net
+  
+- name: "Aeza-WM"
+  type: Vmess
+  obfs: "httpupgrade"
+  server: 85.192.24.24
+  port: 63215
+  method: chacha20-poly1305
+  alterId: 0
+  password: 69bc3848-e47f-45ed-9a37-0e5f5f319c1c
   udp: true
