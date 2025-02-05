@@ -39,3 +39,43 @@ proxies:
   alterId: 0
   password: 69bc3848-e47f-45ed-9a37-0e5f5f319c1c
   udp: true
+
+- name: "H2Nexus"
+  type: VLESS
+  obfs: "httpupgrade"
+  server: 94.159.99.187
+  port: 443
+  tls: true
+  password: f6ebb48f-9661-4ed9-b221-3026f49af63f
+  udp: true
+  sni: h2nexus.ydns.eu
+  
+- name: "H2Nexus-WM"
+  type: Vmess
+  obfs: "httpupgrade"
+  server: 94.159.99.187
+  port: 26962
+  method: chacha20-poly1305
+  alterId: 0
+  password: 0ccee7c1-25fa-4e59-a1fa-452f0be772a4
+  udp: true
+
+- name: "Fr-HostVDS"
+  type: VLESS
+  obfs: "httpupgrade"
+  server: 194.116.214.203
+  port: 443
+  tls: true
+  password: 1ef3dabf-7ddf-4b15-86b0-5294aedc10c3
+  udp: true
+  sni: hostvds-fra.ddns.net
+  
+- name: "Fr-HostVDS-WM"
+  type: Vmess
+  obfs: "httpupgrade"
+  server: 194.116.214.203
+  port: 62398
+  method: chacha20-poly1305
+  alterId: 0
+  password: c6b751ef-ad48-476d-88ef-0deba838e4fe
+  udp: true
