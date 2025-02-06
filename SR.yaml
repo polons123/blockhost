@@ -60,24 +60,24 @@ proxies:
   password: 0ccee7c1-25fa-4e59-a1fa-452f0be772a4
   udp: true
 
-- name: "Fr-HostVDS"
+- name: "H2Nexus-F"
   type: VLESS
   obfs: "httpupgrade"
-  server: 194.116.214.203
+  server: 45.144.52.52
   port: 443
   tls: true
-  password: 1ef3dabf-7ddf-4b15-86b0-5294aedc10c3
+  password: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
   udp: true
-  sni: hostvds-fra.ddns.net
+  sni: h2nexus.ddns.net
   
-- name: "Fr-HostVDS-WM"
+- name: "H2Nexus-WM-F"
   type: Vmess
   obfs: "httpupgrade"
-  server: 194.116.214.203
-  port: 62398
+  server: 45.144.52.52
+  port: 65309
   method: chacha20-poly1305
   alterId: 0
-  password: c6b751ef-ad48-476d-88ef-0deba838e4fe
+  password: 59f2503a-9506-4c14-9293-bbb4964a75b8
   udp: true
 
 - name: "Dom-local"
