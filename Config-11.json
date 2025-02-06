@@ -263,6 +263,13 @@
         "outbound": "direct"
       },
       {
+        "domain_suffix": [
+          "gstatic.com"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
         "domain_keyword": [
           "habr"
         ],
