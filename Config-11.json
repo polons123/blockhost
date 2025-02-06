@@ -87,8 +87,8 @@
         "Aeza-VM",
         "H2nexus",
         "H2nexus-VM",
-        "HostVDS",
-        "HostVDS-VM"
+        "H2nexus-F",
+        "H2nexus-VM-F"
       ],
       "default": "HostingVDS-RU-VM"
     },
@@ -193,11 +193,11 @@
     },
     {
       "type": "vless",
-      "tag": "HostVDS",
-      "server": "hostvds-fra.ddns.net",
+      "tag": "H2nexus-F",
+      "server": "h2nexus.ddns.net",
       "domain_strategy": "prefer_ipv4",
       "server_port": 443,
-      "uuid": "1ef3dabf-7ddf-4b15-86b0-5294aedc10c3",
+      "uuid": "b68ab9f0-60a2-43bb-befb-ea72cc9400b2",
       "tls": {
         "enabled": true,
         "utls": {
@@ -211,11 +211,11 @@
     },
     {
       "type": "vmess",
-      "tag": "HostVDS-VM",
-      "server": "194.116.214.203",
+      "tag": "H2nexus-VM-F",
+      "server": "45.144.52.52",
       "domain_strategy": "prefer_ipv4",
-      "server_port": 62398,
-      "uuid": "c6b751ef-ad48-476d-88ef-0deba838e4fe",
+      "server_port": 65309,
+      "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
