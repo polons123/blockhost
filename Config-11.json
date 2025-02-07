@@ -176,6 +176,12 @@
       },
       "transport": {
         "type": "httpupgrade"
+      },
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 8,
+        "min_streams": 16,
+        "padding": true
       }
     },
     {
@@ -189,6 +195,12 @@
       "alter_id": null,
       "transport": {
         "type": "httpupgrade"
+      },
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 8,
+        "min_streams": 16,
+        "padding": true
       }
     },
     {
@@ -220,6 +232,12 @@
       "alter_id": null,
       "transport": {
         "type": "httpupgrade"
+      },
+      "multiplex": {
+        "enabled": true,
+        "max_connections": 8,
+        "min_streams": 16,
+        "padding": true
       }
     }
   ],
@@ -239,8 +257,16 @@
         "action": "reject"
       },
       {
-       "port":
-        [25, 465, 587, 993, 995, 18090, 22123, 59090],
+        "port": [
+          25,
+          465,
+          587,
+          993,
+          995,
+          18090,
+          22123,
+          59090
+        ],
         "action": "route",
         "outbound": "direct"
       },
