@@ -121,14 +121,14 @@
       "alter_id": null,
       "transport": {
         "type": "httpupgrade"
-      }
-    },
-    "multiplex": {
+      },
+      "multiplex": {
         "enabled": true,
         "max_connections": 8,
         "min_streams": 16,
         "padding": true
       }
+    }
   ],
   "route": {
     "rules": [
