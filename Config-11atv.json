@@ -36,7 +36,7 @@
     },
     "final": "dns-word",
     "strategy": "prefer_ipv4",
-    "independent_cache": false,
+    "independent_cache": true,
     "disable_expire": false
   },
   "inbounds": [
@@ -52,15 +52,8 @@
       "stack": "system",
       "route_exclude_address": [
         "10.0.0.0/8",
-        "100.64.0.0/10",
-        "169.254.0.0/16",
         "172.16.0.0/12",
-        "192.0.0.0/24",
-        "192.0.2.0/24",
-        "192.88.99.0/24",
         "192.168.0.0/16",
-        "198.51.100.0/24",
-        "203.0.113.0/24",
         "224.0.0.0/4",
         "255.255.255.255/32"
       ]
@@ -75,17 +68,10 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "Local-Dom",
         "HostingVDS-RU",
         "HostingVDS-RU-VM"
       ],
       "default": "HostingVDS-RU-VM"
-    },
-    {
-      "type": "http",
-      "tag": "Local-Dom",
-      "server": "192.168.1.151",
-      "server_port": 10808
     },
     {
       "type": "vless",
