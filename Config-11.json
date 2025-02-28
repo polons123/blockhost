@@ -11,13 +11,13 @@
         "tag": "dns-word",
         "address": "https://hostvds-ru1.ydns.eu/dns-query",
         "address_resolver": "dns-resolve",
-        "address_strategy": "prefer_ipv4",
+        "address_strategy": "ipv4_only",
         "detour": "direct"
       },
       {
         "tag": "dns-resolve",
         "address": "77.88.8.8",
-        "address_strategy": "prefer_ipv4",
+        "address_strategy": "ipv4_only",
         "detour": "direct"
       }
     ],
@@ -35,7 +35,7 @@
       "inet6_range": "fc00::/18"
     },
     "final": "dns-word",
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "independent_cache": true,
     "disable_expire": false
   },
@@ -83,7 +83,7 @@
       "type": "vless",
       "tag": "HostingVDS-RU",
       "server": "hostvds-ru.ydns.eu",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server_port": 443,
       "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
       "tls": {
@@ -101,7 +101,7 @@
       "type": "vmess",
       "tag": "HostingVDS-RU-VM",
       "server": "hostvds-ru.ydns.eu",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server_port": 64358,
       "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
       "security": "chacha20-poly1305",
@@ -114,7 +114,7 @@
       "type": "vless",
       "tag": "Aeza",
       "server": "aeza-de.ddns.net",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server_port": 443,
       "uuid": "644cd9d2-58ac-449c-883c-6a1afa9fd8d3",
       "tls": {
@@ -132,7 +132,7 @@
       "type": "vmess",
       "tag": "Aeza-VM",
       "server": "85.192.24.24",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server_port": 63215,
       "uuid": "69bc3848-e47f-45ed-9a37-0e5f5f319c1c",
       "security": "chacha20-poly1305",
@@ -145,7 +145,7 @@
       "type": "vless",
       "tag": "H2nexus",
       "server": "h2nexus.ydns.eu",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server_port": 443,
       "uuid": "f6ebb48f-9661-4ed9-b221-3026f49af63f",
       "tls": {
@@ -163,7 +163,7 @@
       "type": "vmess",
       "tag": "H2nexus-VM",
       "server": "94.159.99.187",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server_port": 26962,
       "uuid": "0ccee7c1-25fa-4e59-a1fa-452f0be772a4",
       "security": "chacha20-poly1305",
@@ -176,7 +176,7 @@
       "type": "vless",
       "tag": "H2nexus-F",
       "server": "h2nexus.ddns.net",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server_port": 443,
       "uuid": "b68ab9f0-60a2-43bb-befb-ea72cc9400b2",
       "tls": {
@@ -194,7 +194,7 @@
       "type": "vmess",
       "tag": "H2nexus-VM-F",
       "server": "45.144.52.52",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server_port": 65309,
       "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
       "security": "chacha20-poly1305",
@@ -212,7 +212,7 @@
       },
       {
         "action": "resolve",
-        "strategy": "prefer_ipv4",
+        "strategy": "ipv4_only",
         "server": "dns-word"
       },
       {
