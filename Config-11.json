@@ -290,7 +290,6 @@
           "geosite-google",
           "openai",
           "microsoft",
-          "geosite-whatsapp",
           "geoip-facebook",
           "geosite-meta",
           "apple",
@@ -369,14 +368,6 @@
         "tag": "geoip-google",
         "format": "binary",
         "url": "https://github.com/runetfreedom/russia-blocked-geoip/raw/refs/heads/release/srs/google.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-whatsapp",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-whatsapp.srs",
         "download_detour": "direct",
         "update_interval": "1d"
       },
