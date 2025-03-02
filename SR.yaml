@@ -1,23 +1,23 @@
 proxies:
 
-- name: "HostingVDS"
+- name: "H2Nexus-F"
   type: VLESS
   obfs: "httpupgrade"
-  server: 194.164.245.30
+  server: 45.144.52.52
   port: 443
   tls: true
-  password: e4cb6eca-18d4-48d5-9562-86a5e8740d07
+  password: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
   udp: true
-  sni: hostvds-ru.ydns.eu
-
-- name: "HostingVDS-WM"
+  sni: h2nexus.ddns.net
+  
+- name: "H2Nexus-WM-F"
   type: Vmess
   obfs: "httpupgrade"
-  server: 194.164.245.30
-  port: 64358
+  server: 45.144.52.52
+  port: 65309
   method: chacha20-poly1305
   alterId: 0
-  password: c3255d49-443d-46cb-83d5-d8d88b816444
+  password: 59f2503a-9506-4c14-9293-bbb4964a75b8
   udp: true
 
 - name: "Aeza"
@@ -58,31 +58,4 @@ proxies:
   method: chacha20-poly1305
   alterId: 0
   password: 0ccee7c1-25fa-4e59-a1fa-452f0be772a4
-  udp: true
-
-- name: "H2Nexus-F"
-  type: VLESS
-  obfs: "httpupgrade"
-  server: 45.144.52.52
-  port: 443
-  tls: true
-  password: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-  udp: true
-  sni: h2nexus.ddns.net
-  
-- name: "H2Nexus-WM-F"
-  type: Vmess
-  obfs: "httpupgrade"
-  server: 45.144.52.52
-  port: 65309
-  method: chacha20-poly1305
-  alterId: 0
-  password: 59f2503a-9506-4c14-9293-bbb4964a75b8
-  udp: true
-
-- name: "Dom-local"
-  type: Socks5
-  server: 192.168.1.151
-  port: 10808
-  method: strict
   udp: true
