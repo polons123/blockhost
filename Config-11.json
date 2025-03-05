@@ -70,8 +70,6 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "HostingVDS-RU",
-        "HostingVDS-RU-VM",
         "Aeza",
         "Aeza-VM",
         "H2nexus",
@@ -80,37 +78,6 @@
         "H2nexus-VM-F"
       ],
       "default": "H2nexus-F"
-    },
-    {
-      "type": "vless",
-      "tag": "HostingVDS-RU",
-      "server": "hostvds-ru.ydns.eu",
-      "domain_strategy": "ipv4_only",
-      "server_port": 443,
-      "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "HostingVDS-RU-VM",
-      "server": "hostvds-ru.ydns.eu",
-      "domain_strategy": "ipv4_only",
-      "server_port": 64358,
-      "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade"
-      }
     },
     {
       "type": "vless",
