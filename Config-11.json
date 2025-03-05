@@ -9,7 +9,9 @@
     "servers": [
       {
         "tag": "dns-word",
-        "address": "https://hostvds-ru1.ydns.eu/dns-query",
+        "address": "https://vdska-fin.ydns.eu/dns-query",
+        //"address": "https://vdska-pl.ydns.eu/dns-query",
+        //"address": "https://doh.dns.sb/dns-query",
         "address_resolver": "dns-resolve",
         "address_strategy": "ipv4_only",
         "detour": "direct"
