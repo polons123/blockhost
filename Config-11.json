@@ -191,7 +191,6 @@
       {
         "ip_cidr": [
           "185.70.105.49",
-          "194.164.245.30",
           "45.144.52.52"
         ],
         "action": "route",
@@ -204,13 +203,6 @@
           587,
           993,
           995
-        ],
-        "action": "route",
-        "outbound": "direct"
-      },
-      {
-        "domain_suffix": [
-          "google.ru"
         ],
         "action": "route",
         "outbound": "direct"
@@ -236,17 +228,6 @@
       {
         "domain_keyword": [
           "habr"
-        ],
-        "action": "route",
-        "outbound": "selector"
-      },
-      {
-        "domain": [
-          "themoviedb.org",
-          "tmbd.org",
-          "tmdb-image-prod.b-cdn.net",
-          "kino.pub",
-          "4pda.to"
         ],
         "action": "route",
         "outbound": "selector"
@@ -282,8 +263,7 @@
         "domain": [
           "polons.synology.me",
           "evpolondacha.keenetic.link",
-          "evpolondom.keenetic.name",
-          "yandex.net"
+          "evpolondom.keenetic.name"
         ],
         "action": "route",
         "outbound": "direct"
