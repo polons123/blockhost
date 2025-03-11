@@ -59,23 +59,3 @@ proxies:
   alterId: 0
   password: 0ccee7c1-25fa-4e59-a1fa-452f0be772a4
   udp: true
-
-- name: "HostVDS"
-  type: VLESS
-  obfs: "httpupgrade"
-  server: 95.182.97.111
-  port: 443
-  tls: true
-  password: 6b1e2a05-f197-444d-a189-b081c12f7f7b
-  udp: true
-  sni: hostvds-fra.ddns.net
-  
-- name: "H2Nexus-WM"
-  type: Vmess
-  obfs: "httpupgrade"
-  server: 95.182.97.111
-  port: 63793
-  method: chacha20-poly1305
-  alterId: 0
-  password: 528de29d-693f-4328-9a03-3674b1a4ece7
-  udp: true
