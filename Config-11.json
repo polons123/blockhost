@@ -75,9 +75,7 @@
         "H2nexus",
         "H2nexus-VM",
         "H2nexus-F",
-        "H2nexus-VM-F",
-        "HostVDS",
-        "HostVDS-VM"
+        "H2nexus-VM-F"
       ],
       "default": "H2nexus-F"
     },
@@ -168,37 +166,6 @@
       "domain_strategy": "ipv4_only",
       "server_port": 65309,
       "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "HostVDS",
-      "server": "hostvds-fra.ddns.net",
-      "domain_strategy": "ipv4_only",
-      "server_port": 443,
-      "uuid": "6b1e2a05-f197-444d-a189-b081c12f7f7b",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "HostVDS-VM",
-      "server": "95.182.97.111",
-      "domain_strategy": "ipv4_only",
-      "server_port": 63793,
-      "uuid": "528de29d-693f-4328-9a03-3674b1a4ece7",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
