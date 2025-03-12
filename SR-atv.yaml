@@ -1,3 +1,5 @@
+proxies:
+
 - name: "Aeza-SPB"
   type: VLESS
   obfs: "httpupgrade"
