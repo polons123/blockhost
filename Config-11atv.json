@@ -9,7 +9,9 @@
     "servers": [
       {
         "tag": "dns-word",
-        "address": "https://hostvds-ru1.ydns.eu/dns-query",
+        "address": "https://vdska-fin.ydns.eu/dns-query",
+        //"address": "https://vdska-pl.ydns.eu/dns-query",
+        //"address": "https://doh.dns.sb/dns-query",
         "address_resolver": "dns-resolve",
         "address_strategy": "ipv4_only",
         "detour": "direct"
@@ -68,15 +70,15 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "HostingVDS-RU",
-        "HostingVDS-RU-VM"
+        "Aeza-SPB",
+        "Aeza-SPB-VM"
       ],
-      "default": "HostingVDS-RU-VM"
+      "default": "Aeza-SPB"
     },
     {
       "type": "vless",
-      "tag": "HostingVDS-RU",
-      "server": "hostvds-ru.ydns.eu",
+      "tag": "Aeza-SPB",
+      "server": "aeza-spb.ddns.net",
       "domain_strategy": "ipv4_only",
       "server_port": 443,
       "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
@@ -93,8 +95,8 @@
     },
     {
       "type": "vmess",
-      "tag": "HostingVDS-RU-VM",
-      "server": "hostvds-ru.ydns.eu",
+      "tag": "Aeza-SPB-VM",
+      "server": "aeza-spb.ddns.net",
       "domain_strategy": "ipv4_only",
       "server_port": 64358,
       "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
@@ -122,8 +124,6 @@
       },
       {
         "ip_cidr": [
-          "185.70.105.49",
-          "194.164.245.30",
           "45.144.52.52"
         ],
         "action": "route",
