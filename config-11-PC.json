@@ -70,8 +70,8 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "Aeza-SBP",
-        "Aeza-SBP-VM",
+        "Aeza-SPB",
+        "Aeza-SPB-VM",
         "Aeza",
         "Aeza-VM",
         "H2nexus",
