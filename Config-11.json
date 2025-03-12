@@ -70,6 +70,8 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
+        "Aeza-SPB",
+        "Aeza-SPB-VM",
         "Aeza",
         "Aeza-VM",
         "H2nexus",
@@ -77,7 +79,38 @@
         "H2nexus-F",
         "H2nexus-VM-F"
       ],
-      "default": "H2nexus-F"
+      "default": "Aeza-SPB"
+    },
+    {
+      "type": "vless",
+      "tag": "Aeza-SPB",
+      "server": "aeza-spb.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Aeza-SPB-VM",
+      "server": "aeza-spb.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 64358,
+      "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
     },
     {
       "type": "vless",
