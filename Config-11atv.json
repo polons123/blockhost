@@ -123,6 +123,17 @@
         "action": "reject"
       },
       {
+        "port": [
+          25,
+          465,
+          587,
+          993,
+          995
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
         "ip_cidr": [
           "45.144.52.52"
         ],
