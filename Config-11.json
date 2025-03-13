@@ -218,6 +218,16 @@
         "server": "dns-word"
       },
       {
+        "protocol": "stun",
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "protocol": "quic",
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
         "ip_cidr": [
           "45.144.52.52"
         ],
