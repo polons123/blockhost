@@ -71,7 +71,13 @@
       "tag": "selector",
       "outbounds": [
         "Aeza-SPB",
-        "Aeza-SPB-VM"
+        "Aeza-SPB-VM",
+        "Aeza",
+        "Aeza-VM",
+        "H2nexus",
+        "H2nexus-VM",
+        "H2nexus-F",
+        "H2nexus-VM-F"
       ],
       "default": "Aeza-SPB"
     },
@@ -105,6 +111,99 @@
       "transport": {
         "type": "httpupgrade"
       }
+    },
+    {
+      "type": "vless",
+      "tag": "Aeza",
+      "server": "aeza-de.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "644cd9d2-58ac-449c-883c-6a1afa9fd8d3",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Aeza-VM",
+      "server": "85.192.24.24",
+      "domain_strategy": "ipv4_only",
+      "server_port": 63215,
+      "uuid": "69bc3848-e47f-45ed-9a37-0e5f5f319c1c",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "H2nexus",
+      "server": "h2nexus.ydns.eu",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "f6ebb48f-9661-4ed9-b221-3026f49af63f",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "H2nexus-VM",
+      "server": "94.159.99.187",
+      "domain_strategy": "ipv4_only",
+      "server_port": 26962,
+      "uuid": "0ccee7c1-25fa-4e59-a1fa-452f0be772a4",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "H2nexus-F",
+      "server": "h2nexus.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "b68ab9f0-60a2-43bb-befb-ea72cc9400b2",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "H2nexus-VM-F",
+      "server": "45.144.52.52",
+      "domain_strategy": "ipv4_only",
+      "server_port": 65309,
+      "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
     }
   ],
   "route": {
@@ -119,8 +218,11 @@
         "server": "dns-word"
       },
       {
-        "protocol": "quic",
-        "action": "reject"
+        "ip_cidr": [
+          "45.144.52.52"
+        ],
+        "action": "route",
+        "outbound": "direct"
       },
       {
         "port": [
@@ -129,13 +231,6 @@
           587,
           993,
           995
-        ],
-        "action": "route",
-        "outbound": "direct"
-      },
-      {
-        "ip_cidr": [
-          "45.144.52.52"
         ],
         "action": "route",
         "outbound": "direct"
@@ -152,6 +247,21 @@
           }
         ],
         "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "protocol": "stun",
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "protocol": "quic",
+        "action": "route",
+        "outbound": "selector"
       }
     ],
     "final": "selector",
