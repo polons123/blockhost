@@ -218,8 +218,14 @@
         "server": "dns-word"
       },
       {
+        "protocol": "stun",
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
         "protocol": "quic",
-        "action": "reject"
+        "action": "route",
+        "outbound": "selector"
       },
       {
         "ip_cidr": [
