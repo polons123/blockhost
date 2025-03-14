@@ -80,7 +80,7 @@
         "H2nexus-F",
         "H2nexus-VM-F"
       ],
-      "default": "Aeza-SBP-VM"
+      "default": "Aeza-SPB-VM"
     },
     {
       "type": "vless",
