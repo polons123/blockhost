@@ -38,7 +38,8 @@
     },
     "final": "dns-word",
     "strategy": "ipv4_only",
-    "independent_cache": true,
+    "independent_cache": false,
+    "cache_capacity": 4096,
     "disable_expire": false
   },
   "inbounds": [
