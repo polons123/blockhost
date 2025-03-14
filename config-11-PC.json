@@ -5,42 +5,43 @@
     "output": "box.log",
     "timestamp": true
   },
-  "dns": {
-    "servers": [
-      {
-        "tag": "dns-word",
-        "address": "https://vdska-fin.ydns.eu/dns-query",
-        //"address": "https://vdska-pl.ydns.eu/dns-query",
-        //"address": "https://doh.dns.sb/dns-query",
-        "address_resolver": "dns-resolve",
-        "address_strategy": "ipv4_only",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-resolve",
-        "address": "77.88.8.8",
-        "address_strategy": "ipv4_only",
-        "detour": "direct"
-      }
-    ],
-    "rules": [
-      {
-        "action": "route",
-        "server": "dns-word",
-        "disable_cache": false,
-        "outbound": "any"
-      }
-    ],
-    "fakeip": {
-      "enabled": false,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
+ "dns": {
+  "servers": [
+    {
+      "tag": "dns-word",
+      "address": "https://vdska-fin.ydns.eu/dns-query",
+      //"address": "https://vdska-pl.ydns.eu/dns-query",
+      //"address": "https://doh.dns.sb/dns-query",
+      "address_resolver": "dns-resolve",
+      "address_strategy": "ipv4_only",
+      "detour": "direct"
     },
-    "final": "dns-word",
-    "strategy": "ipv4_only",
-    "independent_cache": true,
-    "disable_expire": false
+    {
+      "tag": "dns-resolve",
+      "address": "77.88.8.8",
+      "address_strategy": "ipv4_only",
+      "detour": "direct"
+    }
+  ],
+  "rules": [
+    {
+      "action": "route",
+      "server": "dns-word",
+      "disable_cache": false,
+      "outbound": "any"
+    }
+  ],
+  "fakeip": {
+    "enabled": false,
+    "inet4_range": null,
+    "inet6_range": null
   },
+  "final": "dns-word",
+  "strategy": "ipv4_only",
+  "cache_capacity": 4096,
+  "independent_cache": false,
+  "disable_expire": false
+},
   "inbounds": [
     {
       "type": "tun",
@@ -79,7 +80,7 @@
         "H2nexus-F",
         "H2nexus-VM-F"
       ],
-      "default": "Aeza-SBP"
+      "default": "Aeza-SBP-VM"
     },
     {
       "type": "vless",
@@ -218,16 +219,6 @@
         "server": "dns-word"
       },
       {
-        "protocol": "stun",
-        "action": "route",
-        "outbound": "selector"
-      },
-      {
-        "protocol": "quic",
-        "action": "route",
-        "outbound": "selector"
-      },
-      {
         "ip_cidr": [
           "45.144.52.52"
         ],
@@ -272,41 +263,16 @@
         "outbound": "direct"
       },
       {
-        "domain_keyword": [
-          "habr"
-        ],
+        "protocol": "stun",
         "action": "route",
         "outbound": "selector"
       },
       {
-        "domain_suffix": [
-          "themoviedb.org",
-          "tmbd.org",
-          "tmdb-image-prod.b-cdn.net",
-          "kino.pub",
-          "4pda.to"
-        ],
+        "protocol": "quic",
         "action": "route",
         "outbound": "selector"
       },
-      {
-        "rule_set": [
-          "geoip-google",
-          "geosite-google",
-          "openai",
-          "microsoft",
-          "geoip-facebook",
-          "geosite-meta",
-          "apple",
-          "geoip-telegram",
-          "geosite-telegram",
-          "discord",
-          "tiktok"
-        ],
-        "action": "route",
-        "outbound": "selector"
-      },
-      {
+    {
         "domain": [
           "polons.synology.me",
           "evpolondacha.keenetic.link",
@@ -350,102 +316,6 @@
         "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ru.srs",
         "download_detour": "direct",
         "update_interval": "10d"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-category-ads-all",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ads-all.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-google",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-google.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-google",
-        "format": "binary",
-        "url": "https://github.com/runetfreedom/russia-blocked-geoip/raw/refs/heads/release/srs/google.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-facebook",
-        "format": "binary",
-        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-facebook.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-meta",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-meta.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-telegram",
-        "format": "binary",
-        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-telegram.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-telegram",
-        "format": "binary",
-        "url": "https://github.com/polons123/blockhost/raw/main/geosite-telegram.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "apple",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-apple.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "openai",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-openai.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "tiktok",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-tiktok.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "discord",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-discord.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "microsoft",
-        "format": "binary",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-microsoft.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
       }
     ],
     "final": "selector",
