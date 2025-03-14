@@ -6,41 +6,42 @@
     "timestamp": true
   },
   "dns": {
-    "servers": [
-      {
-        "tag": "dns-word",
-        "address": "https://vdska-fin.ydns.eu/dns-query",
-        //"address": "https://vdska-pl.ydns.eu/dns-query",
-        //"address": "https://doh.dns.sb/dns-query",
-        "address_resolver": "dns-resolve",
-        "address_strategy": "ipv4_only",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-resolve",
-        "address": "77.88.8.8",
-        "address_strategy": "ipv4_only",
-        "detour": "direct"
-      }
-    ],
-    "rules": [
-      {
-        "action": "route",
-        "server": "dns-word",
-        "disable_cache": false,
-        "outbound": "any"
-      }
-    ],
-    "fakeip": {
-      "enabled": false,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
+  "servers": [
+    {
+      "tag": "dns-word",
+      "address": "https://vdska-fin.ydns.eu/dns-query",
+      //"address": "https://vdska-pl.ydns.eu/dns-query",
+      //"address": "https://doh.dns.sb/dns-query",
+      "address_resolver": "dns-resolve",
+      "address_strategy": "ipv4_only",
+      "detour": "direct"
     },
-    "final": "dns-word",
-    "strategy": "ipv4_only",
-    "independent_cache": true,
-    "disable_expire": false
+    {
+      "tag": "dns-resolve",
+      "address": "77.88.8.8",
+      "address_strategy": "ipv4_only",
+      "detour": "direct"
+    }
+  ],
+  "rules": [
+    {
+      "action": "route",
+      "server": "dns-word",
+      "disable_cache": false,
+      "outbound": "any"
+    }
+  ],
+  "fakeip": {
+    "enabled": false,
+    "inet4_range": null,
+    "inet6_range": null
   },
+  "final": "dns-word",
+  "strategy": "prefer_ipv4",
+  "cache_capacity": 4096,
+  "independent_cache": false,
+  "disable_expire": false
+},
   "inbounds": [
     {
       "type": "tun",
@@ -79,7 +80,7 @@
         "H2nexus-F",
         "H2nexus-VM-F"
       ],
-      "default": "Aeza-SPB"
+      "default": "Aeza-SPB-VM"
     },
     {
       "type": "vless",
