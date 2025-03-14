@@ -1,0 +1,337 @@
+{
+  "log": {
+    "disabled": true,
+    "level": "error",
+    "output": "box.log",
+    "timestamp": true
+  },
+ "dns": {
+  "servers": [
+    {
+      "tag": "dns-word",
+      "address": "https://vdska-fin.ydns.eu/dns-query",
+      //"address": "https://vdska-pl.ydns.eu/dns-query",
+      //"address": "https://doh.dns.sb/dns-query",
+      "address_resolver": "dns-resolve",
+      "address_strategy": "ipv4_only",
+      "detour": "direct"
+    },
+    {
+      "tag": "dns-resolve",
+      "address": "77.88.8.8",
+      "address_strategy": "ipv4_only",
+      "detour": "direct"
+    }
+  ],
+  "rules": [
+    {
+      "action": "route",
+      "server": "dns-word",
+      "disable_cache": false,
+      "outbound": "any"
+    }
+  ],
+  "fakeip": {
+    "enabled": false,
+    "inet4_range": null,
+    "inet6_range": null
+  },
+  "final": "dns-word",
+  "strategy": "ipv4_only",
+  "cache_capacity": 4096,
+  "independent_cache": false,
+  "disable_expire": false
+},
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "mtu": 9000,
+      "address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": false,
+      "stack": "system",
+      "route_exclude_address": [
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16",
+        "224.0.0.0/4",
+        "255.255.255.255/32"
+      ]
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "selector",
+      "tag": "selector",
+      "outbounds": [
+        "Aeza-SPB",
+        "Aeza-SPB-VM",
+        "Aeza",
+        "Aeza-VM",
+        "H2nexus",
+        "H2nexus-VM",
+        "H2nexus-F",
+        "H2nexus-VM-F"
+      ],
+      "default": "Aeza-SPB-VM"
+    },
+    {
+      "type": "vless",
+      "tag": "Aeza-SPB",
+      "server": "aeza-spb.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Aeza-SPB-VM",
+      "server": "aeza-spb.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 64358,
+      "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Aeza",
+      "server": "aeza-de.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "644cd9d2-58ac-449c-883c-6a1afa9fd8d3",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Aeza-VM",
+      "server": "85.192.24.24",
+      "domain_strategy": "ipv4_only",
+      "server_port": 63215,
+      "uuid": "69bc3848-e47f-45ed-9a37-0e5f5f319c1c",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "H2nexus",
+      "server": "h2nexus.ydns.eu",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "f6ebb48f-9661-4ed9-b221-3026f49af63f",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "H2nexus-VM",
+      "server": "94.159.99.187",
+      "domain_strategy": "ipv4_only",
+      "server_port": 26962,
+      "uuid": "0ccee7c1-25fa-4e59-a1fa-452f0be772a4",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "H2nexus-F",
+      "server": "h2nexus.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "uuid": "b68ab9f0-60a2-43bb-befb-ea72cc9400b2",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "H2nexus-VM-F",
+      "server": "45.144.52.52",
+      "domain_strategy": "ipv4_only",
+      "server_port": 65309,
+      "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff",
+        "timeout": "1s"
+      },
+      {
+        "action": "resolve",
+        "strategy": "ipv4_only",
+        "server": "dns-word"
+      },
+      {
+        "ip_cidr": [
+          "45.144.52.52"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "port": [
+          25,
+          465,
+          587,
+          993,
+          995
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "process_name": [
+          "qbittorrent.exe",
+          "uTorrent.exe"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "protocol": "stun",
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "protocol": "quic",
+        "action": "route",
+        "outbound": "selector"
+      },
+    {
+        "domain": [
+          "polons.synology.me",
+          "evpolondacha.keenetic.link",
+          "evpolondom.keenetic.name"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "ru",
+          "su",
+          "xn--",
+          "yandex.net"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ru",
+          "gov-ru"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "gov-ru",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "10d"
+      }
+    ],
+    "final": "selector",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "store_rdrc": true
+    },
+    "clash_api": {
+      "external_controller": "0.0.0.0:59090",
+      "external_ui": "ui",
+      "external_ui_download_detour": "direct"
+    }
+  }
+}
