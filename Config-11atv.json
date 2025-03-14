@@ -263,6 +263,51 @@
         "protocol": "quic",
         "action": "route",
         "outbound": "selector"
+      },
+    {
+        "domain": [
+          "polons.synology.me",
+          "evpolondacha.keenetic.link",
+          "evpolondom.keenetic.name"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "ru",
+          "su",
+          "xn--",
+          "yandex.net"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ru",
+          "gov-ru"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "gov-ru",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "10d"
       }
     ],
     "final": "selector",
