@@ -254,6 +254,7 @@
         "action": "route",
         "outbound": "direct"
       },
+      { 
         "type": "logical", //quic selecor domain_keyword
         "mode": "and",
         "rules": [
