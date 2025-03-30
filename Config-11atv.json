@@ -375,7 +375,7 @@
               "geosite-meta",
               "discord",
               "tiktok",
-              "apple",
+              //"apple",
               "geoip-telegram",
               "geosite-telegram"
             ]
@@ -401,7 +401,7 @@
               "geosite-meta",
               "discord",
               "tiktok",
-              "apple",
+              //"apple",
               "geoip-telegram",
               "geosite-telegram"
             ]
@@ -420,7 +420,7 @@
               "geosite-meta",
               "discord",
               "tiktok",
-              "apple",
+              //"apple",
               "geoip-telegram",
               "geosite-telegram"
         ],
@@ -530,7 +530,8 @@
           {
             "rule_set": [
               "geoip-ru",
-              "gov-ru"
+              "gov-ru",
+              "apple"
             ]
           }
         ],
@@ -547,7 +548,8 @@
           {
             "rule_set": [
               "geoip-ru",
-              "gov-ru"
+              "gov-ru",
+              "apple"
             ]
           }
         ],
@@ -557,7 +559,8 @@
       {
         "rule_set": [ //direct rule_set
           "geoip-ru",
-          "gov-ru"
+          "gov-ru",
+          "apple"
         ],
         "action": "route",
         "outbound": "direct"
