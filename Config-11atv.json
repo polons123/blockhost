@@ -100,7 +100,14 @@
       },
       "transport": {
         "type": "httpupgrade"
-      }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
     },
     {
       "type": "vmess",
@@ -115,7 +122,14 @@
       "alter_id": null,
       "transport": {
         "type": "httpupgrade"
-      }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
     },
     {
       "type": "vless",
@@ -135,7 +149,14 @@
       },
       "transport": {
         "type": "httpupgrade"
-      }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
     },
     {
       "type": "vmess",
@@ -150,7 +171,14 @@
       "alter_id": null,
       "transport": {
         "type": "httpupgrade"
-      }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
     },
     {
       "type": "vless",
@@ -170,7 +198,14 @@
       },
       "transport": {
         "type": "httpupgrade"
-      }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
     },
     {
       "type": "vmess",
@@ -185,7 +220,14 @@
       "alter_id": null,
       "transport": {
         "type": "httpupgrade"
-      }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
     },
     {
       "type": "vless",
@@ -205,7 +247,14 @@
       },
       "transport": {
         "type": "httpupgrade"
-      }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
     },
     {
       "type": "vmess",
@@ -220,7 +269,14 @@
       "alter_id": null,
       "transport": {
         "type": "httpupgrade"
-      }
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
     }
   ],
   "route": {
