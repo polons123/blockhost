@@ -71,8 +71,8 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "Aeza-SPB",
-        "Aeza-SPB-VM",
+        "HostingVDS",
+        "HostingVDS-VM",
         "Aeza",
         "Aeza-VM",
         "Mhost",
@@ -80,12 +80,12 @@
         "H2nexus-F",
         "H2nexus-VM-F"
       ],
-      "default": "Aeza-SPB-VM"
+      "default": "HostingVDS"
     },
     {
       "type": "vless",
-      "tag": "Aeza-SPB",
-      "server": "aeza-spb.ddns.net",
+      "tag": "HostingVDS",
+      "server": "hostingvds-msk.ddns.net",
       "domain_strategy": "ipv4_only",
       "server_port": 443,
       "tcp_fast_open": true,
@@ -111,8 +111,8 @@
     },
     {
       "type": "vmess",
-      "tag": "Aeza-SPB-VM",
-      "server": "aeza-spb.ddns.net",
+      "tag": "HostingVDS-VM",
+      "server": "185.56.162.219",
       "domain_strategy": "ipv4_only",
       "server_port": 64358,
       "tcp_fast_open": true,
