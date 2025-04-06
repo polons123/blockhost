@@ -73,6 +73,8 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
+        "Play2Go",
+        "Play2Go-VM",
         "Aeza",
         "Aeza-VM",
         "Mhost",
@@ -161,6 +163,55 @@
     {
       "type": "vmess",
       "tag": "Aeza-VM",
+      "server": "94.156.170.182",
+      "domain_strategy": "ipv4_only",
+      "server_port": 62515,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
+      "uuid": "5f9e2d9f-37bd-47b4-8c5d-e1efe75ca02b",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
+    },
+    {
+      "type": "vless",
+      "tag": "Play2Go",
+      "server": "play-ger.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
+      "uuid": "45e8c92b-7124-4576-8561-2adbb295c6c9",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
+    },
+    {
+      "type": "vmess",
+      "tag": "Play2Go-VM",
       "server": "85.192.24.24",
       "domain_strategy": "ipv4_only",
       "server_port": 63215,
