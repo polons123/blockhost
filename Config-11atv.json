@@ -335,13 +335,6 @@
         "protocol": "quic",
         "action": "route",
         "outbound": "selector"
-      },
-      {
-        "port_range": [
-          "1:65535"
-          ],
-        "action": "route",
-        "outbound": "selector"
       }
     ],
     "final": "selector",
