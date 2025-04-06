@@ -212,12 +212,12 @@
     {
       "type": "vmess",
       "tag": "Play2Go-VM",
-      "server": "85.192.24.24",
+      "server": "94.156.170.182",
       "domain_strategy": "ipv4_only",
-      "server_port": 63215,
+      "server_port": 62515,
       "tcp_fast_open": true,
       "udp_fragment": true,
-      "uuid": "69bc3848-e47f-45ed-9a37-0e5f5f319c1c",
+      "uuid": "5f9e2d9f-37bd-47b4-8c5d-e1efe75ca02b",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
