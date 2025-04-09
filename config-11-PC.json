@@ -77,8 +77,8 @@
         "Play2Go-VM",
         "Aeza",
         "Aeza-VM",
-        "Mhost",
-        "Mhost-VM",
+        "HostingVDS-Ger",
+        "HostingVDS-Ger-VM",
         "H2nexus-F",
         "H2nexus-VM-F"
       ],
@@ -229,13 +229,13 @@
     },
     {
       "type": "vless",
-      "tag": "Mhost",
-      "server": "mskhost-fin.ddns.net",
+      "tag": "HostingVDS-Ger",
+      "server": "hostingvds-ger.ddns.net",
       "domain_strategy": "ipv4_only",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": true,
-      "uuid": "f6ebb48f-9661-4ed9-b221-3026f49af63f",
+      "uuid": "a2466741-a5e6-4ee1-b05c-7f97a5b8e9c3",
       "tls": {
         "enabled": true,
         "utls": {
@@ -256,13 +256,13 @@
     },
     {
       "type": "vmess",
-      "tag": "Mhost-VM",
-      "server": "93.152.230.30",
+      "tag": "HostingVDS-Ger-VM",
+      "server": "31.58.85.180",
       "domain_strategy": "ipv4_only",
-      "server_port": 64729,
+      "server_port": 62409,
       "tcp_fast_open": true,
       "udp_fragment": true,
-      "uuid": "0ccee7c1-25fa-4e59-a1fa-452f0be772a4",
+      "uuid": "66f10373-6278-4dcd-b118-331375d63fb2",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
