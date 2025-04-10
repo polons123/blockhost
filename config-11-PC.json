@@ -323,7 +323,7 @@
             "padding": true
           }
     },
-    
+    {
       "type": "vless",
       "tag": "SaleDedic-F",
       "server": "salededic-swe.ddns.net",
