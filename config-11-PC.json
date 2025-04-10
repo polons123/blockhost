@@ -80,7 +80,9 @@
         "HostingVDS-Ger",
         "HostingVDS-Ger-VM",
         "H2nexus-F",
-        "H2nexus-VM-F"
+        "H2nexus-VM-F",
+        "SaleDedic-F",
+        "SaleDedic-VM-F"
       ],
       "default": "HostingVDS"
     },
@@ -308,6 +310,55 @@
       "domain_strategy": "ipv4_only",
       "server_port": 65309,
       "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
+    },
+    
+      "type": "vless",
+      "tag": "SaleDedic-F",
+      "server": "salededic-swe.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
+      "uuid": "b8dec966-bb51-4597-9bde-c6ce86eaf00b",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "multiplex": 
+          {
+            "enabled": true,
+            "max_connections": 8,
+            "min_streams": 16,
+            "padding": true
+          }
+    },
+    {
+      "type": "vmess",
+      "tag": "SaleDedic-VM-F",
+      "server": "109.122.201.73",
+      "domain_strategy": "ipv4_only",
+      "server_port": 64709,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
+      "uuid": "a4ffa61e-07ab-4b77-b78d-f0939559d8f8",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
