@@ -73,17 +73,21 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
+        "HostingVDS-Hys2",
         "Play2Go",
         "Play2Go-VM",
         "Play2Go-Hys2",
         "Aeza",
         "Aeza-VM",
+        "Aeza-Hys2",
         "HostingVDS-Ger",
         "HostingVDS-Ger-VM",
         "H2nexus-F",
         "H2nexus-VM-F",
+        "H2nexus-F-Hys2",
         "SaleDedic-F",
-        "SaleDedic-VM-F"
+        "SaleDedic-VM-F",
+        "SaleDedic-Hys2"
       ],
       "default": "HostingVDS"
     },
@@ -113,6 +117,17 @@
             "min_streams": 16,
             "padding": true
           }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "HostingVDS-Hys2",
+      "server": "hostingvds-msk.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 8443,
+      "password": "tWkPfCJfpGxIkyRAJPFntA==",
+      "tls": {
+        "enabled": true
+      }
     },
     {
       "type": "vmess",
@@ -162,6 +177,17 @@
             "min_streams": 16,
             "padding": true
           }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Aeza-Hys2",
+      "server": "aeza-de.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 8443,
+      "password": "RKuZRpTJDl2mPPUhCV84Tg==",
+      "tls": {
+        "enabled": true
+      }
     },
     {
       "type": "vmess",
@@ -322,6 +348,17 @@
           }
     },
     {
+      "type": "hysteria2",
+      "tag": "H2nexus-F-Hys2",
+      "server": "h2nexus.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 8443,
+      "password": "MNmKi+ck5kdvQhGQweoNeQ==",
+      "tls": {
+        "enabled": true
+      }
+    },
+    {
       "type": "vmess",
       "tag": "H2nexus-VM-F",
       "server": "45.144.52.52",
@@ -371,6 +408,17 @@
           }
     },
     {
+      "type": "hysteria2",
+      "tag": "SaleDedic-Hys2",
+      "server": "salededic-swe.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 8443,
+      "password": "8cvQ7ouEcXa+ubTBijqYXw==",
+      "tls": {
+        "enabled": true
+      }
+    },
+    {
       "type": "vmess",
       "tag": "SaleDedic-VM-F",
       "server": "109.122.201.73",
@@ -408,7 +456,7 @@
         "ip_cidr": [
           "45.144.52.52"
         ],
-        "action": "route",
+       "action": "route",
         "outbound": "direct"
       },
       {
