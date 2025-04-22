@@ -9,7 +9,7 @@
   "servers": [
     {
       "tag": "dns-word",
-      "address": https://hostingvds-mon.ydns.eu:8443/dns-query
+      "address": https://hostingvds-mon.ydns.eu:8443/dns-query,
       //"address": "https://vdska-fin.ydns.eu/dns-query",
       //"address": "https://vdska-pl.ydns.eu/dns-query",
       //"address": "https://doh.dns.sb/dns-query",
