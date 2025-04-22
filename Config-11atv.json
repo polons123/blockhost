@@ -77,18 +77,12 @@
         "HostingVDS-Hys2",
         "Play2Go",
         "Play2Go-VM",
-        "Play2Go-Hys2",
         "Aeza",
         "Aeza-VM",
-        "Aeza-Hys2",
-        "HostingVDS-Ger",
-        "HostingVDS-Ger-VM",
         "H2nexus-F",
         "H2nexus-VM-F",
-        "H2nexus-F-Hys2",
         "SaleDedic-F",
-        "SaleDedic-VM-F",
-        "SaleDedic-Hys2"
+        "SaleDedic-VM-F"
       ],
       "default": "HostingVDS"
     },
@@ -180,17 +174,6 @@
           }
     },
     {
-      "type": "hysteria2",
-      "tag": "Aeza-Hys2",
-      "server": "aeza-de.ddns.net",
-      "domain_strategy": "ipv4_only",
-      "server_port": 8443,
-      "password": "RKuZRpTJDl2mPPUhCV84Tg==",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
       "type": "vmess",
       "tag": "Aeza-VM",
       "server": "94.156.170.182",
@@ -240,17 +223,6 @@
           }
     },
     {
-      "type": "hysteria2",
-      "tag": "Play2Go-Hys2",
-      "server": "play-ger.ddns.net",
-      "domain_strategy": "ipv4_only",
-      "server_port": 8443,
-      "password": "hIxaYv+BxAZ/kBw+RvIjYw==",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
       "type": "vmess",
       "tag": "Play2Go-VM",
       "server": "94.156.170.182",
@@ -259,55 +231,6 @@
       "tcp_fast_open": true,
       "udp_fragment": true,
       "uuid": "5f9e2d9f-37bd-47b4-8c5d-e1efe75ca02b",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade"
-      },
-      "multiplex": 
-          {
-            "enabled": true,
-            "max_connections": 8,
-            "min_streams": 16,
-            "padding": true
-          }
-    },
-    {
-      "type": "vless",
-      "tag": "HostingVDS-Ger",
-      "server": "hostingvds-ger.ddns.net",
-      "domain_strategy": "ipv4_only",
-      "server_port": 443,
-      "tcp_fast_open": true,
-      "udp_fragment": true,
-      "uuid": "a2466741-a5e6-4ee1-b05c-7f97a5b8e9c3",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade"
-      },
-      "multiplex": 
-          {
-            "enabled": true,
-            "max_connections": 8,
-            "min_streams": 16,
-            "padding": true
-          }
-    },
-    {
-      "type": "vmess",
-      "tag": "HostingVDS-Ger-VM",
-      "server": "31.58.85.180",
-      "domain_strategy": "ipv4_only",
-      "server_port": 62409,
-      "tcp_fast_open": true,
-      "udp_fragment": true,
-      "uuid": "66f10373-6278-4dcd-b118-331375d63fb2",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
@@ -347,17 +270,6 @@
             "min_streams": 16,
             "padding": true
           }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "H2nexus-F-Hys2",
-      "server": "h2nexus.ddns.net",
-      "domain_strategy": "ipv4_only",
-      "server_port": 8443,
-      "password": "MNmKi+ck5kdvQhGQweoNeQ==",
-      "tls": {
-        "enabled": true
-      }
     },
     {
       "type": "vmess",
@@ -407,17 +319,6 @@
             "min_streams": 16,
             "padding": true
           }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "SaleDedic-Hys2",
-      "server": "salededic-swe.ddns.net",
-      "domain_strategy": "ipv4_only",
-      "server_port": 8443,
-      "password": "8cvQ7ouEcXa+ubTBijqYXw==",
-      "tls": {
-        "enabled": true
-      }
     },
     {
       "type": "vmess",
