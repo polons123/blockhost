@@ -75,6 +75,7 @@
         "HostingVDS-VM",
         "Play2Go",
         "Play2Go-VM",
+        "Play2Go-Hys2",
         "Aeza",
         "Aeza-VM",
         "HostingVDS-Ger",
@@ -206,6 +207,17 @@
             "min_streams": 16,
             "padding": true
           }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Play2Go-Hys2",
+      "server": "play-ger.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 8443,
+      "password": "hIxaYv+BxAZ/kBw+RvIjYw==",
+      "tls": {
+        "enabled": true
+      }
     },
     {
       "type": "vmess",
