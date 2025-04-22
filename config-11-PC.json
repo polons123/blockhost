@@ -73,6 +73,7 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
+        "HostingVDS-Hys2",
         "Play2Go",
         "Play2Go-VM",
         "Play2Go-Hys2",
@@ -113,6 +114,17 @@
             "min_streams": 16,
             "padding": true
           }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "HostingVDS-Hys2",
+      "server": "hostingvds-msk.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 8443,
+      "password": "tWkPfCJfpGxIkyRAJPFntA==",
+      "tls": {
+        "enabled": true
+      }
     },
     {
       "type": "vmess",
