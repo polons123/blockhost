@@ -178,7 +178,7 @@
       "tag": "Aeza-VM",
       "server": "85.192.24.24",
       "domain_strategy": "ipv4_only",
-      "server_port": 62515,
+      "server_port": 63215,
       "tcp_fast_open": true,
       "udp_fragment": true,
       "uuid": "69bc3848-e47f-45ed-9a37-0e5f5f319c1c",
