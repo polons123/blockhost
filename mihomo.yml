@@ -71,8 +71,9 @@ geox-url:
   geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
   geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
   mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
+  asn: https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb
 geo-auto-update: true
-geo-update-interval: 24
+geo-update-interval: 154
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
@@ -107,13 +108,24 @@ proxies:
     tls: true
     client-fingerprint: chrome
     udp: true
+    tcp-fast-open: true 
+  - name: "HostingVDS-Xray"
+    type: vless
+    server: hostingvds-msk.ddns.net
+    port: 8443
+    uuid: fefb577d-9445-47bd-ea67-62da702c9050
+    network: ws
+    ws-opts:
+      # path: /path
+      # headers:
+      #   Host: v2ray.com
+      # max-early-data: 2048
+      # early-data-header-name: Sec-WebSocket-Protocol
+      v2ray-http-upgrade: true
+    tls: true
+    client-fingerprint: chrome
+    udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
   # Hysteria2 прокси
   - name: "HostingVDS-Hys2"
     type: hysteria2
@@ -140,12 +152,24 @@ proxies:
     tls: false # В исходном конфиге нет TLS для VMess
     udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
+  - name: "HostingVDS-VM-Xray"
+    type: vmess
+    server: hostingvds-msk.ddns.net
+    port: 64459
+    uuid: 269382f1-134e-4f58-85be-18a943162773
+    alterId: 0 # alter_id: null в исходном конфиге -> 0 в mihomo
+    cipher: chacha20-poly1305 # security в исходном конфиге
+    network: ws
+    ws-opts:
+      # path: /path
+      # headers:
+      #   Host: v2ray.com
+      # max-early-data: 2048
+      # early-data-header-name: Sec-WebSocket-Protocol
+      v2ray-http-upgrade: true
+    tls: false # В исходном конфиге нет TLS для VMess
+    udp: true
+    tcp-fast-open: true
   # --- Остальные прокси по аналогии ---
   - name: "Aeza"
     type: vless
@@ -164,12 +188,6 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
   - name: "Aeza-VM"
     type: vmess
     server: 85.192.24.24
@@ -188,12 +206,6 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
   - name: "Play2Go"
     type: vless
     server: play-ger.ddns.net
@@ -211,12 +223,6 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
   - name: "Play2Go-VM"
     type: vmess
     server: 94.156.170.182
@@ -235,12 +241,6 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
   - name: "H2nexus-F"
     type: vless
     server: h2nexus.ddns.net
@@ -258,12 +258,6 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
   - name: "H2nexus-VM-F"
     type: vmess
     server: 45.144.52.52
@@ -282,12 +276,6 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
   - name: "SaleDedic-F"
     type: vless
     server: salededic-swe.ddns.net
@@ -305,12 +293,6 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-    smux: 
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
   - name: "SaleDedic-VM-F"
     type: vmess
     server: 109.122.201.73
@@ -329,12 +311,6 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-    smux:
-      enabled: true           
-      protocol: h2mux
-      max-connections: 8
-      min-streams: 16
-      padding: true 
 
 # ## Группы прокси
 proxy-groups:
@@ -342,7 +318,9 @@ proxy-groups:
     type: select # Тип "select" позволяет вручную выбирать прокси из списка
     proxies:
       - HostingVDS
+      - HostingVDS-Xray
       - HostingVDS-VM
+      - HostingVDS-VM-Xray
       - HostingVDS-Hys2
       - Play2Go
       - Play2Go-VM
