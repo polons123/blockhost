@@ -77,7 +77,7 @@ geo-update-interval: 154
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
-keep-alive-interval: 1800
+keep-alive-interval: 90
 sniffer:
   enable: true
   override-destination: true
