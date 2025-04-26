@@ -5,6 +5,7 @@ log-level: info
 external-controller: 127.0.0.1:59090
 secret: ''
 unified-delay: true
+tcp-concurrent: true
 dns:
   default-nameserver:
   - system
@@ -80,7 +81,7 @@ geo-update-interval: 154
 keep-alive-interval: 90
 sniffer:
   enable: true
-  override-destination: true
+  # override-destination: true
   sniff:
     QUIC:
       ports: [ 443 ]
@@ -89,6 +90,8 @@ sniffer:
     HTTP:
       ports: [80, 8080-8880]
       override-destination: true
+   skip-domain:
+     - "+.push.apple.com"
 # ## Список прокси-серверов
 proxies:
   # VLESS прокси
@@ -340,7 +343,7 @@ proxy-groups:
 # ## Правила маршрутизации
 rules:
   # Правило для IP из исходного конфига -> DIRECT
-  - IP-CIDR,45.144.52.52/32,DIRECT
+  - IP-CIDR,45.144.52.52/32,DIRECT, no-resolve
   # Правила для портов из исходного конфига -> DIRECT
   - DST-PORT,25,DIRECT
   - DST-PORT,465,DIRECT
@@ -349,9 +352,9 @@ rules:
   - DST-PORT,995,DIRECT
   - DST-PORT,59090,DIRECT
   # Правила для частных IP-адресов -> DIRECT (стандартная практика)
-  - IP-CIDR,10.0.0.0/8,DIRECT
-  - IP-CIDR,127.0.0.0/8,DIRECT
-  - IP-CIDR,172.16.0.0/12,DIRECT
-  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT, no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT, no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT, no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT, no-resolve
   - IP-CIDR,::1/128,DIRECT
   - MATCH,selector
