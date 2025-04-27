@@ -1,5 +1,5 @@
 mode: rule
-# mixed-port: 7897
+mixed-port: 7897
 allow-lan: false
 log-level: error
 # external-controller: 127.0.0.1:59090
