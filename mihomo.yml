@@ -1,9 +1,13 @@
 mode: rule
-mixed-port: 7897
+# mixed-port: 7897
 allow-lan: false
 log-level: error
-external-controller: 127.0.0.1:59090
-secret: ''
+# external-controller: 127.0.0.1:59090
+# secret: ''
+# external-controller-cors:
+#  allow-private-network: true
+#  allow-origins:
+#  - '*'
 unified-delay: true
 tcp-concurrent: true
 dns:
@@ -53,10 +57,6 @@ dns:
 profile:
   store-selected: true
   store-fake-ip: true
-external-controller-cors:
-  allow-private-network: true
-  allow-origins:
-  - '*'
 tun:
   enable: false
   stack: gvisor
