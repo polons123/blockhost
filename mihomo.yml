@@ -1,7 +1,7 @@
 mode: rule
 mixed-port: 7897
 allow-lan: false
-log-level: info
+log-level: error
 external-controller: 127.0.0.1:59090
 secret: ''
 unified-delay: true
@@ -50,8 +50,6 @@ dns:
   respect-rules: false
   use-hosts: false
   use-system-hosts: false
-  nameserver-policy:
-    "geosite:category-ads-all": rcode://success
 profile:
   store-selected: true
   store-fake-ip: true
