@@ -110,23 +110,6 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true 
-  - name: "HostingVDS-Xray"
-    type: vless
-    server: hostingvds-msk.ddns.net
-    port: 8443
-    uuid: fefb577d-9445-47bd-ea67-62da702c9050
-    network: ws
-    ws-opts:
-      # path: /path
-      # headers:
-      #   Host: v2ray.com
-      # max-early-data: 2048
-      # early-data-header-name: Sec-WebSocket-Protocol
-      v2ray-http-upgrade: true
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    tcp-fast-open: true
   # Hysteria2 прокси
   - name: "HostingVDS-Hys2"
     type: hysteria2
@@ -140,24 +123,6 @@ proxies:
     server: hostingvds-msk.ddns.net
     port: 64358
     uuid: c3255d49-443d-46cb-83d5-d8d88b816444
-    alterId: 0 # alter_id: null в исходном конфиге -> 0 в mihomo
-    cipher: chacha20-poly1305 # security в исходном конфиге
-    network: ws
-    ws-opts:
-      # path: /path
-      # headers:
-      #   Host: v2ray.com
-      # max-early-data: 2048
-      # early-data-header-name: Sec-WebSocket-Protocol
-      v2ray-http-upgrade: true
-    tls: false # В исходном конфиге нет TLS для VMess
-    udp: true
-    tcp-fast-open: true
-  - name: "HostingVDS-VM-Xray"
-    type: vmess
-    server: hostingvds-msk.ddns.net
-    port: 64459
-    uuid: 269382f1-134e-4f58-85be-18a943162773
     alterId: 0 # alter_id: null в исходном конфиге -> 0 в mihomo
     cipher: chacha20-poly1305 # security в исходном конфиге
     network: ws
@@ -352,9 +317,7 @@ proxy-groups:
     type: select # Тип "select" позволяет вручную выбирать прокси из списка
     proxies:
       - HostingVDS
-      - HostingVDS-Xray
       - HostingVDS-VM
-      - HostingVDS-VM-Xray
       - HostingVDS-Hys2
       - Play2Go
       - Play2Go-VM
