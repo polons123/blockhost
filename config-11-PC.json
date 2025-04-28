@@ -82,7 +82,9 @@
         "H2nexus-F",
         "H2nexus-VM-F",
         "SaleDedic-F",
-        "SaleDedic-VM-F"
+        "SaleDedic-VM-F",
+        "Waicore-Ger",
+        "Waicore-VM-Ger"
       ],
       "default": "HostingVDS"
     },
@@ -258,6 +260,41 @@
       "tcp_fast_open": true,
       "udp_fragment": true,
       "uuid": "a4ffa61e-07ab-4b77-b78d-f0939559d8f8",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Waicore-Ger",
+      "server": "waicore-ger.ddns.net",
+      "domain_strategy": "ipv4_only",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
+      "uuid": "1db7c946-f9d6-4cfd-86b6-a4bcef67384c",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Waicore-VM-Ger",
+      "server": "94.141.123.70",
+      "domain_strategy": "ipv4_only",
+      "server_port": 62910,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
+      "uuid": "99d0d9fe-a212-46ab-bf9a-cf1c113339bd",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
