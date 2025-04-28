@@ -171,7 +171,6 @@ proxies:
     tls: false # В исходном конфиге нет TLS для VMess
     udp: true
     tcp-fast-open: true
-  # --- Остальные прокси по аналогии ---
   - name: "Aeza"
     type: vless
     server: aeza-de.ddns.net
@@ -312,7 +311,41 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-
+  - name: "Waicore-Ger"
+    type: vless
+    server: waicore-ger.ddns.net
+    port: 443
+    uuid: 1db7c946-f9d6-4cfd-86b6-a4bcef67384c
+    network: ws
+    ws-opts:
+      # path: /path
+      # headers:
+      #   Host: v2ray.com
+      # max-early-data: 2048
+      # early-data-header-name: Sec-WebSocket-Protocol
+      v2ray-http-upgrade: true
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true
+  - name: "Waicore-VM-Ger"
+    type: vmess
+    server: 94.141.123.70
+    port: 62910
+    uuid: 99d0d9fe-a212-46ab-bf9a-cf1c113339bd
+    alterId: 0
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      # path: /path
+      # headers:
+      #   Host: v2ray.com
+      # max-early-data: 2048
+      # early-data-header-name: Sec-WebSocket-Protocol
+      v2ray-http-upgrade: true
+    tls: false
+    udp: true
+    tcp-fast-open: true
 # ## Группы прокси
 proxy-groups:
   - name: "selector" # Имя группы из исходного конфига
@@ -331,6 +364,8 @@ proxy-groups:
       - H2nexus-VM-F
       - SaleDedic-F
       - SaleDedic-VM-F
+      - Waicore-Ger
+      - Waicore-VM-Ger
       # Можно добавить DIRECT и REJECT
       # - DIRECT
       # - REJECT
