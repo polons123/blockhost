@@ -136,17 +136,6 @@
       }
     },
     {
-      "type": "shadowsocks",
-      "tag": "HostingVDS-SS",
-      "server": "185.56.162.219",
-      "domain_strategy": "ipv4_only",
-      "server_port": 64453,
-      "tcp_fast_open": true,
-      "udp_fragment": true,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "JPOYeWBAh1a5d3n0bvpa9blSJ3eGp5stWpNFw8/31/M="
-    },
-    {
       "type": "vless",
       "tag": "Aeza",
       "server": "aeza-de.ddns.net",
