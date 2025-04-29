@@ -1,21 +1,128 @@
 proxies:
+  - name: "HostingVDS"
+    type: vless
+    server: 185.56.162.219
+    port: 443
+    password: e4cb6eca-18d4-48d5-9562-86a5e8740d07
+    obfs: httpupgrade
+    tls: true
+    sni: hostingvds-msk.ddns.net
+    udp: true
 
-- name: "Aeza-SPB"
-  type: VLESS
-  obfs: "httpupgrade"
-  server: 103.71.22.50
-  port: 443
-  tls: true
-  password: e4cb6eca-18d4-48d5-9562-86a5e8740d07
-  udp: true
-  sni: aeza-spb.ddns.net
-  
-- name: "Aeza-SPB-WM"
-  type: Vmess
-  obfs: "httpupgrade"
-  server: 103.71.22.50
-  port: 64358
-  method: chacha20-poly1305
-  alterId: 0
-  password: c3255d49-443d-46cb-83d5-d8d88b816444
-  udp: true
+  - name: "HostingVDS-WM"
+    type: vmess
+    server: 185.56.162.219
+    port: 64358
+    uuid: c3255d49-443d-46cb-83d5-d8d88b816444
+    alterId: 0
+    cipher: chacha20-poly1305
+    obfs: httpupgrade
+    udp: true
+
+  - name: "HostingVDS-SS"
+    type: shadowsocks
+    server: 185.56.162.219
+    port: 64453
+    method: 2022-blake3-chacha20-poly1305
+    password: JPOYeWBAh1a5d3n0bvpa9blSJ3eGp5stWpNFw8/31/M=
+    udp: true
+
+  - name: "H2Nexus-F"
+    type: vless
+    server: 45.144.52.52
+    port: 443
+    password: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    obfs: httpupgrade
+    tls: true
+    sni: h2nexus.ddns.net
+    udp: true
+
+  - name: "H2Nexus-WM-F"
+    type: vmess
+    server: 45.144.52.52
+    port: 65309
+    uuid: 59f2503a-9506-4c14-9293-bbb4964a75b8
+    alterId: 0
+    cipher: chacha20-poly1305
+    obfs: httpupgrade
+    udp: true
+
+  - name: "Aeza"
+    type: vless
+    server: 85.192.24.24
+    port: 443
+    password: 644cd9d2-58ac-449c-883c-6a1afa9fd8d3
+    obfs: httpupgrade
+    tls: true
+    sni: aeza-de.ddns.net
+    udp: true
+
+  - name: "Aeza-WM"
+    type: vmess
+    server: 85.192.24.24
+    port: 63215
+    uuid: 69bc3848-e47f-45ed-9a37-0e5f5f319c1c
+    alterId: 0
+    cipher: chacha20-poly1305
+    obfs: httpupgrade
+    udp: true
+
+  - name: "Play2Go"
+    type: vless
+    server: 94.156.170.182
+    port: 443
+    password: 45e8c92b-7124-4576-8561-2adbb295c6c9
+    obfs: httpupgrade
+    tls: true
+    sni: play-ger.ddns.net
+    udp: true
+
+  - name: "Play2Go-WM"
+    type: vmess
+    server: 94.156.170.182
+    port: 62515
+    uuid: 5f9e2d9f-37bd-47b4-8c5d-e1efe75ca02b
+    alterId: 0
+    cipher: chacha20-poly1305
+    obfs: httpupgrade
+    udp: true
+
+  - name: "SaleDedic-F"
+    type: vless
+    server: 109.122.201.73
+    port: 443
+    password: b8dec966-bb51-4597-9bde-c6ce86eaf00b
+    obfs: httpupgrade
+    tls: true
+    sni: salededic-swe.ddns.net
+    udp: true
+
+  - name: "SaleDedic-F-VM"
+    type: vmess
+    server: 109.122.201.73
+    port: 64709
+    uuid: a4ffa61e-07ab-4b77-b78d-f0939559d8f8
+    alterId: 0
+    cipher: chacha20-poly1305
+    obfs: httpupgrade
+    udp: true
+
+  - name: "Waicore-Ger"
+    type: vless
+    server: 94.141.123.70
+    port: 443
+    password: 1db7c946-f9d6-4cfd-86b6-a4bcef67384c
+    obfs: httpupgrade
+    tls: true
+    sni: waicore-ger.ddns.net
+    udp: true
+
+  - name: "Waicore-VM-Ger"
+    type: vmess
+    server: 94.141.123.70
+    port: 62910
+    uuid: 99d0d9fe-a212-46ab-bf9a-cf1c113339bd
+    alterId: 0
+    cipher: chacha20-poly1305
+    obfs: httpupgrade
+    udp: true
