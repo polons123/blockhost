@@ -19,14 +19,6 @@ proxies:
     obfs: httpupgrade
     udp: true
 
-  - name: "HostingVDS-SS"
-    type: shadowsocks
-    server: 185.56.162.219
-    port: 64453
-    method: 2022-blake3-chacha20-poly1305
-    password: JPOYeWBAh1a5d3n0bvpa9blSJ3eGp5stWpNFw8/31/M=
-    udp: true
-
   - name: "H2Nexus-F"
     type: vless
     server: 45.144.52.52
