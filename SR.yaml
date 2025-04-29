@@ -59,12 +59,3 @@ proxies:
   alterId: 0
   password: 0ccee7c1-25fa-4e59-a1fa-452f0be772a4
   udp: true
-
-- name: "HostingVDS-SS"
-  type: Shadowsocks
-  server: 185.56.162.219
-  port: 64453
-  method: 2022-blake3-chacha20-poly1305
-  password: JPOYeWBAh1a5d3n0bvpa9blSJ3eGp5stWpNFw8/31/M=
-  udp: true
-
