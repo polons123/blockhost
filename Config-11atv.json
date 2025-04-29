@@ -74,8 +74,7 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
-        "HostingVDS-Hys2",
-        "HostingVDS-SS",
+        "HostingVDS-Hys2"
         "Play2Go",
         "Play2Go-VM",
         "Aeza",
