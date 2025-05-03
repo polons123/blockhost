@@ -332,20 +332,19 @@ proxy-groups:
       # Можно добавить DIRECT и REJECT
       # - DIRECT
       # - REJECT
-    # Прокси по умолчанию (если не выбран) - не используется для type: select,
-    # но может быть полезно для url-test или fallback.
-    # default: HostingVDS # Использовался в исходном конфиге
 
 # ## Правила маршрутизации
 rules:
   # Правило для IP из исходного конфига -> DIRECT
-  - IP-CIDR,45.144.52.52/32,DIRECT,no-resolve
+  #- IP-CIDR,45.144.52.52/32,DIRECT,no-resolve
   # Правила для портов из исходного конфига -> DIRECT
   - DST-PORT,25,DIRECT
   - DST-PORT,465,DIRECT
   - DST-PORT,587,DIRECT
   - DST-PORT,993,DIRECT
   - DST-PORT,995,DIRECT
+  - DST-PORT,18090,DIRECT
+  - DST-PORT,18092,DIRECT
   - DST-PORT,59090,DIRECT
   # Правила для частных IP-адресов -> DIRECT (стандартная практика)
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
