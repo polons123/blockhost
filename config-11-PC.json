@@ -319,7 +319,7 @@
     {
       "type": "vmess",
       "tag": "Waicore-VM-Ger",
-      "server": "94.141.123.70",
+      "server": "193.233.134.245",
       "domain_strategy": "ipv4_only",
       "server_port": 62910,
       "tcp_fast_open": true,
@@ -330,7 +330,7 @@
       "transport": {
         "type": "httpupgrade",
         "path": "/Video-data",
-        "host": "94.141.123.70"
+        "host": "193.233.134.245"
       }
     }
   ],
