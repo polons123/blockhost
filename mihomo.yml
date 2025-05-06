@@ -255,7 +255,7 @@ proxies:
     tcp-fast-open: true
   - name: "Waicore-Ger"
     type: vless
-    server: 94.141.123.70
+    server: 193.233.134.245
     port: 443
     uuid: 1db7c946-f9d6-4cfd-86b6-a4bcef67384c
     network: ws
@@ -272,7 +272,7 @@ proxies:
 
   - name: "Waicore-VM-Ger"
     type: vmess
-    server: 94.141.123.70
+    server: 193.233.134.245
     port: 62910
     uuid: 99d0d9fe-a212-46ab-bf9a-cf1c113339bd
     alterId: 0
@@ -281,7 +281,7 @@ proxies:
     ws-opts:
       path: /Video-data
       headers:
-        Host: 94.141.123.70
+        Host: 193.233.134.245
       v2ray-http-upgrade: true
     tls: false
     udp: true
