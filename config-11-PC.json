@@ -105,7 +105,9 @@
         }
       },
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "hostingvds-msk.ddns.net"
       }
     },
     {
@@ -131,7 +133,9 @@
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "185.56.162.219"
       }
     },
     {
@@ -140,6 +144,8 @@
       "server": "aeza-de.ddns.net",
       "domain_strategy": "ipv4_only",
       "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
       "uuid": "644cd9d2-58ac-449c-883c-6a1afa9fd8d3",
       "tls": {
         "enabled": true,
@@ -149,7 +155,9 @@
         }
       },
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "aeza-de.ddns.net"
       }
     },
     {
@@ -158,11 +166,15 @@
       "server": "85.192.24.24",
       "domain_strategy": "ipv4_only",
       "server_port": 63215,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
       "uuid": "69bc3848-e47f-45ed-9a37-0e5f5f319c1c",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "85.192.24.24"
       }
     },
     {
@@ -182,7 +194,9 @@
         }
       },
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "play-ger.ddns.net"
       }
     },
     {
@@ -197,7 +211,9 @@
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "94.156.170.182"
       }
     },
     {
@@ -206,6 +222,8 @@
       "server": "h2nexus.ddns.net",
       "domain_strategy": "ipv4_only",
       "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
       "uuid": "b68ab9f0-60a2-43bb-befb-ea72cc9400b2",
       "tls": {
         "enabled": true,
@@ -215,7 +233,9 @@
         }
       },
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "h2nexus.ddns.net"
       }
     },
     {
@@ -224,11 +244,15 @@
       "server": "45.144.52.52",
       "domain_strategy": "ipv4_only",
       "server_port": 65309,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
       "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "45.144.52.52"
       }
     },
     {
@@ -248,7 +272,9 @@
         }
       },
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "salededic-swe.ddns.net"
       }
     },
     {
@@ -263,7 +289,9 @@
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "109.122.201.73"
       }
     },
     {
@@ -283,7 +311,9 @@
         }
       },
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "waicore-ger.ddns.net"
       }
     },
     {
@@ -298,27 +328,22 @@
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
-        "type": "httpupgrade"
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "94.141.123.70"
       }
     }
   ],
   "route": {
     "rules": [
-      {
-        "action": "sniff",
-        "timeout": "1s"
-      },
+      //{
+      //  "action": "sniff",
+      //  "timeout": "1s"
+      //},
       {
         "action": "resolve",
         "strategy": "ipv4_only",
         "server": "dns-word"
-      },
-      {
-        "ip_cidr": [
-          "45.144.52.52"
-        ],
-        "action": "route",
-        "outbound": "direct"
       },
       {
         "port": [
@@ -327,7 +352,19 @@
           587,
           993,
           995,
+          18090,
+          18092
           59090
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "ip_cidr": [
+          "10.0.0.0/8",
+          "127.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16"
         ],
         "action": "route",
         "outbound": "direct"
