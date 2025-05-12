@@ -1,6 +1,6 @@
 {
   "log": {
-    "disabled": false,
+    "disabled": true,
     "level": "debug",
     "output": "box.log",
     "timestamp": true
