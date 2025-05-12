@@ -32,11 +32,6 @@
       "outbound": "any"
     }
   ],
-  "fakeip": {
-    "enabled": false,
-    "inet4_range": null,
-    "inet6_range": null
-  },
   "final": "dns-word",
   "strategy": "prefer_ipv4",
   "cache_capacity": 4096,
@@ -56,6 +51,7 @@
       "stack": "system",
       "route_exclude_address": [
         "10.0.0.0/8",
+        "127.0.0.0/8",
         "172.16.0.0/12",
         "192.168.0.0/16",
         "224.0.0.0/4",
@@ -336,15 +332,6 @@
   ],
   "route": {
     "rules": [
-      //{
-      //  "action": "sniff",
-      //  "timeout": "1s"
-      //},
-      {
-        "action": "resolve",
-        "strategy": "ipv4_only",
-        "server": "dns-word"
-      },
       {
         "port": [
           25,
@@ -381,16 +368,6 @@
         ],
         "action": "route",
         "outbound": "direct"
-      },
-      {
-        "protocol": "stun",
-        "action": "route",
-        "outbound": "selector"
-      },
-      {
-        "protocol": "quic",
-        "action": "route",
-        "outbound": "selector"
       }
     ],
     "final": "selector",
