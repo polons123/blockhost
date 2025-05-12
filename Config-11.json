@@ -1,7 +1,7 @@
 {
   "log": {
     "disabled": true,
-    "level": "error",
+    "level": "warn",
     "output": "box.log",
     "timestamp": true
   },
