@@ -44,7 +44,7 @@ dns:
     ipcidr:
     - 240.0.0.0/4
     - 0.0.0.0/32
-  listen: :53
+  listen: :10053
   nameserver:
   - https://hostingvds-mon.ydns.eu:8443/dns-query
   - https://vdska-fin.ydns.eu/dns-query
