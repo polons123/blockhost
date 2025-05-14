@@ -161,33 +161,33 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-  - name: "Play2Go"
+  - name: "HostVDS"
     type: vless
-    server: play-ger.ddns.net
+    server: hostvds.ddns.net
     port: 443
-    uuid: 45e8c92b-7124-4576-8561-2adbb295c6c9
+    uuid: d8003fcf-e9fc-4e64-9e57-12f51d02dede
     network: ws
     ws-opts:
       path: /Video-data
       headers:
-        Host: play-ger.ddns.net
+        Host: hostvds.ddns.net
       v2ray-http-upgrade: true
     tls: true
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-  - name: "Play2Go-VM"
+  - name: "HostVDS-VM"
     type: vmess
-    server: 94.156.170.182
-    port: 62515
-    uuid: 5f9e2d9f-37bd-47b4-8c5d-e1efe75ca02b
+    server: 188.130.206.28
+    port: 65319
+    uuid: 86e1eae2-69c3-4fbe-a9b2-203d0f87f54c
     alterId: 0
     cipher: chacha20-poly1305
     network: ws
     ws-opts:
       path: /Video-data
       headers:
-        Host: 94.156.170.182
+        Host: 188.130.206.28
       v2ray-http-upgrade: true
     tls: false
     udp: true
@@ -295,8 +295,8 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-Hys2
-      - Play2Go
-      - Play2Go-VM
+      - HostVDS
+      - HostVDS-VM
       - Aeza
       - Aeza-VM
       - H2nexus-F
