@@ -1,0 +1,335 @@
+mode: rule
+mixed-port: 7897
+allow-lan: false
+log-level: error
+ipv6: true
+# external-controller: 127.0.0.1:59090
+# secret: ''
+# external-controller-cors:
+#  allow-private-network: true
+#  allow-origins:
+#  - '*'
+unified-delay: true
+tcp-concurrent: true
+dns:
+  default-nameserver:
+  - system
+  - 77.88.8.8
+  direct-nameserver-follow-policy: false
+  enable: true
+  enhanced-mode: fake-ip # redir-host  or fake-ip
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - '*.arpa'
+  - time.*.com
+  - ntp.*.com
+  - time.*.com
+  - +.market.xiaomi.com
+  - localhost.ptlogin2.qq.com
+  - '*.msftncsi.com'
+  - www.msftconnecttest.com
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
+  #fallback:
+  #- https://hostingvds-mon.ydns.eu:8443/dns-query
+  #- https://vdska-fin.ydns.eu/dns-query
+  #fallback-filter:
+  #  domain:
+  #  - +.google.com
+  #  - +.facebook.com
+  #  - +.youtube.com
+  #  geoip: false
+  #  geoip-code: RU
+  #  ipcidr:
+  #  - 240.0.0.0/4
+  #  - 0.0.0.0/32
+  listen: :10053
+  nameserver:
+  - https://hostingvds-mon.ydns.eu:8443/dns-query
+  - https://vdska-fin.ydns.eu/dns-query
+  prefer-h3: true
+  proxy-server-nameserver:
+  - https://hostingvds-mon.ydns.eu:8443/dns-query
+  - https://vdska-fin.ydns.eu/dns-query
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  strict-route: false
+  auto-detect-interface: true
+  dns-hijack:
+  - any:53
+  - tcp://any:53
+# geodata url
+geox-url:
+  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
+  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+geo-auto-update: true
+geo-update-interval: 1440
+#  TCP keep alive interval
+#  15  для компьютера
+#  1800 для телефона, увеличение интервала экономит батарею 
+keep-alive-interval: 90
+sniffer:
+  enable: true
+  # override-destination: true
+  sniff:
+    QUIC:
+      ports: [ 443 ]
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+  skip-domain:
+    - "+.push.apple.com"
+proxies:
+  - name: "HostingVDS"
+    type: vless
+    server: hostingvds-msk.ddns.net
+    port: 443
+    uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: hostingvds-msk.ddns.net
+      v2ray-http-upgrade: true
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true 
+  - name: "HostingVDS-Hys2"
+    type: hysteria2
+    server: hostingvds-msk.ddns.net
+    port: 8443
+    password: "tWkPfCJfpGxIkyRAJPFntA=="
+    udp: true
+  - name: "HostingVDS-VM"
+    type: vmess
+    server: 185.56.162.219
+    port: 64358
+    uuid: c3255d49-443d-46cb-83d5-d8d88b816444
+    alterId: 0 # alter_id: null в исходном конфиге -> 0 в mihomo
+    cipher: chacha20-poly1305 # security в исходном конфиге
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: 185.56.162.219
+      v2ray-http-upgrade: true
+    tls: false # В исходном конфиге нет TLS для VMess
+    udp: true
+    tcp-fast-open: true
+  - name: "Aeza"
+    type: vless
+    server: aeza-de.ddns.net
+    port: 443
+    uuid: 644cd9d2-58ac-449c-883c-6a1afa9fd8d3
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: aeza-de.ddns.net
+      v2ray-http-upgrade: true
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true
+  - name: "Aeza-VM"
+    type: vmess
+    server: 85.192.24.24
+    port: 63215
+    uuid: 69bc3848-e47f-45ed-9a37-0e5f5f319c1c
+    alterId: 0
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: 85.192.24.24
+      v2ray-http-upgrade: true
+    tls: false
+    udp: true
+    tcp-fast-open: true
+  - name: "HostVDS"
+    type: vless
+    server: hostvds.ddns.net
+    port: 443
+    uuid: d8003fcf-e9fc-4e64-9e57-12f51d02dede
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: hostvds.ddns.net
+      v2ray-http-upgrade: true
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true
+  - name: "HostVDS-VM"
+    type: vmess
+    server: 188.130.206.28
+    port: 65319
+    uuid: 86e1eae2-69c3-4fbe-a9b2-203d0f87f54c
+    alterId: 0
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: 188.130.206.28
+      v2ray-http-upgrade: true
+    tls: false
+    udp: true
+    tcp-fast-open: true
+  - name: "H2nexus-F"
+    type: vless
+    server: h2nexus.ddns.net
+    port: 443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: h2nexus.ddns.net
+      v2ray-http-upgrade: true
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true
+  - name: "H2nexus-VM-F"
+    type: vmess
+    server: 45.144.52.52
+    port: 65309
+    uuid: 59f2503a-9506-4c14-9293-bbb4964a75b8
+    alterId: 0
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: 45.144.52.52
+      v2ray-http-upgrade: true
+    tls: false
+    udp: true
+    tcp-fast-open: true
+  - name: "SaleDedic-F"
+    type: vless
+    server: salededic-swe.ddns.net
+    port: 443
+    uuid: b8dec966-bb51-4597-9bde-c6ce86eaf00b
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: salededic-swe.ddns.net
+      v2ray-http-upgrade: true
+    tls: true
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true
+  - name: "SaleDedic-VM-F"
+    type: vmess
+    server: 109.122.201.73
+    port: 64709
+    uuid: a4ffa61e-07ab-4b77-b78d-f0939559d8f8
+    alterId: 0
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: 109.122.201.73
+      v2ray-http-upgrade: true
+    tls: false
+    udp: true
+    tcp-fast-open: true
+  - name: "Waicore-Ger"
+    type: vless
+    server: 193.233.134.245
+    port: 443
+    uuid: 1db7c946-f9d6-4cfd-86b6-a4bcef67384c
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: waicore-ger.ddns.net
+      v2ray-http-upgrade: true
+    tls: true
+    servername: waicore-ger.ddns.net
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true
+
+  - name: "Waicore-VM-Ger"
+    type: vmess
+    server: 193.233.134.245
+    port: 62910
+    uuid: 99d0d9fe-a212-46ab-bf9a-cf1c113339bd
+    alterId: 0
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: 193.233.134.245
+      v2ray-http-upgrade: true
+    tls: false
+    udp: true
+    tcp-fast-open: true
+# ## Группы прокси
+proxy-groups:
+  - name: "selector"
+    type: select
+    proxies:
+      - HostingVDS
+      - HostingVDS-VM
+      - HostingVDS-Hys2
+      - HostVDS
+      - HostVDS-VM
+      - Aeza
+      - Aeza-VM
+      - H2nexus-F
+      - H2nexus-VM-F
+      - SaleDedic-F
+      - SaleDedic-VM-F
+      - Waicore-Ger
+      - Waicore-VM-Ger
+      # Можно добавить DIRECT и REJECT
+      # - DIRECT
+      # - REJECT
+
+# ## Правила маршрутизации
+rules:
+  # Правило для IP из исходного конфига -> DIRECT
+  #- IP-CIDR,45.144.52.52/32,DIRECT,no-resolve
+  # Правила для портов из исходного конфига -> DIRECT
+  - DST-PORT,25,DIRECT
+  - DST-PORT,465,DIRECT
+  - DST-PORT,587,DIRECT
+  - DST-PORT,993,DIRECT
+  - DST-PORT,995,DIRECT
+  - DST-PORT,18090,DIRECT
+  - DST-PORT,18092,DIRECT
+  - DST-PORT,59090,DIRECT
+  # Правила для частных IP-адресов -> DIRECT (стандартная практика)
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
+  #- IP-CIDR,::1/128,DIRECT
+  #- RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/TelegramUS/TelegramUS.list,selector
+   - DOMAIN,kino.pub,selector
+   - DOMAIN-SUFFIX,ru,DIRECT
+   - MATCH,selector
