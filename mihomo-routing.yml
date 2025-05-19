@@ -22,7 +22,6 @@ dns:
   - '*.lan'
   - '*.local'
   - '*.arpa'
-  - time.*.com
   - ntp.*.com
   - time.*.com
   - +.market.xiaomi.com
@@ -60,28 +59,30 @@ profile:
   store-fake-ip: true
 tun:
   enable: true
-  stack: system
+  #stack: system
+  stack: mixed
   auto-route: true
   strict-route: false
   auto-detect-interface: true
   dns-hijack:
   - any:53
   - tcp://any:53
-# geodata url
-geox-url:
-  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
-  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
-  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
-geo-auto-update: true
-geo-update-interval: 1440
+
+#geox-url:
+#  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+#  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+#  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
+#  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+#geo-auto-update: true
+#geo-update-interval: 86400
+
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
 keep-alive-interval: 90
+
 sniffer:
   enable: true
-  # override-destination: true
   sniff:
     QUIC:
       ports: [ 443 ]
@@ -92,6 +93,7 @@ sniffer:
       override-destination: true
   skip-domain:
     - "+.push.apple.com"
+
 proxies:
   - name: "HostingVDS"
     type: vless
@@ -119,7 +121,7 @@ proxies:
     server: 185.56.162.219
     port: 64358
     uuid: c3255d49-443d-46cb-83d5-d8d88b816444
-    alterId: 0 # alter_id: null в исходном конфиге -> 0 в mihomo
+    alterId: 0
     cipher: chacha20-poly1305 # security в исходном конфиге
     network: ws
     ws-opts:
@@ -287,9 +289,9 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-# ## Группы прокси
+
 proxy-groups:
-  - name: "selector"
+  - name: "PROXY"
     type: select
     proxies:
       - HostingVDS
@@ -305,15 +307,198 @@ proxy-groups:
       - SaleDedic-VM-F
       - Waicore-Ger
       - Waicore-VM-Ger
-      # Можно добавить DIRECT и REJECT
-      # - DIRECT
-      # - REJECT
 
-# ## Правила маршрутизации
+rule-providers:
+  geosite-yandex:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/yandex.mrs"
+    path: ./geosite-yandex.mrs
+    interval: 86400
+  geosite-vk:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/vk.mrs"
+    path: ./geosite-vk.mrs
+    interval: 86400
+  geosite-mailru:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/mailru.mrs"
+    path: ./geosite-mailru.mrs
+    interval: 86400
+  geosite-google:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
+    path: ./geosite-google.mrs
+    interval: 86400  
+  geosite-apple:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs"
+    path: ./geosite-apple.mrs
+    interval: 86400
+  geosite-facebook:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/facebook.mrs"
+    path: ./geosite-facebook.mrs
+    interval: 86400
+  geosite-instagram:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/instagram.mrs"
+    path: ./geosite-instagram.mrs
+  geosite-whatsapp:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/whatsapp.mrs"
+    path: ./geosite-whatsapp.mrs   
+    interval: 86400
+  geosite-oculus:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/oculus.mrs"
+    path: ./geosite-oculus.mrs   
+    interval: 86400
+  geosite-telegram:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/telegram.mrs"
+    path: ./geosite-telegram.mrs   
+    interval: 86400
+  geosite-youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"
+    path: ./geosite-youtube.mrs   
+    interval: 86400
+  geosite-openai:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"
+    path: ./geosite-openai.mrs   
+    interval: 86400
+  geosite-google-gemini:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google-gemini.mrs"
+    path: ./geosite-google-gemini.mrs   
+    interval: 86400
+  geosite-xai:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xai.mrs"
+    path: ./geosite-xai.mrs   
+    interval: 86400
+  geosite-tiktok:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/tiktok.mrs"
+    path: ./geosite-tiktok.mrs   
+    interval: 86400
+  geosite-discord:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/discord.mrs"
+    path: ./geosite-discord.mrs  
+    interval: 86400
+  geosite-microsoft:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/microsoft.mrs"
+    path: ./geosite-microsoft.mrs
+    interval: 86400
+  geosite-netflix:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/netflix.mrs"
+    path: ./geosite-netflix.mrs
+    interval: 86400
+  geosite-spotify:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/spotify.mrs"
+    path: ./geosite-spotify.mrs
+    interval: 86400      
+  geoip-facebook:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/facebook.mrs"
+    path: ./geoip-facebook.mrs
+    interval: 86400  
+  geoip-google:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"
+    path: ./geoip-google.mrs
+    interval: 86400
+  geoip-telegram:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/telegram.mrs"
+    path: ./geoip-telegram.mrs
+    interval: 86400
+  geoip-twitter:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/twitter.mrs"
+    path: ./geoip-twitter.mrs
+    interval: 86400
+  geoip-apple:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"
+    path: ./geoip-apple.mrs
+    interval: 86400
+  geoip-netflix:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/netflix.mrs"
+    path: ./geoip-netflix.mrs
+    interval: 86400
+  geoip-discord-voice:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/other/discord-voice-ip-list.mrs"
+    path: ./geoip-discord-voice.mrs
+    interval: 86400        
+  geoip-ru:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
+    path: ./geoip-ru.mrs
+    interval: 86400
+
 rules:
-  # Правило для IP из исходного конфига -> DIRECT
-  #- IP-CIDR,45.144.52.52/32,DIRECT,no-resolve
-  # Правила для портов из исходного конфига -> DIRECT
   - DST-PORT,25,DIRECT
   - DST-PORT,465,DIRECT
   - DST-PORT,587,DIRECT
@@ -322,14 +507,55 @@ rules:
   - DST-PORT,18090,DIRECT
   - DST-PORT,18092,DIRECT
   - DST-PORT,59090,DIRECT
-  # Правила для частных IP-адресов -> DIRECT (стандартная практика)
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
-  #- IP-CIDR,::1/128,DIRECT
-  #- RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/TelegramUS/TelegramUS.list,selector
-   - DOMAIN,kino.pub,selector
-   - DOMAIN-SUFFIX,ru,DIRECT
-   - MATCH,selector
+  - IP-CIDR,::1/128,DIRECT
+  
+  - RULE-SET,geosite-yandex,DIRECT
+  - RULE-SET,geosite-vk,DIRECT
+  - RULE-SET,geosite-mailru,DIRECT
+  
+  - RULE-SET,geosite-google,PROXY
+  - RULE-SET,geosite-apple,PROXY
+  - RULE-SET,geosite-facebook,PROXY
+  - RULE-SET,geosite-instagram,PROXY
+  - RULE-SET,geosite-whatsapp,PROXY
+  - RULE-SET,geosite-oculus,PROXY
+  - RULE-SET,geosite-telegram,PROXY
+  - RULE-SET,geosite-youtube,PROXY
+  - RULE-SET,geosite-openai,PROXY
+  - RULE-SET,geosite-google-gemini,PROXY
+  - RULE-SET,geosite-xai,PROXY
+  - RULE-SET,geosite-tiktok,PROXY
+  - RULE-SET,geosite-discord,PROXY
+  - RULE-SET,geosite-microsoft,PROXY
+  - RULE-SET,geosite-netflix,PROXY
+  - RULE-SET,geosite-spotify,PROXY
+
+  - RULE-SET,geoip-google,PROXY
+  - RULE-SET,geoip-facebook,PROXY
+  - RULE-SET,geoip-telegram,PROXY
+  - RULE-SET,geoip-twitter,PROXY
+  - RULE-SET,geoip-apple,PROXY
+  - RULE-SET,geoip-netflix,PROXY
+  - RULE-SET,geoip-discord-voice,PROXY
+  
+  - DOMAIN,kino.pub,PROXY
+  - DOMAIN-KEYWORD,habr,PROXY
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY
+  - DOMAIN-SUFFIX,tmbd.org,PROXY
+  - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
+  
+  - DOMAIN-SUFFIX,ru,DIRECT
+  - DOMAIN-SUFFIX,su,DIRECT
+  - DOMAIN-SUFFIX,vokino.tv,DIRECT
+  - DOMAIN-SUFFIX,yandex.net,DIRECT
+  - DOMAIN,polons.synology.me,DIRECT
+  - DOMAIN,evpolondacha.keenetic.link,DIRECT
+  - DOMAIN,evpolondom.keenetic.name,DIRECT
+  - RULE-SET,geoip-ru,DIRECT
+  #- GEOIP,RU,DIRECT
+  - MATCH,PROXY
