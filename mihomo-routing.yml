@@ -110,12 +110,16 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true 
-  - name: "HostingVDS-Hys2"
-    type: hysteria2
+  - name: "HostingVDS-TCP"
+    type: vless
     server: hostingvds-msk.ddns.net
     port: 8443
-    password: "tWkPfCJfpGxIkyRAJPFntA=="
+    uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
+    network: tcp
+    tls: true
+    client-fingerprint: chrome
     udp: true
+    tcp-fast-open: true 
   - name: "HostingVDS-VM"
     type: vmess
     server: 185.56.162.219
@@ -296,7 +300,7 @@ proxy-groups:
     proxies:
       - HostingVDS
       - HostingVDS-VM
-      - HostingVDS-Hys2
+      - HostingVDS-TCP
       - HostVDS
       - HostVDS-VM
       - Aeza
