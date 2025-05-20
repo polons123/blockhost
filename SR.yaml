@@ -1,5 +1,14 @@
 proxies:
 
+- name: "HostingVDS-AnyTLS"
+  type: ANYTLS
+  server: 185.56.162.219
+  port: 443
+  tls: true
+  password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
+  udp: true
+  sni: hostingvds-msk.ddns.net
+  
 - name: "H2Nexus-F"
   type: VLESS
   obfs: "httpupgrade"
