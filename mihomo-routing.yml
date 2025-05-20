@@ -95,10 +95,25 @@ sniffer:
     - "+.push.apple.com"
 
 proxies:
+  - name: "HostingVDS-AnyTLS"
+    type: anytls
+    server: 185.56.162.219
+    port: 443
+    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "hostingvds-msk.ddns.net"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
   - name: "HostingVDS"
     type: vless
     server: hostingvds-msk.ddns.net
-    port: 443
+    port: 60443
     uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
     network: ws
     ws-opts:
@@ -106,16 +121,6 @@ proxies:
       headers:
         Host: hostingvds-msk.ddns.net
       v2ray-http-upgrade: true
-    tls: true
-    client-fingerprint: chrome
-    udp: true
-    tcp-fast-open: true 
-  - name: "HostingVDS-TCP"
-    type: vless
-    server: hostingvds-msk.ddns.net
-    port: 8443
-    uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
-    network: tcp
     tls: true
     client-fingerprint: chrome
     udp: true
@@ -300,7 +305,7 @@ proxy-groups:
     proxies:
       - HostingVDS
       - HostingVDS-VM
-      - HostingVDS-TCP
+      - HostingVDS-AnyTLS
       - HostVDS
       - HostVDS-VM
       - Aeza
@@ -501,16 +506,8 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
     path: ./geoip-ru.mrs
     interval: 86400
-  oisd_big:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/oisd/big.mrs"
-    path: ./big.mrs
-    interval: 86400
 
 rules:
-  - RULE-SET,oisd_big,REJECT
   - DST-PORT,25,DIRECT
   - DST-PORT,465,DIRECT
   - DST-PORT,587,DIRECT
