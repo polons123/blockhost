@@ -70,7 +70,6 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
-        "HostingVDS-Hys2",
         "HostVDS",
         "HostVDS-VM",
         "Aeza",
