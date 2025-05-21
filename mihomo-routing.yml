@@ -522,6 +522,8 @@ rules:
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
   - IP-CIDR,::1/128,DIRECT
+
+  - DST-PORT,3478-3481/10000-20000,PROXY # WebRTC leak prevent
   
   - RULE-SET,geosite-yandex,DIRECT
   - RULE-SET,geosite-vk,DIRECT
@@ -556,7 +558,9 @@ rules:
   - DOMAIN-KEYWORD,habr,PROXY
   - DOMAIN-SUFFIX,themoviedb.org,PROXY
   - DOMAIN-SUFFIX,tmbd.org,PROXY
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY
   - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
+  - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
   
   - DOMAIN-SUFFIX,ru,DIRECT
   - DOMAIN-SUFFIX,su,DIRECT
