@@ -305,7 +305,6 @@ proxy-groups:
     proxies:
       - HostingVDS
       - HostingVDS-VM
-      - HostingVDS-AnyTLS
       - HostVDS
       - HostVDS-VM
       - Aeza
