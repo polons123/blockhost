@@ -89,7 +89,7 @@
       "tag": "HostingVDS",
       "server": "hostingvds-msk.ddns.net",
       "domain_strategy": "ipv4_only",
-      "server_port": 443,
+      "server_port": 60443,
       "tcp_fast_open": true,
       "udp_fragment": true,
       "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
@@ -104,17 +104,6 @@
         "type": "httpupgrade",
         "path": "/Video-data",
         "host": "hostingvds-msk.ddns.net"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "HostingVDS-Hys2",
-      "server": "hostingvds-msk.ddns.net",
-      "domain_strategy": "ipv4_only",
-      "server_port": 8443,
-      "password": "tWkPfCJfpGxIkyRAJPFntA==",
-      "tls": {
-        "enabled": true
       }
     },
     {
