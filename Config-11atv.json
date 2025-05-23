@@ -14,13 +14,13 @@
       //"address": "https://vdska-pl.ydns.eu/dns-query",
       //"address": "https://doh.dns.sb/dns-query",
       "address_resolver": "dns-resolve",
-      "address_strategy": "ipv4_only",
+      "address_strategy": "prefer_ipv6",
       "detour": "direct"
     },
     {
       "tag": "dns-resolve",
       "address": "77.88.8.8",
-      "address_strategy": "ipv4_only",
+      "address_strategy": "prefer_ipv6",
       "detour": "direct"
     }
   ],
@@ -33,7 +33,7 @@
     }
   ],
   "final": "dns-word",
-  "strategy": "prefer_ipv4",
+  "strategy": "prefer_ipv6",
   "cache_capacity": 4096,
   "independent_cache": false,
   "disable_expire": false
@@ -44,12 +44,15 @@
       "tag": "tun-in",
       "interface_name": "tun0",
       "mtu": 9000,
-      "address": "172.19.0.1/28",
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
       "auto_route": true,
       "strict_route": true,
       "endpoint_independent_nat": false,
       "udp_timeout": "1m",
-      "stack": "system",
+      "stack": "mixed",
       "route_exclude_address": [
         "10.0.0.0/8",
         "172.16.0.0/12",
@@ -87,7 +90,7 @@
       "type": "vless",
       "tag": "HostingVDS",
       "server": "hostingvds-msk.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -109,7 +112,7 @@
       "type": "vmess",
       "tag": "HostingVDS-VM",
       "server": "185.56.162.219",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 64358,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -126,7 +129,7 @@
       "type": "vless",
       "tag": "Aeza",
       "server": "aeza-de.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -148,7 +151,7 @@
       "type": "vmess",
       "tag": "Aeza-VM",
       "server": "85.192.24.24",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 63215,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -165,7 +168,7 @@
       "type": "vless",
       "tag": "HostVDS",
       "server": "hostvds.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -187,7 +190,7 @@
       "type": "vmess",
       "tag": "HostVDS-VM",
       "server": "188.130.206.28",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 65319,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -204,7 +207,7 @@
       "type": "vless",
       "tag": "H2nexus-F",
       "server": "h2nexus.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -226,7 +229,7 @@
       "type": "vmess",
       "tag": "H2nexus-VM-F",
       "server": "45.144.52.52",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 65309,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -243,7 +246,7 @@
       "type": "vless",
       "tag": "SaleDedic-F",
       "server": "salededic-swe.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -265,7 +268,7 @@
       "type": "vmess",
       "tag": "SaleDedic-VM-F",
       "server": "109.122.201.73",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 64709,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -282,7 +285,7 @@
       "type": "vless",
       "tag": "Waicore-Ger",
       "server": "waicore-ger.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -304,7 +307,7 @@
       "type": "vmess",
       "tag": "Waicore-VM-Ger",
       "server": "193.233.134.245",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 62910,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -320,6 +323,15 @@
   ],
   "route": {
     "rules": [
+      {
+        "action": "sniff",
+        "timeout": "1s"
+      },
+      {
+        "action": "resolve",
+        "strategy": "prefer_ipv6",
+        "server": "dns-word"
+      },
       {
         "port": [
           25,
