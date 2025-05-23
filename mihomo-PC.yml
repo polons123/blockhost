@@ -245,7 +245,6 @@ proxies:
     tcp-fast-open: true
   - name: "SaleDedic-F"
     type: vless
-    ip-version: ipv6-prefer
     server: salededic-swe.ddns.net
     port: 443
     ip-version: ipv6-prefer
