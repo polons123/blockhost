@@ -99,6 +99,7 @@ proxies:
   #  type: anytls
   #  server: 185.56.162.219
   #  port: 443
+  #  ip-version: ipv6-prefer
   #  password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
   #  client-fingerprint: chrome
   #  udp: true
@@ -130,6 +131,7 @@ proxies:
     type: vmess
     server: 185.56.162.219
     port: 64358
+    ip-version: ipv6-prefer
     uuid: c3255d49-443d-46cb-83d5-d8d88b816444
     alterId: 0
     ip-version: ipv6-prefer
