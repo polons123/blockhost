@@ -14,13 +14,13 @@
       //"address": "https://vdska-pl.ydns.eu/dns-query",
       //"address": "https://doh.dns.sb/dns-query",
       "address_resolver": "dns-resolve",
-      "address_strategy": "ipv4_only",
+      "address_strategy": "prefer_ipv6",
       "detour": "direct"
     },
     {
       "tag": "dns-resolve",
       "address": "77.88.8.8",
-      "address_strategy": "ipv4_only",
+      "address_strategy": "prefer_ipv6",
       "detour": "direct"
     }
   ],
@@ -33,7 +33,7 @@
     }
   ],
   "final": "dns-word",
-  "strategy": "ipv4_only",
+  "strategy": "prefer_ipv6",
   "cache_capacity": 4096,
   "independent_cache": false,
   "disable_expire": false
@@ -87,7 +87,7 @@
       "type": "vless",
       "tag": "HostingVDS",
       "server": "hostingvds-msk.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -109,7 +109,7 @@
       "type": "vmess",
       "tag": "HostingVDS-VM",
       "server": "185.56.162.219",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 64358,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -126,7 +126,7 @@
       "type": "vless",
       "tag": "Aeza",
       "server": "aeza-de.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -148,7 +148,7 @@
       "type": "vmess",
       "tag": "Aeza-VM",
       "server": "85.192.24.24",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 63215,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -165,7 +165,7 @@
       "type": "vless",
       "tag": "HostVDS",
       "server": "hostvds.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -187,7 +187,7 @@
       "type": "vmess",
       "tag": "HostVDS-VM",
       "server": "188.130.206.28",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 65319,
       "tcp_fast_open": true,
       "udp_fragment": false,
@@ -204,7 +204,7 @@
       "type": "vless",
       "tag": "H2nexus-F",
       "server": "h2nexus.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -226,7 +226,7 @@
       "type": "vmess",
       "tag": "H2nexus-VM-F",
       "server": "45.144.52.52",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 65309,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -243,7 +243,7 @@
       "type": "vless",
       "tag": "SaleDedic-F",
       "server": "salededic-swe.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -265,7 +265,7 @@
       "type": "vmess",
       "tag": "SaleDedic-VM-F",
       "server": "109.122.201.73",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 64709,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -282,7 +282,7 @@
       "type": "vless",
       "tag": "Waicore-Ger",
       "server": "waicore-ger.ddns.net",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -304,7 +304,7 @@
       "type": "vmess",
       "tag": "Waicore-VM-Ger",
       "server": "193.233.134.245",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "prefer_ipv6",
       "server_port": 62910,
       "tcp_fast_open": true,
       "udp_fragment": true,
@@ -321,6 +321,15 @@
   "route": {
     "rules": [
       {
+        "action": "sniff",
+        "timeout": "1s"
+      },
+      {
+        "action": "resolve",
+        "strategy": "prefer_ipv6",
+        "server": "dns-word"
+      },
+      {
         "port": [
           25,
           465,
@@ -328,7 +337,7 @@
           993,
           995,
           18090,
-          18092
+          18092,
           59090
         ],
         "action": "route",
@@ -428,6 +437,190 @@
         "ip_is_private": true,
         "action": "route",
         "outbound": "direct"
+      },
+      {
+        "domain_keyword": [
+          "habr"
+        ],
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "domain_suffix": [
+          "themoviedb.org",
+          "tmbd.org",
+          "themoviedb.org",
+          "tmdb-image-prod.b-cdn.net",
+          "cdn.cookielaw.org",
+          "kino.pub",
+          "4pda.to"
+        ],
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "ip_cidr": [
+          "89.179.162.96/28"
+        ],
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "rule_set": [
+              "geoip-google",
+              "geosite-google",
+              "openai",
+              "microsoft",
+              "geoip-facebook",
+              "geosite-meta",
+              "discord",
+              "tiktok",
+              "apple",
+              "geoip-telegram",
+              "geosite-telegram"
+        ],
+        "action": "route",
+        "outbound": "selector"
+      },
+      {
+        "domain": [
+          "polons.synology.me",
+          "evpolondacha.keenetic.link",
+          "evpolondom.keenetic.name"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "ru",
+          "su",
+          "yandex.net"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ru",
+          "gov-ru"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "gov-ru",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ru.srs",
+        "download_detour": "direct",
+        "update_interval": "10d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ads-all",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-google",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-google.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-google",
+        "format": "binary",
+        "url": "https://github.com/runetfreedom/russia-blocked-geoip/raw/refs/heads/release/srs/google.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-facebook",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-facebook.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-meta",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-meta.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-telegram",
+        "format": "binary",
+        "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-telegram.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-telegram",
+        "format": "binary",
+        "url": "https://github.com/polons123/blockhost/raw/main/geosite-telegram.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "apple",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-apple.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "openai",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-openai.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "tiktok",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-tiktok.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "discord",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-discord.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "microsoft",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-microsoft.srs",
+        "download_detour": "direct",
+        "update_interval": "1d"
       }
     ],
     "final": "selector",
@@ -439,11 +632,6 @@
       "enabled": true,
       "path": "cache.db",
       "store_rdrc": true
-    },
-    "clash_api": {
-      "external_controller": "0.0.0.0:59090",
-      "external_ui": "ui",
-      "external_ui_download_detour": "direct"
     }
   }
 }
