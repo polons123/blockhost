@@ -59,8 +59,7 @@ profile:
   store-fake-ip: true
 tun:
   enable: true
-  #stack: system
-  stack: mixed
+  stack: system
   auto-route: true
   strict-route: false
   auto-detect-interface: true
