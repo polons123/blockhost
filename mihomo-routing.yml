@@ -59,7 +59,7 @@ profile:
   store-fake-ip: true
 tun:
   enable: true
-  stack: system
+  stack: gvisor
   auto-route: true
   strict-route: false
   auto-detect-interface: true
