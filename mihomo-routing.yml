@@ -19,7 +19,6 @@ dns:
   enable: true
   enhanced-mode: fake-ip # redir-host  or fake-ip
   fake-ip-filter:
-  fake-ip-filter:
   # LAN домены
   - '*.lan'
   - '*.localdomain'
