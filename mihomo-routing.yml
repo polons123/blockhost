@@ -250,8 +250,8 @@ tun:
   endpoint-independent-nat: false
   auto-detect-interface: true
   dns-hijack:
-  - any:53
-  - tcp://any:53
+  - any:10053
+  - tcp://any:10053
   device: utun0
   route-exclude-address:
   - 0.0.0.0/8
