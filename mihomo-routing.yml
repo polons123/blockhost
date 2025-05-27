@@ -15,20 +15,22 @@ dns:
   default-nameserver:
   - system
   - 77.88.8.8
+  - 8.8.8.8
   direct-nameserver-follow-policy: false
   enable: true
   enhanced-mode: fake-ip # redir-host  or fake-ip
   fake-ip-filter:
   # LAN домены
-  - '*.lan'
-  - '*.localdomain'
-  - '*.example'
-  - '*.invalid'
-  - '*.localhost'
-  - '*.test'
-  - '*.local'
-  - '*.home.arpa'
-  - '*.direct'
+  - '+.lan'
+  - '+.localdomain'
+  - '+.example'
+  - '+.invalid'
+  - '+.localhost'
+  - '+.test'
+  - '+.local'
+  - '+.home.arpa'
+  - '+.direct'
+    
   # NTP сервисы (синхронизация времени)
   - 'time.*.com'
   - 'time.*.gov'
@@ -50,27 +52,44 @@ dns:
   - 'ntp5.*.com'
   - 'ntp6.*.com'
   - 'ntp7.*.com'
-  - '*.time.edu.cn'
-  - '*.ntp.org.cn'
+  - '+.time.edu.cn'
+  - '+.ntp.org.cn'
   - '+.pool.ntp.org'
-  - '*.xiami.com'
+    
   # Microsoft сервисы
   - '+.msftconnecttest.com'
   - '+.msftncsi.com'
+  - '+.microsoft.com'
+  - '+.microsoftonline.com'
+  - '+.office.com'
+  - '+.office365.com'
+  - '+.outlook.com'
+  - '+.live.com'
+  - '+.hotmail.com'
+  - '+.xbox.com'
+  - '+.xboxlive.com'
+  - '+.gamepass.com'
+    
   # Игровые платформы
-  # Steam
   - '+.steamcontent.com'
-  # Nintendo Switch
+  - '+.steampowered.com'
+  - '+.steamcommunity.com'
+  - '+.steamstatic.com'
   - '+.srv.nintendo.net'
-  - '*.n.n.srv.nintendo.net'
+  - '+.n.n.srv.nintendo.net'
   - '+.cdn.nintendo.net'
-  # Sony PlayStation
-  - '+.stun.playstation.net' 
-  # Microsoft Xbox
+  - '+.stun.playstation.net'
+  - '+.playstation.net'
+  - '+.playstation.com'
   - 'xbox.*.*.microsoft.com'
-  - '*.*.xboxlive.com'
+  - '+.*.xboxlive.com'
   - 'xbox.*.microsoft.com'
   - 'xnotify.xboxlive.com'
+  - '+.battle.net'
+  - '+.blizzard.com'
+  - '+.epicgames.com'
+  - '+.unrealengine.com'
+    
   # STUN сервисы
   - 'stun.*.*'
   - 'stun.*.*.*'
@@ -78,38 +97,116 @@ dns:
   - '+.stun.*.*.*'
   - '+.stun.*.*.*.*'
   - '+.stun.*.*.*.*.*'
-  # Apple обновления
-  - 'mesu.apple.com'
-  - 'swscan.apple.com'
-  - 'swquery.apple.com'
-  - 'swdownload.apple.com'
-  - 'swcdn.apple.com'
-  - 'swdist.apple.com'
+  
   # Google сервисы
-  - 'lens.l.google.com'
-  - 'stun.l.google.com'
-  - 'na.b.g-tun.com'
-  # Xiaomi
-  - '+.market.xiaomi.com'
-  # T-mobile и Ultra Mobile (Wi-Fi calling)
-  - '+.3gppnetwork.org'
+  - '+.google.com'
+  - '+.googleapis.com'
+  - '+.googleusercontent.com'
+  - '+.googlevideo.com'
+  - '+.gstatic.com'
+  - '+.googletagmanager.com'
+  - '+.googleadservices.com'
+  - '+.googlesyndication.com'
+  - '+.youtube.com'
+  - '+.ytimg.com'
+  - '+.youtu.be'
+  - '+.android.com'
+  - '+.gvt1.com'
+  - '+.gvt2.com'
+  - '+.gvt3.com'
+  - '+.googlecloud.com'
+  - '+.firebase.com'
+  - '+.firebaseio.com'
+  - '+.fcm.googleapis.com'
+  
   # Apple сервисы
-  - '*.apple.com'
-  - '*.icloud.com'
-  - '*.push.apple.com'
-  - 'gateway.push.apple.com'
-  - 'gateway.sandbox.push.apple.com'
-  - 'mesu.apple.com'
-  - 'swscan.apple.com'
-  - 'swquery.apple.com'
-  - 'swdownload.apple.com'
-  - 'swcdn.apple.com'
-  - 'swdist.apple.com'
-  - 'time.apple.com'
-  - 'time-ios.apple.com'
-  - 'ocsp.apple.com'
-  - 'ocsp2.apple.com'
-  - '+.push.apple.com'
+  - '+.apple.com'
+  - '+.icloud.com'
+  - '+.itunes.apple.com'
+  - '+.apps.apple.com'
+  
+  # Meta экосистема
+  - '+.facebook.com'
+  - '+.fbcdn.net'
+  - '+.instagram.com'
+  - '+.cdninstagram.com'
+  - '+.whatsapp.com'
+  - '+.whatsapp.net'
+  - '+.oculus.com'
+  - '+.oculuscdn.com'
+  
+  # Мессенджеры и соцсети
+  - '+.telegram.org'
+  - '+.t.me'
+  - '+.tdesktop.com'
+  - '+.telegra.ph'
+  - '+.discord.com'
+  - '+.discordapp.com'
+  - '+.discord.gg'
+  - '+.discordcdn.com'
+  - '+.tiktok.com'
+  - '+.tiktokcdn.com'
+  - '+.bytedance.com'
+  - '+.musical.ly'
+  
+  # AI и развлекательные сервисы
+  - '+.openai.com'
+  - '+.chatgpt.com'
+  - 'chat.openai.com'
+  - 'api.openai.com'
+  - '+.netflix.com'
+  - '+.nflximg.net'
+  - '+.nflxvideo.net'
+  - '+.nflxso.net'
+  - '+.spotify.com'
+  - '+.spotifycdn.com'
+  - '+.scdn.co'
+  
+  # Банковские и финансовые сервисы
+  - '+.sberbank.ru'
+  - '+.vtb.ru'
+  - '+.alfabank.ru'
+  - '+.tinkoff.ru'
+  - '+.gosuslugi.ru'
+  - '+.mos.ru'
+  - '+.paypal.com'
+  - '+.visa.com'
+  - '+.mastercard.com'
+  
+  # Антивирусы и системы безопасности
+  - '+.kaspersky.com'
+  - '+.avast.com'
+  - '+.avg.com'
+  - '+.eset.com'
+  - '+.norton.com'
+  - '+.mcafee.com'
+  
+  # Китайские производители
+  - '+.market.xiaomi.com'
+  - '+.miui.com'
+  - '+.mi.com'
+  - '+.huawei.com'
+  - '+.vmall.com'
+  - '+.oppo.com'
+  - '+.vivo.com'
+  
+  # Операторы связи и Wi-Fi calling
+  - '+.3gppnetwork.org'
+  - '+.ims.mnc*.mcc*.3gppnetwork.org'
+  
+  # CDN и облачные сервисы
+  - '+.cloudflare.com'
+  - '+.cloudflaressl.com'
+  - 'cloudflare-ech.com'
+  - '+.amazonaws.com'
+  - '+.azure.com'
+  - '+.azureedge.net'
+  
+  # Дополнительные системные домены
+  - '+.msftconnecttest.com'
+  - '+.connectivitycheck.gstatic.com'
+  - 'captive.apple.com'
+  - 'detectportal.firefox.com'
   fake-ip-filter-mode: blacklist
   fake-ip-range: 198.18.0.1/16
   #fallback:
@@ -154,6 +251,21 @@ tun:
   dns-hijack:
   - any:53
   - tcp://any:53
+  route-exclude-address:
+  - 0.0.0.0/8
+  - 100.64.0.0/10
+  - 127.0.0.0/8
+  - 169.254.0.0/16
+  - 172.16.0.0/12
+  - 192.0.0.0/24
+  - 192.0.2.0/24
+  - 192.88.99.0/24
+  - 192.168.0.0/16
+  - 198.51.100.0/24
+  - 203.0.113.0/24
+  - 224.0.0.0/4
+  - 255.255.255.255/32
+  - 239.255.255.250/32
 
 #geox-url:
 #  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
@@ -180,7 +292,82 @@ sniffer:
       ports: [80, 8080-8880]
       override-destination: true
   skip-domain:
+    # LAN домены - полностью переносим
+    - '+.lan'
+    - '+.localdomain'
+    - '+.example'
+    - '+.invalid'
+    - '+.localhost'
+    - '+.test'
+    - '+.local'
+    - '+.home.arpa'
+    - '+.direct'
+    
+    # NTP сервисы - полностью переносим (UDP протокол)
+    - 'time.*.com'
+    - 'time.*.gov'
+    - 'time.*.edu.cn'
+    - 'time.*.apple.com'
+    - 'time-ios.apple.com'
+    - 'time1.*.com'
+    - 'time2.*.com'
+    - 'time3.*.com'
+    - 'time4.*.com'
+    - 'time5.*.com'
+    - 'time6.*.com'
+    - 'time7.*.com'
+    - 'ntp.*.com'
+    - 'ntp1.*.com'
+    - 'ntp2.*.com'
+    - 'ntp3.*.com'
+    - 'ntp4.*.com'
+    - 'ntp5.*.com'
+    - 'ntp6.*.com'
+    - 'ntp7.*.com'
+    - '+.time.edu.cn'
+    - '+.ntp.org.cn'
+    - '+.pool.ntp.org'
+    
+    # STUN сервисы - полностью переносим (UDP протокол)
+    - 'stun.*.*'
+    - 'stun.*.*.*'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+    
+    # Push-уведомления и системные проверки
     - "+.push.apple.com"
+    - "captive.apple.com"
+    - "ocsp.apple.com"
+    - "ocsp2.apple.com"
+    - "mesu.apple.com"
+    - "swscan.apple.com"
+    - "swquery.apple.com"
+    - "swdownload.apple.com"
+    - "swcdn.apple.com"
+    - "swdist.apple.com"
+    - "configuration.apple.com"
+    - "setup.icloud.com"
+    - "p*.mail.icloud.com"
+    - '+.fcm.googleapis.com'
+    - '+.android.googleapis.com'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - 'captive.apple.com'
+    - 'detectportal.firefox.com'
+    - '+.connectivitycheck.gstatic.com'
+  skip-src-address:
+    - "10.0.0.0/8"
+    - "172.16.0.0/12"
+    - "192.168.0.0/16"
+    - "127.0.0.0/8"
+  skip-dst-address:
+    - "10.0.0.0/8"
+    - "172.16.0.0/12"
+    - "192.168.0.0/16"
+    - "127.0.0.0/8"
+    - "224.0.0.0/4"
 
 proxies:
   #- name: "HostingVDS-AnyTLS"
@@ -200,7 +387,7 @@ proxies:
   #  skip-cert-verify: false
   - name: "HostingVDS"
     type: vless
-    server: hostingvds-msk.ddns.net
+    server: 185.56.162.219
     port: 443
     ip-version: ipv6-prefer
     uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
@@ -233,7 +420,7 @@ proxies:
     tcp-fast-open: true
   - name: "Aeza"
     type: vless
-    server: aeza-de.ddns.net
+    server: 85.192.24.24
     port: 443
     ip-version: ipv6-prefer
     uuid: 644cd9d2-58ac-449c-883c-6a1afa9fd8d3
@@ -266,7 +453,7 @@ proxies:
     tcp-fast-open: true
   - name: "HostVDS"
     type: vless
-    server: hostvds.ddns.net
+    server: 188.130.206.28
     port: 443
     ip-version: ipv6-prefer
     uuid: d8003fcf-e9fc-4e64-9e57-12f51d02dede
@@ -299,7 +486,7 @@ proxies:
     tcp-fast-open: true
   - name: "H2nexus-F"
     type: vless
-    server: h2nexus.ddns.net
+    server: 45.144.52.52
     port: 443
     ip-version: ipv6-prefer
     uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
@@ -332,7 +519,7 @@ proxies:
     tcp-fast-open: true
   - name: "SaleDedic-F"
     type: vless
-    server: salededic-swe.ddns.net
+    server: 109.122.201.73
     port: 443
     ip-version: ipv6-prefer
     uuid: b8dec966-bb51-4597-9bde-c6ce86eaf00b
@@ -380,7 +567,6 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-
   - name: "Waicore-VM-Ger"
     type: vmess
     server: 193.233.134.245
@@ -615,14 +801,30 @@ rules:
   - DST-PORT,18090,DIRECT
   - DST-PORT,18092,DIRECT
   - DST-PORT,59090,DIRECT
+  - DST-PORT,2195,DIRECT #push уведомления
+  - DST-PORT,2196,DIRECT
+  - DST-PORT,2197,DIRECT
+  - DST-PORT,5223,DIRECT
+  - DST-PORT,5228,DIRECT
+  - DST-PORT,5229,DIRECT
+  - DST-PORT,5230,DIRECT # конец push уведомлений
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
   - IP-CIDR,::1/128,DIRECT
+  # Apple Push Notifications
   - DOMAIN-SUFFIX,push.apple.com,DIRECT
   - DOMAIN,push.apple.com,DIRECT
+  - DOMAIN-SUFFIX,api.push.apple.com,DIRECT
+  - DOMAIN,gateway.push.apple.com,DIRECT
+  - DOMAIN,gateway.sandbox.push.apple.com,DIRECT
+  # Google/Firebase Push Notifications
+  - DOMAIN-SUFFIX,fcm.googleapis.com,DIRECT
+  - DOMAIN,fcm.googleapis.com,DIRECT
+  - DOMAIN-SUFFIX,android.googleapis.com,DIRECT
+  - DOMAIN,android.googleapis.com,DIRECT
   
   - RULE-SET,geosite-yandex,DIRECT
   - RULE-SET,geosite-vk,DIRECT
