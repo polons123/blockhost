@@ -223,13 +223,16 @@ dns:
   #  - 240.0.0.0/4
   #  - 0.0.0.0/32
   listen: :10053
+  ipv6: true
   nameserver:
   - https://hostingvds-mon.ydns.eu:8443/dns-query
   - https://vdska-fin.ydns.eu/dns-query
+  - https://vdska-pl.ydns.eu/dns-query
   prefer-h3: true
   proxy-server-nameserver:
   - https://hostingvds-mon.ydns.eu:8443/dns-query
   - https://vdska-fin.ydns.eu/dns-query
+  - https://vdska-pl.ydns.eu/dns-query
   respect-rules: false
   use-hosts: false
   use-system-hosts: false
