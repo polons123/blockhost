@@ -239,6 +239,7 @@ profile:
 tun:
   enable: true
   stack: gvisor
+  mtu: 9000
   auto-route: true
   strict-route: true
   gso: true
