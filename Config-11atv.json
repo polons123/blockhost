@@ -73,6 +73,7 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
+        "HostingVDS-Hys",
         "HostVDS",
         "HostVDS-VM",
         "Aeza",
@@ -123,6 +124,19 @@
         "type": "httpupgrade",
         "path": "/Video-data",
         "host": "185.56.162.219"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "HostingVDS-Hys",
+      "server": "185.56.162.219",
+      "server_port": 8443,
+      "password": "E1RVby4ynw4nMh/uJh3kYg==",
+      "tls": {
+        "enabled": true,
+        "server_name": "hostingvds-msk.ddns.net",
+        "insecure": false,
+        "alpn": ["h3"]
       }
     },
     {
