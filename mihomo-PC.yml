@@ -394,8 +394,8 @@ proxies:
     ip-version: ipv6-prefer
     #ports: 443-8443
     password: E1RVby4ynw4nMh/uJh3kYg==
-    up: "1000 Mbps"
-    down: "1000 Mbps"
+    #up: "1000 Mbps"
+    #down: "1000 Mbps"
     sni: hostingvds-msk.ddns.net
     skip-cert-verify: false
     #fingerprint: chrome
