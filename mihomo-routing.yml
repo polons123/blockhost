@@ -167,6 +167,7 @@ dns:
   - '+.vtb.ru'
   - '+.alfabank.ru'
   - '+.tinkoff.ru'
+  - '+.ru'
   - '+.gosuslugi.ru'
   - '+.mos.ru'
   - '+.paypal.com'
@@ -283,9 +284,9 @@ tun:
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
-#keep-alive-interval: 120
-#keep-alive-idle: 3600
-disable-keep-alive: true
+keep-alive-interval: 60
+keep-alive-idle: 1800
+#disable-keep-alive: true
 
 sniffer:
   enable: true
@@ -363,6 +364,7 @@ sniffer:
     - 'captive.apple.com'
     - 'detectportal.firefox.com'
     - '+.connectivitycheck.gstatic.com'
+    - '+.ru'
   skip-src-address:
     - "10.0.0.0/8"
     - "172.16.0.0/12"
