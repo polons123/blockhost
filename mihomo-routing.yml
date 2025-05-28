@@ -284,8 +284,8 @@ tun:
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
-keep-alive-interval: 60
-keep-alive-idle: 1800
+keep-alive-interval: 360
+#keep-alive-idle: 1800
 #disable-keep-alive: true
 
 sniffer:
