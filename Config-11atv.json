@@ -353,6 +353,13 @@
           587,
           993,
           995,
+          2195,
+          2196,
+          2197,
+          5223,
+          5228,
+          5229,
+          5230,
           18090,
           18092,
           59090
@@ -429,7 +436,7 @@
         "outbound": "selector"
       },
       {
-        "domain": [ //direct domain
+        "domain": [
           "polons.synology.me",
           "evpolondacha.keenetic.link",
           "evpolondom.keenetic.name"
@@ -441,7 +448,13 @@
         "domain_suffix": [
           "ru",
           "su",
-          "yandex.net"
+          "yandex.net",
+          "push.apple.com",
+          "api.push.apple.com",
+          "gateway.push.apple.com",
+          "gateway.sandbox.push.apple.com",
+          "fcm.googleapis.com",
+          "android.googleapis.com"
         ],
         "action": "route",
         "outbound": "direct"
