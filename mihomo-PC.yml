@@ -372,35 +372,22 @@ sniffer:
     - "224.0.0.0/4"
 
 proxies:
-  #- name: "HostingVDS-AnyTLS"
-  #  type: anytls
-  #  server: 185.56.162.219
-  #  port: 443
-  #  password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
-  #  client-fingerprint: chrome
-  #  udp: true
-  #  idle-session-check-interval: 30
-  #  idle-session-timeout: 30
-  #  min-idle-session: 0
-  #  sni: "hostingvds-msk.ddns.net"
-  #  alpn:
-  #    - h2
-  #    - http/1.1
-  #  skip-cert-verify: false
-  - name: "HostingVDS-Hys"
-    type: hysteria2
+  - name: "HostingVDS-AnyTLS"
+    type: anytls
     server: 185.56.162.219
     port: 8443
     ip-version: ipv6-prefer
-    #ports: 443-8443
-    password: E1RVby4ynw4nMh/uJh3kYg==
-    #up: "1000 Mbps"
-    #down: "1000 Mbps"
-    sni: hostingvds-msk.ddns.net
-    skip-cert-verify: false
-    #fingerprint: chrome
+    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "hostingvds-msk.ddns.net"
     alpn:
-      - h3
+      - h2
+      - http/1.1
+    skip-cert-verify: false
   - name: "HostingVDS"
     type: vless
     server: 185.56.162.219
@@ -607,7 +594,7 @@ proxy-groups:
     proxies:
       - HostingVDS
       - HostingVDS-VM
-      - HostingVDS-Hys
+      - HostingVDS-AnyTLS
       - HostVDS
       - HostVDS-VM
       - Aeza
