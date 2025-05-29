@@ -401,6 +401,14 @@ proxies:
     #fingerprint: chrome
     alpn:
       - h3
+  - name: "HostingVDS-SS"
+    type: ss
+    server: 185.56.162.219
+    port: 64098
+    cipher: 2022-blake3-chacha20-poly1305
+    password: "JiseLYppy7GuCUleVVgfPo0PZQsQofeVG9OXzgdi4+c="
+    udp: true
+    ip-version: ipv6-prefer  
   - name: "HostingVDS"
     type: vless
     server: 185.56.162.219
@@ -608,6 +616,7 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-Hys
+      - HostingVDS-SS
       - HostVDS
       - HostVDS-VM
       - Aeza
