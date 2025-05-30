@@ -423,15 +423,15 @@ proxies:
     tcp-fast-open: true
   - name: "Aeza"
     type: vless
-    server: 85.192.24.24
+    server: 77.110.126.157
     port: 443
     ip-version: ipv6-prefer
-    uuid: 644cd9d2-58ac-449c-883c-6a1afa9fd8d3
+    uuid: 9daf548c-2a02-48a4-9ec6-1d96d46a0283
     network: ws
     ws-opts:
       path: /Video-data
       headers:
-        Host: aeza-de.ddns.net
+        Host: aeza-usa.ddns.net
       v2ray-http-upgrade: true
     tls: true
     client-fingerprint: chrome
@@ -439,17 +439,17 @@ proxies:
     tcp-fast-open: true
   - name: "Aeza-VM"
     type: vmess
-    server: 85.192.24.24
+    server: 77.110.126.157
     port: 63215
     ip-version: ipv6-prefer
-    uuid: 69bc3848-e47f-45ed-9a37-0e5f5f319c1c
+    uuid: 3e9c4be7-7349-43d2-ac3a-35287114275e
     alterId: 0
     cipher: chacha20-poly1305
     network: ws
     ws-opts:
       path: /Video-data
       headers:
-        Host: 85.192.24.24
+        Host: 77.110.126.157
       v2ray-http-upgrade: true
     tls: false
     udp: true
