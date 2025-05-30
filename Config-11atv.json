@@ -73,7 +73,6 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
-        "HostingVDS-Hys",
         "HostVDS",
         "HostVDS-VM",
         "Aeza",
@@ -127,27 +126,14 @@
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "HostingVDS-Hys",
-      "server": "185.56.162.219",
-      "server_port": 8443,
-      "password": "E1RVby4ynw4nMh/uJh3kYg==",
-      "tls": {
-        "enabled": true,
-        "server_name": "hostingvds-msk.ddns.net",
-        "insecure": false,
-        "alpn": ["h3"]
-      }
-    },
-    {
       "type": "vless",
       "tag": "Aeza",
-      "server": "aeza-de.ddns.net",
+      "server": "aeza-usa.ddns.net",
       "domain_strategy": "prefer_ipv6",
       "server_port": 443,
       "tcp_fast_open": true,
       "udp_fragment": false,
-      "uuid": "644cd9d2-58ac-449c-883c-6a1afa9fd8d3",
+      "uuid": "9daf548c-2a02-48a4-9ec6-1d96d46a0283",
       "tls": {
         "enabled": true,
         "utls": {
@@ -158,24 +144,24 @@
       "transport": {
         "type": "httpupgrade",
         "path": "/Video-data",
-        "host": "aeza-de.ddns.net"
+        "host": "aeza-usa.ddns.net"
       }
     },
     {
       "type": "vmess",
       "tag": "Aeza-VM",
-      "server": "85.192.24.24",
+      "server": "77.110.126.157",
       "domain_strategy": "prefer_ipv6",
       "server_port": 63215,
       "tcp_fast_open": true,
       "udp_fragment": false,
-      "uuid": "69bc3848-e47f-45ed-9a37-0e5f5f319c1c",
+      "uuid": "3e9c4be7-7349-43d2-ac3a-35287114275e",
       "security": "chacha20-poly1305",
       "alter_id": null,
       "transport": {
         "type": "httpupgrade",
         "path": "/Video-data",
-        "host": "85.192.24.24"
+        "host": "77.110.126.157"
       }
     },
     {
