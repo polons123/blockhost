@@ -1,0 +1,446 @@
+{
+  "experimental": {
+    "clash_api": {
+      "external_controller": "",
+      "secret": ""
+    },
+    "debug": {
+      "max_threads": null,
+      "panic_on_fault": false,
+      "listen": null
+    },
+    "cache_file": {
+      "enabled": false,
+      "path": "",
+      "store_fakeip": true
+    }
+  },
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "output": "",
+    "timestamp": true
+  },
+  "ntp": {
+    "enabled": false,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "12h",
+    "detour": "direct_out"
+  },
+  "dns": {
+    "final": "dns_proxy_out",
+    "rules": [
+      {
+        "domain": [
+          "hostingvds-msk.ddns.net",
+          "aeza-usa.ddns.net",
+          "hostvds.ddns.net",
+          "h2nexus.ddns.net",
+          "salededic-swe.ddns.net",
+          "waicore-ger.ddns.net"
+        ],
+        "server": "dns_outbound_out",
+        "rewrite_ttl": 43200
+      },
+      {
+        "domain_suffix": [
+          "o4508911573663744.ingest.sentry.io"
+        ],
+        "server": "dns_direct_out",
+        "rewrite_ttl": 43200
+      },
+      {
+        "domain_suffix": [
+          "speed.cloudflare.com"
+        ],
+        "server": "dns_proxy_out",
+        "rewrite_ttl": 43200
+      },
+      {
+        "domain_suffix": [
+          "karing.app"
+        ],
+        "server": "dns_proxy_out",
+        "rewrite_ttl": 43200
+      }
+    ],
+    "servers": [
+      {
+        "tag": "dns_outbound_out",
+        "address": "udp://77.88.8.1",
+        "address_resolver": "dns_resolver_out",
+        "detour": "direct_out"
+      },
+      {
+        "tag": "dns_direct_out",
+        "address": "https://hostingvds-mon.ydns.eu:8443/dns-query",
+        "address_resolver": "dns_resolver_out",
+        "detour": "direct_out"
+      },
+      {
+        "tag": "dns_proxy_out",
+        "address": "https://hostingvds-mon.ydns.eu:8443/dns-query",
+        "address_resolver": "dns_resolver_out",
+        "detour": "urltest_out"
+      },
+      {
+        "tag": "dns_resolver_out",
+        "address": "udp://77.88.8.1",
+        "detour": "direct_out"
+      },
+      {
+        "tag": "dns_block_out",
+        "address": "rcode://success"
+      }
+    ],
+    "strategy": "prefer_ipv6",
+    "independent_cache": true,
+    "cache_capacity": 1024
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed_in_direct",
+      "set_system_proxy": false,
+      "listen": "127.0.0.1",
+      "listen_port": 3065,
+      "sniff": true,
+      "sniff_override_destination": false
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed_in_proxy",
+      "set_system_proxy": false,
+      "listen": "127.0.0.1",
+      "listen_port": 3066,
+      "sniff": true,
+      "sniff_override_destination": false
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed_in_rule",
+      "set_system_proxy": false,
+      "listen": "127.0.0.1",
+      "listen_port": 3067,
+      "sniff": true,
+      "sniff_override_destination": false
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "HostingVDS",
+      "server": "hostingvds-msk.ddns.net",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "e4cb6eca-18d4-48d5-9562-86a5e8740d07",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "hostingvds-msk.ddns.net"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "HostingVDS-VM",
+      "server": "185.56.162.219",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 64358,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "c3255d49-443d-46cb-83d5-d8d88b816444",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "185.56.162.219"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Aeza",
+      "server": "aeza-usa.ddns.net",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "9daf548c-2a02-48a4-9ec6-1d96d46a0283",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "aeza-usa.ddns.net"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Aeza-VM",
+      "server": "77.110.126.157",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 63215,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "3e9c4be7-7349-43d2-ac3a-35287114275e",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "77.110.126.157"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "HostVDS",
+      "server": "hostvds.ddns.net",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "d8003fcf-e9fc-4e64-9e57-12f51d02dede",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "hostvds.ddns.net"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "HostVDS-VM",
+      "server": "188.130.206.28",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 65319,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "86e1eae2-69c3-4fbe-a9b2-203d0f87f54c",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "188.130.206.28"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "H2nexus-F",
+      "server": "h2nexus.ddns.net",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "b68ab9f0-60a2-43bb-befb-ea72cc9400b2",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "h2nexus.ddns.net"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "H2nexus-VM-F",
+      "server": "45.144.52.52",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 65309,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "45.144.52.52"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SaleDedic-F",
+      "server": "salededic-swe.ddns.net",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "b8dec966-bb51-4597-9bde-c6ce86eaf00b",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "salededic-swe.ddns.net"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "SaleDedic-VM-F",
+      "server": "109.122.201.73",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 64709,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "a4ffa61e-07ab-4b77-b78d-f0939559d8f8",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "109.122.201.73"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Waicore-Ger",
+      "server": "waicore-ger.ddns.net",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "1db7c946-f9d6-4cfd-86b6-a4bcef67384c",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "waicore-ger.ddns.net"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Waicore-VM-Ger",
+      "server": "193.233.134.245",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 62910,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "99d0d9fe-a212-46ab-bf9a-cf1c113339bd",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "193.233.134.245"
+      }
+    },
+    {
+      "type": "urltest",
+      "tag": "urltest_out",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "8h",
+      "interrupt_exist_connections": false,
+      "idle_timeout": "8h",
+      "outbounds": [
+        "HostingVDS",
+        "HostingVDS-VM",
+        "Aeza",
+        "Aeza-VM",
+        "HostVDS",
+        "HostVDS-VM",
+        "H2nexus-F",
+        "H2nexus-VM-F",
+        "SaleDedic-F",
+        "SaleDedic-VM-F",
+        "Waicore-Ger",
+        "Waicore-VM-Ger"
+      ]
+    },
+    {
+      "type": "direct",
+      "tag": "direct_out"
+    },
+    {
+      "type": "block",
+      "tag": "block_out"
+    },
+    {
+      "type": "dns",
+      "tag": "dns_out"
+    }
+  ],
+  "route": {
+    "final": "urltest_out",
+    "find_process": true,
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "inbound": [
+          "mixed_in_direct"
+        ],
+        "outbound": "direct_out"
+      },
+      {
+        "inbound": [
+          "mixed_in_proxy"
+        ],
+        "outbound": "urltest_out"
+      },
+      {
+        "protocol": "dns",
+        "outbound": "dns_out"
+      },
+      {
+        "domain_suffix": [
+          "o4508911573663744.ingest.sentry.io"
+        ],
+        "outbound": "direct_out"
+      },
+      {
+        "domain_suffix": [
+          "speed.cloudflare.com"
+        ],
+        "outbound": "urltest_out"
+      },
+      {
+        "domain_suffix": [
+          "karing.app"
+        ],
+        "outbound": "direct_out"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct_out"
+      }
+    ],
+    "rule_set": []
+  }
+}
