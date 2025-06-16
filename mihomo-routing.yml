@@ -18,6 +18,7 @@ dns:
   - 8.8.8.8
   direct-nameserver-follow-policy: false
   enable: true
+  ipv6: true
   enhanced-mode: fake-ip # redir-host  or fake-ip
   fake-ip-filter:
   # LAN домены
