@@ -444,7 +444,6 @@ proxies:
     username: de0adea1-1359-4681-8035-24a15d2ba2bf
     password: 481ac0c9-59a7-448f-87c8-ab4a4f5c28fa
     tls: true
-    fingerprint: A5:DA:8D:18:36:3A:57:D9:DC:46:D3:10:25:9A:01:3F:BE:39:2E:B3:F1:04:63:15:74:05:84:A6:50:3E:0B:10
     #sni: timeweb-spb.ddns.net
     skip-cert-verify: false
     udp: true
