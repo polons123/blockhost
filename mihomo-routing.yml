@@ -419,9 +419,22 @@ proxies:
       headers:
         Host: 185.56.162.219
       v2ray-http-upgrade: true
-    tls: false # В исходном конфиге нет TLS для VMess
+    tls: false
     udp: true
     tcp-fast-open: true
+  - name: "TimeWeb"
+    type: vless
+    server: timeweb-spb.ddns.net
+    port: 443
+    ip-version: ipv6-prefer
+    uuid: a7c92cd4-6f79-441c-b966-69c1095c4470
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: timeweb-spb.ddns.net
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true   
   - name: "Aeza"
     type: vless
     server: 77.110.126.157
@@ -596,6 +609,7 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-AnyTLS
+      - TimeWeb
       - HostVDS
       - HostVDS-VM
       - Aeza
