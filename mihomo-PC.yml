@@ -380,8 +380,8 @@ proxies:
     password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
+    idle-session-check-interval: 120
+    idle-session-timeout: 120
     min-idle-session: 0
     sni: "hostingvds-msk.ddns.net"
     alpn:
@@ -401,6 +401,8 @@ proxies:
         Host: hostingvds-msk.ddns.net
       v2ray-http-upgrade: true
     tls: true
+    servername: hostingvds-msk.ddns.net
+    skip-cert-verify: false
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true 
@@ -411,16 +413,40 @@ proxies:
     uuid: c3255d49-443d-46cb-83d5-d8d88b816444
     alterId: 0
     ip-version: ipv6-prefer
-    cipher: chacha20-poly1305 # security в исходном конфиге
+    cipher: chacha20-poly1305
     network: ws
     ws-opts:
       path: /Video-data
       headers:
         Host: 185.56.162.219
       v2ray-http-upgrade: true
-    tls: false # В исходном конфиге нет TLS для VMess
+    tls: false
     udp: true
     tcp-fast-open: true
+  - name: "TimeWeb"
+    type: vless
+    server: 217.18.63.172
+    port: 443
+    ip-version: ipv6-prefer
+    uuid: a7c92cd4-6f79-441c-b966-69c1095c4470
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: timeweb-spb.ddns.net
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true
+  - name: "TimeWeb-S5"
+    type: socks5
+    server: timeweb-spb.ddns.net
+    port: 8443
+    username: de0adea1-1359-4681-8035-24a15d2ba2bf
+    password: 481ac0c9-59a7-448f-87c8-ab4a4f5c28fa
+    tls: true
+    #sni: timeweb-spb.ddns.net
+    skip-cert-verify: false
+    udp: true
+    ip-version: ipv6-prefer
   - name: "Aeza"
     type: vless
     server: 77.110.126.157
@@ -434,7 +460,9 @@ proxies:
         Host: aeza-usa.ddns.net
       v2ray-http-upgrade: true
     tls: true
+    servername: aeza-usa.ddns.net
     client-fingerprint: chrome
+    skip-cert-verify: false
     udp: true
     tcp-fast-open: true
   - name: "Aeza-VM"
@@ -467,7 +495,9 @@ proxies:
         Host: hostvds.ddns.net
       v2ray-http-upgrade: true
     tls: true
+    servername: hostvds.ddns.net
     client-fingerprint: chrome
+    skip-cert-verify: false
     udp: true
     tcp-fast-open: true
   - name: "HostVDS-VM"
@@ -500,7 +530,9 @@ proxies:
         Host: h2nexus.ddns.net
       v2ray-http-upgrade: true
     tls: true
+    servername: h2nexus.ddns.net
     client-fingerprint: chrome
+    skip-cert-verify: false
     udp: true
     tcp-fast-open: true
   - name: "H2nexus-VM-F"
@@ -533,7 +565,9 @@ proxies:
         Host: salededic-swe.ddns.net
       v2ray-http-upgrade: true
     tls: true
+    servername: salededic-swe.ddns.net
     client-fingerprint: chrome
+    skip-cert-verify: false
     udp: true
     tcp-fast-open: true
   - name: "SaleDedic-VM-F"
@@ -568,6 +602,7 @@ proxies:
     tls: true
     servername: waicore-ger.ddns.net
     client-fingerprint: chrome
+    skip-cert-verify: false
     udp: true
     tcp-fast-open: true
   - name: "Waicore-VM-Ger"
@@ -595,6 +630,8 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-AnyTLS
+      - TimeWeb
+      - TimeWeb-S5
       - HostVDS
       - HostVDS-VM
       - Aeza
