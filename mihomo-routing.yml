@@ -426,7 +426,7 @@ proxies:
   - name: "TimeWeb"
     type: vless
     server: 217.18.63.172
-    port: 443
+    port: 10443
     ip-version: ipv6-prefer
     uuid: a7c92cd4-6f79-441c-b966-69c1095c4470
     #flow: xtls-rprx-vision
