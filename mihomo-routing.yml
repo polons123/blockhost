@@ -424,15 +424,13 @@ proxies:
     udp: true
     tcp-fast-open: true
   - name: "TimeWeb"
-    type: vless
+    type: trojan
     server: 217.18.63.172
-    port: 10443
+    port: 443
     ip-version: ipv6-prefer
-    uuid: a7c92cd4-6f79-441c-b966-69c1095c4470
-    #flow: xtls-rprx-vision
-    packet-encoding: xudp
+    password: a7c92cd4-6f79-441c-b966-69c1095c4470
     tls: true
-    servername: timeweb-spb.ddns.net
+    sni: timeweb-spb.ddns.net
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
