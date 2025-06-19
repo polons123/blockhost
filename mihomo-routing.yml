@@ -385,6 +385,7 @@ proxies:
     min-idle-session: 0
     sni: "hostingvds-msk.ddns.net"
     alpn:
+      - h3
       - h2
       - http/1.1
     skip-cert-verify: false
@@ -423,31 +424,23 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-  - name: "TimeWeb"
-    type: trojan
+  - name: "TimeWeb-AnyTLS"
+    type: anytls
     server: 217.18.63.172
-    port: 443
+    port: 8443
     ip-version: ipv6-prefer
-    password: a7c92cd4-6f79-441c-b966-69c1095c4470
-    tls: true
-    sni: timeweb-spb.ddns.net
+    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
     client-fingerprint: chrome
     udp: true
-    tcp-fast-open: true
-    network: ws
-    ws-opts:
-      path: /
-  - name: "TimeWeb-S5"
-    type: socks5
-    server: timeweb-spb.ddns.net
-    port: 8443
-    username: de0adea1-1359-4681-8035-24a15d2ba2bf
-    password: 481ac0c9-59a7-448f-87c8-ab4a4f5c28fa
-    tls: true
-    #sni: timeweb-spb.ddns.net
+    idle-session-check-interval: 120
+    idle-session-timeout: 120
+    min-idle-session: 0
+    sni: "timeweb-spb.ddns.net"
+    alpn:
+      - h3
+      - h2
+      - http/1.1
     skip-cert-verify: false
-    udp: true
-    ip-version: ipv6-prefer
   - name: "Aeza"
     type: vless
     server: 77.110.126.157
@@ -631,8 +624,7 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-AnyTLS
-      - TimeWeb
-      - TimeWeb-S5
+      - TimeWeb-AnyTLS
       - HostVDS
       - HostVDS-VM
       - Aeza
