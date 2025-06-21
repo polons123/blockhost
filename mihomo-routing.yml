@@ -441,6 +441,35 @@ proxies:
       - h2
       - http/1.1
     skip-cert-verify: false
+  - name: "TimeWeb-VM"
+    type: vmess
+    server: 217.18.63.172
+    port: 63219
+    uuid: 74f5992e-3090-4159-8ad5-4778d3b29118
+    alterId: 0
+    ip-version: ipv6-prefer
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      path: /Video-data
+    tls: false
+    udp: true
+    tcp-fast-open: true
+  - name: "TimeWeb"
+    type: trojan
+    server: 217.18.63.172
+    port: 443
+    ip-version: ipv6-prefer
+    password: af60d487-24fc-47a8-956e-3e0a2b664405
+    network: ws
+    ws-opts:
+      path: /Video-data
+    tls: true
+    sni: timeweb-spb.ddns.net
+    skip-cert-verify: false
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true 
   - name: "Aeza"
     type: vless
     server: 77.110.126.157
@@ -624,6 +653,8 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-AnyTLS
+      - TimeWeb
+      - TimeWeb-VM
       - TimeWeb-AnyTLS
       - HostVDS
       - HostVDS-VM
