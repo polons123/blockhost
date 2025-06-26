@@ -452,9 +452,20 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
+      headers:
+        Host: 217.18.63.172
+      v2ray-http-upgrade: true
     tls: false
     udp: true
     tcp-fast-open: true
+  - name: "TimeWeb-SS"
+    type: ss
+    server: 217.18.63.172
+    port: 63220
+    cipher: 2022-blake3-chacha20-poly1305
+    password: Bi4S9pZ99R748//bGZf44R8CvDrrk//dJnp8KWiywr0=
+    ip-version: ipv6-prefer
+    udp: true
   - name: "TimeWeb"
     type: trojan
     server: 217.18.63.172
@@ -464,6 +475,9 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
+      headers:
+        Host: timeweb-spb.ddns.net
+      v2ray-http-upgrade: true
     tls: true
     sni: timeweb-spb.ddns.net
     skip-cert-verify: false
@@ -655,6 +669,7 @@ proxy-groups:
       - HostingVDS-AnyTLS
       - TimeWeb
       - TimeWeb-VM
+      - TimeWeb-SS
       - TimeWeb-AnyTLS
       - HostVDS
       - HostVDS-VM
