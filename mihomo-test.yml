@@ -372,55 +372,14 @@ sniffer:
     - "224.0.0.0/4"
 
 proxies:
-  - name: "HostingVDS"
-    type: vless
-    server: 185.56.162.219
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: hostingvds-msk.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: hostingvds-msk.ddns.net
-    skip-cert-verify: false
-    client-fingerprint: chrome
-    udp: true
-    tcp-fast-open: true 
-  - name: "HostingVDS-VM"
-    type: vmess
-    server: 185.56.162.219
-    port: 64358
-    uuid: c3255d49-443d-46cb-83d5-d8d88b816444
-    alterId: 0
-    ip-version: ipv6-prefer
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 185.56.162.219
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
-  - name: "TimeWeb-VM"
-    type: vmess
+  - name: "TimeWeb-SS"
+    type: ss
     server: 217.18.63.172
-    port: 63219
-    uuid: 74f5992e-3090-4159-8ad5-4778d3b29118
-    alterId: 0
+    port: 63220
+    cipher: 2022-blake3-chacha20-poly1305
+    password: Bi4S9pZ99R748//bGZf44R8CvDrrk//dJnp8KWiywr0=
     ip-version: ipv6-prefer
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-    tls: false
     udp: true
-    tcp-fast-open: true
   - name: "TimeWeb"
     type: trojan
     server: 217.18.63.172
@@ -441,9 +400,7 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - HostingVDS
-      - HostingVDS-VM
-      - TimeWeb
+      - TimeWeb-SS
       - TimeWeb-VM
 
 rule-providers:
