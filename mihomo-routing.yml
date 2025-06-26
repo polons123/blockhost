@@ -463,7 +463,7 @@ proxies:
     server: 217.18.63.172
     port: 63220
     cipher: 2022-blake3-chacha20-poly1305
-    password: Bi4S9pZ99R748//bGZf44R8CvDrrk//dJnp8KWiywr0=
+    password: aODG248Id6IX6U42uKP3lgTLzs6YCLe6KhoPQYYC6RQ=
     ip-version: ipv6-prefer
     udp: true
   - name: "TimeWeb"
