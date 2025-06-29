@@ -280,8 +280,9 @@ tun:
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
-keep-alive-interval: 120
-keep-alive-idle: 3600
+keep-alive-interval: 30
+keep-alive-idle: 30
+disable-keep-alive: true
 
 sniffer:
   enable: true
@@ -380,11 +381,12 @@ proxies:
     password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 120
-    idle-session-timeout: 120
-    min-idle-session: 0
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 5
     sni: "hostingvds-msk.ddns.net"
     alpn:
+      - h3
       - h2
       - http/1.1
     skip-cert-verify: false
@@ -423,30 +425,66 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
+  - name: "TimeWeb-AnyTLS"
+    type: anytls
+    server: 217.18.63.172
+    port: 8443
+    ip-version: ipv6-prefer
+    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 5
+    sni: "timeweb-spb.ddns.net"
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+  - name: "TimeWeb-VM"
+    type: vmess
+    server: 217.18.63.172
+    port: 63219
+    uuid: 74f5992e-3090-4159-8ad5-4778d3b29118
+    alterId: 0
+    ip-version: ipv6-prefer
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: 217.18.63.172
+      v2ray-http-upgrade: true
+    tls: false
+    udp: true
+    tcp-fast-open: true
+  - name: "TimeWeb-SS"
+    type: ss
+    server: 217.18.63.172
+    port: 63220
+    cipher: 2022-blake3-chacha20-poly1305
+    password: aODG248Id6IX6U42uKP3lgTLzs6YCLe6KhoPQYYC6RQ=
+    ip-version: ipv6-prefer
+    udp: true
   - name: "TimeWeb"
-    type: vless
+    type: trojan
     server: 217.18.63.172
     port: 443
     ip-version: ipv6-prefer
-    uuid: a7c92cd4-6f79-441c-b966-69c1095c4470
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
+    password: af60d487-24fc-47a8-956e-3e0a2b664405
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: timeweb-spb.ddns.net
+      v2ray-http-upgrade: true
     tls: true
-    servername: timeweb-spb.ddns.net
+    sni: timeweb-spb.ddns.net
+    skip-cert-verify: false
     client-fingerprint: chrome
     udp: true
-    tcp-fast-open: true
-  - name: "TimeWeb-S5"
-    type: socks5
-    server: timeweb-spb.ddns.net
-    port: 8443
-    username: de0adea1-1359-4681-8035-24a15d2ba2bf
-    password: 481ac0c9-59a7-448f-87c8-ab4a4f5c28fa
-    tls: true
-    #sni: timeweb-spb.ddns.net
-    skip-cert-verify: false
-    udp: true
-    ip-version: ipv6-prefer
+    tcp-fast-open: true 
   - name: "Aeza"
     type: vless
     server: 77.110.126.157
@@ -631,7 +669,9 @@ proxy-groups:
       - HostingVDS-VM
       - HostingVDS-AnyTLS
       - TimeWeb
-      - TimeWeb-S5
+      - TimeWeb-VM
+      - TimeWeb-SS
+      - TimeWeb-AnyTLS
       - HostVDS
       - HostVDS-VM
       - Aeza
