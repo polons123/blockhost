@@ -1,6 +1,6 @@
 mode: rule
 mixed-port: 7897
-allow-lan: false
+allow-lan: true
 log-level: error
 ipv6: true
 # external-controller: 127.0.0.1:59090
@@ -288,7 +288,7 @@ sniffer:
   enable: true
   sniff:
     QUIC:
-      ports: [ 443 ]
+      ports: [443]
     TLS:
       ports: [443, 8443]
     HTTP:
