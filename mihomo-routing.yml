@@ -381,9 +381,9 @@ proxies:
     password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 120
-    idle-session-timeout: 120
-    min-idle-session: 0
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 5
     sni: "hostingvds-msk.ddns.net"
     alpn:
       - h3
