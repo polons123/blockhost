@@ -3,14 +3,17 @@ mixed-port: 7897
 allow-lan: true
 log-level: error
 ipv6: true
-# external-controller: 127.0.0.1:59090
-# secret: ''
-# external-controller-cors:
-#  allow-private-network: true
-#  allow-origins:
-#  - '*'
+external-controller: 127.0.0.1:59095
+#secret: 'Na.pole.tanki'
+external-ui: zashboard
+external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
+external-controller-cors:
+  allow-private-network: true
+  allow-origins:
+  - '*'
 unified-delay: true
 tcp-concurrent: true
+global-ua: clash.meta
 dns:
   default-nameserver:
   - system
