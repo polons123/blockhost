@@ -1,11 +1,12 @@
 mode: rule
 mixed-port: 7897
-allow-lan: false
+allow-lan: true
 log-level: error
 ipv6: true
 external-controller: 0.0.0.0:59095
-secret: 'Na.pole.tanki'
-external-ui: D:\mihomo\ui-zash
+#secret: 'Na.pole.tanki'
+external-ui-name: zashboard
+external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
 external-controller-cors:
   allow-private-network: true
   allow-origins:
@@ -21,7 +22,7 @@ dns:
   enable: true
   enhanced-mode: fake-ip # redir-host  or fake-ip
   fake-ip-filter:
-  # LAN домены
+  # LAN äîìåíû
   - '+.lan'
   - '+.localdomain'
   - '+.example'
@@ -32,7 +33,7 @@ dns:
   - '+.home.arpa'
   - '+.direct'
     
-  # NTP сервисы (синхронизация времени)
+  # NTP ñåðâèñû (ñèíõðîíèçàöèÿ âðåìåíè)
   - 'time.*.com'
   - 'time.*.gov'
   - 'time.*.edu.cn'
@@ -57,7 +58,7 @@ dns:
   - '+.ntp.org.cn'
   - '+.pool.ntp.org'
     
-  # Microsoft сервисы
+  # Microsoft ñåðâèñû
   - '+.msftconnecttest.com'
   - '+.msftncsi.com'
   - '+.microsoft.com'
@@ -71,7 +72,7 @@ dns:
   - '+.xboxlive.com'
   - '+.gamepass.com'
     
-  # Игровые платформы
+  # Èãðîâûå ïëàòôîðìû
   - '+.steamcontent.com'
   - '+.steampowered.com'
   - '+.steamcommunity.com'
@@ -91,7 +92,7 @@ dns:
   - '+.epicgames.com'
   - '+.unrealengine.com'
     
-  # STUN сервисы
+  # STUN ñåðâèñû
   - 'stun.*.*'
   - 'stun.*.*.*'
   - '+.stun.*.*'
@@ -99,7 +100,7 @@ dns:
   - '+.stun.*.*.*.*'
   - '+.stun.*.*.*.*.*'
   
-  # Google сервисы
+  # Google ñåðâèñû
   - '+.google.com'
   - '+.googleapis.com'
   - '+.googleusercontent.com'
@@ -120,13 +121,13 @@ dns:
   - '+.firebaseio.com'
   - '+.fcm.googleapis.com'
   
-  # Apple сервисы
+  # Apple ñåðâèñû
   - '+.apple.com'
   - '+.icloud.com'
   - '+.itunes.apple.com'
   - '+.apps.apple.com'
   
-  # Meta экосистема
+  # Meta ýêîñèñòåìà
   - '+.facebook.com'
   - '+.fbcdn.net'
   - '+.instagram.com'
@@ -136,7 +137,7 @@ dns:
   - '+.oculus.com'
   - '+.oculuscdn.com'
   
-  # Мессенджеры и соцсети
+  # Ìåññåíäæåðû è ñîöñåòè
   - '+.telegram.org'
   - '+.t.me'
   - '+.tdesktop.com'
@@ -150,7 +151,7 @@ dns:
   - '+.bytedance.com'
   - '+.musical.ly'
   
-  # AI и развлекательные сервисы
+  # AI è ðàçâëåêàòåëüíûå ñåðâèñû
   - '+.openai.com'
   - '+.chatgpt.com'
   - 'chat.openai.com'
@@ -163,7 +164,7 @@ dns:
   - '+.spotifycdn.com'
   - '+.scdn.co'
   
-  # Банковские и финансовые сервисы
+  # Áàíêîâñêèå è ôèíàíñîâûå ñåðâèñû
   - '+.sberbank.ru'
   - '+.vtb.ru'
   - '+.alfabank.ru'
@@ -174,7 +175,7 @@ dns:
   - '+.visa.com'
   - '+.mastercard.com'
   
-  # Антивирусы и системы безопасности
+  # Àíòèâèðóñû è ñèñòåìû áåçîïàñíîñòè
   - '+.kaspersky.com'
   - '+.avast.com'
   - '+.avg.com'
@@ -182,7 +183,7 @@ dns:
   - '+.norton.com'
   - '+.mcafee.com'
   
-  # Китайские производители
+  # Êèòàéñêèå ïðîèçâîäèòåëè
   - '+.market.xiaomi.com'
   - '+.miui.com'
   - '+.mi.com'
@@ -191,11 +192,11 @@ dns:
   - '+.oppo.com'
   - '+.vivo.com'
   
-  # Операторы связи и Wi-Fi calling
+  # Îïåðàòîðû ñâÿçè è Wi-Fi calling
   - '+.3gppnetwork.org'
   - '+.ims.mnc*.mcc*.3gppnetwork.org'
   
-  # CDN и облачные сервисы
+  # CDN è îáëà÷íûå ñåðâèñû
   - '+.cloudflare.com'
   - '+.cloudflaressl.com'
   - 'cloudflare-ech.com'
@@ -203,7 +204,7 @@ dns:
   - '+.azure.com'
   - '+.azureedge.net'
   
-  # Дополнительные системные домены
+  # Äîïîëíèòåëüíûå ñèñòåìíûå äîìåíû
   - '+.msftconnecttest.com'
   - '+.connectivitycheck.gstatic.com'
   - 'captive.apple.com'
@@ -279,8 +280,8 @@ tun:
 #geo-update-interval: 86400
 
 #  TCP keep alive interval
-#  15  для компьютера
-#  1800 для телефона, увеличение интервала экономит батарею 
+#  15  äëÿ êîìïüþòåðà
+#  1800 äëÿ òåëåôîíà, óâåëè÷åíèå èíòåðâàëà ýêîíîìèò áàòàðåþ 
 keep-alive-interval: 30
 keep-alive-idle: 30
 disable-keep-alive: true
@@ -296,7 +297,7 @@ sniffer:
       ports: [80, 8080-8880]
       override-destination: true
   skip-domain:
-    # LAN домены - полностью переносим
+    # LAN äîìåíû - ïîëíîñòüþ ïåðåíîñèì
     - '+.lan'
     - '+.localdomain'
     - '+.example'
@@ -307,7 +308,7 @@ sniffer:
     - '+.home.arpa'
     - '+.direct'
     
-    # NTP сервисы - полностью переносим (UDP протокол)
+    # NTP ñåðâèñû - ïîëíîñòüþ ïåðåíîñèì (UDP ïðîòîêîë)
     - 'time.*.com'
     - 'time.*.gov'
     - 'time.*.edu.cn'
@@ -332,7 +333,7 @@ sniffer:
     - '+.ntp.org.cn'
     - '+.pool.ntp.org'
     
-    # STUN сервисы - полностью переносим (UDP протокол)
+    # STUN ñåðâèñû - ïîëíîñòüþ ïåðåíîñèì (UDP ïðîòîêîë)
     - 'stun.*.*'
     - 'stun.*.*.*'
     - '+.stun.*.*'
@@ -340,7 +341,7 @@ sniffer:
     - '+.stun.*.*.*.*'
     - '+.stun.*.*.*.*.*'
     
-    # Push-уведомления и системные проверки
+    # Push-óâåäîìëåíèÿ è ñèñòåìíûå ïðîâåðêè
     - "+.push.apple.com"
     - "captive.apple.com"
     - "ocsp.apple.com"
@@ -943,13 +944,13 @@ rules:
   - DST-PORT,18090,DIRECT
   - DST-PORT,18092,DIRECT
   - DST-PORT,59090,DIRECT
-  - DST-PORT,2195,DIRECT #push уведомления
+  - DST-PORT,2195,DIRECT #push óâåäîìëåíèÿ
   - DST-PORT,2196,DIRECT
   - DST-PORT,2197,DIRECT
   - DST-PORT,5223,DIRECT
   - DST-PORT,5228,DIRECT
   - DST-PORT,5229,DIRECT
-  - DST-PORT,5230,DIRECT # конец push уведомлений
+  - DST-PORT,5230,DIRECT # êîíåö push óâåäîìëåíèé
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
