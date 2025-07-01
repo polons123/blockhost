@@ -5,8 +5,8 @@ log-level: error
 ipv6: true
 external-controller: 127.0.0.1:59095
 #secret: 'Na.pole.tanki'
-external-ui-name: zashboard
-external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
+external-ui: /Users/polons123/.config/mihomo/zashboard
+#external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
 external-controller-cors:
   allow-private-network: true
   allow-origins:
