@@ -73,6 +73,9 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
+        "Socks-home",
+        "TimeWeb",
+        "TimeWeb-VM",
         "HostVDS",
         "HostVDS-VM",
         "Aeza",
@@ -123,6 +126,52 @@
         "type": "httpupgrade",
         "path": "/Video-data",
         "host": "185.56.162.219"
+      }
+    },
+    {
+		"type": "socks",
+		"tag": "Socks-home",
+		"server": "192.168.1.151",
+		"server_port": 7897,
+		"version": "5"
+	},
+	{
+      "type": "trojan",
+      "tag": "TimeWeb",
+      "server": "timeweb-spb.ddns.net",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "password": "af60d487-24fc-47a8-956e-3e0a2b664405",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "timeweb-spb.ddns.net"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "TimeWeb-VM",
+      "server": "217.18.63.172",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 63219,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "74f5992e-3090-4159-8ad5-4778d3b29118",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "217.18.63.172"
       }
     },
     {
