@@ -6,38 +6,38 @@
     "timestamp": true
   },
   "dns": {
-  "servers": [
-    {
-      "tag": "dns-word",
-      "address": "https://hostingvds-mon.ydns.eu:8443/dns-query",
-      //"address": "https://vdska-fin.ydns.eu/dns-query",
-      //"address": "https://vdska-pl.ydns.eu/dns-query",
-      //"address": "https://doh.dns.sb/dns-query",
-      "address_resolver": "dns-resolve",
-      "address_strategy": "prefer_ipv6",
-      "detour": "direct"
-    },
-    {
-      "tag": "dns-resolve",
-      "address": "77.88.8.8",
-      "address_strategy": "prefer_ipv6",
-      "detour": "direct"
-    }
-  ],
-  "rules": [
-    {
-      "action": "route",
-      "server": "dns-word",
-      "disable_cache": false,
-      "outbound": "any"
-    }
-  ],
-  "final": "dns-word",
-  "strategy": "prefer_ipv6",
-  "cache_capacity": 4096,
-  "independent_cache": false,
-  "disable_expire": false
-},
+    "servers": [
+      {
+        "tag": "dns-word",
+        "address": "https://hostingvds-mon.ydns.eu:8443/dns-query",
+        //"address": "https://vdska-fin.ydns.eu/dns-query",
+        //"address": "https://vdska-pl.ydns.eu/dns-query",
+        //"address": "https://doh.dns.sb/dns-query",
+        "address_resolver": "dns-resolve",
+        "address_strategy": "prefer_ipv6",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-resolve",
+        "address": "77.88.8.8",
+        "address_strategy": "prefer_ipv6",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "action": "route",
+        "server": "dns-word",
+        "disable_cache": false,
+        "outbound": "any"
+      }
+    ],
+    "final": "dns-word",
+    "strategy": "prefer_ipv6",
+    "cache_capacity": 4096,
+    "independent_cache": false,
+    "disable_expire": false
+  },
   "inbounds": [
     {
       "type": "tun",
@@ -68,15 +68,33 @@
       "tag": "direct"
     },
     {
-		"type": "socks",
-		"tag": "Socks-home",
-		"server": "192.168.1.151",
-		"server_port": 7897,
-		"version": "5"
-	}
+      "type": "socks",
+      "tag": "Socks-home",
+      "server": "192.168.1.151",
+      "server_port": 7897,
+      "version": "5"
+    }
   ],
   "route": {
     "rules": [
+      {
+        "action": "resolve",
+        "strategy": "prefer_ipv6",
+        "server": "dns-word"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+        "action": "hijack-dns"
+      },
       {
         "ip_cidr": [
           "10.0.0.0/8",
