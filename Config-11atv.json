@@ -73,7 +73,6 @@
       "outbounds": [
         "HostingVDS",
         "HostingVDS-VM",
-        "Socks-home",
         "TimeWeb",
         "TimeWeb-VM",
         "HostVDS",
@@ -126,16 +125,9 @@
         "type": "httpupgrade",
         "path": "/Video-data",
         "host": "185.56.162.219"
-      }
-    },
-    {
-		"type": "socks",
-		"tag": "Socks-home",
-		"server": "192.168.1.151",
-		"server_port": 7897,
-		"version": "5"
-	},
-	{
+        }
+      },
+      {
       "type": "trojan",
       "tag": "TimeWeb",
       "server": "timeweb-spb.ddns.net",
