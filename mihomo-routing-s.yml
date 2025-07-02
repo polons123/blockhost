@@ -1,0 +1,114 @@
+mode: rule
+mixed-port: 7897
+allow-lan: false
+log-level: error
+ipv6: true
+# external-controller: 127.0.0.1:59090
+# secret: ''
+# external-controller-cors:
+#  allow-private-network: true
+#  allow-origins:
+#  - '*'
+unified-delay: true
+tcp-concurrent: true
+dns:
+  default-nameserver:
+  - system
+  - 77.88.8.8
+  - 8.8.8.8
+  direct-nameserver-follow-policy: false
+  enable: true
+  enhanced-mode: redir-host # redir-host  or fake-ip
+  nameserver:
+  - https://hostingvds-mon.ydns.eu:8443/dns-query
+  - https://vdska-fin.ydns.eu/dns-query
+  - https://vdska-pl.ydns.eu/dns-query
+  prefer-h3: true
+  proxy-server-nameserver:
+  - https://hostingvds-mon.ydns.eu:8443/dns-query
+  - https://vdska-fin.ydns.eu/dns-query
+  - https://vdska-pl.ydns.eu/dns-query
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+tun:
+  enable: true
+  stack: gvisor
+  mtu: 9000
+  auto-route: true
+  strict-route: true
+  gso: true
+  gso-max-size: 65536
+  udp-timeout: 300
+  iproute2-table-index: 2022
+  iproute2-rule-index: 9000
+  endpoint-independent-nat: false
+  auto-detect-interface: true
+  dns-hijack:
+  - any:53
+  - tcp://any:53
+  device: utun11
+  route-exclude-address:
+  - 0.0.0.0/8
+  - 100.64.0.0/10
+  - 127.0.0.0/8
+  - 169.254.0.0/16
+  - 172.16.0.0/12
+  - 192.0.0.0/24
+  - 192.0.2.0/24
+  - 192.88.99.0/24
+  - 192.168.0.0/16
+  - 198.51.100.0/24
+  - 203.0.113.0/24
+  - 224.0.0.0/4
+  - 255.255.255.255/32
+  - 239.255.255.250/32
+
+#geox-url:
+#  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+#  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+#  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
+#  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+#geo-auto-update: true
+#geo-update-interval: 86400
+
+#  TCP keep alive interval
+#  15  для компьютера
+#  1800 для телефона, увеличение интервала экономит батарею 
+keep-alive-interval: 30
+keep-alive-idle: 30
+disable-keep-alive: true
+
+sniffer:
+  enable: false
+  sniff:
+    QUIC:
+      ports: [ 443 ]
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+  skip-domain:
+    # LAN домены - полностью переносим
+
+proxies:
+  - name: "socks"
+    type: socks5
+    server: 192.168.1.151
+    port: 7897
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - socks
+rules:
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - MATCH,PROXY
