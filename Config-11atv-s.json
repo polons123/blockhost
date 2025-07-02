@@ -1,0 +1,103 @@
+{
+  "log": {
+    "disabled": true,
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+  "servers": [
+    {
+      "tag": "dns-word",
+      "address": "https://hostingvds-mon.ydns.eu:8443/dns-query",
+      //"address": "https://vdska-fin.ydns.eu/dns-query",
+      //"address": "https://vdska-pl.ydns.eu/dns-query",
+      //"address": "https://doh.dns.sb/dns-query",
+      "address_resolver": "dns-resolve",
+      "address_strategy": "prefer_ipv6",
+      "detour": "direct"
+    },
+    {
+      "tag": "dns-resolve",
+      "address": "77.88.8.8",
+      "address_strategy": "prefer_ipv6",
+      "detour": "direct"
+    }
+  ],
+  "rules": [
+    {
+      "action": "route",
+      "server": "dns-word",
+      "disable_cache": false,
+      "outbound": "any"
+    }
+  ],
+  "final": "dns-word",
+  "strategy": "prefer_ipv6",
+  "cache_capacity": 4096,
+  "independent_cache": false,
+  "disable_expire": false
+},
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "mtu": 9000,
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": false,
+      "udp_timeout": "1m",
+      "stack": "mixed",
+      "route_exclude_address": [
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16",
+        "224.0.0.0/4",
+        "255.255.255.255/32"
+      ]
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+		"type": "socks",
+		"tag": "Socks-home",
+		"server": "192.168.1.151",
+		"server_port": 7897,
+		"version": "5"
+	}
+  ],
+  "route": {
+    "rules": [
+      {
+        "ip_cidr": [
+          "10.0.0.0/8",
+          "127.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16",
+          "95.165.6.169/32"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      }
+    ],
+    "final": "Socks-home",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "store_rdrc": true
+    }
+  }
+}
