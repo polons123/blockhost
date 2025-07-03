@@ -254,7 +254,7 @@ tun:
   dns-hijack:
   - any:53
   - tcp://any:53
-  device: utun0
+  device: utun11
   route-exclude-address:
   - 0.0.0.0/8
   - 100.64.0.0/10
@@ -427,6 +427,10 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
+  - name: "Socks-local"
+    type: socks5
+    server: 192.168.1.151
+    port: 7897
   - name: "TimeWeb-AnyTLS"
     type: anytls
     server: 217.18.63.172
@@ -670,6 +674,7 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-AnyTLS
+      - Socks-local
       - TimeWeb
       - TimeWeb-VM
       - TimeWeb-SS
