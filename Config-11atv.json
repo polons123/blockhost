@@ -42,7 +42,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "tun0",
+      "interface_name": "utun11",
       "mtu": 9000,
       "address": [
         "172.18.0.1/30",
@@ -52,7 +52,7 @@
       "strict_route": true,
       "endpoint_independent_nat": false,
       "udp_timeout": "1m",
-      "stack": "mixed",
+      "stack": "gvisor",
       "route_exclude_address": [
         "10.0.0.0/8",
         "172.16.0.0/12",
