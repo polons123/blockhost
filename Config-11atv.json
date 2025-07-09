@@ -76,6 +76,8 @@
         "Socks5-local",
         "TimeWeb",
         "TimeWeb-VM",
+        "Selectel",
+        "Selectel-VM",
         "HostVDS",
         "HostVDS-VM",
         "Aeza",
@@ -172,6 +174,45 @@
         "type": "httpupgrade",
         "path": "/Video-data",
         "host": "217.18.63.172"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Selectel",
+      "server": "selectel-spb.ydns.eu",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 443,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "password": "af60d487-24fc-47a8-956e-3e0a2b664405",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "selectel-spb.ydns.eu"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Selectel-VM",
+      "server": "188.68.221.199",
+      "domain_strategy": "prefer_ipv6",
+      "server_port": 63219,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "74f5992e-3090-4159-8ad5-4778d3b29118",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "188.68.221.199"
       }
     },
     {
