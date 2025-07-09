@@ -1,16 +1,5 @@
 proxies:
 
-  - name: "HostingVDS-AnyTLS"
-    type: anytls
-    server: 185.56.162.219
-    port: 8443
-    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
-    tls: true
-    udp: true
-    sni: "hostingvds-msk.ddns.net"
-    alpn:
-      - h2
-      - http/1.1
   - name: "HostingVDS"
     type: VLESS
     server: 185.56.162.219
@@ -34,18 +23,18 @@ proxies:
     obfs: httpupgrade
     obfs-host: 185.56.162.219
     path: /Video-data
-
-  - name: "TimeWeb-AnyTLS"
+  - name: "HostingVDS-AnyTLS"
     type: anytls
-    server: 217.18.63.172
+    server: 185.56.162.219
     port: 8443
     password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
+    tls: true
     udp: true
-    sni: "timeweb-spb.ddns.net"
-    alpn:
-      - h3
+    sni: "hostingvds-msk.ddns.net"
+    alpn: 
       - h2
       - http/1.1
+
   - name: "TimeWeb"
     type: trojan
     server: 217.18.63.172
@@ -69,18 +58,17 @@ proxies:
     obfs: httpupgrade
     obfs-host: 217.18.63.172
     path: /Video-data
-
-  - name: "Selectel-AnyTLS"
+  - name: "TimeWeb-AnyTLS"
     type: anytls
-    server: 188.68.221.199
+    server: 217.18.63.172
     port: 8443
-    password: "wDRp8/cK4TIlLl6z2t/Rjhuhgbu1lkIQ0nCi9lzwudZRY="
+    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
     udp: true
-    sni: "selectel-spb.ydns.eu"
+    sni: "timeweb-spb.ddns.net"
     alpn:
-      - h3
       - h2
       - http/1.1
+
   - name: "Selectel"
     type: trojan
     server: 188.68.221.199
@@ -104,6 +92,16 @@ proxies:
     obfs: httpupgrade
     obfs-host: 188.68.221.199
     path: /Video-data
+  - name: "Selectel-AnyTLS"
+    type: anytls
+    server: 188.68.221.199
+    port: 8443
+    password: "wDRp8/cK4TIlLl6z2t/Rjhuhgbu1lkIQ0nCi9lzwudZRY="
+    udp: true
+    sni: "selectel-spb.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
 
   - name: "Socks-local"
     type: socks5
