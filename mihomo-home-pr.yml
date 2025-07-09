@@ -428,6 +428,12 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
+
+  - name: "Socks-local"
+    type: socks5
+    server: 192.168.1.151
+    port: 7897
+
   - name: "TimeWeb-AnyTLS"
     type: anytls
     server: 217.18.63.172
@@ -462,14 +468,6 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-  - name: "TimeWeb-SS"
-    type: ss
-    server: 217.18.63.172
-    port: 63220
-    cipher: 2022-blake3-chacha20-poly1305
-    password: aODG248Id6IX6U42uKP3lgTLzs6YCLe6KhoPQYYC6RQ=
-    ip-version: ipv6-prefer
-    udp: true
   - name: "TimeWeb"
     type: trojan
     server: 217.18.63.172
@@ -487,7 +485,61 @@ proxies:
     skip-cert-verify: false
     client-fingerprint: chrome
     udp: true
-    tcp-fast-open: true 
+    tcp-fast-open: true
+
+  - name: "Selectel-AnyTLS"
+    type: anytls
+    server: 188.68.221.199
+    port: 8443
+    ip-version: ipv6-prefer
+    password: "wDRp8/cK4TIlLl6z2t/Rjhuhgbu1lkIQ0nCi9lzwudZRY="
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 5
+    sni: "selectel-spb.ydns.eu"
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+  - name: "Selectel-VM"
+    type: vmess
+    server: 188.68.221.199
+    port: 63219
+    uuid: 74f5992e-3090-4159-8ad5-4778d3b29118
+    alterId: 0
+    ip-version: ipv6-prefer
+    cipher: chacha20-poly1305
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: 188.68.221.199
+      v2ray-http-upgrade: true
+    tls: false
+    udp: true
+    tcp-fast-open: true
+  - name: "Selectel"
+    type: trojan
+    server: 188.68.221.199
+    port: 443
+    ip-version: ipv6-prefer
+    password: af60d487-24fc-47a8-956e-3e0a2b664405
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: selectel-spb.ydns.eu
+      v2ray-http-upgrade: true
+    tls: true
+    sni: selectel-spb.ydns.eu
+    skip-cert-verify: false
+    client-fingerprint: chrome
+    udp: true
+    tcp-fast-open: true
+
   - name: "Aeza"
     type: vless
     server: 77.110.126.157
@@ -523,6 +575,7 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
+
   - name: "HostVDS"
     type: vless
     server: 188.130.206.28
@@ -558,6 +611,7 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
+
   - name: "H2nexus-F"
     type: vless
     server: 45.144.52.52
@@ -593,6 +647,7 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
+
   - name: "SaleDedic-F"
     type: vless
     server: 109.122.201.73
@@ -628,6 +683,7 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
+
   - name: "Waicore-Ger"
     type: vless
     server: 193.233.134.245
@@ -671,10 +727,13 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-AnyTLS
+      - Socks-local
       - TimeWeb
       - TimeWeb-VM
-      - TimeWeb-SS
       - TimeWeb-AnyTLS
+      - Selectel
+      - Selectel-VM
+      - Selectel-AnyTLS
       - HostVDS
       - HostVDS-VM
       - Aeza
