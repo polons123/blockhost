@@ -82,7 +82,7 @@ proxies:
       - h3
       - h2
       - http/1.1
-  - 111name: "Selectel"
+  - name: "Selectel"
     type: trojan
     server: 188.68.221.199
     port: 443
