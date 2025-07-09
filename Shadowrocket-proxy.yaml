@@ -8,8 +8,7 @@ proxies:
     tls: true
     udp: true
     sni: "hostingvds-msk.ddns.net"
-    alpn: 
-      - h3
+    alpn:
       - h2
       - http/1.1
   - name: "HostingVDS"
