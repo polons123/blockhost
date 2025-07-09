@@ -12,7 +12,7 @@ proxies:
       - h3
       - h2
       - http/1.1
-  - name: "HostingVDS"
+  - 111name: "HostingVDS"
     type: VLESS
     server: 185.56.162.219
     port: 443
@@ -47,7 +47,7 @@ proxies:
       - h3
       - h2
       - http/1.1
-  - name: "TimeWeb"
+  - 111name: "TimeWeb"
     type: trojan
     server: 217.18.63.172
     port: 443
@@ -82,7 +82,7 @@ proxies:
       - h3
       - h2
       - http/1.1
-  - name: "Selectel"
+  - 111name: "Selectel"
     type: trojan
     server: 188.68.221.199
     port: 443
