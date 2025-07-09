@@ -1,4 +1,5 @@
 proxies:
+
   - name: "HostingVDS-AnyTLS"
     type: anytls
     server: 185.56.162.219
@@ -22,92 +23,6 @@ proxies:
     obfs: httpupgrade
     obfs-host: hostingvds-msk.ddns.net
     path: /Video-data
-
-  - name: "TimeWeb"
-    type: VLESS
-    server: 217.18.63.172
-    port: 443
-    uuid: af60d487-24fc-47a8-956e-3e0a2b664405
-    tls: true
-    udp: true
-    sni: timeweb-spb.ddns.net
-    obfs: httpupgrade
-    obfs-host: timeweb-spb.ddns.net
-    path: /Video-data
-
-  - name: "Selectel"
-    type: VLESS
-    server: 188.68.221.199
-    port: 443
-    uuid: af60d487-24fc-47a8-956e-3e0a2b664405
-    tls: true
-    udp: true
-    sni: selectel-spb.ydns.eu
-    obfs: httpupgrade
-    obfs-host: selectel-spb.ydns.eu
-    path: /Video-data
-
-  - name: "Aeza"
-    type: VLESS
-    server: 77.110.126.157
-    port: 443
-    uuid: 9daf548c-2a02-48a4-9ec6-1d96d46a0283
-    tls: true
-    udp: true
-    sni: aeza-usa.ddns.net
-    obfs: httpupgrade
-    obfs-host: aeza-usa.ddns.net
-    path: /Video-data
-
-  - name: "HostVDS"
-    type: VLESS
-    server: 188.130.206.28
-    port: 443
-    uuid: d8003fcf-e9fc-4e64-9e57-12f51d02dede
-    tls: true
-    udp: true
-    sni: hostvds.ddns.net
-    obfs: httpupgrade
-    obfs-host: hostvds.ddns.net
-    path: /Video-data
-
-  - name: "H2nexus-F"
-    type: VLESS
-    server: 45.144.52.52
-    port: 443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    tls: true
-    udp: true
-    sni: h2nexus.ddns.net
-    obfs: httpupgrade
-    obfs-host: h2nexus.ddns.net
-    path: /Video-data
-
-  - name: "SaleDedic-F"
-    type: VLESS
-    server: 109.122.201.73
-    port: 443
-    uuid: b8dec966-bb51-4597-9bde-c6ce86eaf00b
-    tls: true
-    udp: true
-    sni: salededic-swe.ddns.net
-    obfs: httpupgrade
-    obfs-host: salededic-swe.ddns.net
-    path: /Video-data
-
-  - name: "Waicore-Ger"
-    type: VLESS
-    server: 193.233.134.245
-    port: 443
-    uuid: 1db7c946-f9d6-4cfd-86b6-a4bcef67384c
-    tls: true
-    udp: true
-    sni: waicore-ger.ddns.net
-    obfs: httpupgrade
-    obfs-host: waicore-ger.ddns.net
-    path: /Video-data
-
-  # VMESS proxies
   - name: "HostingVDS-VM"
     type: VMESS
     server: 185.56.162.219
@@ -121,6 +36,28 @@ proxies:
     obfs-host: 185.56.162.219
     path: /Video-data
 
+  - name: "TimeWeb-AnyTLS"
+    type: anytls
+    server: 217.18.63.172
+    port: 8443
+    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
+    udp: true
+    sni: "timeweb-spb.ddns.net"
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+  - name: "TimeWeb"
+    type: TROJAN
+    server: 217.18.63.172
+    port: 443
+    uuid: af60d487-24fc-47a8-956e-3e0a2b664405
+    tls: true
+    udp: true
+    sni: timeweb-spb.ddns.net
+    obfs: httpupgrade
+    obfs-host: timeweb-spb.ddns.net
+    path: /Video-data
   - name: "TimeWeb-VM"
     type: VMESS
     server: 217.18.63.172
@@ -134,6 +71,28 @@ proxies:
     obfs-host: 217.18.63.172
     path: /Video-data
 
+  - name: "Selectel-AnyTLS"
+    type: anytls
+    server: 188.68.221.199
+    port: 8443
+    password: "wDRp8/cK4TIlLl6z2t/Rjhuhgbu1lkIQ0nCi9lzwudZRY="
+    udp: true
+    sni: "selectel-spb.ydns.eu"
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+  - name: "Selectel"
+    type: TROJAN
+    server: 188.68.221.199
+    port: 443
+    uuid: af60d487-24fc-47a8-956e-3e0a2b664405
+    tls: true
+    udp: true
+    sni: selectel-spb.ydns.eu
+    obfs: httpupgrade
+    obfs-host: selectel-spb.ydns.eu
+    path: /Video-data
   - name: "Selectel-VM"
     type: VMESS
     server: 188.68.221.199
@@ -147,6 +106,22 @@ proxies:
     obfs-host: 188.68.221.199
     path: /Video-data
 
+  - name: "Socks-local"
+    type: socks5
+    server: 192.168.1.151
+    port: 7897
+
+  - name: "Aeza"
+    type: VLESS
+    server: 77.110.126.157
+    port: 443
+    uuid: 9daf548c-2a02-48a4-9ec6-1d96d46a0283
+    tls: true
+    udp: true
+    sni: aeza-usa.ddns.net
+    obfs: httpupgrade
+    obfs-host: aeza-usa.ddns.net
+    path: /Video-data
   - name: "Aeza-VM"
     type: VMESS
     server: 77.110.126.157
@@ -160,6 +135,17 @@ proxies:
     obfs-host: 77.110.126.157
     path: /Video-data
 
+  - name: "HostVDS"
+    type: VLESS
+    server: 188.130.206.28
+    port: 443
+    uuid: d8003fcf-e9fc-4e64-9e57-12f51d02dede
+    tls: true
+    udp: true
+    sni: hostvds.ddns.net
+    obfs: httpupgrade
+    obfs-host: hostvds.ddns.net
+    path: /Video-data
   - name: "HostVDS-VM"
     type: VMESS
     server: 188.130.206.28
@@ -173,6 +159,17 @@ proxies:
     obfs-host: 188.130.206.28
     path: /Video-data
 
+  - name: "H2nexus-F"
+    type: VLESS
+    server: 45.144.52.52
+    port: 443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    tls: true
+    udp: true
+    sni: h2nexus.ddns.net
+    obfs: httpupgrade
+    obfs-host: h2nexus.ddns.net
+    path: /Video-data
   - name: "H2nexus-VM-F"
     type: VMESS
     server: 45.144.52.52
@@ -186,6 +183,17 @@ proxies:
     obfs-host: 45.144.52.52
     path: /Video-data
 
+  - name: "SaleDedic-F"
+    type: VLESS
+    server: 109.122.201.73
+    port: 443
+    uuid: b8dec966-bb51-4597-9bde-c6ce86eaf00b
+    tls: true
+    udp: true
+    sni: salededic-swe.ddns.net
+    obfs: httpupgrade
+    obfs-host: salededic-swe.ddns.net
+    path: /Video-data
   - name: "SaleDedic-VM-F"
     type: VMESS
     server: 109.122.201.73
@@ -199,6 +207,17 @@ proxies:
     obfs-host: 109.122.201.73
     path: /Video-data
 
+  - name: "Waicore-Ger"
+    type: VLESS
+    server: 193.233.134.245
+    port: 443
+    uuid: 1db7c946-f9d6-4cfd-86b6-a4bcef67384c
+    tls: true
+    udp: true
+    sni: waicore-ger.ddns.net
+    obfs: httpupgrade
+    obfs-host: waicore-ger.ddns.net
+    path: /Video-data
   - name: "Waicore-VM-Ger"
     type: VMESS
     server: 193.233.134.245
@@ -211,9 +230,3 @@ proxies:
     obfs: httpupgrade
     obfs-host: 193.233.134.245
     path: /Video-data
-
-  # SOCKS5 proxy
-  - name: "Socks-local"
-    type: socks5
-    server: 192.168.1.151
-    port: 7897
