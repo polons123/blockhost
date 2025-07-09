@@ -83,10 +83,10 @@ proxies:
       - h2
       - http/1.1
   - name: "Selectel"
-    type: TROJAN
+    type: trojan
     server: 188.68.221.199
     port: 443
-    uuid: af60d487-24fc-47a8-956e-3e0a2b664405
+    password: af60d487-24fc-47a8-956e-3e0a2b664405
     tls: true
     udp: true
     sni: selectel-spb.ydns.eu
