@@ -1,0 +1,70 @@
+proxies:
+
+- name: "HostingVDS-AnyTLS"
+  type: ANYTLS
+  server: 185.56.162.219
+  port: 443
+  tls: true
+  password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
+  udp: true
+  sni: hostingvds-msk.ddns.net
+  
+- name: "H2Nexus-F"
+  type: VLESS
+  obfs: "httpupgrade"
+  server: 45.144.52.52
+  port: 443
+  tls: true
+  password: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+  udp: true
+  sni: h2nexus.ddns.net
+  
+- name: "H2Nexus-WM-F"
+  type: Vmess
+  obfs: "httpupgrade"
+  server: 45.144.52.52
+  port: 65309
+  method: chacha20-poly1305
+  alterId: 0
+  password: 59f2503a-9506-4c14-9293-bbb4964a75b8
+  udp: true
+
+- name: "Aeza"
+  type: VLESS
+  obfs: "httpupgrade"
+  server: 85.192.24.24
+  port: 443
+  tls: true
+  password: 644cd9d2-58ac-449c-883c-6a1afa9fd8d3
+  udp: true
+  sni: aeza-de.ddns.net
+  
+- name: "Aeza-WM"
+  type: Vmess
+  obfs: "httpupgrade"
+  server: 85.192.24.24
+  port: 63215
+  method: chacha20-poly1305
+  alterId: 0
+  password: 69bc3848-e47f-45ed-9a37-0e5f5f319c1c
+  udp: true
+
+- name: "H2Nexus"
+  type: VLESS
+  obfs: "httpupgrade"
+  server: 94.159.99.187
+  port: 443
+  tls: true
+  password: f6ebb48f-9661-4ed9-b221-3026f49af63f
+  udp: true
+  sni: h2nexus.ydns.eu
+  
+- name: "H2Nexus-WM"
+  type: Vmess
+  obfs: "httpupgrade"
+  server: 94.159.99.187
+  port: 26962
+  method: chacha20-poly1305
+  alterId: 0
+  password: 0ccee7c1-25fa-4e59-a1fa-452f0be772a4
+  udp: true
