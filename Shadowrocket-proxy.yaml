@@ -12,8 +12,8 @@ proxies:
       - h3
       - h2
       - http/1.1
-  - 111name: "HostingVDS"
-    type: VLESS
+  - name: "HostingVDS"
+    type: 111VLESS
     server: 185.56.162.219
     port: 443
     uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
@@ -47,7 +47,7 @@ proxies:
       - h3
       - h2
       - http/1.1
-  - 111name: "TimeWeb"
+  - name: "TimeWeb"
     type: trojan
     server: 217.18.63.172
     port: 443
