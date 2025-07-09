@@ -4,7 +4,6 @@ proxies:
     server: 185.56.162.219
     port: 443
     uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
-    network: ws
     tls: true
     udp: true
     sni: hostingvds-msk.ddns.net
