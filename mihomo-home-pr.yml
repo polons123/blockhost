@@ -1012,6 +1012,7 @@ rules:
   - DST-PORT,123,DIRECT
   - DST-PORT,143,DIRECT
   - DST-PORT,465,DIRECT
+  - DST-PORT,585,DIRECT
   - DST-PORT,587,DIRECT
   - DST-PORT,993,DIRECT
   - DST-PORT,995,DIRECT
@@ -1044,6 +1045,7 @@ rules:
   - DOMAIN,android.googleapis.com,DIRECT
   # WNS
   - DOMAIN-SUFFIX,notify.windows.com,DIRECT
+  - DOMAIN,outlook.office365.com,DIRECT
   
   - RULE-SET,geosite-yandex,DIRECT
   - RULE-SET,geosite-vk,DIRECT
