@@ -1046,6 +1046,8 @@ rules:
   # WNS
   - DOMAIN-SUFFIX,notify.windows.com,DIRECT
   - DOMAIN,outlook.office365.com,DIRECT
+  - DOMAIN,m.hotmail.com,DIRECT
+  - DOMAIN,hotmail.com,DIRECT
   
   - RULE-SET,geosite-yandex,DIRECT
   - RULE-SET,geosite-vk,DIRECT
