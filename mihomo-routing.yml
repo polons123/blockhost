@@ -720,9 +720,19 @@ proxies:
     tcp-fast-open: true
 
 proxy-groups:
+  - name: "Balancer"
+    type: load-balance
+    proxies:
+      - TimeWeb
+      - Selectel
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 0
+    lazy: true
+    strategy: sticky-sessions
   - name: "PROXY"
     type: select
     proxies:
+      - Balancer
       - HostingVDS
       - HostingVDS-VM
       - HostingVDS-AnyTLS
@@ -936,6 +946,8 @@ rule-providers:
 
 rules:
   - DST-PORT,25,DIRECT
+  - DST-PORT,110,DIRECT
+  - DST-PORT,143,DIRECT
   - DST-PORT,465,DIRECT
   - DST-PORT,587,DIRECT
   - DST-PORT,993,DIRECT
@@ -967,7 +979,9 @@ rules:
   - DOMAIN,fcm.googleapis.com,DIRECT
   - DOMAIN-SUFFIX,android.googleapis.com,DIRECT
   - DOMAIN,android.googleapis.com,DIRECT
-  
+  # WNS
+  - DOMAIN-SUFFIX,notify.windows.com,DIRECT
+
   - RULE-SET,geosite-yandex,DIRECT
   - RULE-SET,geosite-vk,DIRECT
   - RULE-SET,geosite-mailru,DIRECT
