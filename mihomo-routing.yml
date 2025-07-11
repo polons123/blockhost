@@ -376,23 +376,6 @@ sniffer:
     - "224.0.0.0/4"
 
 proxies:
-  - name: "HostingVDS-AnyTLS"
-    type: anytls
-    server: 185.56.162.219
-    port: 8443
-    ip-version: ipv6-prefer
-    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 5
-    sni: "hostingvds-msk.ddns.net"
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    skip-cert-verify: false
   - name: "HostingVDS"
     type: vless
     server: 185.56.162.219
@@ -428,15 +411,9 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-
-  - name: "Socks-local"
-    type: socks5
-    server: 192.168.1.151
-    port: 7897
-
-  - name: "TimeWeb-AnyTLS"
+  - name: "HostingVDS-AnyTLS"
     type: anytls
-    server: 217.18.63.172
+    server: 185.56.162.219
     port: 8443
     ip-version: ipv6-prefer
     password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
@@ -445,12 +422,18 @@ proxies:
     idle-session-check-interval: 30
     idle-session-timeout: 30
     min-idle-session: 5
-    sni: "timeweb-spb.ddns.net"
+    sni: "hostingvds-msk.ddns.net"
     alpn:
       - h3
       - h2
       - http/1.1
     skip-cert-verify: false
+
+  - name: "Socks-local"
+    type: socks5
+    server: 192.168.1.151
+    port: 7897
+
   - name: "TimeWeb-VM"
     type: vmess
     server: 217.18.63.172
@@ -486,24 +469,24 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-
-  - name: "Selectel-AnyTLS"
+  - name: "TimeWeb-AnyTLS"
     type: anytls
-    server: 188.68.221.199
+    server: 217.18.63.172
     port: 8443
     ip-version: ipv6-prefer
-    password: "wDRp8/cK4TIlLl6z2t/Rjhuhgbu1lkIQ0nCi9lzwudZRY="
+    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
     client-fingerprint: chrome
     udp: true
     idle-session-check-interval: 30
     idle-session-timeout: 30
     min-idle-session: 5
-    sni: "selectel-spb.ydns.eu"
+    sni: "timeweb-spb.ddns.net"
     alpn:
       - h3
       - h2
       - http/1.1
     skip-cert-verify: false
+
   - name: "Selectel-VM"
     type: vmess
     server: 188.68.221.199
@@ -539,6 +522,23 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
+  - name: "Selectel-AnyTLS"
+    type: anytls
+    server: 188.68.221.199
+    port: 8443
+    ip-version: ipv6-prefer
+    password: "wDRp8/cK4TIlLl6z2t/Rjhuhgbu1lkIQ0nCi9lzwudZRY="
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 5
+    sni: "selectel-spb.ydns.eu"
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    skip-cert-verify: false
 
   - name: "Aeza"
     type: vless
