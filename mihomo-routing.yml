@@ -411,24 +411,7 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-  - name: "HostingVDS-AnyTLS"
-    type: anytls
-    server: 185.56.162.219
-    port: 8443
-    ip-version: ipv6-prefer
-    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 5
-    sni: "hostingvds-msk.ddns.net"
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-
+    
   - name: "Socks-local"
     type: socks5
     server: 192.168.1.151
@@ -469,23 +452,6 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-  - name: "TimeWeb-AnyTLS"
-    type: anytls
-    server: 217.18.63.172
-    port: 8443
-    ip-version: ipv6-prefer
-    password: "wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY="
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 5
-    sni: "timeweb-spb.ddns.net"
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    skip-cert-verify: false
 
   - name: "Selectel-VM"
     type: vmess
@@ -522,24 +488,7 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-  - name: "Selectel-AnyTLS"
-    type: anytls
-    server: 188.68.221.199
-    port: 8443
-    ip-version: ipv6-prefer
-    password: "wDRp8/cK4TIlLl6z2t/Rjhuhgbu1lkIQ0nCi9lzwudZRY="
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 5
-    sni: "selectel-spb.ydns.eu"
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-
+  
   - name: "Aeza"
     type: vless
     server: 77.110.126.157
@@ -724,8 +673,8 @@ proxy-groups:
   - name: "Balancer"
     type: load-balance
     proxies:
-      - TimeWeb
-      - Selectel
+      - TimeWeb-VM
+      - Selectel-VM
     url: 'https://www.gstatic.com/generate_204'
     interval: 0
     lazy: true
@@ -736,14 +685,11 @@ proxy-groups:
       - Balancer
       - HostingVDS
       - HostingVDS-VM
-      - HostingVDS-AnyTLS
       - Socks-local
       - TimeWeb
       - TimeWeb-VM
-      - TimeWeb-AnyTLS
       - Selectel
       - Selectel-VM
-      - Selectel-AnyTLS
       - HostVDS
       - HostVDS-VM
       - Aeza
