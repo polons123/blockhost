@@ -376,7 +376,6 @@ sniffer:
     - "224.0.0.0/4"
 
 proxies:
-    skip-cert-verify: false
   - name: "HostingVDS"
     type: vless
     server: 185.56.162.219
