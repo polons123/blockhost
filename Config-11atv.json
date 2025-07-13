@@ -89,7 +89,7 @@
         "Waicore-Ger",
         "Waicore-VM-Ger"
       ],
-      "default": "HostingVDS"
+      "default": "TimeWeb-VM"
     },
     {
       "type": "vless",
@@ -505,8 +505,7 @@
               "discord",
               "tiktok",
               "apple",
-              "geoip-telegram",
-              "geosite-telegram"
+              "geoip-telegram"
         ],
         "action": "route",
         "outbound": "selector"
@@ -606,14 +605,6 @@
         "tag": "geoip-telegram",
         "format": "binary",
         "url": "https://github.com/malikshi/sing-box-geo/raw/rule-set-geoip/geoip-telegram.srs",
-        "download_detour": "direct",
-        "update_interval": "1d"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-telegram",
-        "format": "binary",
-        "url": "https://github.com/polons123/blockhost/raw/main/geosite-telegram.srs",
         "download_detour": "direct",
         "update_interval": "1d"
       },
