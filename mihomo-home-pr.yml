@@ -21,7 +21,7 @@ dns:
   enable: true
   enhanced-mode: fake-ip # redir-host  or fake-ip
   fake-ip-filter:
-  # LAN äîìåíû
+  # LAN домены
   - '+.lan'
   - '+.localdomain'
   - '+.example'
@@ -32,7 +32,7 @@ dns:
   - '+.home.arpa'
   - '+.direct'
     
-  # NTP ñåðâèñû (ñèíõðîíèçàöèÿ âðåìåíè)
+  # NTP сервисы (синхронизация времени)
   - 'time.*.com'
   - 'time.*.gov'
   - 'time.*.edu.cn'
@@ -57,7 +57,7 @@ dns:
   - '+.ntp.org.cn'
   - '+.pool.ntp.org'
     
-  # Microsoft ñåðâèñû
+  # Microsoft сервисы
   - '+.msftconnecttest.com'
   - '+.msftncsi.com'
   - '+.microsoft.com'
@@ -71,7 +71,7 @@ dns:
   - '+.xboxlive.com'
   - '+.gamepass.com'
     
-  # Èãðîâûå ïëàòôîðìû
+  # Игровые платформы
   - '+.steamcontent.com'
   - '+.steampowered.com'
   - '+.steamcommunity.com'
@@ -91,7 +91,7 @@ dns:
   - '+.epicgames.com'
   - '+.unrealengine.com'
     
-  # STUN ñåðâèñû
+  # STUN сервисы
   - 'stun.*.*'
   - 'stun.*.*.*'
   - '+.stun.*.*'
@@ -99,7 +99,7 @@ dns:
   - '+.stun.*.*.*.*'
   - '+.stun.*.*.*.*.*'
   
-  # Google ñåðâèñû
+  # Google сервисы
   - '+.google.com'
   - '+.googleapis.com'
   - '+.googleusercontent.com'
@@ -120,13 +120,13 @@ dns:
   - '+.firebaseio.com'
   - '+.fcm.googleapis.com'
   
-  # Apple ñåðâèñû
+  # Apple сервисы
   - '+.apple.com'
   - '+.icloud.com'
   - '+.itunes.apple.com'
   - '+.apps.apple.com'
   
-  # Meta ýêîñèñòåìà
+  # Meta экосистема
   - '+.facebook.com'
   - '+.fbcdn.net'
   - '+.instagram.com'
@@ -136,7 +136,7 @@ dns:
   - '+.oculus.com'
   - '+.oculuscdn.com'
   
-  # Ìåññåíäæåðû è ñîöñåòè
+  # Мессенджеры и соцсети
   - '+.telegram.org'
   - '+.t.me'
   - '+.tdesktop.com'
@@ -150,7 +150,7 @@ dns:
   - '+.bytedance.com'
   - '+.musical.ly'
   
-  # AI è ðàçâëåêàòåëüíûå ñåðâèñû
+  # AI и развлекательные сервисы
   - '+.openai.com'
   - '+.chatgpt.com'
   - 'chat.openai.com'
@@ -163,7 +163,7 @@ dns:
   - '+.spotifycdn.com'
   - '+.scdn.co'
   
-  # Áàíêîâñêèå è ôèíàíñîâûå ñåðâèñû
+  # Банковские и финансовые сервисы
   - '+.sberbank.ru'
   - '+.vtb.ru'
   - '+.alfabank.ru'
@@ -174,7 +174,7 @@ dns:
   - '+.visa.com'
   - '+.mastercard.com'
   
-  # Àíòèâèðóñû è ñèñòåìû áåçîïàñíîñòè
+  # Антивирусы и системы безопасности
   - '+.kaspersky.com'
   - '+.avast.com'
   - '+.avg.com'
@@ -182,7 +182,7 @@ dns:
   - '+.norton.com'
   - '+.mcafee.com'
   
-  # Êèòàéñêèå ïðîèçâîäèòåëè
+  # Китайские производители
   - '+.market.xiaomi.com'
   - '+.miui.com'
   - '+.mi.com'
@@ -191,11 +191,11 @@ dns:
   - '+.oppo.com'
   - '+.vivo.com'
   
-  # Îïåðàòîðû ñâÿçè è Wi-Fi calling
+  # Операторы связи и Wi-Fi calling
   - '+.3gppnetwork.org'
   - '+.ims.mnc*.mcc*.3gppnetwork.org'
   
-  # CDN è îáëà÷íûå ñåðâèñû
+  # CDN и облачные сервисы
   - '+.cloudflare.com'
   - '+.cloudflaressl.com'
   - 'cloudflare-ech.com'
@@ -203,7 +203,7 @@ dns:
   - '+.azure.com'
   - '+.azureedge.net'
   
-  # Äîïîëíèòåëüíûå ñèñòåìíûå äîìåíû
+  # Дополнительные системные домены
   - '+.msftconnecttest.com'
   - '+.connectivitycheck.gstatic.com'
   - 'captive.apple.com'
@@ -281,8 +281,8 @@ tun:
 #geo-update-interval: 86400
 
 #  TCP keep alive interval
-#  15  äëÿ êîìïüþòåðà
-#  1800 äëÿ òåëåôîíà, óâåëè÷åíèå èíòåðâàëà ýêîíîìèò áàòàðåþ 
+#  15  для компьютера
+#  1800 для телефона, увеличение интервала экономит батарею
 keep-alive-interval: 30
 keep-alive-idle: 30
 disable-keep-alive: true
@@ -298,7 +298,7 @@ sniffer:
       ports: [80, 8080-8880]
       override-destination: true
   skip-domain:
-    # LAN äîìåíû - ïîëíîñòüþ ïåðåíîñèì
+    # LAN домены - полностью переносим
     - '+.lan'
     - '+.localdomain'
     - '+.example'
@@ -309,7 +309,7 @@ sniffer:
     - '+.home.arpa'
     - '+.direct'
     
-    # NTP ñåðâèñû - ïîëíîñòüþ ïåðåíîñèì (UDP ïðîòîêîë)
+    # NTP сервисы - полностью переносим (UDP протокол)
     - 'time.*.com'
     - 'time.*.gov'
     - 'time.*.edu.cn'
@@ -334,7 +334,7 @@ sniffer:
     - '+.ntp.org.cn'
     - '+.pool.ntp.org'
     
-    # STUN ñåðâèñû - ïîëíîñòüþ ïåðåíîñèì (UDP ïðîòîêîë)
+    # STUN сервисы - полностью переносим (UDP протокол)
     - 'stun.*.*'
     - 'stun.*.*.*'
     - '+.stun.*.*'
@@ -342,7 +342,7 @@ sniffer:
     - '+.stun.*.*.*.*'
     - '+.stun.*.*.*.*.*'
     
-    # Push-óâåäîìëåíèÿ è ñèñòåìíûå ïðîâåðêè
+   # Push-уведомления и системные проверки
     - "+.push.apple.com"
     - "captive.apple.com"
     - "ocsp.apple.com"
@@ -452,6 +452,25 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
+  - name: TimeWeb-tuic
+    type: tuic
+    server: timeweb-spb.ddns.net
+    port: 8443
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 217.18.63.172
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
 
   - name: "Selectel-VM"
     type: vmess
@@ -488,6 +507,25 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
+  - name: Selectel-tuic
+    type: tuic
+    server: selectel-spb.ydns.eu
+    port: 8443
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 188.68.221.199
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
 
   - name: "Aeza"
     type: vless
@@ -670,7 +708,7 @@ proxies:
     tcp-fast-open: true
 
 proxy-groups:
-  - name: "Balancer"
+  - name: "Balancer-vm"
     type: load-balance
     proxies:
       - TimeWeb-VM
@@ -679,18 +717,40 @@ proxy-groups:
     interval: 300
     lazy: true
     strategy: round-robin
+  - name: "Balancer-tuic"
+    type: load-balance
+    proxies:
+      - TimeWeb-tuic
+      - Selectel-tuic
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+    lazy: true
+    strategy: round-robin
+  - name: "Balancer-vl"
+    type: load-balance
+    proxies:
+      - TimeWeb
+      - Selectel
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+    lazy: true
+    strategy: round-robin
     
   - name: "PROXY"
     type: select
     proxies:
-      - Balancer
+      - Balancer-tuic
+      - Balancer-vm
+      - Balancer-vl
       - HostingVDS
       - HostingVDS-VM
       - Socks-local
       - TimeWeb
       - TimeWeb-VM
+      - TimeWeb-tuic
       - Selectel
       - Selectel-VM
+      - Selectel-tuic
       - HostVDS
       - HostVDS-VM
       - Aeza
