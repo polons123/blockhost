@@ -6,6 +6,7 @@ ipv6: true
 external-controller: 0.0.0.0:59095
 #secret: 'Na.pole.tanki'
 external-ui: D:\mihomo\ui
+external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
 external-controller-cors:
   allow-private-network: true
   allow-origins:
