@@ -511,7 +511,7 @@ proxy-groups:
     url: 'https://www.gstatic.com/generate_204'
     interval: 300
     lazy: true
-    strategy: round-robin
+    strategy: sticky-sessions
   - name: "Balancer-tuic"
     type: load-balance
     proxies:
@@ -522,14 +522,14 @@ proxy-groups:
     lazy: true
     strategy: round-robin
   - name: "Balancer-vl"
-    type: load-balance
+    type: sticky-sessions
     proxies:
       - TimeWeb
       - Selectel
     url: 'https://www.gstatic.com/generate_204'
     interval: 300
     lazy: true
-    strategy: round-robin
+    strategy: sticky-sessions
     
   - name: "PROXY"
     type: select
