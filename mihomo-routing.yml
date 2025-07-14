@@ -411,7 +411,7 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-    
+
   - name: "Socks-local"
     type: socks5
     server: 192.168.1.151
@@ -452,6 +452,25 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
+  - name: TimeWeb-tuic
+    type: tuic
+    server: timeweb-spb.ddns.net
+    port: 8443
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 217.18.63.172
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
 
   - name: "Selectel-VM"
     type: vmess
@@ -488,7 +507,26 @@ proxies:
     client-fingerprint: chrome
     udp: true
     tcp-fast-open: true
-  
+  - name: Selectel-tuic
+    type: tuic
+    server: selectel-spb.ydns.eu
+    port: 8443
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 188.68.221.199
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
+
   - name: "Aeza"
     type: vless
     server: 77.110.126.157
@@ -670,26 +708,49 @@ proxies:
     tcp-fast-open: true
 
 proxy-groups:
-  - name: "Balancer"
+  - name: "Balancer-vm"
     type: load-balance
     proxies:
       - TimeWeb-VM
       - Selectel-VM
     url: 'https://www.gstatic.com/generate_204'
-    interval: 0
+    interval: 300
     lazy: true
-    strategy: sticky-sessions
+    strategy: round-robin
+  - name: "Balancer-tuic"
+    type: load-balance
+    proxies:
+      - TimeWeb-tuic
+      - Selectel-tuic
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+    lazy: true
+    strategy: round-robin
+  - name: "Balancer-vl"
+    type: load-balance
+    proxies:
+      - TimeWeb
+      - Selectel
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+    lazy: true
+    strategy: round-robin
+    
   - name: "PROXY"
     type: select
     proxies:
-      - Balancer
+      - Balancer-tuic
+      - Balancer-vm
+      - Balancer-vl
       - HostingVDS
       - HostingVDS-VM
       - Socks-local
       - TimeWeb
       - TimeWeb-VM
+      - TimeWeb-tuic
       - Selectel
       - Selectel-VM
+      - Selectel-tuic
       - HostVDS
       - HostVDS-VM
       - Aeza
