@@ -709,23 +709,23 @@ proxies:
 
 proxy-groups:
   - name: "Balancer-vm"
-    type: sticky-sessions
+    type: load-balance
     proxies:
       - TimeWeb-VM
       - Selectel-VM
     url: 'https://www.gstatic.com/generate_204'
     interval: 300
     lazy: true
-    strategy: round-robin
+    strategy: sticky-sessions
   - name: "Balancer-tuic"
-    type: sticky-sessions
+    type: load-balance
     proxies:
       - TimeWeb-tuic
       - Selectel-tuic
     url: 'https://www.gstatic.com/generate_204'
     interval: 300
     lazy: true
-    strategy: round-robin
+    strategy: sticky-sessions
   - name: "Balancer-vl"
     type: load-balance
     proxies:
