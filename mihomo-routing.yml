@@ -283,8 +283,8 @@ tun:
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
-keep-alive-interval: 30
-keep-alive-idle: 30
+#keep-alive-interval: 30
+#keep-alive-idle: 30
 disable-keep-alive: true
 
 sniffer:
@@ -416,6 +416,13 @@ proxies:
     type: socks5
     server: 192.168.1.151
     port: 7897
+
+  - name: "Socks-Home"
+    type: socks5
+    server: 95.165.6.169
+    port: 64845
+    username: RQ154AHxfUQKdqzWUe7MyaO4z3BF3cOa
+    password: k42JHifdj1nFHs73vcYa7CgK2NYIHurc
 
   - name: "TimeWeb-VM"
     type: vmess
@@ -745,6 +752,7 @@ proxy-groups:
       - HostingVDS
       - HostingVDS-VM
       - Socks-local
+      - Socks-Home
       - TimeWeb
       - TimeWeb-VM
       - TimeWeb-tuic
