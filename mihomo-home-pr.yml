@@ -743,6 +743,7 @@ proxy-groups:
       - Balancer-tuic
       - Balancer-vm
       - Balancer-vl
+      - DIRECT
       - HostingVDS
       - HostingVDS-VM
       - Socks-local
