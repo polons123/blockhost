@@ -744,9 +744,6 @@ proxy-groups:
       - Balancer-vm
       - Balancer-vl
       - DIRECT
-      - HostingVDS
-      - HostingVDS-VM
-      - Socks-local
       - TimeWeb
       - TimeWeb-VM
       - TimeWeb-tuic
