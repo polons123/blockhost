@@ -654,8 +654,8 @@ proxy-groups:
     proxies:
       - TimeWeb-VM
       - Selectel-VM
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
+    #url: 'https://www.gstatic.com/generate_204'
+    #interval: 300
     lazy: true
     strategy: sticky-sessions
   - name: "Balancer-tuic"
@@ -663,8 +663,8 @@ proxy-groups:
     proxies:
       - TimeWeb-tuic
       - Selectel-tuic
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
+    #url: 'https://www.gstatic.com/generate_204'
+    #interval: 300
     lazy: true
     strategy: sticky-sessions
   - name: "Balancer-vl"
@@ -672,8 +672,8 @@ proxy-groups:
     proxies:
       - TimeWeb
       - Selectel
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
+    #url: 'https://www.gstatic.com/generate_204'
+    #interval: 300
     lazy: true
     strategy: sticky-sessions
     
