@@ -25,7 +25,7 @@ dns:
   - https://vdska-pl.ydns.eu/dns-query
   prefer-h3: true
   proxy-server-nameserver:
-  - https://hostingvds-mon.ydns.eu:8443/dns-query
+  - https://hosting-mon.ydns.eu:8443/dns-query
   - https://vdska-fin.ydns.eu/dns-query
   - https://vdska-pl.ydns.eu/dns-query
   respect-rules: false
@@ -171,41 +171,6 @@ sniffer:
     - "224.0.0.0/4"
 
 proxies:
-  - name: "HostingVDS"
-    type: vless
-    server: 185.56.162.219
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: hostingvds-msk.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: hostingvds-msk.ddns.net
-    skip-cert-verify: false
-    client-fingerprint: chrome
-    udp: true
-    tcp-fast-open: true 
-  - name: "HostingVDS-VM"
-    type: vmess
-    server: 185.56.162.219
-    port: 64358
-    uuid: c3255d49-443d-46cb-83d5-d8d88b816444
-    alterId: 0
-    ip-version: ipv6-prefer
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 185.56.162.219
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
 
   - name: "Socks-local"
     type: socks5
@@ -358,42 +323,6 @@ proxies:
     udp: true
     tcp-fast-open: true
 
-  - name: "HostVDS"
-    type: vless
-    server: 188.130.206.28
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: d8003fcf-e9fc-4e64-9e57-12f51d02dede
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: hostvds.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: hostvds.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "HostVDS-VM"
-    type: vmess
-    server: 188.130.206.28
-    port: 65319
-    ip-version: ipv6-prefer
-    uuid: 86e1eae2-69c3-4fbe-a9b2-203d0f87f54c
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 188.130.206.28
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
-
   - name: "H2nexus-F"
     type: vless
     server: 45.144.52.52
@@ -537,8 +466,6 @@ proxy-groups:
       - Balancer-tuic
       - Balancer-vm
       - Balancer-vl
-      - HostingVDS
-      - HostingVDS-VM
       - Socks-local
       - TimeWeb
       - TimeWeb-VM
@@ -546,8 +473,6 @@ proxy-groups:
       - Selectel
       - Selectel-VM
       - Selectel-tuic
-      - HostVDS
-      - HostVDS-VM
       - Aeza
       - Aeza-VM
       - H2nexus-F
