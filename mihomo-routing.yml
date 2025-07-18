@@ -382,6 +382,18 @@ proxies:
     server: 192.168.1.151
     port: 7897
 
+  - name: "Dom-VM"
+    type: vmess
+    server: 95.165.6.169
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    #ip-version: ipv6-prefer
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+
   - name: "TimeWeb-VM"
     type: vmess
     server: 217.18.63.172
@@ -636,17 +648,6 @@ proxies:
     udp: true
     tcp-fast-open: true
 
-  - name: DomProxy-WG
-    type: wireguard
-    server: 95.165.6.169
-    port: 64845
-    ip: 10.253.0.4
-    private-key: sLXCo6xi3nbVAfgh0sbY5MjDjzcHQ0lts7YKA+g+DWc=
-    public-key: v19WA9RUyXFPrPTQkJ2U+75l1afR5xnmgPFb63ao+n8=
-    allowed-ips: ['0.0.0.0/0']
-    udp: true
-    #mtu: 1280  # или оставить без параметра, если не требуется
-
 proxy-groups:
   - name: "Balancer-vm"
     type: load-balance
@@ -682,8 +683,8 @@ proxy-groups:
       - Balancer-tuic
       - Balancer-vm
       - Balancer-vl
+      - Dom-VM
       - Socks-local
-      - DomProxy-WG
       - TimeWeb
       - TimeWeb-VM
       - TimeWeb-tuic
