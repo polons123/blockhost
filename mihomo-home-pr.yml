@@ -376,12 +376,17 @@ sniffer:
     - "127.0.0.0/8"
     - "224.0.0.0/4"
 
-proxies:
+listeners:
+  - name: vmess-in
+    type: vmess
+    port: 64845
+    listen: 0.0.0.0
+    users:
+      - username: polons123
+        uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+        alterId: 0
 
-  - name: "Socks-local"
-    type: socks5
-    server: 192.168.1.151
-    port: 7897
+proxies:
 
   - name: "TimeWeb-VM"
     type: vmess
