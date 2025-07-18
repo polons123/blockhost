@@ -449,9 +449,9 @@ proxy-groups:
     url: 'https://www.gstatic.com/generate_204'
     interval: 300
     lazy: true
-    strategy: round-robin
+    strategy: sticky-sessions
   - name: "Balancer-vl"
-    type: sticky-sessions
+    type: load-balance
     proxies:
       - TimeWeb
       - Selectel
