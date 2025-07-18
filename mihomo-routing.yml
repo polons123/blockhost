@@ -376,42 +376,7 @@ sniffer:
     - "224.0.0.0/4"
 
 proxies:
-  - name: "HostingVDS"
-    type: vless
-    server: 185.56.162.219
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: e4cb6eca-18d4-48d5-9562-86a5e8740d07
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: hostingvds-msk.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: hostingvds-msk.ddns.net
-    skip-cert-verify: false
-    client-fingerprint: chrome
-    udp: true
-    tcp-fast-open: true 
-  - name: "HostingVDS-VM"
-    type: vmess
-    server: 185.56.162.219
-    port: 64358
-    uuid: c3255d49-443d-46cb-83d5-d8d88b816444
-    alterId: 0
-    ip-version: ipv6-prefer
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 185.56.162.219
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
-
+  
   - name: "Socks-local"
     type: socks5
     server: 192.168.1.151
@@ -565,42 +530,6 @@ proxies:
       path: /Video-data
       headers:
         Host: 77.110.126.157
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
-
-  - name: "HostVDS"
-    type: vless
-    server: 188.130.206.28
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: d8003fcf-e9fc-4e64-9e57-12f51d02dede
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: hostvds.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: hostvds.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "HostVDS-VM"
-    type: vmess
-    server: 188.130.206.28
-    port: 65319
-    ip-version: ipv6-prefer
-    uuid: 86e1eae2-69c3-4fbe-a9b2-203d0f87f54c
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 188.130.206.28
       v2ray-http-upgrade: true
     tls: false
     udp: true
@@ -768,8 +697,6 @@ proxy-groups:
       - Selectel
       - Selectel-VM
       - Selectel-tuic
-      - HostVDS
-      - HostVDS-VM
       - Aeza
       - Aeza-VM
       - H2nexus-F
