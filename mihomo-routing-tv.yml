@@ -263,149 +263,86 @@ proxies:
     max-open-streams: 20
     # sni: example.com
 
-  - name: "Aeza"
-    type: vless
-    server: 77.110.126.157
+  - name: Aeza
+    type: tuic
+    server: aeza-usa.ddns.net
     port: 443
-    ip-version: ipv6-prefer
-    uuid: 9daf548c-2a02-48a4-9ec6-1d96d46a0283
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: aeza-usa.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: aeza-usa.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "Aeza-VM"
-    type: vmess
-    server: 77.110.126.157
-    port: 63215
-    ip-version: ipv6-prefer
-    uuid: 3e9c4be7-7349-43d2-ac3a-35287114275e
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 77.110.126.157
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 77.110.126.157
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
+  
+  - name: H2nexus
+    type: tuic
+    server: h2nexus.ddns.net
+    port: 443
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 45.144.52.52
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
 
-  - name: "H2nexus-F"
-    type: vless
-    server: 45.144.52.52
+  - name: SaleDedic
+    type: tuic
+    server: salededic-swe.ddns.net
     port: 443
-    ip-version: ipv6-prefer
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: h2nexus.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: h2nexus.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "H2nexus-VM-F"
-    type: vmess
-    server: 45.144.52.52
-    port: 65309
-    ip-version: ipv6-prefer
-    uuid: 59f2503a-9506-4c14-9293-bbb4964a75b8
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 45.144.52.52
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 109.122.201.73
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
+  
+  - name: Waicore
+    type: tuic
+    server: waicore-ger.ddns.net
+    port: 443
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 193.233.134.245
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
 
-  - name: "SaleDedic-F"
-    type: vless
-    server: 109.122.201.73
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: b8dec966-bb51-4597-9bde-c6ce86eaf00b
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: salededic-swe.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: salededic-swe.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "SaleDedic-VM-F"
-    type: vmess
-    server: 109.122.201.73
-    port: 64709
-    ip-version: ipv6-prefer
-    uuid: a4ffa61e-07ab-4b77-b78d-f0939559d8f8
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 109.122.201.73
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
-
-  - name: "Waicore-Ger"
-    type: vless
-    server: 193.233.134.245
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: 1db7c946-f9d6-4cfd-86b6-a4bcef67384c
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: waicore-ger.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: waicore-ger.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "Waicore-VM-Ger"
-    type: vmess
-    server: 193.233.134.245
-    port: 62910
-    ip-version: ipv6-prefer
-    uuid: 99d0d9fe-a212-46ab-bf9a-cf1c113339bd
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 193.233.134.245
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
 
 proxy-groups:
   - name: "Balancer-vm"
@@ -439,13 +376,9 @@ proxy-groups:
       - Selectel-VM
       - Selectel-tuic
       - Aeza
-      - Aeza-VM
-      - H2nexus-F
-      - H2nexus-VM-F
-      - SaleDedic-F
-      - SaleDedic-VM-F
-      - Waicore-Ger
-      - Waicore-VM-Ger
+      - H2nexus
+      - SaleDedic
+      - Waicore
 
 rule-providers:
   geosite-google:
