@@ -171,11 +171,23 @@ sniffer:
     - "224.0.0.0/4"
 
 proxies:
-
+  
   - name: "Socks-local"
     type: socks5
     server: 192.168.1.151
     port: 7897
+
+  - name: "Dom-VM"
+    type: vmess
+    server: 95.165.6.169
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    #ip-version: ipv6-prefer
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
 
   - name: "TimeWeb-VM"
     type: vmess
@@ -194,28 +206,10 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-  - name: "TimeWeb"
-    type: trojan
-    server: 217.18.63.172
-    port: 443
-    ip-version: ipv6-prefer
-    password: af60d487-24fc-47a8-956e-3e0a2b664405
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: timeweb-spb.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    sni: timeweb-spb.ddns.net
-    skip-cert-verify: false
-    client-fingerprint: chrome
-    udp: true
-    tcp-fast-open: true
   - name: TimeWeb-tuic
     type: tuic
     server: timeweb-spb.ddns.net
-    port: 8443
+    port: 443
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 217.18.63.172
@@ -249,28 +243,10 @@ proxies:
     tls: false
     udp: true
     tcp-fast-open: true
-  - name: "Selectel"
-    type: trojan
-    server: 188.68.221.199
-    port: 443
-    ip-version: ipv6-prefer
-    password: af60d487-24fc-47a8-956e-3e0a2b664405
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: selectel-spb.ydns.eu
-      v2ray-http-upgrade: true
-    tls: true
-    sni: selectel-spb.ydns.eu
-    skip-cert-verify: false
-    client-fingerprint: chrome
-    udp: true
-    tcp-fast-open: true
   - name: Selectel-tuic
     type: tuic
     server: selectel-spb.ydns.eu
-    port: 8443
+    port: 443
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 188.68.221.199
@@ -437,8 +413,8 @@ proxy-groups:
     proxies:
       - TimeWeb-VM
       - Selectel-VM
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
+    #url: 'https://www.gstatic.com/generate_204'
+    #interval: 300
     lazy: true
     strategy: sticky-sessions
   - name: "Balancer-tuic"
@@ -446,17 +422,8 @@ proxy-groups:
     proxies:
       - TimeWeb-tuic
       - Selectel-tuic
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    lazy: true
-    strategy: sticky-sessions
-  - name: "Balancer-vl"
-    type: load-balance
-    proxies:
-      - TimeWeb
-      - Selectel
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
+    #url: 'https://www.gstatic.com/generate_204'
+    #interval: 300
     lazy: true
     strategy: sticky-sessions
     
@@ -465,12 +432,10 @@ proxy-groups:
     proxies:
       - Balancer-tuic
       - Balancer-vm
-      - Balancer-vl
+      - Dom-VM
       - Socks-local
-      - TimeWeb
       - TimeWeb-VM
       - TimeWeb-tuic
-      - Selectel
       - Selectel-VM
       - Selectel-tuic
       - Aeza
