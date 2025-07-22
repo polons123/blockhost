@@ -2,7 +2,7 @@ mode: rule
 mixed-port: 7897
 allow-lan: false
 log-level: error
-ipv6: true
+ipv6: false
 # external-controller: 127.0.0.1:59090
 # secret: ''
 # external-controller-cors:
@@ -18,219 +18,14 @@ dns:
   - 8.8.8.8
   direct-nameserver-follow-policy: false
   enable: true
-  enhanced-mode: fake-ip # redir-host  or fake-ip
-  fake-ip-filter:
-  # LAN домены
-  - '+.lan'
-  - '+.localdomain'
-  - '+.example'
-  - '+.invalid'
-  - '+.localhost'
-  - '+.test'
-  - '+.local'
-  - '+.home.arpa'
-  - '+.direct'
-    
-  # NTP сервисы (синхронизация времени)
-  - 'time.*.com'
-  - 'time.*.gov'
-  - 'time.*.edu.cn'
-  - 'time.*.apple.com'
-  - 'time-ios.apple.com'
-  - 'time1.*.com'
-  - 'time2.*.com'
-  - 'time3.*.com'
-  - 'time4.*.com'
-  - 'time5.*.com'
-  - 'time6.*.com'
-  - 'time7.*.com'
-  - 'ntp.*.com'
-  - 'ntp1.*.com'
-  - 'ntp2.*.com'
-  - 'ntp3.*.com'
-  - 'ntp4.*.com'
-  - 'ntp5.*.com'
-  - 'ntp6.*.com'
-  - 'ntp7.*.com'
-  - '+.time.edu.cn'
-  - '+.ntp.org.cn'
-  - '+.pool.ntp.org'
-    
-  # Microsoft сервисы
-  - '+.msftconnecttest.com'
-  - '+.msftncsi.com'
-  - '+.microsoft.com'
-  - '+.microsoftonline.com'
-  - '+.office.com'
-  - '+.office365.com'
-  - '+.outlook.com'
-  - '+.live.com'
-  - '+.hotmail.com'
-  - '+.xbox.com'
-  - '+.xboxlive.com'
-  - '+.gamepass.com'
-    
-  # Игровые платформы
-  - '+.steamcontent.com'
-  - '+.steampowered.com'
-  - '+.steamcommunity.com'
-  - '+.steamstatic.com'
-  - '+.srv.nintendo.net'
-  - '+.n.n.srv.nintendo.net'
-  - '+.cdn.nintendo.net'
-  - '+.stun.playstation.net'
-  - '+.playstation.net'
-  - '+.playstation.com'
-  - 'xbox.*.*.microsoft.com'
-  - '+.*.xboxlive.com'
-  - 'xbox.*.microsoft.com'
-  - 'xnotify.xboxlive.com'
-  - '+.battle.net'
-  - '+.blizzard.com'
-  - '+.epicgames.com'
-  - '+.unrealengine.com'
-    
-  # STUN сервисы
-  - 'stun.*.*'
-  - 'stun.*.*.*'
-  - '+.stun.*.*'
-  - '+.stun.*.*.*'
-  - '+.stun.*.*.*.*'
-  - '+.stun.*.*.*.*.*'
-  
-  # Google сервисы
-  - '+.google.com'
-  - '+.googleapis.com'
-  - '+.googleusercontent.com'
-  - '+.googlevideo.com'
-  - '+.gstatic.com'
-  - '+.googletagmanager.com'
-  - '+.googleadservices.com'
-  - '+.googlesyndication.com'
-  - '+.youtube.com'
-  - '+.ytimg.com'
-  - '+.youtu.be'
-  - '+.android.com'
-  - '+.gvt1.com'
-  - '+.gvt2.com'
-  - '+.gvt3.com'
-  - '+.googlecloud.com'
-  - '+.firebase.com'
-  - '+.firebaseio.com'
-  - '+.fcm.googleapis.com'
-  
-  # Apple сервисы
-  - '+.apple.com'
-  - '+.icloud.com'
-  - '+.itunes.apple.com'
-  - '+.apps.apple.com'
-  - '+.mail.me.com'
-  
-  # Meta экосистема
-  - '+.facebook.com'
-  - '+.fbcdn.net'
-  - '+.instagram.com'
-  - '+.cdninstagram.com'
-  - '+.whatsapp.com'
-  - '+.whatsapp.net'
-  - '+.oculus.com'
-  - '+.oculuscdn.com'
-  
-  # Мессенджеры и соцсети
-  - '+.telegram.org'
-  - '+.t.me'
-  - '+.tdesktop.com'
-  - '+.telegra.ph'
-  - '+.discord.com'
-  - '+.discordapp.com'
-  - '+.discord.gg'
-  - '+.discordcdn.com'
-  - '+.tiktok.com'
-  - '+.tiktokcdn.com'
-  - '+.bytedance.com'
-  - '+.musical.ly'
-  
-  # AI и развлекательные сервисы
-  - '+.openai.com'
-  - '+.chatgpt.com'
-  - 'chat.openai.com'
-  - 'api.openai.com'
-  - '+.netflix.com'
-  - '+.nflximg.net'
-  - '+.nflxvideo.net'
-  - '+.nflxso.net'
-  - '+.spotify.com'
-  - '+.spotifycdn.com'
-  - '+.scdn.co'
-  
-  # Банковские и финансовые сервисы
-  - '+.sberbank.ru'
-  - '+.vtb.ru'
-  - '+.alfabank.ru'
-  - '+.tinkoff.ru'
-  - '+.gosuslugi.ru'
-  - '+.mos.ru'
-  - '+.paypal.com'
-  - '+.visa.com'
-  - '+.mastercard.com'
-  
-  # Антивирусы и системы безопасности
-  - '+.kaspersky.com'
-  - '+.avast.com'
-  - '+.avg.com'
-  - '+.eset.com'
-  - '+.norton.com'
-  - '+.mcafee.com'
-  
-  # Китайские производители
-  - '+.market.xiaomi.com'
-  - '+.miui.com'
-  - '+.mi.com'
-  - '+.huawei.com'
-  - '+.vmall.com'
-  - '+.oppo.com'
-  - '+.vivo.com'
-  
-  # Операторы связи и Wi-Fi calling
-  - '+.3gppnetwork.org'
-  - '+.ims.mnc*.mcc*.3gppnetwork.org'
-  
-  # CDN и облачные сервисы
-  - '+.cloudflare.com'
-  - '+.cloudflaressl.com'
-  - 'cloudflare-ech.com'
-  - '+.amazonaws.com'
-  - '+.azure.com'
-  - '+.azureedge.net'
-  
-  # Дополнительные системные домены
-  - '+.msftconnecttest.com'
-  - '+.connectivitycheck.gstatic.com'
-  - 'captive.apple.com'
-  - 'detectportal.firefox.com'
-  fake-ip-filter-mode: blacklist
-  fake-ip-range: 198.18.0.1/16
-  #fallback:
-  #- https://hostingvds-mon.ydns.eu:8443/dns-query
-  #- https://vdska-fin.ydns.eu/dns-query
-  #fallback-filter:
-  #  domain:
-  #  - +.google.com
-  #  - +.facebook.com
-  #  - +.youtube.com
-  #  geoip: false
-  #  geoip-code: RU
-  #  ipcidr:
-  #  - 240.0.0.0/4
-  #  - 0.0.0.0/32
-  listen: :10053
+  enhanced-mode: redir-host # redir-host  or fake-ip
   nameserver:
   - https://hostingvds-mon.ydns.eu:8443/dns-query
   - https://vdska-fin.ydns.eu/dns-query
   - https://vdska-pl.ydns.eu/dns-query
   prefer-h3: true
   proxy-server-nameserver:
-  - https://hostingvds-mon.ydns.eu:8443/dns-query
+  - https://hosting-mon.ydns.eu:8443/dns-query
   - https://vdska-fin.ydns.eu/dns-query
   - https://vdska-pl.ydns.eu/dns-query
   respect-rules: false
@@ -291,7 +86,7 @@ sniffer:
   enable: true
   sniff:
     QUIC:
-      ports: [443, 8443]
+      ports: [ 443 ]
     TLS:
       ports: [443, 8443]
     HTTP:
@@ -468,149 +263,86 @@ proxies:
     max-open-streams: 20
     # sni: example.com
 
-  - name: "Aeza"
-    type: vless
-    server: 77.110.126.157
+  - name: Aeza
+    type: tuic
+    server: aeza-usa.ddns.net
     port: 443
-    ip-version: ipv6-prefer
-    uuid: 9daf548c-2a02-48a4-9ec6-1d96d46a0283
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: aeza-usa.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: aeza-usa.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "Aeza-VM"
-    type: vmess
-    server: 77.110.126.157
-    port: 63215
-    ip-version: ipv6-prefer
-    uuid: 3e9c4be7-7349-43d2-ac3a-35287114275e
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 77.110.126.157
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 77.110.126.157
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
+  
+  - name: H2nexus
+    type: tuic
+    server: h2nexus.ddns.net
+    port: 443
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 45.144.52.52
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
 
-  - name: "H2nexus-F"
-    type: vless
-    server: 45.144.52.52
+  - name: SaleDedic
+    type: tuic
+    server: salededic-swe.ddns.net
     port: 443
-    ip-version: ipv6-prefer
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: h2nexus.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: h2nexus.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "H2nexus-VM-F"
-    type: vmess
-    server: 45.144.52.52
-    port: 65309
-    ip-version: ipv6-prefer
-    uuid: 59f2503a-9506-4c14-9293-bbb4964a75b8
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 45.144.52.52
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 109.122.201.73
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
+  
+  - name: Waicore
+    type: tuic
+    server: waicore-ger.ddns.net
+    port: 443
+    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
+    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    ip: 193.233.134.245
+    # heartbeat-interval: 10000
+    # alpn: [h3]
+    disable-sni: true
+    reduce-rtt: true
+    request-timeout: 8000
+    udp-relay-mode: native
+    congestion-controller: bbr
+    # max-udp-relay-packet-size: 1500
+    fast-open: true
+    # skip-cert-verify: true
+    max-open-streams: 20
+    # sni: example.com
 
-  - name: "SaleDedic-F"
-    type: vless
-    server: 109.122.201.73
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: b8dec966-bb51-4597-9bde-c6ce86eaf00b
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: salededic-swe.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: salededic-swe.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "SaleDedic-VM-F"
-    type: vmess
-    server: 109.122.201.73
-    port: 64709
-    ip-version: ipv6-prefer
-    uuid: a4ffa61e-07ab-4b77-b78d-f0939559d8f8
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 109.122.201.73
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
-
-  - name: "Waicore-Ger"
-    type: vless
-    server: 193.233.134.245
-    port: 443
-    ip-version: ipv6-prefer
-    uuid: 1db7c946-f9d6-4cfd-86b6-a4bcef67384c
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: waicore-ger.ddns.net
-      v2ray-http-upgrade: true
-    tls: true
-    servername: waicore-ger.ddns.net
-    client-fingerprint: chrome
-    skip-cert-verify: false
-    udp: true
-    tcp-fast-open: true
-  - name: "Waicore-VM-Ger"
-    type: vmess
-    server: 193.233.134.245
-    port: 62910
-    ip-version: ipv6-prefer
-    uuid: 99d0d9fe-a212-46ab-bf9a-cf1c113339bd
-    alterId: 0
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 193.233.134.245
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
 
 proxy-groups:
   - name: "Balancer-vm"
@@ -644,36 +376,11 @@ proxy-groups:
       - Selectel-VM
       - Selectel-tuic
       - Aeza
-      - Aeza-VM
-      - H2nexus-F
-      - H2nexus-VM-F
-      - SaleDedic-F
-      - SaleDedic-VM-F
-      - Waicore-Ger
-      - Waicore-VM-Ger
+      - H2nexus
+      - SaleDedic
+      - Waicore
 
 rule-providers:
-  geosite-yandex:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/yandex.mrs"
-    path: ./geosite-yandex.mrs
-    interval: 86400
-  geosite-vk:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/vk.mrs"
-    path: ./geosite-vk.mrs
-    interval: 86400
-  geosite-mailru:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/mailru.mrs"
-    path: ./geosite-mailru.mrs
-    interval: 86400
   geosite-google:
     type: http
     behavior: domain
@@ -688,40 +395,6 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs"
     path: ./geosite-apple.mrs
     interval: 86400
-  geosite-facebook:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/facebook.mrs"
-    path: ./geosite-facebook.mrs
-    interval: 86400
-  geosite-instagram:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/instagram.mrs"
-    path: ./geosite-instagram.mrs
-  geosite-whatsapp:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/whatsapp.mrs"
-    path: ./geosite-whatsapp.mrs   
-    interval: 86400
-  geosite-oculus:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/oculus.mrs"
-    path: ./geosite-oculus.mrs   
-    interval: 86400
-  geosite-telegram:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/telegram.mrs"
-    path: ./geosite-telegram.mrs   
-    interval: 86400
   geosite-youtube:
     type: http
     behavior: domain
@@ -729,89 +402,12 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"
     path: ./geosite-youtube.mrs   
     interval: 86400
-  geosite-openai:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"
-    path: ./geosite-openai.mrs   
-    interval: 86400
-  geosite-google-gemini:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google-gemini.mrs"
-    path: ./geosite-google-gemini.mrs   
-    interval: 86400
-  geosite-xai:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xai.mrs"
-    path: ./geosite-xai.mrs   
-    interval: 86400
-  geosite-tiktok:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/tiktok.mrs"
-    path: ./geosite-tiktok.mrs   
-    interval: 86400
-  geosite-discord:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/discord.mrs"
-    path: ./geosite-discord.mrs  
-    interval: 86400
-  geosite-microsoft:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/microsoft.mrs"
-    path: ./geosite-microsoft.mrs
-    interval: 86400
-  geosite-netflix:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/netflix.mrs"
-    path: ./geosite-netflix.mrs
-    interval: 86400
-  geosite-spotify:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/spotify.mrs"
-    path: ./geosite-spotify.mrs
-    interval: 86400      
-  geoip-facebook:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/facebook.mrs"
-    path: ./geoip-facebook.mrs
-    interval: 86400  
   geoip-google:
     type: http
     behavior: ipcidr
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"
     path: ./geoip-google.mrs
-    interval: 86400
-  geoip-telegram:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/telegram.mrs"
-    path: ./geoip-telegram.mrs
-    interval: 86400
-  geoip-twitter:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/twitter.mrs"
-    path: ./geoip-twitter.mrs
     interval: 86400
   geoip-apple:
     type: http
@@ -820,20 +416,6 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"
     path: ./geoip-apple.mrs
     interval: 86400
-  geoip-netflix:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/netflix.mrs"
-    path: ./geoip-netflix.mrs
-    interval: 86400
-  geoip-discord-voice:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/other/discord-voice-ip-list.mrs"
-    path: ./geoip-discord-voice.mrs
-    interval: 86400        
   geoip-ru:
     type: http
     behavior: ipcidr
@@ -884,34 +466,12 @@ rules:
   - DOMAIN,m.hotmail.com,DIRECT
   - DOMAIN,hotmail.com,DIRECT
 
-  - RULE-SET,geosite-yandex,DIRECT
-  - RULE-SET,geosite-vk,DIRECT
-  - RULE-SET,geosite-mailru,DIRECT
-  
   - RULE-SET,geosite-google,PROXY
   - RULE-SET,geosite-apple,PROXY
-  - RULE-SET,geosite-facebook,PROXY
-  - RULE-SET,geosite-instagram,PROXY
-  - RULE-SET,geosite-whatsapp,PROXY
-  - RULE-SET,geosite-oculus,PROXY
-  - RULE-SET,geosite-telegram,PROXY
   - RULE-SET,geosite-youtube,PROXY
-  - RULE-SET,geosite-openai,PROXY
-  - RULE-SET,geosite-google-gemini,PROXY
-  - RULE-SET,geosite-xai,PROXY
-  - RULE-SET,geosite-tiktok,PROXY
-  - RULE-SET,geosite-discord,PROXY
-  - RULE-SET,geosite-microsoft,PROXY
-  - RULE-SET,geosite-netflix,PROXY
-  - RULE-SET,geosite-spotify,PROXY
 
   - RULE-SET,geoip-google,PROXY
-  - RULE-SET,geoip-facebook,PROXY
-  - RULE-SET,geoip-telegram,PROXY
-  - RULE-SET,geoip-twitter,PROXY
   - RULE-SET,geoip-apple,PROXY
-  - RULE-SET,geoip-netflix,PROXY
-  - RULE-SET,geoip-discord-voice,PROXY
   
   - DOMAIN,kino.pub,PROXY
   - DOMAIN-KEYWORD,habr,PROXY
