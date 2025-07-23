@@ -586,7 +586,7 @@ proxy-groups:
       - Balancer-tuic
       - Balancer-vm
       - Dom-VM
-      - Direct
+      - DIRECT
       - Socks-local
       - TimeWeb-VM
       - TimeWeb-tuic
