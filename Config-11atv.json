@@ -1,7 +1,7 @@
 {
   "log": {
-    "disabled": true,
-    "level": "warn",
+    "disabled": false,
+    "level": "debug",
     "output": "box.log",
     "timestamp": true
   },
@@ -77,13 +77,9 @@
         "Selectel",
         "Selectel-VM",
         "Aeza",
-        "Aeza-VM",
         "H2nexus-F",
-        "H2nexus-VM-F",
         "SaleDedic-F",
-        "SaleDedic-VM-F",
-        "Waicore-Ger",
-        "Waicore-VM-Ger"
+        "Waicore-Ger"
       ],
       "default": "TimeWeb-VM"
     },
@@ -95,26 +91,23 @@
       "version": "5"
     },
     {
-      "type": "trojan",
+      "type": "tuic",
       "tag": "TimeWeb",
-      "server": "timeweb-spb.ddns.net",
-      "domain_strategy": "prefer_ipv6",
+      "server": "217.18.63.172",
       "server_port": 443,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "password": "af60d487-24fc-47a8-956e-3e0a2b664405",
+      "uuid": "7aa312e0-e549-4766-8d3d-592420c18077",
+      "password": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": true,
+      //"heartbeat": "10s",
+      //"network": "tcp",
       "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "timeweb-spb.ddns.net"
-      }
+            "enabled": true,
+            "disable_sni": true,
+            "server_name": "timeweb-spb.ddns.net",
+            "alpn": ["h3"]
+            }
     },
     {
       "type": "vmess",
@@ -134,26 +127,23 @@
       }
     },
     {
-      "type": "trojan",
+      "type": "tuic",
       "tag": "Selectel",
-      "server": "selectel-spb.ydns.eu",
-      "domain_strategy": "prefer_ipv6",
+      "server": "188.68.221.199",
       "server_port": 443,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "password": "af60d487-24fc-47a8-956e-3e0a2b664405",
+      "uuid": "7aa312e0-e549-4766-8d3d-592420c18077",
+      "password": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": true,
+      //"heartbeat": "10s",
+      //"network": "tcp",
       "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "selectel-spb.ydns.eu"
-      }
+            "enabled": true,
+            "disable_sni": true,
+            "server_name": "selectel-spb.ydns.eu",
+            "alpn": ["h3"]
+            }
     },
     {
       "type": "vmess",
@@ -173,160 +163,80 @@
       }
     },
     {
-      "type": "vless",
+      "type": "tuic",
       "tag": "Aeza",
-      "server": "aeza-usa.ddns.net",
-      "domain_strategy": "prefer_ipv6",
-      "server_port": 443,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "uuid": "9daf548c-2a02-48a4-9ec6-1d96d46a0283",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "aeza-usa.ddns.net"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "Aeza-VM",
       "server": "77.110.126.157",
-      "domain_strategy": "prefer_ipv6",
-      "server_port": 63215,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "uuid": "3e9c4be7-7349-43d2-ac3a-35287114275e",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "77.110.126.157"
-      }
+      "server_port": 443,
+      "uuid": "7aa312e0-e549-4766-8d3d-592420c18077",
+      "password": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": true,
+      //"heartbeat": "10s",
+      //"network": "tcp",
+      "tls": {
+            "enabled": true,
+            "disable_sni": true,
+            "server_name": "aeza-usa.ddns.net",
+            "alpn": ["h3"]
+            }
     },
     {
-      "type": "vless",
+      "type": "tuic",
       "tag": "H2nexus-F",
-      "server": "h2nexus.ddns.net",
-      "domain_strategy": "prefer_ipv6",
-      "server_port": 443,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "uuid": "b68ab9f0-60a2-43bb-befb-ea72cc9400b2",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "h2nexus.ddns.net"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "H2nexus-VM-F",
       "server": "45.144.52.52",
-      "domain_strategy": "prefer_ipv6",
-      "server_port": 65309,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "uuid": "59f2503a-9506-4c14-9293-bbb4964a75b8",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "45.144.52.52"
-      }
+      "server_port": 443,
+      "uuid": "7aa312e0-e549-4766-8d3d-592420c18077",
+      "password": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": true,
+      //"heartbeat": "10s",
+      //"network": "tcp",
+      "tls": {
+            "enabled": true,
+            "disable_sni": true,
+            "server_name": "h2nexus.ddns.net",
+            "alpn": ["h3"]
+            }
     },
     {
-      "type": "vless",
+      "type": "tuic",
       "tag": "SaleDedic-F",
-      "server": "salededic-swe.ddns.net",
-      "domain_strategy": "prefer_ipv6",
-      "server_port": 443,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "uuid": "b8dec966-bb51-4597-9bde-c6ce86eaf00b",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "salededic-swe.ddns.net"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "SaleDedic-VM-F",
       "server": "109.122.201.73",
-      "domain_strategy": "prefer_ipv6",
-      "server_port": 64709,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "uuid": "a4ffa61e-07ab-4b77-b78d-f0939559d8f8",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "109.122.201.73"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Waicore-Ger",
-      "server": "waicore-ger.ddns.net",
-      "domain_strategy": "prefer_ipv6",
       "server_port": 443,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "uuid": "1db7c946-f9d6-4cfd-86b6-a4bcef67384c",
+      "uuid": "7aa312e0-e549-4766-8d3d-592420c18077",
+      "password": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": true,
+      //"heartbeat": "10s",
+      //"network": "tcp",
       "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "waicore-ger.ddns.net"
-      }
+            "enabled": true,
+            "disable_sni": true,
+            "server_name": "salededic-swe.ddns.net",
+            "alpn": ["h3"]
+            }
     },
     {
-      "type": "vmess",
-      "tag": "Waicore-VM-Ger",
+      "type": "tuic",
+      "tag": "Waicore-Ger",
       "server": "193.233.134.245",
-      "domain_strategy": "prefer_ipv6",
-      "server_port": 62910,
-      "tcp_fast_open": true,
-      "udp_fragment": false,
-      "uuid": "99d0d9fe-a212-46ab-bf9a-cf1c113339bd",
-      "security": "chacha20-poly1305",
-      "alter_id": null,
-      "transport": {
-        "type": "httpupgrade",
-        "path": "/Video-data",
-        "host": "193.233.134.245"
-      }
+      "server_port": 443,
+      "uuid": "7aa312e0-e549-4766-8d3d-592420c18077",
+      "password": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": true,
+      //"heartbeat": "10s",
+      //"network": "tcp",
+      "tls": {
+            "enabled": true,
+            "disable_sni": true,
+            "server_name": "waicore-ger.ddns.net",
+            "alpn": ["h3"]
+            }
     }
   ],
   "route": {
