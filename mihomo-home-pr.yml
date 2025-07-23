@@ -786,8 +786,16 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
     path: ./geoip-ru.mrs
     interval: 86400
+  oisd_big:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/oisd/big.mrs"
+    path: ./big.mrs
+    interval: 86400
 
 rules:
+  - RULE-SET,oisd_big,REJECT
   - PROCESS-NAME,uTorrent.exe,DIRECT
   - PROCESS-NAME,BitTorrent.exe,DIRECT
   - PROCESS-NAME,utweb.exe,DIRECT
