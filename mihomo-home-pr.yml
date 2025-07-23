@@ -256,7 +256,7 @@ tun:
   dns-hijack:
   - any:53
   - tcp://any:53
-  device: utun0
+  device: utun11
   route-exclude-address:
   - 0.0.0.0/8
   - 100.64.0.0/10
