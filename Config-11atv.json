@@ -72,6 +72,7 @@
       "tag": "selector",
       "outbounds": [
         "Socks5-local",
+        "Dom-VM",
         "TimeWeb",
         "TimeWeb-VM",
         "Selectel",
@@ -89,6 +90,16 @@
       "server": "192.168.1.151",
       "server_port": 7897,
       "version": "5"
+    },
+    {
+      "type": "vmess",
+      "tag": "Dom-VM",
+      "server": "95.165.6.169",
+      "domain_strategy": "ipv4_only",
+      "server_port": 64845,
+      "uuid": "7040f7de-3e63-4ff1-8a77-37c70b319eb2",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
     },
     {
       "type": "tuic",
