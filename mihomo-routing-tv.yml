@@ -78,15 +78,15 @@ tun:
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
-keep-alive-interval: 30
-keep-alive-idle: 30
-disable-keep-alive: true
+keep-alive-interval: 15
+keep-alive-idle: 15
+#disable-keep-alive: true
 
 sniffer:
   enable: true
   sniff:
     QUIC:
-      ports: [443, 8443 ]
+      ports: [443, 8443]
     TLS:
       ports: [443, 8443]
     HTTP:
@@ -176,7 +176,8 @@ proxies:
     type: socks5
     server: 192.168.1.151
     port: 7897
-
+    udp: true
+    
   - name: "Dom-VM"
     type: vmess
     server: 95.165.6.169
