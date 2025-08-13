@@ -214,7 +214,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 217.18.63.172
-    # heartbeat-interval: 10000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -251,7 +251,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 188.68.221.199
-    # heartbeat-interval: 10000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -271,7 +271,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 77.110.126.157
-    # heartbeat-interval: 10000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -291,7 +291,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 45.144.52.52
-    # heartbeat-interval: 10000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -311,7 +311,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 109.122.201.73
-    # heartbeat-interval: 10000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -331,7 +331,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 193.233.134.245
-    # heartbeat-interval: 10000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
