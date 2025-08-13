@@ -3,23 +3,32 @@ mixed-port: 7897
 allow-lan: true
 log-level: error
 ipv6: true
-#external-controller: 0.0.0.0:59095
-#secret: 'Na.pole.tanki'
-#external-ui: D:\mihomo\ui
-#external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
-external-controller-cors:
-  allow-private-network: true
-  allow-origins:
-  - '*'
 unified-delay: true
 tcp-concurrent: true
+
 dns:
-  default-nameserver:
-  - system
-  - 77.88.8.8
-  - 8.8.8.8
-  direct-nameserver-follow-policy: false
   enable: true
+  cache-algorithm: arc
+  prefer-h3: true
+  ipv6: true
+  listen: :10053
+  default-nameserver:
+  - 223.5.5.5
+  - 185.222.222.222
+  - 9.9.9.10
+  - system
+  nameserver:
+  - https://hostingvds-mon.ydns.eu:8443/dns-query
+  - https://vdska-fin.ydns.eu/dns-query
+  - https://vdska-pl.ydns.eu/dns-query
+  proxy-server-nameserver:
+  - https://hosting-mon.ydns.eu:8443/dns-query
+  - https://vdska-fin.ydns.eu/dns-query
+  - https://vdska-pl.ydns.eu/dns-query
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: false
+  direct-nameserver-follow-policy: false
   enhanced-mode: fake-ip # redir-host  or fake-ip
   fake-ip-filter:
   # LAN домены
@@ -224,22 +233,10 @@ dns:
   #  ipcidr:
   #  - 240.0.0.0/4
   #  - 0.0.0.0/32
-  listen: :10053
-  nameserver:
-  - https://hostingvds-mon.ydns.eu:8443/dns-query
-  - https://vdska-fin.ydns.eu/dns-query
-  - https://vdska-pl.ydns.eu/dns-query
-  prefer-h3: true
-  proxy-server-nameserver:
-  - https://hostingvds-mon.ydns.eu:8443/dns-query
-  - https://vdska-fin.ydns.eu/dns-query
-  - https://vdska-pl.ydns.eu/dns-query
-  respect-rules: false
-  use-hosts: false
-  use-system-hosts: false
 profile:
   store-selected: true
   store-fake-ip: true
+
 tun:
   enable: true
   stack: gvisor
@@ -565,37 +562,16 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - Balancer-tuic
-      - Balancer-vm
+      - TimeWeb-tuic
+      - TimeWeb-VM
       - Dom-VM
       - Socks-local
-      - TimeWeb-VM
-      - TimeWeb-tuic
-      - Selectel-VM
       - Selectel-tuic
+      - Selectel-VM
       - Aeza
       - H2nexus
       - SaleDedic
       - Waicore
-      
-  - name: "Balancer-tuic"
-    type: load-balance
-    proxies:
-      - TimeWeb-tuic
-      - Selectel-tuic
-    #url: 'https://www.gstatic.com/generate_204'
-    #interval: 300
-    lazy: true
-    strategy: sticky-sessions
-  - name: "Balancer-vm"
-    type: load-balance
-    proxies:
-      - TimeWeb-VM
-      - Selectel-VM
-    #url: 'https://www.gstatic.com/generate_204'
-    #interval: 300
-    lazy: true
-    strategy: sticky-sessions
 
 rule-providers:
   geosite-yandex:
