@@ -13,17 +13,20 @@ unified-delay: true
 tcp-concurrent: true
 dns:
   default-nameserver:
-  - system
-  - 77.88.8.8
   - 8.8.8.8
+  - 223.5.5.5
+  - 119.29.29.29
+  - system
   direct-nameserver-follow-policy: false
   enable: true
+  cache-algorithm: arc
   enhanced-mode: redir-host # redir-host  or fake-ip
   nameserver:
   - https://hostingvds-mon.ydns.eu:8443/dns-query
   - https://vdska-fin.ydns.eu/dns-query
   - https://vdska-pl.ydns.eu/dns-query
   prefer-h3: true
+  ipv6: true
   proxy-server-nameserver:
   - https://hosting-mon.ydns.eu:8443/dns-query
   - https://vdska-fin.ydns.eu/dns-query
