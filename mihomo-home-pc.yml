@@ -437,7 +437,7 @@ proxies:
     # max-udp-relay-packet-size: 1500
     fast-open: true
     # skip-cert-verify: true
-    max-open-streams: 60
+    max-open-streams: 128
     # sni: example.com
 
   - name: "Selectel-VM"
@@ -474,7 +474,7 @@ proxies:
     # max-udp-relay-packet-size: 1500
     fast-open: true
     # skip-cert-verify: true
-    max-open-streams: 60
+    max-open-streams: 128
     # sni: example.com
 
   - name: Aeza
@@ -494,7 +494,7 @@ proxies:
     # max-udp-relay-packet-size: 1500
     fast-open: true
     # skip-cert-verify: true
-    max-open-streams: 60
+    max-open-streams: 128
     # sni: example.com
   
   - name: H2nexus
@@ -514,7 +514,7 @@ proxies:
     # max-udp-relay-packet-size: 1500
     fast-open: true
     # skip-cert-verify: true
-    max-open-streams: 60
+    max-open-streams: 128
     # sni: example.com
 
   - name: SaleDedic
@@ -534,7 +534,7 @@ proxies:
     # max-udp-relay-packet-size: 1500
     fast-open: true
     # skip-cert-verify: true
-    max-open-streams: 60
+    max-open-streams: 128
     # sni: example.com
   
   - name: Waicore
@@ -554,7 +554,7 @@ proxies:
     # max-udp-relay-packet-size: 1500
     fast-open: true
     # skip-cert-verify: true
-    max-open-streams: 60
+    max-open-streams: 128
     # sni: example.com
 
 
