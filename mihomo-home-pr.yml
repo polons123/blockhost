@@ -447,6 +447,7 @@ proxies:
     # skip-cert-verify: true
     max-open-streams: 128
     # sni: example.com
+    ip-version: ipv6-prefer
 
   - name: "Selectel-VM"
     type: vmess
@@ -484,6 +485,7 @@ proxies:
     # skip-cert-verify: true
     max-open-streams: 128
     # sni: example.com
+    ip-version: ipv6-prefer
 
   - name: Aeza
     type: tuic
@@ -504,6 +506,7 @@ proxies:
     # skip-cert-verify: true
     max-open-streams: 128
     # sni: example.com
+    ip-version: ipv6-prefer
   
   - name: H2nexus
     type: tuic
@@ -524,6 +527,7 @@ proxies:
     # skip-cert-verify: true
     max-open-streams: 128
     # sni: example.com
+    ip-version: ipv6-prefer
 
   - name: SaleDedic
     type: tuic
@@ -544,6 +548,7 @@ proxies:
     # skip-cert-verify: true
     max-open-streams: 128
     # sni: example.com
+    ip-version: ipv6-prefer
   
   - name: Waicore
     type: tuic
@@ -564,6 +569,7 @@ proxies:
     # skip-cert-verify: true
     max-open-streams: 128
     # sni: example.com
+    ip-version: ipv6-prefer
 
 
 proxy-groups:
