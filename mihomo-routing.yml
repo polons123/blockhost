@@ -287,6 +287,8 @@ disable-keep-alive: true
 
 sniffer:
   enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
   sniff:
     QUIC:
       ports: [443, 8443]
