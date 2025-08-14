@@ -289,6 +289,7 @@ sniffer:
   enable: true
   force-dns-mapping: true
   parse-pure-ip: true
+  override-destination: true
   sniff:
     QUIC:
       ports: [443, 8443]
@@ -374,16 +375,6 @@ sniffer:
     - "192.168.0.0/16"
     - "127.0.0.0/8"
     - "224.0.0.0/4"
-
-listeners:
-  - name: vmess-in
-    type: vmess
-    port: 64845
-    listen: 0.0.0.0
-    users:
-      - username: polons123
-        uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-        alterId: 0
 
 proxies:
   
