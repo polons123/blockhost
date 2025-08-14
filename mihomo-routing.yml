@@ -289,6 +289,7 @@ sniffer:
   enable: true
   force-dns-mapping: true
   parse-pure-ip: true
+  override-destination: true
   sniff:
     QUIC:
       ports: [443, 8443]
