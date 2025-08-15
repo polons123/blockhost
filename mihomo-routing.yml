@@ -3,29 +3,27 @@ mixed-port: 7897
 allow-lan: false
 log-level: error
 ipv6: true
-unified-delay: true
-tcp-concurrent: true
+unified-delay: false
+tcp-concurrent: false
 find-process-mode: off
 
 dns:
   enable: true
   cache-algorithm: arc
-  prefer-h3: true
+  prefer-h3: false
   ipv6: true
   listen: :10053
   default-nameserver:
-  - 223.5.5.5
-  - 185.222.222.222
   - 9.9.9.10
-  - system
+  - 223.5.5.5
   nameserver:
-  - https://hostingvds-mon.ydns.eu:8443/dns-query
-  - https://vdska-fin.ydns.eu/dns-query
-  - https://vdska-pl.ydns.eu/dns-query
+  - tls://hostingvds-mon.ydns.eu:853
+  - tls://vdska-fin.ydns.eu:853
+  # - https://vdska-pl.ydns.eu/dns-query
   proxy-server-nameserver:
-  - https://hosting-mon.ydns.eu:8443/dns-query
-  - https://vdska-fin.ydns.eu/dns-query
-  - https://vdska-pl.ydns.eu/dns-query
+  - tls://hostingvds-mon.ydns.eu:853
+  - tls://vdska-fin.ydns.eu:853
+  # - https://vdska-pl.ydns.eu/dns-query
   respect-rules: false
   use-hosts: false
   use-system-hosts: false
@@ -37,12 +35,12 @@ profile:
 
 tun:
   enable: true
-  stack: gvisor
-  mtu: 9000
+  stack: system
+  mtu: 1500
   auto-route: true
   strict-route: true
-  gso: true
-  gso-max-size: 65536
+  gso: false
+  # gso-max-size: 65536
   udp-timeout: 300
   iproute2-table-index: 2022
   iproute2-rule-index: 9000
@@ -84,7 +82,7 @@ tun:
 disable-keep-alive: true
 
 sniffer:
-  enable: true
+  enable: false
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: true
@@ -201,7 +199,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 217.18.63.172
-    # heartbeat-interval: 60000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -209,9 +207,9 @@ proxies:
     udp-relay-mode: native
     congestion-controller: bbr
     # max-udp-relay-packet-size: 1500
-    fast-open: true
+    fast-open: false
     # skip-cert-verify: true
-    max-open-streams: 20
+    max-open-streams: 12
     # sni: example.com
     ip-version: ipv6-prefer
 
@@ -257,7 +255,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 188.68.221.199
-    # heartbeat-interval: 60000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -265,9 +263,9 @@ proxies:
     udp-relay-mode: native
     congestion-controller: bbr
     # max-udp-relay-packet-size: 1500
-    fast-open: true
+    fast-open: false
     # skip-cert-verify: true
-    max-open-streams: 20
+    max-open-streams: 12
     # sni: example.com
     ip-version: ipv6-prefer
 
@@ -278,7 +276,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 77.110.126.157
-    # heartbeat-interval: 60000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -286,9 +284,9 @@ proxies:
     udp-relay-mode: native
     congestion-controller: bbr
     # max-udp-relay-packet-size: 1500
-    fast-open: true
+    fast-open: false
     # skip-cert-verify: true
-    max-open-streams: 20
+    max-open-streams: 12
     # sni: example.com
     ip-version: ipv6-prefer
   
@@ -299,7 +297,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 45.144.52.52
-    # heartbeat-interval: 60000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -307,9 +305,9 @@ proxies:
     udp-relay-mode: native
     congestion-controller: bbr
     # max-udp-relay-packet-size: 1500
-    fast-open: true
+    fast-open: false
     # skip-cert-verify: true
-    max-open-streams: 20
+    max-open-streams: 12
     # sni: example.com
     ip-version: ipv6-prefer
 
@@ -320,7 +318,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 109.122.201.73
-    # heartbeat-interval: 60000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -328,9 +326,9 @@ proxies:
     udp-relay-mode: native
     congestion-controller: bbr
     # max-udp-relay-packet-size: 1500
-    fast-open: true
+    fast-open: false
     # skip-cert-verify: true
-    max-open-streams: 20
+    max-open-streams: 12
     # sni: example.com
     ip-version: ipv6-prefer
   
@@ -341,7 +339,7 @@ proxies:
     uuid: 7aa312e0-e549-4766-8d3d-592420c18077
     password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
     ip: 193.233.134.245
-    # heartbeat-interval: 60000
+    heartbeat-interval: 60000
     # alpn: [h3]
     disable-sni: true
     reduce-rtt: true
@@ -349,9 +347,9 @@ proxies:
     udp-relay-mode: native
     congestion-controller: bbr
     # max-udp-relay-packet-size: 1500
-    fast-open: true
+    fast-open: false
     # skip-cert-verify: true
-    max-open-streams: 20
+    max-open-streams: 12
     # sni: example.com
     ip-version: ipv6-prefer
     
