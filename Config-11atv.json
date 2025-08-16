@@ -99,7 +99,7 @@
       "server_port": 64845,
       "uuid": "7040f7de-3e63-4ff1-8a77-37c70b319eb2",
       "security": "chacha20-poly1305",
-      "alter_id": null,
+      "alter_id": null
     },
     {
       "type": "tuic",
