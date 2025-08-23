@@ -71,6 +71,8 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
+        "CloudRu",
+        "CloudRu-VM",
         "Socks5-local",
         "Dom-VM",
         "TimeWeb",
@@ -135,6 +137,42 @@
         "type": "httpupgrade",
         "path": "/Video-data",
         "host": "217.18.63.172"
+      }
+    },
+    {
+      "type": "tuic",
+      "tag": "CloudRu",
+      "server": "176.109.106.4",
+      "server_port": 443,
+      "uuid": "7aa312e0-e549-4766-8d3d-592420c18077",
+      "password": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": true,
+      //"heartbeat": "10s",
+      //"network": "tcp",
+      "tls": {
+            "enabled": true,
+            "disable_sni": true,
+            "server_name": "cloud-ru.ydns.eu",
+            "alpn": ["h3"]
+            }
+    },
+    {
+      "type": "vmess",
+      "tag": "CloudRu-VM",
+      "server": "176.109.106.4",
+      "domain_strategy": "ipv4_only",
+      "server_port": 63219,
+      "tcp_fast_open": true,
+      "udp_fragment": false,
+      "uuid": "74f5992e-3090-4159-8ad5-4778d3b29118",
+      "security": "chacha20-poly1305",
+      "alter_id": null,
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Video-data",
+        "host": "176.109.106.4"
       }
     },
     {
