@@ -539,6 +539,8 @@ rules:
   - PROCESS-NAME,rtorrent,DIRECT
   - PROCESS-NAME,tribler,DIRECT
   - PROCESS-NAME,torrserver,DIRECT
+  - PROCESS-NAME,EmbyServer.exe,DIRECT
+  - PROCESS-NAME,embytray.exe,DIRECT
   - PROCESS-NAME-REGEX,.*plex.*,DIRECT
   - DST-PORT,25,DIRECT
   - DST-PORT,110,DIRECT
