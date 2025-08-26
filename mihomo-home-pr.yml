@@ -94,44 +94,6 @@ listeners:
         alterId: 0
         
 proxies:  
-  - name: "TimeWeb-VM"
-    type: vmess
-    server: 217.18.63.172
-    port: 63219
-    uuid: 74f5992e-3090-4159-8ad5-4778d3b29118
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: 217.18.63.172
-      v2ray-http-upgrade: true
-    tls: false
-    udp: true
-    tcp-fast-open: true
-  - name: TimeWeb-tuic
-    type: tuic
-    server: timeweb-spb.ddns.net
-    port: 443
-    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
-    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    ip: 217.18.63.172
-    heartbeat-interval: 10000
-    # alpn: [h3]
-    disable-sni: true
-    reduce-rtt: true
-    request-timeout: 8000
-    udp-relay-mode: native
-    congestion-controller: bbr
-    # max-udp-relay-packet-size: 1500
-    fast-open: false
-    # skip-cert-verify: true
-    max-open-streams: 20
-    # sni: example.com
-    ip-version: ipv4
-
   - name: CloudRu-VM
     type: vmess
     server: 176.109.106.4
@@ -314,8 +276,6 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - TimeWeb-tuic
-      - TimeWeb-VM
       - CloudRu-tuic
       - CloudRu-VM
       - Dom-VM
