@@ -3,7 +3,7 @@ mixed-port: 7897
 allow-lan: true
 log-level: error
 ipv6: false
-external-controller: 0.0.0.0:59095
+external-controller: 0.0.0.0:59195
 secret: 'Na.pole.tanki'
 external-ui: D:\mihomo\ui
 external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
