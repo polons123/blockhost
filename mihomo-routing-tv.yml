@@ -125,18 +125,6 @@ proxies:
     port: 7897
     udp: true
 
-  - name: Dom-VM
-    type: vmess
-    server: 95.165.6.169
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
-    udp: true
-    tcp-fast-open: true
-
   - name: Selectel-VM
     type: vmess
     server: 188.68.221.199
