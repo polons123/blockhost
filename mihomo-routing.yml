@@ -16,13 +16,13 @@ dns:
   default-nameserver:
   - 223.5.5.5
   nameserver:
-  - tls://hostingvds-mon.ydns.eu:853
-  - tls://cloud-ru-fr.ydns.eu:853
+ - tls://203.31.40.243:853
+  - tls://176.108.246.105:853
   # - tls://vdska-fin.ydns.eu:853
   # - https://vdska-pl.ydns.eu/dns-query
   proxy-server-nameserver:
-  - tls://hostingvds-mon.ydns.eu:853
-  - tls://cloud-ru-fr.ydns.eu:853
+  - tls://203.31.40.243:853
+  - tls://176.108.246.105:853
   # - tls://vdska-fin.ydns.eu:853
   # - https://vdska-pl.ydns.eu/dns-query
   respect-rules: false
