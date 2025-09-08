@@ -9,20 +9,20 @@
   "servers": [
     {
       "tag": "dns-word",
-      "address": "tls://hostingvds-mon.ydns.eu:853",
+      "address": "tls://203.31.40.243:853",
       //"address": "tls://vdska-fin.ydns.eu:853",
       //"address": "https://vdska-pl.ydns.eu/dns-query",
       //"address": "https://doh.dns.sb/dns-query",
-      "address_resolver": "dns-resolve",
+      //"address_resolver": "dns-resolve",
       "address_strategy": "ipv4_only",
       "detour": "direct"
     },
-    {
-      "tag": "dns-resolve",
-      "address": "77.88.8.8",
-      "address_strategy": "ipv4_only",
-      "detour": "direct"
-    }
+    //{
+    //  "tag": "dns-resolve",
+    //  "address": "77.88.8.8",
+    //  "address_strategy": "ipv4_only",
+    //  "detour": "direct"
+    //}
   ],
   "rules": [
     {
