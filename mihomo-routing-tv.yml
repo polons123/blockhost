@@ -258,7 +258,6 @@ proxy-groups:
       - Socks-local
       - CloudRu-tuic
       - CloudRu-VM
-      - Dom-VM
       - Selectel-tuic
       - Selectel-VM
       - Aeza
