@@ -136,6 +136,20 @@ proxies:
     server: 192.168.1.151
     port: 7897
     udp: true
+    
+  - name: Dom-VM
+    type: vmess
+    server: 95.165.6.169
+    port: 64846
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
 
   - name: Selectel-VM
     type: vmess
@@ -343,6 +357,7 @@ proxy-groups:
       - CloudRu
       - CloudRu-VM
       - Socks-local
+      - Dom-VM
       - Selectel
       - Selectel-VM
       - Aeza
