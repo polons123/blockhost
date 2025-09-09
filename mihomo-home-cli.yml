@@ -84,7 +84,17 @@ keep-alive-idle: 15
 
 sniffer:
   enable: false
-  
+
+listeners:
+  - name: vmess-in
+    type: vmess
+    port: 64846
+    listen: 0.0.0.0
+    users:
+      - username: polons123
+        uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+        alterId: 0
+
 proxies:  
   - name: CloudRu-VM
     type: vmess
