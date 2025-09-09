@@ -77,7 +77,7 @@ keep-alive-idle: 15
 sniffer:
   enable: false
 
-proxies:
+proxies:  
   - name: CloudRu-VM
     type: vmess
     server: 176.109.106.4
@@ -90,33 +90,27 @@ proxies:
     udp: true
     tcp-fast-open: true
     smux:
-      enabled: true
-      protocol: smux
-      max-connections: 4
-      min-streams: 4
-      max-streams: 16
-      statistic: false
-      only-tcp: false
-      padding: true
-  - name: CloudRu-tuic
-    type: tuic
-    server: cloud-ru.ydns.eu
+      enabled: false
+
+  - name: CloudRu
+    type: vless
+    server: 176.109.106.4
     port: 443
-    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
-    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    ip: 176.109.106.4
-    heartbeat-interval: 10000
-    # alpn: [h3]
-    disable-sni: true
-    reduce-rtt: true
-    request-timeout: 8000
-    udp-relay-mode: native
-    congestion-controller: bbr
-    # max-udp-relay-packet-size: 1500
-    fast-open: false
-    # skip-cert-verify: true
-    max-open-streams: 20
-    # sni: example.com
+    udp: true
+    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: cloud-ru.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    #fingerprint: xxxx
+    client-fingerprint: chrome
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
     ip-version: ipv4
 
   - name: Socks-local
@@ -137,133 +131,210 @@ proxies:
     udp: true
     tcp-fast-open: true
     smux:
-      enabled: true
-      protocol: smux
-      max-connections: 4
-      min-streams: 4
-      max-streams: 16
-      statistic: false
-      only-tcp: false
-      padding: true
-  - name: Selectel-tuic
-    type: tuic
-    server: selectel-spb.ydns.eu
+      enabled: false
+      
+  - name: Selectel
+    type: vless
+    server: 188.68.221.199
     port: 443
-    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
-    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    ip: 188.68.221.199
-    heartbeat-interval: 10000
-    # alpn: [h3]
-    disable-sni: true
-    reduce-rtt: true
-    request-timeout: 8000
-    udp-relay-mode: native
-    congestion-controller: bbr
-    # max-udp-relay-packet-size: 1500
-    fast-open: false
-    # skip-cert-verify: true
-    max-open-streams: 20
-    # sni: example.com
+    udp: true
+    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: selectel-spb.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    #fingerprint: xxxx
+    client-fingerprint: chrome
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
     ip-version: ipv4
 
   - name: Aeza
-    type: tuic
-    server: aeza-usa.ddns.net
+    type: vless
+    server: 77.110.126.157
     port: 443
-    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
-    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    ip: 77.110.126.157
-    heartbeat-interval: 60000
-    # alpn: [h3]
-    disable-sni: true
-    reduce-rtt: true
-    request-timeout: 8000
-    udp-relay-mode: native
-    congestion-controller: bbr
-    # max-udp-relay-packet-size: 1500
-    fast-open: false
-    # skip-cert-verify: true
-    max-open-streams: 12
-    # sni: example.com
+    udp: true
+    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: aeza-usa.ddns.net
+    alpn:
+    - h2
+    - http/1.1
+    #fingerprint: xxxx
+    client-fingerprint: chrome
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
     ip-version: ipv4
+
+  - name: Aeza-VM
+    type: vmess
+    server: 77.110.126.157
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+      protocol: smux
+      max-connections: 1
+      min-streams: 0
+      statistic: false
+      only-tcp: true
+      padding: false
   
   - name: H2nexus
-    type: tuic
-    server: h2nexus.ddns.net
+    type: vless
+    server: 45.144.52.52
     port: 443
-    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
-    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    ip: 45.144.52.52
-    heartbeat-interval: 60000
-    # alpn: [h3]
-    disable-sni: true
-    reduce-rtt: true
-    request-timeout: 8000
-    udp-relay-mode: native
-    congestion-controller: bbr
-    # max-udp-relay-packet-size: 1500
-    fast-open: false
-    # skip-cert-verify: true
-    max-open-streams: 12
-    # sni: example.com
+    udp: true
+    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: h2nexus.ddns.net
+    alpn:
+    - h2
+    - http/1.1
+    #fingerprint: xxxx
+    client-fingerprint: chrome
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
     ip-version: ipv4
+
+  - name: H2nexus-VM
+    type: vmess
+    server: 45.144.52.52
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+      protocol: smux
+      max-connections: 1
+      min-streams: 0
+      statistic: false
+      only-tcp: true
+      padding: false
 
   - name: SaleDedic
-    type: tuic
-    server: salededic-swe.ddns.net
+    type: vless
+    server: 109.122.201.73
     port: 443
-    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
-    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    ip: 109.122.201.73
-    heartbeat-interval: 60000
-    # alpn: [h3]
-    disable-sni: true
-    reduce-rtt: true
-    request-timeout: 8000
-    udp-relay-mode: native
-    congestion-controller: bbr
-    # max-udp-relay-packet-size: 1500
-    fast-open: false
-    # skip-cert-verify: true
-    max-open-streams: 12
-    # sni: example.com
+    udp: true
+    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: salededic-swe.ddns.net
+    alpn:
+    - h2
+    - http/1.1
+    #fingerprint: xxxx
+    client-fingerprint: chrome
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
     ip-version: ipv4
+
+  - name: SaleDedic-VM
+    type: vmess
+    server: 109.122.201.73
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+      protocol: smux
+      max-connections: 1
+      min-streams: 0
+      statistic: false
+      only-tcp: true
+      padding: false
   
   - name: Waicore
-    type: tuic
-    server: waicore-ger.ddns.net
+    type: vless
+    server: 193.233.134.245
     port: 443
-    uuid: 7aa312e0-e549-4766-8d3d-592420c18077
-    password: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    ip: 193.233.134.245
-    heartbeat-interval: 60000
-    # alpn: [h3]
-    disable-sni: true
-    reduce-rtt: true
-    request-timeout: 8000
-    udp-relay-mode: native
-    congestion-controller: bbr
-    # max-udp-relay-packet-size: 1500
-    fast-open: false
-    # skip-cert-verify: true
-    max-open-streams: 12
-    # sni: example.com
+    udp: true
+    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: waicore-ger.ddns.net
+    alpn:
+    - h2
+    - http/1.1
+    #fingerprint: xxxx
+    client-fingerprint: chrome
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
     ip-version: ipv4
 
-
+  - name: Waicore-VM
+    type: vmess
+    server: 193.233.134.245
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+      protocol: smux
+      max-connections: 1
+      min-streams: 0
+      statistic: false
+      only-tcp: true
+      padding: false
+    
 proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - Socks-local
-      - CloudRu-tuic
+      - CloudRu
       - CloudRu-VM
-      - Selectel-tuic
+      - Socks-local
+      - Selectel
       - Selectel-VM
       - Aeza
+      - Aeza-VM
       - H2nexus
+      - H2nexus-VM
       - SaleDedic
+      - SaleDedic-VM
       - Waicore
+      - Waicore-VM
 
 rule-providers:
   geosite-google:
@@ -361,7 +432,7 @@ rules:
   - DOMAIN,kino.pub,PROXY
   - DOMAIN-KEYWORD,habr,PROXY
   - DOMAIN-SUFFIX,themoviedb.org,PROXY
-  - DOMAIN-SUFFIX,tmbd.org,PROXY
+  - DOMAIN-SUFFIX,tmdb.org,PROXY
   - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
   - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
   
