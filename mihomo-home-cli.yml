@@ -255,12 +255,6 @@ proxies:
     tcp-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      max-connections: 1
-      min-streams: 0
-      statistic: false
-      only-tcp: true
-      padding: false
   
   - name: H2nexus
     type: vless
@@ -296,12 +290,6 @@ proxies:
     tcp-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      max-connections: 1
-      min-streams: 0
-      statistic: false
-      only-tcp: true
-      padding: false
 
   - name: SaleDedic
     type: vless
@@ -337,12 +325,6 @@ proxies:
     tcp-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      max-connections: 1
-      min-streams: 0
-      statistic: false
-      only-tcp: true
-      padding: false
   
   - name: Waicore
     type: vless
@@ -378,12 +360,6 @@ proxies:
     tcp-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      max-connections: 1
-      min-streams: 0
-      statistic: false
-      only-tcp: true
-      padding: false
     
 proxy-groups:
   - name: "PROXY"
