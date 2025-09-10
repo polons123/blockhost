@@ -88,9 +88,30 @@ listeners:
         alterId: 0
 
 proxies:  
-  - name: CloudRu-VM
+  - name: HostingVDS
+    type: vless
+    server: 121.127.37.86
+    port: 443
+    udp: true
+    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
+    flow: xtls-rprx-vision
+    packet-encoding: xudp
+    tls: true
+    servername: hosting-vds.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    #fingerprint: xxxx
+    client-fingerprint: chrome
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
+    ip-version: ipv4
+    
+  - name: HostingVDS-VM
     type: vmess
-    server: 176.109.106.4
+    server: 121.127.37.86
     port: 64845
     uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
     alterId: 0
@@ -101,7 +122,6 @@ proxies:
     tcp-fast-open: true
     smux:
       enabled: false
-
   - name: CloudRu
     type: vless
     server: 176.109.106.4
@@ -122,13 +142,27 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
+    
+  - name: CloudRu-VM
+    type: vmess
+    server: 176.109.106.4
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
 
   - name: Socks-local
     type: socks5
     server: 192.168.1.151
     port: 7897
     udp: true
-
+    
   - name: Dom-VM
     type: vmess
     server: 95.165.6.169
@@ -143,20 +177,6 @@ proxies:
     smux:
       enabled: false
 
-  - name: Selectel-VM
-    type: vmess
-    server: 188.68.221.199
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
-    udp: true
-    tcp-fast-open: true
-    smux:
-      enabled: false
-      
   - name: Selectel
     type: vless
     server: 188.68.221.199
@@ -177,6 +197,20 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
+  
+  - name: Selectel-VM
+    type: vmess
+    server: 188.68.221.199
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
 
   - name: Aeza
     type: vless
@@ -346,6 +380,8 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
+      - HostingVDS
+      - HostingVDS-VM
       - CloudRu
       - CloudRu-VM
       - Socks-local
