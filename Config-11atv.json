@@ -16,7 +16,7 @@
       //"address_resolver": "dns-resolve",
       "address_strategy": "ipv4_only",
       "detour": "direct"
-    },
+    }
     //{
     //  "tag": "dns-resolve",
     //  "address": "77.88.8.8",
@@ -71,6 +71,8 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
+        "HostingVDS",
+        "HostingVDS-VM",
         "CloudRu",
         "CloudRu-VM",
         "Socks-local",
@@ -85,7 +87,36 @@
         "Waicore",
         "Waicore-VM"
       ],
-      "default": "CloudRu"
+      "default": "HostingVDS"
+    },
+    {
+      "type": "vmess",
+      "tag": "HostingVDS-VM",
+      "server": "121.127.37.86",
+      "server_port": 64845,
+      "uuid": "7040f7de-3e63-4ff1-8a77-37c70b319eb2",
+      "alter_id": 0,
+      "security": "chacha20-poly1305",
+      "multiplex": { "enabled": false },
+      "domain_strategy": "ipv4_only"
+    },
+    {
+      "type": "vless",
+      "tag": "HostingVDS",
+      "server": "121.127.37.86",
+      "server_port": 443,
+      "uuid": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "hosting-vds.ydns.eu",
+        "alpn": ["h2", "http/1.1"],
+        "insecure": false,
+        "utls": { "enabled": true, "fingerprint": "chrome" }
+      },
+      "multiplex": { "enabled": false },
+      "domain_strategy": "ipv4_only"
     },
     {
       "type": "vmess",
