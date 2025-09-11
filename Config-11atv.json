@@ -71,23 +71,16 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "HostingVDS",
         "HostingVDS-VM",
-        "CloudRu",
         "CloudRu-VM",
         "Socks-local",
-        "Selectel",
         "Selectel-VM",
-        "Aeza",
         "Aeza-VM",
-        "H2nexus",
         "H2nexus-VM",
-        "SaleDedic",
         "SaleDedic-VM",
-        "Waicore",
         "Waicore-VM"
       ],
-      "default": "HostingVDS"
+      "default": "HostingVDS-VM"
     },
     {
       "type": "vmess",
@@ -101,24 +94,6 @@
       "domain_strategy": "ipv4_only"
     },
     {
-      "type": "vless",
-      "tag": "HostingVDS",
-      "server": "121.127.37.86",
-      "server_port": 443,
-      "uuid": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "hosting-vds.ydns.eu",
-        "alpn": ["h2", "http/1.1"],
-        "insecure": false,
-        "utls": { "enabled": true, "fingerprint": "chrome" }
-      },
-      "multiplex": { "enabled": false },
-      "domain_strategy": "ipv4_only"
-    },
-    {
       "type": "vmess",
       "tag": "CloudRu-VM",
       "server": "176.109.106.4",
@@ -126,24 +101,6 @@
       "uuid": "7040f7de-3e63-4ff1-8a77-37c70b319eb2",
       "alter_id": 0,
       "security": "chacha20-poly1305",
-      "multiplex": { "enabled": false },
-      "domain_strategy": "ipv4_only"
-    },
-    {
-      "type": "vless",
-      "tag": "CloudRu",
-      "server": "176.109.106.4",
-      "server_port": 443,
-      "uuid": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "cloud-ru.ydns.eu",
-        "alpn": ["h2", "http/1.1"],
-        "insecure": false,
-        "utls": { "enabled": true, "fingerprint": "chrome" }
-      },
       "multiplex": { "enabled": false },
       "domain_strategy": "ipv4_only"
     },
@@ -166,42 +123,6 @@
       "domain_strategy": "ipv4_only"
     },
     {
-      "type": "vless",
-      "tag": "Selectel",
-      "server": "188.68.221.199",
-      "server_port": 443,
-      "uuid": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "selectel-spb.ydns.eu",
-        "alpn": ["h2", "http/1.1"],
-        "insecure": false,
-        "utls": { "enabled": true, "fingerprint": "chrome" }
-      },
-      "multiplex": { "enabled": false },
-      "domain_strategy": "ipv4_only"
-    },
-    {
-      "type": "vless",
-      "tag": "Aeza",
-      "server": "77.110.126.157",
-      "server_port": 443,
-      "uuid": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "aeza-usa.ddns.net",
-        "alpn": ["h2", "http/1.1"],
-        "insecure": false,
-        "utls": { "enabled": true, "fingerprint": "chrome" }
-      },
-      "multiplex": { "enabled": false },
-      "domain_strategy": "ipv4_only"
-    },
-    {
       "type": "vmess",
       "tag": "Aeza-VM",
       "server": "77.110.126.157",
@@ -209,24 +130,6 @@
       "uuid": "7040f7de-3e63-4ff1-8a77-37c70b319eb2",
       "alter_id": 0,
       "security": "chacha20-poly1305",
-      "multiplex": { "enabled": false },
-      "domain_strategy": "ipv4_only"
-    },
-    {
-      "type": "vless",
-      "tag": "H2nexus",
-      "server": "45.144.52.52",
-      "server_port": 443,
-      "uuid": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "h2nexus.ddns.net",
-        "alpn": ["h2", "http/1.1"],
-        "insecure": false,
-        "utls": { "enabled": true, "fingerprint": "chrome" }
-      },
       "multiplex": { "enabled": false },
       "domain_strategy": "ipv4_only"
     },
@@ -242,24 +145,6 @@
       "domain_strategy": "ipv4_only"
     },
     {
-      "type": "vless",
-      "tag": "SaleDedic",
-      "server": "109.122.201.73",
-      "server_port": 443,
-      "uuid": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "salededic-swe.ddns.net",
-        "alpn": ["h2", "http/1.1"],
-        "insecure": false,
-        "utls": { "enabled": true, "fingerprint": "chrome" }
-      },
-      "multiplex": { "enabled": false },
-      "domain_strategy": "ipv4_only"
-    },
-    {
       "type": "vmess",
       "tag": "SaleDedic-VM",
       "server": "109.122.201.73",
@@ -267,24 +152,6 @@
       "uuid": "7040f7de-3e63-4ff1-8a77-37c70b319eb2",
       "alter_id": 0,
       "security": "chacha20-poly1305",
-      "multiplex": { "enabled": false },
-      "domain_strategy": "ipv4_only"
-    },
-    {
-      "type": "vless",
-      "tag": "Waicore",
-      "server": "193.233.134.245",
-      "server_port": 443,
-      "uuid": "76747c5c-c9e8-4883-aec2-1fb8f81c5baa",
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "waicore-ger.ddns.net",
-        "alpn": ["h2", "http/1.1"],
-        "insecure": false,
-        "utls": { "enabled": true, "fingerprint": "chrome" }
-      },
       "multiplex": { "enabled": false },
       "domain_strategy": "ipv4_only"
     },
