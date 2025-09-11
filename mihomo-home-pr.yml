@@ -96,25 +96,22 @@ listeners:
         alterId: 0
         
 proxies:  
-  - name: HostingVDS
-    type: vless
+  
+  - name: HostingVDS-tls
+    type: anytls
     server: 121.127.37.86
-    port: 443
-    udp: true
-    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
-    tls: true
-    servername: hosting-vds.ydns.eu
-    alpn:
-    - h2
-    - http/1.1
-    #fingerprint: xxxx
+    port: 8443
+    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "hosting-vds.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
     skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
     ip-version: ipv4
     
   - name: HostingVDS-VM
@@ -130,25 +127,22 @@ proxies:
     tcp-fast-open: true
     smux:
       enabled: false
-  - name: CloudRu
-    type: vless
+      
+  - name: CloudRu-tls
+    type: anytls
     server: 176.109.106.4
-    port: 443
-    udp: true
-    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
-    tls: true
-    servername: cloud-ru.ydns.eu
-    alpn:
-    - h2
-    - http/1.1
-    #fingerprint: xxxx
+    port: 8443
+    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "cloud-ru.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
     skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
     ip-version: ipv4
     
   - name: CloudRu-VM
@@ -185,25 +179,21 @@ proxies:
     smux:
       enabled: false
 
-  - name: Selectel
-    type: vless
+  - name: Selectel-tls
+    type: anytls
     server: 188.68.221.199
-    port: 443
-    udp: true
-    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
-    tls: true
-    servername: selectel-spb.ydns.eu
-    alpn:
-    - h2
-    - http/1.1
-    #fingerprint: xxxx
+    port: 8443
+    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "selectel-spb.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
     skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
     ip-version: ipv4
   
   - name: Selectel-VM
@@ -220,25 +210,21 @@ proxies:
     smux:
       enabled: false
 
-  - name: Aeza
-    type: vless
+  - name: Aeza-tls
+    type: anytls
     server: 77.110.126.157
-    port: 443
-    udp: true
-    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
-    tls: true
-    servername: aeza-usa.ddns.net
-    alpn:
-    - h2
-    - http/1.1
-    #fingerprint: xxxx
+    port: 8443
+    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "aeza-usa.ddns.net"
+    alpn:
+      - h2
+      - http/1.1
     skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
     ip-version: ipv4
 
   - name: Aeza-VM
@@ -255,25 +241,21 @@ proxies:
     smux:
       enabled: false
   
-  - name: H2nexus
-    type: vless
+  - name: H2nexus-tls
+    type: anytls
     server: 45.144.52.52
-    port: 443
-    udp: true
-    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
-    tls: true
-    servername: h2nexus.ddns.net
-    alpn:
-    - h2
-    - http/1.1
-    #fingerprint: xxxx
+    port: 8443
+    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "h2nexus.ddns.net"
+    alpn:
+      - h2
+      - http/1.1
     skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
     ip-version: ipv4
 
   - name: H2nexus-VM
@@ -290,25 +272,21 @@ proxies:
     smux:
       enabled: false
 
-  - name: SaleDedic
-    type: vless
+  - name: SaleDedic-tls
+    type: anytls
     server: 109.122.201.73
-    port: 443
-    udp: true
-    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
-    tls: true
-    servername: salededic-swe.ddns.net
-    alpn:
-    - h2
-    - http/1.1
-    #fingerprint: xxxx
+    port: 8443
+    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "salededic-swe.ddns.net"
+    alpn:
+      - h2
+      - http/1.1
     skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
     ip-version: ipv4
 
   - name: SaleDedic-VM
@@ -325,25 +303,21 @@ proxies:
     smux:
       enabled: false
   
-  - name: Waicore
-    type: vless
+  - name: Waicore-tls
+    type: anytls
     server: 193.233.134.245
-    port: 443
-    udp: true
-    uuid: 76747c5c-c9e8-4883-aec2-1fb8f81c5baa
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
-    tls: true
-    servername: waicore-ger.ddns.net
-    alpn:
-    - h2
-    - http/1.1
-    #fingerprint: xxxx
+    port: 8443
+    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "waicore-ger.ddns.net"
+    alpn:
+      - h2
+      - http/1.1
     skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
     ip-version: ipv4
 
   - name: Waicore-VM
@@ -364,21 +338,21 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - HostingVDS
+      - HostingVDS-tls
       - HostingVDS-VM
-      - CloudRu
+      - CloudRu-tls
       - CloudRu-VM
       - Socks-local
       - Dom-VM
-      - Selectel
+      - Selectel-tls
       - Selectel-VM
-      - Aeza
+      - Aeza-tls
       - Aeza-VM
-      - H2nexus
+      - H2nexus-tls
       - H2nexus-VM
-      - SaleDedic
+      - SaleDedic-tls
       - SaleDedic-VM
-      - Waicore
+      - Waicore-tls
       - Waicore-VM
       
 rule-providers:
