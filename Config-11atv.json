@@ -71,7 +71,7 @@
       "type": "selector",
       "tag": "selector",
       "outbounds": [
-        "HostingVDS-VM",
+        "Cloud-VK-VM",
         "CloudRu-VM",
         "Socks-local",
         "Selectel-VM",
@@ -84,8 +84,8 @@
     },
     {
       "type": "vmess",
-      "tag": "HostingVDS-VM",
-      "server": "121.127.37.86",
+      "tag": "Cloud-VK-VM",
+      "server": "83.166.235.104",
       "server_port": 64845,
       "uuid": "7040f7de-3e63-4ff1-8a77-37c70b319eb2",
       "alter_id": 0,
