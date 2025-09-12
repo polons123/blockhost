@@ -9,7 +9,7 @@
   "servers": [
     {
       "tag": "dns-word",
-      "address": "tls://203.31.40.243:853",
+      "address": "tls://176.108.246.105:853",
       //"address": "tls://84.19.3.115:853",
       //"address": "https://vdska-pl.ydns.eu/dns-query",
       //"address": "https://doh.dns.sb/dns-query",
