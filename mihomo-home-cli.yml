@@ -97,9 +97,9 @@ listeners:
 
 proxies:  
   
-  - name: HostingVDS-tls
+  - name: Cloud-VK-tls
     type: anytls
-    server: 121.127.37.86
+    server: 83.166.235.104
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
@@ -107,16 +107,16 @@ proxies:
     idle-session-check-interval: 30
     idle-session-timeout: 30
     min-idle-session: 0
-    sni: "hosting-vds.ydns.eu"
+    sni: "cloud-vk.ydns.eu"
     alpn:
       - h2
       - http/1.1
     skip-cert-verify: false
     ip-version: ipv4
     
-  - name: HostingVDS-VM
+  - name: Cloud-VK-VM
     type: vmess
-    server: 121.127.37.86
+    server: 83.166.235.104
     port: 64845
     uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
     alterId: 0
@@ -338,8 +338,8 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - HostingVDS-tls
-      - HostingVDS-VM
+      - Cloud-VK-tls
+      - Cloud-VK-VM
       - CloudRu-tls
       - CloudRu-VM
       - Socks-local
