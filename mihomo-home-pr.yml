@@ -13,7 +13,7 @@ external-controller-cors:
   - '*'
 unified-delay: false
 tcp-concurrent: false
-find-process-mode: off
+find-process-mode: strict
 
 dns:
   enable: true
