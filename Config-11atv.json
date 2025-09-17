@@ -75,9 +75,8 @@
         "CloudRu-VM",
         "Socks-local",
         "Selectel-VM",
-        "Aeza-VM",
         "H2nexus-VM",
-        "SaleDedic-VM",
+         "H2nexus-Pol-VM",
         "Waicore-VM"
       ],
       "default": "HostingVDS-VM"
@@ -124,8 +123,8 @@
     },
     {
       "type": "vmess",
-      "tag": "Aeza-VM",
-      "server": "77.110.126.157",
+      "tag": "H2nexus-Pol-VM",
+      "server": "144.31.0.59",
       "server_port": 64845,
       "uuid": "7040f7de-3e63-4ff1-8a77-37c70b319eb2",
       "alter_id": 0,
