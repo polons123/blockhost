@@ -114,9 +114,9 @@ proxies:
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 180
-    min-idle-session: 2
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
     sni: "cloud-ru.ydns.eu"
     alpn:
       - h2
@@ -165,9 +165,9 @@ proxies:
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 180
-    min-idle-session: 2
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
     sni: "selectel-spb.ydns.eu"
     alpn:
       - h2
@@ -189,37 +189,6 @@ proxies:
     smux:
       enabled: false
 
-  - name: Aeza-tls
-    type: anytls
-    server: 77.110.126.157
-    port: 8443
-    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 180
-    min-idle-session: 2
-    sni: "aeza-usa.ddns.net"
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    ip-version: ipv4
-
-  - name: Aeza-VM
-    type: vmess
-    server: 77.110.126.157
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
-    udp: true
-    tcp-fast-open: true
-    smux:
-      enabled: false
-  
   - name: H2nexus-tls
     type: anytls
     server: 45.144.52.52
@@ -227,9 +196,9 @@ proxies:
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 180
-    min-idle-session: 2
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
     sni: "h2nexus.ddns.net"
     alpn:
       - h2
@@ -239,7 +208,7 @@ proxies:
 
   - name: H2nexus-VM
     type: vmess
-    server: 45.144.52.52
+    server: h2nexus.ddns.net
     port: 64845
     uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
     alterId: 0
@@ -251,26 +220,26 @@ proxies:
     smux:
       enabled: false
 
-  - name: SaleDedic-tls
+  - name: H2Nexus-Pol-tls
     type: anytls
-    server: 109.122.201.73
+    server: 144.31.0.59
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 180
-    min-idle-session: 2
-    sni: "salededic-swe.ddns.net"
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    sni: "h2nexus-p.ydns.eu"
     alpn:
       - h2
       - http/1.1
     skip-cert-verify: false
     ip-version: ipv4
 
-  - name: SaleDedic-VM
+  - name: H2Nexus-Pol-VM
     type: vmess
-    server: 109.122.201.73
+    server: h2nexus-p.ydns.eu
     port: 64845
     uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
     alterId: 0
@@ -281,7 +250,7 @@ proxies:
     tcp-fast-open: true
     smux:
       enabled: false
-  
+
   - name: Waicore-tls
     type: anytls
     server: 193.233.134.245
@@ -289,9 +258,9 @@ proxies:
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 180
-    min-idle-session: 2
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
     sni: "waicore-ger.ddns.net"
     alpn:
       - h2
@@ -301,7 +270,7 @@ proxies:
 
   - name: Waicore-VM
     type: vmess
-    server: 193.233.134.245
+    server: waicore-ger.ddns.net
     port: 64845
     uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
     alterId: 0
@@ -325,12 +294,10 @@ proxy-groups:
       - Dom-VM
       - Selectel-tls
       - Selectel-VM
-      - Aeza-tls
-      - Aeza-VM
       - H2nexus-tls
       - H2nexus-VM
-      - SaleDedic-tls
-      - SaleDedic-VM
+      - H2Nexus-Pol-tls
+      - H2Nexus-Pol-VM
       - Waicore-tls
       - Waicore-VM
 
