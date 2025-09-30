@@ -78,8 +78,8 @@ tun:
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
-keep-alive-interval: 15
-keep-alive-idle: 15
+keep-alive-interval: 10
+keep-alive-idle: 10
 #disable-keep-alive: true
 
 sniffer:
@@ -105,8 +105,8 @@ proxies:
     client-fingerprint: chrome
     udp: true
     idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 0
+    idle-session-timeout: 300
+    min-idle-session: 2
     sni: "cloud-vk.ydns.eu"
     alpn:
       - h2
@@ -136,8 +136,8 @@ proxies:
     client-fingerprint: chrome
     udp: true
     idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 0
+    idle-session-timeout: 300
+    min-idle-session: 2
     sni: "cloud-ru.ydns.eu"
     alpn:
       - h2
@@ -187,8 +187,8 @@ proxies:
     client-fingerprint: chrome
     udp: true
     idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 0
+    idle-session-timeout: 300
+    min-idle-session: 2
     sni: "selectel-spb.ydns.eu"
     alpn:
       - h2
@@ -218,8 +218,8 @@ proxies:
     client-fingerprint: chrome
     udp: true
     idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 0
+    idle-session-timeout: 300
+    min-idle-session: 2
     sni: "h2nexus.ddns.net"
     alpn:
       - h2
@@ -249,8 +249,8 @@ proxies:
     client-fingerprint: chrome
     udp: true
     idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 0
+    idle-session-timeout: 300
+    min-idle-session: 2
     sni: "h2nexus-p.ydns.eu"
     alpn:
       - h2
@@ -280,8 +280,8 @@ proxies:
     client-fingerprint: chrome
     udp: true
     idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 0
+    idle-session-timeout: 300
+    min-idle-session: 2
     sni: "waicore-ger.ddns.net"
     alpn:
       - h2
