@@ -76,10 +76,10 @@ dns:
   - '+.ntp.org.cn'
   - '+.pool.ntp.org'
   # Дополнительные системные домены
-  - '+.msftconnecttest.com'
-  - '+.connectivitycheck.gstatic.com'
-  - 'captive.apple.com'
-  - 'detectportal.firefox.com'
+  #- '+.msftconnecttest.com'
+  #- '+.connectivitycheck.gstatic.com'
+  #- 'captive.apple.com'
+  #- 'detectportal.firefox.com'
   fake-ip-filter-mode: blacklist
   fake-ip-range: 198.18.0.1/16
 profile:
