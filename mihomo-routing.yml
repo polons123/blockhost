@@ -29,7 +29,50 @@ dns:
   use-hosts: false
   use-system-hosts: false
   direct-nameserver-follow-policy: false
-  enhanced-mode: redir-host # redir-host  or fake-ip
+  enhanced-mode: fake-ip # redir-host  or fake-ip
+  fake-ip-filter:
+  # LAN домены
+  - '+.lan'
+  - '+.localdomain'
+  - '+.example'
+  - '+.invalid'
+  - '+.localhost'
+  - '+.test'
+  - '+.local'
+  - '+.home.arpa'
+  - '+.direct'
+    
+  # NTP сервисы (синхронизация времени)
+  - 'time.*.com'
+  - 'time.*.gov'
+  - 'time.*.edu.cn'
+  - 'time.*.apple.com'
+  - 'time-ios.apple.com'
+  - 'time1.*.com'
+  - 'time2.*.com'
+  - 'time3.*.com'
+  - 'time4.*.com'
+  - 'time5.*.com'
+  - 'time6.*.com'
+  - 'time7.*.com'
+  - 'ntp.*.com'
+  - 'ntp1.*.com'
+  - 'ntp2.*.com'
+  - 'ntp3.*.com'
+  - 'ntp4.*.com'
+  - 'ntp5.*.com'
+  - 'ntp6.*.com'
+  - 'ntp7.*.com'
+  - '+.time.edu.cn'
+  - '+.ntp.org.cn'
+  - '+.pool.ntp.org'
+  # Дополнительные системные домены
+  - '+.msftconnecttest.com'
+  - '+.connectivitycheck.gstatic.com'
+  - 'captive.apple.com'
+  - 'detectportal.firefox.com'
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
 profile:
   store-selected: true
   store-fake-ip: false
