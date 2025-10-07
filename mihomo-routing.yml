@@ -14,8 +14,8 @@ dns:
   ipv6: false
   listen: :53
   default-nameserver:
-  - 9.9.9.10
-  - 185.222.222.222
+  - 77.88.8.8
+  - system
   nameserver:
   - tls://cloud-ru-fr.ydns.eu:853
   - tls://vdska-fin.ydns.eu:853
