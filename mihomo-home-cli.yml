@@ -23,7 +23,7 @@ dns:
   listen: :53
   default-nameserver:
   - 77.88.8.8
-  - 1.1.1.1
+  - system
   nameserver:
   - tls://cloud-ru-fr.ydns.eu:853
   - tls://vdska-fin.ydns.eu:853
