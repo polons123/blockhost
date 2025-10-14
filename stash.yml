@@ -1,1 +1,350 @@
+mode: rule
+mixed-port: 7897
+allow-lan: false
+log-level: error
+ipv6: false
+unified-delay: false
+tcp-concurrent: false
+find-process-mode: strict
 
+dns:
+  enable: true
+  cache-algorithm: arc
+  prefer-h3: false
+  ipv6: false
+  listen: :53
+  default-nameserver:
+  - 77.88.8.8
+  - system
+  nameserver:
+  - tls://cloud-ru-fr.ydns.eu:853
+  - tls://vdska-fin.ydns.eu:853
+  # - tls://vdska-fin.ydns.eu:853
+  # - https://vdska-pl.ydns.eu/dns-query
+  proxy-server-nameserver:
+  - tls://cloud-ru-fr.ydns.eu:853
+  - tls://vdska-fin.ydns.eu:853
+  # - tls://vdska-fin.ydns.eu:853
+  # - https://vdska-pl.ydns.eu/dns-query
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: false
+  direct-nameserver-follow-policy: false
+  enhanced-mode: fake-ip # redir-host  or fake-ip
+  fake-ip-filter:
+  # LAN домены
+  - '+.lan'
+  - '+.localdomain'
+  - '+.example'
+  - '+.invalid'
+  - '+.localhost'
+  - '+.test'
+  - '+.local'
+  - '+.home.arpa'
+  - '+.direct'
+    
+  # NTP сервисы (синхронизация времени)
+  - 'time.*.com'
+  - 'time.*.gov'
+  - 'time.*.edu.cn'
+  - 'time.*.apple.com'
+  - 'time-ios.apple.com'
+  - 'time1.*.com'
+  - 'time2.*.com'
+  - 'time3.*.com'
+  - 'time4.*.com'
+  - 'time5.*.com'
+  - 'time6.*.com'
+  - 'time7.*.com'
+  - 'ntp.*.com'
+  - 'ntp1.*.com'
+  - 'ntp2.*.com'
+  - 'ntp3.*.com'
+  - 'ntp4.*.com'
+  - 'ntp5.*.com'
+  - 'ntp6.*.com'
+  - 'ntp7.*.com'
+  - '+.time.edu.cn'
+  - '+.ntp.org.cn'
+  - '+.pool.ntp.org'
+  # Дополнительные системные домены
+  - '+.msftconnecttest.com'
+  - '+.connectivitycheck.gstatic.com'
+  - 'captive.apple.com'
+  - 'detectportal.firefox.com'
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
+profile:
+  store-selected: true
+  store-fake-ip: false
+
+tun:
+  enable: true
+  stack: system
+  mtu: 1500
+  auto-route: true
+  strict-route: true
+  gso: false
+  # gso-max-size: 65536
+  udp-timeout: 300
+  iproute2-table-index: 2022
+  iproute2-rule-index: 9000
+  endpoint-independent-nat: false
+  auto-detect-interface: true
+  dns-hijack:
+  - any:53
+  - tcp://any:53
+  device: utun11
+  route-exclude-address:
+  - 0.0.0.0/8
+  - 100.64.0.0/10
+  - 127.0.0.0/8
+  - 169.254.0.0/16
+  - 172.16.0.0/12
+  - 192.0.0.0/24
+  - 192.0.2.0/24
+  - 192.88.99.0/24
+  - 192.168.0.0/16
+  - 198.51.100.0/24
+  - 203.0.113.0/24
+  - 224.0.0.0/4
+  - 255.255.255.255/32
+  - 239.255.255.250/32
+
+# keep-alive-interval: 180
+# keep-alive-idle: 180
+disable-keep-alive: true
+
+sniffer:
+  enable: false
+
+proxies:  
+    
+  - name: Cloud-VK-VM
+    type: vmess
+    server: 83.166.235.104
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+    
+  - name: CloudRu-VM
+    type: vmess
+    server: 176.109.106.4
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+
+  - name: Socks-local
+    type: socks5
+    server: 192.168.1.151
+    port: 7897
+    udp: true
+    
+  - name: Dom-VM
+    type: vmess
+    server: 95.165.6.169
+    port: 64846
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+  
+  - name: Selectel-VM
+    type: vmess
+    server: 188.68.221.199
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+
+  - name: H2nexus-VM
+    type: vmess
+    server: h2nexus.ddns.net
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+      
+  - name: H2Nexus-Pol-VM
+    type: vmess
+    server: h2nexus-p.ydns.eu
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+
+  - name: Waicore-VM
+    type: vmess
+    server: waicore-ger.ddns.net
+    port: 64845
+    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
+    alterId: 0
+    ip-version: ipv4
+    cipher: chacha20-poly1305
+    tls: false
+    udp: true
+    tcp-fast-open: true
+    smux:
+      enabled: false
+    
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - Cloud-VK-VM
+      - CloudRu-VM
+      - Socks-local
+      - Dom-VM
+      - Selectel-VM
+      - H2nexus-VM
+      - H2Nexus-Pol-VM
+      - Waicore-VM
+
+rule-providers:
+  geosite-google:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
+    path: ./geosite-google.mrs
+    interval: 259200 
+  geosite-apple:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs"
+    path: ./geosite-apple.mrs
+    interval: 259200
+  geosite-youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"
+    path: ./geosite-youtube.mrs   
+    interval: 259200
+  geoip-google:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"
+    path: ./geoip-google.mrs
+    interval: 259200
+  geoip-apple:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"
+    path: ./geoip-apple.mrs
+    interval: 259200
+  geoip-ru:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
+    path: ./geoip-ru.mrs
+    interval: 259200
+
+rules:
+  - DST-PORT,25,DIRECT
+  - DST-PORT,110,DIRECT
+  - DST-PORT,143,DIRECT
+  - DST-PORT,465,DIRECT
+  - DST-PORT,585,DIRECT
+  - DST-PORT,587,DIRECT
+  - DST-PORT,993,DIRECT
+  - DST-PORT,995,DIRECT
+  - DST-PORT,18090,DIRECT
+  - DST-PORT,18092,DIRECT
+  - DST-PORT,59090,DIRECT
+  - DST-PORT,2195,DIRECT #push уведомления
+  - DST-PORT,2196,DIRECT
+  - DST-PORT,2197,DIRECT
+  - DST-PORT,5223,DIRECT
+  - DST-PORT,5228,DIRECT
+  - DST-PORT,5229,DIRECT
+  - DST-PORT,5230,DIRECT # конец push уведомлений
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
+  - IP-CIDR,::1/128,DIRECT
+  # Apple Push Notifications
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT
+  - DOMAIN,push.apple.com,DIRECT
+  - DOMAIN-SUFFIX,api.push.apple.com,DIRECT
+  - DOMAIN,gateway.push.apple.com,DIRECT
+  - DOMAIN,gateway.sandbox.push.apple.com,DIRECT
+  # Google/Firebase Push Notifications
+  - DOMAIN-SUFFIX,fcm.googleapis.com,DIRECT
+  - DOMAIN,fcm.googleapis.com,DIRECT
+  - DOMAIN-SUFFIX,android.googleapis.com,DIRECT
+  - DOMAIN,android.googleapis.com,DIRECT
+  # WNS
+  - DOMAIN-SUFFIX,notify.windows.com,DIRECT
+  - DOMAIN,outlook.office365.com,DIRECT
+  - DOMAIN,m.hotmail.com,DIRECT
+  - DOMAIN,hotmail.com,DIRECT
+
+  - RULE-SET,geosite-google,PROXY
+  - RULE-SET,geosite-apple,PROXY
+  - RULE-SET,geosite-youtube,PROXY
+
+  - RULE-SET,geoip-google,PROXY
+  - RULE-SET,geoip-apple,PROXY
+  
+  - DOMAIN,kino.pub,PROXY
+  - DOMAIN-KEYWORD,habr,PROXY
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
+  - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
+  
+  - DOMAIN-SUFFIX,ru,DIRECT
+  - DOMAIN-SUFFIX,su,DIRECT
+  - DOMAIN-SUFFIX,xn--p1ai,DIRECT
+  - DOMAIN-SUFFIX,vokino.tv,DIRECT
+  - DOMAIN-SUFFIX,yandex.net,DIRECT
+  - DOMAIN,polons.synology.me,DIRECT
+  - DOMAIN,evpolondacha.keenetic.link,DIRECT
+  - DOMAIN,evpolondom.keenetic.name,DIRECT
+  - RULE-SET,geoip-ru,DIRECT
+  #- GEOIP,RU,DIRECT
+  - MATCH,PROXY
