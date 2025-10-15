@@ -390,6 +390,8 @@ rule-providers:
     interval: 259200
 
 rules:
+  # Блокировка quic google ip
+  - AND,((RULE-SET,geoip-google),(NETWORK,udp),(DST-PORT,443)),REJECT
   - DST-PORT,25,DIRECT
   - DST-PORT,110,DIRECT
   - DST-PORT,143,DIRECT
