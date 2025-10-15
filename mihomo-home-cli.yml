@@ -1,4 +1,4 @@
-9mode: rule
+mode: rule
 mixed-port: 7897
 allow-lan: true
 log-level: error
