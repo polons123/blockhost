@@ -133,6 +133,23 @@ proxies:
     tcp-fast-open: true
     smux:
       enabled: false
+
+  - name: Cloud-VK-Tr
+    type: trojan
+    server: 83.166.235.104
+    port: 443
+    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
+    udp: true
+    sni: cloud-vk.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    client-fingerprint: random
+    fingerprint: xxxx
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
     
   - name: CloudRu-VM
     type: vmess
@@ -229,6 +246,7 @@ proxy-groups:
     type: select
     proxies:
       - Cloud-VK-VM
+      - Cloud-VK-Tr
       - CloudRu-VM
       - Socks-local
       - Dom-VM
