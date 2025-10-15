@@ -140,6 +140,23 @@ proxies:
     skip-cert-verify: false
     ip-version: ipv4
     
+  - name: Cloud-VK-Tr
+    type: trojan
+    server: 83.166.235.104
+    port: 443
+    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
+    udp: true
+    sni: cloud-vk.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    client-fingerprint: random
+    fingerprint: xxxx
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
+    
   - name: Cloud-VK-VM
     type: vmess
     server: 83.166.235.104
@@ -334,6 +351,7 @@ proxy-groups:
     type: select
     proxies:
       - Cloud-VK-tls
+      - Cloud-VK-Tr
       - Cloud-VK-VM
       - CloudRu-tls
       - CloudRu-VM
