@@ -169,9 +169,8 @@ proxies:
     - h2
     - http/1.1
     client-fingerprint: random
-    fingerprint: xxxx
     skip-cert-verify: false
-    network: tcp
+    #network: tcp
     smux:
       enabled: false
     ip-version: ipv4
@@ -218,7 +217,6 @@ proxies:
     - h2
     - http/1.1
     client-fingerprint: random
-    fingerprint: xxxx
     skip-cert-verify: false
     network: tcp
     smux:
@@ -287,7 +285,6 @@ proxies:
     - h2
     - http/1.1
     client-fingerprint: random
-    fingerprint: xxxx
     skip-cert-verify: false
     network: tcp
     smux:
@@ -336,7 +333,6 @@ proxies:
     - h2
     - http/1.1
     client-fingerprint: random
-    fingerprint: xxxx
     skip-cert-verify: false
     network: tcp
     smux:
@@ -385,7 +381,6 @@ proxies:
     - h2
     - http/1.1
     client-fingerprint: random
-    fingerprint: xxxx
     skip-cert-verify: false
     network: tcp
     smux:
@@ -434,7 +429,6 @@ proxies:
     - h2
     - http/1.1
     client-fingerprint: random
-    fingerprint: xxxx
     skip-cert-verify: false
     network: tcp
     smux:
