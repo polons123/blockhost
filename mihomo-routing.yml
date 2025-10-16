@@ -136,6 +136,23 @@ proxies:
       - http/1.1
     skip-cert-verify: false
     ip-version: ipv4
+
+  - name: Cloud-VK-Tr
+    type: trojan
+    server: 83.166.235.104
+    port: 443
+    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
+    udp: true
+    sni: cloud-vk.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    client-fingerprint: random
+    skip-cert-verify: false
+    #network: tcp
+    smux:
+      enabled: false
+    ip-version: ipv4
     
   - name: Cloud-VK-VM
     type: vmess
@@ -167,7 +184,24 @@ proxies:
       - http/1.1
     skip-cert-verify: false
     ip-version: ipv4
-    
+  
+  - name: CloudRU-Tr
+    type: trojan
+    server: 176.109.106.4
+    port: 443
+    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
+    udp: true
+    sni: cloud-ru.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    client-fingerprint: random
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
+    ip-version: ipv4
+
   - name: CloudRu-VM
     type: vmess
     server: 176.109.106.4
@@ -218,6 +252,23 @@ proxies:
       - http/1.1
     skip-cert-verify: false
     ip-version: ipv4
+
+  - name: Selectel-Tr
+    type: trojan
+    server: 188.68.221.199
+    port: 443
+    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
+    udp: true
+    sni: selectel-spb.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    client-fingerprint: random
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
+    ip-version: ipv4
   
   - name: Selectel-VM
     type: vmess
@@ -248,6 +299,23 @@ proxies:
       - h2
       - http/1.1
     skip-cert-verify: false
+    ip-version: ipv4
+
+  - name: H2nexus-Tr
+    type: trojan
+    server: 45.144.52.52
+    port: 443
+    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
+    udp: true
+    sni: h2nexus.ddns.net
+    alpn:
+    - h2
+    - http/1.1
+    client-fingerprint: random
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
     ip-version: ipv4
 
   - name: H2nexus-VM
@@ -281,6 +349,23 @@ proxies:
     skip-cert-verify: false
     ip-version: ipv4
 
+  - name: H2nexus-Pol-Tr
+    type: trojan
+    server: 144.31.0.59
+    port: 443
+    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
+    udp: true
+    sni: h2nexus-p.ydns.eu
+    alpn:
+    - h2
+    - http/1.1
+    client-fingerprint: random
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
+    ip-version: ipv4
+
   - name: H2Nexus-Pol-VM
     type: vmess
     server: h2nexus-p.ydns.eu
@@ -312,6 +397,23 @@ proxies:
     skip-cert-verify: false
     ip-version: ipv4
 
+  - name: Waicore-Tr
+    type: trojan
+    server: 193.233.134.245
+    port: 443
+    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
+    udp: true
+    sni: waicore-ger.ddns.net
+    alpn:
+    - h2
+    - http/1.1
+    client-fingerprint: random
+    skip-cert-verify: false
+    network: tcp
+    smux:
+      enabled: false
+    ip-version: ipv4
+
   - name: Waicore-VM
     type: vmess
     server: waicore-ger.ddns.net
@@ -331,20 +433,25 @@ proxy-groups:
     type: select
     proxies:
       - Cloud-VK-tls
+      - Cloud-VK-Tr
       - Cloud-VK-VM
       - CloudRu-tls
+      - CloudRU-Tr
       - CloudRu-VM
       - Socks-local
       - Dom-VM
       - Selectel-tls
+      - Selectel-Tr
       - Selectel-VM
       - H2nexus-tls
+      - H2nexus-Tr
       - H2nexus-VM
-      - H2Nexus-Pol-tls
+      - H2nexus-Pol-Tr
       - H2Nexus-Pol-VM
       - Waicore-tls
+      - Waicore-Tr
       - Waicore-VM
-
+      
 rule-providers:
   geosite-google:
     type: http
