@@ -467,6 +467,7 @@ proxy-groups:
       - H2nexus-tls
       - H2nexus-Tr
       - H2nexus-VM
+      - H2Nexus-Pol-tls
       - H2nexus-Pol-Tr
       - H2Nexus-Pol-VM
       - Waicore-tls
