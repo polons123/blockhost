@@ -141,54 +141,6 @@ listeners:
         
 proxies:  
   
-  - name: Cloud-VK-tls
-    type: anytls
-    server: 83.166.235.104
-    port: 8443
-    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 300
-    min-idle-session: 2
-    sni: "cloud-vk.ydns.eu"
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    ip-version: ipv4
-
-  - name: Cloud-VK-Tr
-    type: trojan
-    server: 83.166.235.104
-    port: 443
-    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
-    udp: true
-    sni: cloud-vk.ydns.eu
-    alpn:
-    - h2
-    - http/1.1
-    client-fingerprint: random
-    skip-cert-verify: false
-    #network: tcp
-    smux:
-      enabled: false
-    ip-version: ipv4
-    
-  - name: Cloud-VK-VM
-    type: vmess
-    server: 83.166.235.104
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
-    udp: true
-    tcp-fast-open: true
-    smux:
-      enabled: false
-      
   - name: CloudRu-tls
     type: anytls
     server: 176.109.106.4
@@ -453,9 +405,6 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - Cloud-VK-tls
-      - Cloud-VK-Tr
-      - Cloud-VK-VM
       - CloudRu-tls
       - CloudRU-Tr
       - CloudRu-VM
