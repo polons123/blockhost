@@ -138,6 +138,8 @@ sniffer:
     QUIC:
       ports: [443, 8443]
       override-destination: true
+  skip-domain:
+    - "+.push.apple.com"
 
 listeners:
   - name: vmess-in
