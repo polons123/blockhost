@@ -628,7 +628,7 @@ rule-providers:
 rules:
   #- RULE-SET,oisd_big,REJECT
   # Блокировка quic google ip
-  - AND,((RULE-SET,geoip-google),(NETWORK,udp),(DST-PORT,443)),REJECT
+  # - AND,((RULE-SET,geoip-google),(NETWORK,udp),(DST-PORT,443)),REJECT
   - PROCESS-NAME,uTorrent.exe,DIRECT
   - PROCESS-NAME,BitTorrent.exe,DIRECT
   - PROCESS-NAME,utweb.exe,DIRECT
