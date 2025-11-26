@@ -122,9 +122,7 @@ sniffer:
   enable: false
 
 proxies:  
-
-
-  
+ 
   - name: CloudRU-Tr
     type: trojan
     server: 176.109.106.4
@@ -142,19 +140,16 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: CloudRu-VM
-    type: vmess
+  - name: CloudRu-ss
+    type: ss
     server: 176.109.106.4
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: Socks-local
     type: socks5
@@ -162,19 +157,16 @@ proxies:
     port: 7897
     udp: true
     
-  - name: Dom-VM
-    type: vmess
+  - name: Dom-ss
+    type: ss
     server: 95.165.6.169
-    port: 64846
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: Selectel-Tr
     type: trojan
@@ -193,19 +185,16 @@ proxies:
       enabled: false
     ip-version: ipv4
   
-  - name: Selectel-VM
-    type: vmess
+  - name: Selectel-ss
+    type: ss
     server: 188.68.221.199
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: H2nexus-Tr
     type: trojan
@@ -224,19 +213,16 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: H2nexus-VM
-    type: vmess
-    server: h2nexus.ddns.net
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+  - name: H2nexus-ss
+    type: ss
+    server: 45.144.52.52
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: H2nexus-Pol-Tr
     type: trojan
@@ -255,19 +241,16 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: H2Nexus-Pol-VM
-    type: vmess
-    server: h2nexus-p.ydns.eu
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+  - name: H2nexus-Pol-ss
+    type: ss
+    server: 144.31.0.59
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: Waicore-Tr
     type: trojan
@@ -286,36 +269,33 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: Waicore-VM
-    type: vmess
-    server: waicore-ger.ddns.net
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+  - name: Waicore-ss
+    type: ss
+    server: 193.233.134.245
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
     
 proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
       - CloudRU-Tr
-      - CloudRu-VM
+      - CloudRu-ss
       - Socks-local
-      - Dom-VM
+      - Dom-ss
       - Selectel-Tr
-      - Selectel-VM
+      - Selectel-ss
       - H2nexus-Tr
-      - H2nexus-VM
+      - H2nexus-ss
       - H2nexus-Pol-Tr
-      - H2Nexus-Pol-VM
+      - H2nexus-Pol-ss
       - Waicore-Tr
-      - Waicore-VM
+      - Waicore-ss
 
 rule-providers:
   geosite-google:
@@ -363,47 +343,14 @@ rule-providers:
 
 rules:
   # Блокировка quic google ip
-  - AND,((RULE-SET,geoip-google),(NETWORK,udp),(DST-PORT,443)),REJECT
-  - DST-PORT,25,DIRECT
-  - DST-PORT,110,DIRECT
-  - DST-PORT,143,DIRECT
-  - DST-PORT,465,DIRECT
-  - DST-PORT,585,DIRECT
-  - DST-PORT,587,DIRECT
-  - DST-PORT,993,DIRECT
-  - DST-PORT,995,DIRECT
-  - DST-PORT,18090,DIRECT
-  - DST-PORT,18092,DIRECT
-  - DST-PORT,59090,DIRECT
-  - DST-PORT,2195,DIRECT #push уведомления
-  - DST-PORT,2196,DIRECT
-  - DST-PORT,2197,DIRECT
-  - DST-PORT,5223,DIRECT
-  - DST-PORT,5228,DIRECT
-  - DST-PORT,5229,DIRECT
-  - DST-PORT,5230,DIRECT # конец push уведомлений
+  #- AND,((RULE-SET,geoip-google),(NETWORK,udp),(DST-PORT,443)),REJECT
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,45.144.52.52/32,DIRECT,no-resolve
   - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
   - IP-CIDR,::1/128,DIRECT
-  # Apple Push Notifications
-  - DOMAIN-SUFFIX,push.apple.com,DIRECT
-  - DOMAIN,push.apple.com,DIRECT
-  - DOMAIN-SUFFIX,api.push.apple.com,DIRECT
-  - DOMAIN,gateway.push.apple.com,DIRECT
-  - DOMAIN,gateway.sandbox.push.apple.com,DIRECT
-  # Google/Firebase Push Notifications
-  - DOMAIN-SUFFIX,fcm.googleapis.com,DIRECT
-  - DOMAIN,fcm.googleapis.com,DIRECT
-  - DOMAIN-SUFFIX,android.googleapis.com,DIRECT
-  - DOMAIN,android.googleapis.com,DIRECT
-  # WNS
-  - DOMAIN-SUFFIX,notify.windows.com,DIRECT
-  - DOMAIN,outlook.office365.com,DIRECT
-  - DOMAIN,m.hotmail.com,DIRECT
-  - DOMAIN,hotmail.com,DIRECT
 
   - RULE-SET,geosite-google,PROXY
   - RULE-SET,geosite-apple,PROXY
