@@ -122,6 +122,7 @@ sniffer:
   enable: false
 
 proxies:
+      
   - name: CloudRu-tls
     type: anytls
     server: 176.109.106.4
@@ -156,19 +157,16 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: CloudRu-VM
-    type: vmess
+  - name: CloudRu-ss
+    type: ss
     server: 176.109.106.4
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: Socks-local
     type: socks5
@@ -176,19 +174,16 @@ proxies:
     port: 7897
     udp: true
     
-  - name: Dom-VM
-    type: vmess
+  - name: Dom-ss
+    type: ss
     server: 95.165.6.169
-    port: 64846
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: Selectel-tls
     type: anytls
@@ -224,19 +219,16 @@ proxies:
       enabled: false
     ip-version: ipv4
   
-  - name: Selectel-VM
-    type: vmess
+  - name: Selectel-ss
+    type: ss
     server: 188.68.221.199
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: H2nexus-tls
     type: anytls
@@ -272,21 +264,18 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: H2nexus-VM
-    type: vmess
-    server: h2nexus.ddns.net
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+  - name: H2nexus-ss
+    type: ss
+    server: 45.144.52.52
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
-  - name: H2Nexus-Pol-tls
+  - name: H2nexus-Pol-tls
     type: anytls
     server: 144.31.0.59
     port: 8443
@@ -320,19 +309,16 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: H2Nexus-Pol-VM
-    type: vmess
-    server: h2nexus-p.ydns.eu
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+  - name: H2nexus-Pol-ss
+    type: ss
+    server: 144.31.0.59
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
 
   - name: Waicore-tls
     type: anytls
@@ -368,19 +354,16 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: Waicore-VM
-    type: vmess
-    server: waicore-ger.ddns.net
-    port: 64845
-    uuid: 7040f7de-3e63-4ff1-8a77-37c70b319eb2
-    alterId: 0
-    ip-version: ipv4
-    cipher: chacha20-poly1305
-    tls: false
+  - name: Waicore-ss
+    type: ss
+    server: 193.233.134.245
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    tcp-fast-open: true
     smux:
       enabled: false
+    ip-version: ipv4
     
 proxy-groups:
   - name: "PROXY"
@@ -388,21 +371,21 @@ proxy-groups:
     proxies:
       - CloudRu-tls
       - CloudRU-Tr
-      - CloudRu-VM
+      - CloudRu-ss
       - Socks-local
-      - Dom-VM
+      - Dom-ss
       - Selectel-tls
       - Selectel-Tr
-      - Selectel-VM
+      - Selectel-ss
       - H2nexus-tls
       - H2nexus-Tr
-      - H2nexus-VM
-      - H2Nexus-Pol-tls
+      - H2nexus-ss
+      - H2nexus-Pol-tls
       - H2nexus-Pol-Tr
-      - H2Nexus-Pol-VM
+      - H2nexus-Pol-ss
       - Waicore-tls
       - Waicore-Tr
-      - Waicore-VM
+      - Waicore-ss
 
 rule-providers:
   geosite-google:
