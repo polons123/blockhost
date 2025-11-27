@@ -171,7 +171,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: false
+      enabled: true
     ip-version: ipv4
 
   - name: CloudRu-ss
@@ -233,7 +233,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: false
+      enabled: true
     ip-version: ipv4
   
   - name: Selectel-ss
@@ -278,7 +278,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: false
+      enabled: true
     ip-version: ipv4
 
   - name: H2nexus-ss
@@ -323,7 +323,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: false
+      enabled: true
     ip-version: ipv4
 
   - name: H2nexus-Pol-ss
@@ -368,7 +368,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: false
+      enabled: true
     ip-version: ipv4
 
   - name: Waicore-ss
