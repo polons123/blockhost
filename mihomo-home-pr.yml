@@ -140,21 +140,18 @@ llisteners:
         
 proxies:
       
-  - name: CloudRu-tls
-    type: anytls
+  - name: CloudRu-hys
+    type: hysteria2
     server: 176.109.106.4
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 300
-    min-idle-session: 2
+    up: "1000 Mbps"
+    down: "1000 Mbps"
     sni: "cloud-ru.ydns.eu"
-    alpn:
-      - h2
-      - http/1.1
     skip-cert-verify: false
+    #fingerprint: xxxx
+    alpn:
+      - h3
     ip-version: ipv4
   
   - name: CloudRU-Tr
@@ -171,7 +168,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: true
+      enabled: false
     ip-version: ipv4
 
   - name: CloudRu-ss
@@ -202,21 +199,18 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: Selectel-tls
-    type: anytls
+  - name: Selectel-hys
+    type: hysteria2
     server: 188.68.221.199
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 300
-    min-idle-session: 2
+    up: "1000 Mbps"
+    down: "1000 Mbps"
     sni: "selectel-spb.ydns.eu"
-    alpn:
-      - h2
-      - http/1.1
     skip-cert-verify: false
+    #fingerprint: xxxx
+    alpn:
+      - h3
     ip-version: ipv4
 
   - name: Selectel-Tr
@@ -233,7 +227,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: true
+      enabled: false
     ip-version: ipv4
   
   - name: Selectel-ss
@@ -247,21 +241,18 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: H2nexus-tls
-    type: anytls
+  - name: H2nexus-hys
+    type: hysteria2
     server: 45.144.52.52
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 300
-    min-idle-session: 2
+    up: "1000 Mbps"
+    down: "1000 Mbps"
     sni: "h2nexus.ddns.net"
-    alpn:
-      - h2
-      - http/1.1
     skip-cert-verify: false
+    #fingerprint: xxxx
+    alpn:
+      - h3
     ip-version: ipv4
 
   - name: H2nexus-Tr
@@ -278,7 +269,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: true
+      enabled: false
     ip-version: ipv4
 
   - name: H2nexus-ss
@@ -292,21 +283,18 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: H2nexus-Pol-tls
-    type: anytls
+  - name: H2nexus-Pol-hys
+    type: hysteria2
     server: 144.31.0.59
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 300
-    min-idle-session: 2
+    up: "1000 Mbps"
+    down: "1000 Mbps"
     sni: "h2nexus-p.ydns.eu"
-    alpn:
-      - h2
-      - http/1.1
     skip-cert-verify: false
+    #fingerprint: xxxx
+    alpn:
+      - h3
     ip-version: ipv4
 
   - name: H2nexus-Pol-Tr
@@ -323,7 +311,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: true
+      enabled: false
     ip-version: ipv4
 
   - name: H2nexus-Pol-ss
@@ -337,21 +325,18 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: Waicore-tls
-    type: anytls
+  - name: Waicore-hys
+    type: hysteria2
     server: 193.233.134.245
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 300
-    min-idle-session: 2
+    up: "1000 Mbps"
+    down: "1000 Mbps"
     sni: "waicore-ger.ddns.net"
-    alpn:
-      - h2
-      - http/1.1
     skip-cert-verify: false
+    #fingerprint: xxxx
+    alpn:
+      - h3
     ip-version: ipv4
 
   - name: Waicore-Tr
@@ -368,7 +353,7 @@ proxies:
     skip-cert-verify: false
     network: tcp
     smux:
-      enabled: true
+      enabled: false
     ip-version: ipv4
 
   - name: Waicore-ss
@@ -386,21 +371,21 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - CloudRu-tls
+      - CloudRu-hys
       - CloudRU-Tr
       - CloudRu-ss
       - Socks-local
       - Dom-ss
-      - Selectel-tls
+      - Selectel-hys
       - Selectel-Tr
       - Selectel-ss
-      - H2nexus-tls
+      - H2nexus-hys
       - H2nexus-Tr
       - H2nexus-ss
-      - H2nexus-Pol-tls
+      - H2nexus-Pol-hys
       - H2nexus-Pol-Tr
       - H2nexus-Pol-ss
-      - Waicore-tls
+      - Waicore-hys
       - Waicore-Tr
       - Waicore-ss
       
