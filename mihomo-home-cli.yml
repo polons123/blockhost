@@ -157,14 +157,19 @@ proxies:
     server: 176.109.106.4
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "1000 Mbps"
-    down: "1000 Mbps"
+    up: "0 Mbps"
+    down: "0 Mbps"
     sni: "cloud-ru.ydns.eu"
     skip-cert-verify: false
     #fingerprint: xxxx
     alpn:
       - h3
     ip-version: ipv4
+    congestion-control: brutal
+    brutal-opts:
+      enabled: true
+      up: "0 Mbps"
+      down: "0 Mbps"
   
   - name: CloudRU-Tr
     type: trojan
@@ -216,14 +221,19 @@ proxies:
     server: 188.68.221.199
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "1000 Mbps"
-    down: "1000 Mbps"
+    up: "0 Mbps"
+    down: "0 Mbps"
     sni: "selectel-spb.ydns.eu"
     skip-cert-verify: false
     #fingerprint: xxxx
     alpn:
       - h3
     ip-version: ipv4
+    congestion-control: brutal
+    brutal-opts:
+      enabled: true
+      up: "0 Mbps"
+      down: "0 Mbps"
 
   - name: Selectel-Tr
     type: trojan
@@ -258,14 +268,19 @@ proxies:
     server: 45.144.52.52
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "1000 Mbps"
-    down: "1000 Mbps"
+    up: "0 Mbps"
+    down: "0 Mbps"
     sni: "h2nexus.ddns.net"
     skip-cert-verify: false
     #fingerprint: xxxx
     alpn:
       - h3
     ip-version: ipv4
+    congestion-control: brutal
+    brutal-opts:
+      enabled: true
+      up: "0 Mbps"
+      down: "0 Mbps"
 
   - name: H2nexus-Tr
     type: trojan
@@ -300,15 +315,20 @@ proxies:
     server: 144.31.0.59
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "1000 Mbps"
-    down: "1000 Mbps"
+    up: "0 Mbps"
+    down: "0 Mbps"
     sni: "h2nexus-p.ydns.eu"
     skip-cert-verify: false
     #fingerprint: xxxx
     alpn:
       - h3
     ip-version: ipv4
-
+    congestion-control: brutal
+    brutal-opts:
+      enabled: true
+      up: "0 Mbps"
+      down: "0 Mbps"
+    
   - name: H2nexus-Pol-Tr
     type: trojan
     server: 144.31.0.59
@@ -342,14 +362,19 @@ proxies:
     server: 193.233.134.245
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "1000 Mbps"
-    down: "1000 Mbps"
+    up: "0 Mbps"
+    down: "0 Mbps"
     sni: "waicore-ger.ddns.net"
     skip-cert-verify: false
     #fingerprint: xxxx
     alpn:
       - h3
     ip-version: ipv4
+    congestion-control: brutal
+    brutal-opts:
+      enabled: true
+      up: "0 Mbps"
+      down: "0 Mbps"
 
   - name: Waicore-Tr
     type: trojan
