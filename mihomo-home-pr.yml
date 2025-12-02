@@ -140,14 +140,14 @@ llisteners:
         
 proxies:
       
-  - name: CloudRu-hys
+  - name: HostingVDS-hys
     type: hysteria2
-    server: 176.109.106.4
+    server: 194.164.245.135
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     up: "0 Mbps"
     down: "0 Mbps"
-    sni: "cloud-ru.ydns.eu"
+    sni: "hosting-vds.ydns.eu"
     skip-cert-verify: false
     #fingerprint: xxxx
     alpn:
@@ -159,13 +159,13 @@ proxies:
       up: "0 Mbps"
       down: "0 Mbps"
   
-  - name: CloudRU-Tr
+  - name: HostingVDS-Tr
     type: trojan
-    server: 176.109.106.4
+    server: 194.164.245.135
     port: 443
     password: bb08f215-cbc4-4db5-8925-ce274dd71b04
     udp: true
-    sni: cloud-ru.ydns.eu
+    sni: hosting-vds.ydns.eu
     alpn:
     - h2
     - http/1.1
@@ -176,9 +176,9 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: CloudRu-ss
+  - name: HostingVDS-ss
     type: ss
-    server: 176.109.106.4
+    server: 194.164.245.135
     port: 64850
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
@@ -396,9 +396,9 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - CloudRu-hys
-      - CloudRU-Tr
-      - CloudRu-ss
+      - HostingVDS-hys
+      - HostingVDS-Tr
+      - HostingVDS-ss
       - Socks-local
       - Dom-ss
       - Selectel-hys
