@@ -608,6 +608,13 @@ rules:
   #- RULE-SET,oisd_big,REJECT
   # Блокировка quic google ip
   # - AND,((RULE-SET,geoip-google),(NETWORK,udp),(DST-PORT,443)),REJECT
+  - DOMAIN,kino.pub,PROXY
+  - DOMAIN-KEYWORD,habr,PROXY
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb.org,PROXY
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
+  - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
   - PROCESS-NAME,uTorrent.exe,DIRECT
   - PROCESS-NAME,BitTorrent.exe,DIRECT
   - PROCESS-NAME,utweb.exe,DIRECT
@@ -715,14 +722,6 @@ rules:
   - RULE-SET,geoip-apple,PROXY
   - RULE-SET,geoip-netflix,PROXY
   - RULE-SET,geoip-discord-voice,PROXY
-  
-  - DOMAIN,kino.pub,PROXY
-  - DOMAIN-KEYWORD,habr,PROXY
-  - DOMAIN-SUFFIX,themoviedb.org,PROXY
-  - DOMAIN-SUFFIX,tmdb.org,PROXY
-  - DOMAIN-SUFFIX,themoviedb.org,PROXY
-  - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
-  - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
   
   - DOMAIN-KEYWORD,plex,DIRECT
   - DOMAIN-SUFFIX,ru,DIRECT
