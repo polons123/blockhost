@@ -152,14 +152,14 @@ listeners:
         
 proxies:
       
-  - name: HostingVDS-hys
+  - name: CloudVK-hys
     type: hysteria2
-    server: 194.164.245.135
+    server: 212.233.78.4
     port: 8443
     password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
     up: "0 Mbps"
     down: "0 Mbps"
-    sni: "hosting-vds.ydns.eu"
+    sni: "cloudvk.ydns.eu"
     skip-cert-verify: false
     #fingerprint: xxxx
     alpn:
@@ -171,13 +171,13 @@ proxies:
       up: "0 Mbps"
       down: "0 Mbps"
   
-  - name: HostingVDS-Tr
+  - name: CloudVK-Tr
     type: trojan
-    server: 194.164.245.135
+    server: 212.233.78.4
     port: 443
     password: bb08f215-cbc4-4db5-8925-ce274dd71b04
     udp: true
-    sni: hosting-vds.ydns.eu
+    sni: cloudvk.ydns.eu
     alpn:
     - h2
     - http/1.1
@@ -188,9 +188,9 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: HostingVDS-ss
+  - name: CloudVK-ss
     type: ss
-    server: 194.164.245.135
+    server: 212.233.78.4
     port: 64850
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
@@ -412,22 +412,22 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - "⚖️ Load Balance-HostingVDS"   # Автоматическое распределение
+      - "⚖️ Load Balance-CloudVK"   # Автоматическое распределение
       - "⚖️ Load Balance-Selectel"   # Автоматическое распределение
       - "🛠 Manual"         # Ручной выбор конкретного сервера
 
   # =========================================================
   # 2. БАЛАНСИРОВЩИК (Только SS и Trojan)
   # =========================================================
-  - name: "⚖️ Load Balance-HostingVDS"
+  - name: "⚖️ Load Balance-CloudVK"
     type: load-balance
     strategy: consistent-hashing # "Липкая" сессия (IP не скачет на одном сайте)
     # Если нужна максимальная скорость загрузки (торренты), можно поменять на round-robin
     url: 'http://www.gstatic.com/generate_204'
     interval: 30
     proxies:
-      - HostingVDS-Tr
-      - HostingVDS-ss
+      - CloudVK-Tr
+      - CloudVK-ss
 
   # =========================================================
   # 3. БАЛАНСИРОВЩИК (Только SS и Trojan)
@@ -448,9 +448,9 @@ proxy-groups:
   - name: "🛠 Manual"
     type: select
     proxies:
-      - HostingVDS-hys
-      - HostingVDS-Tr
-      - HostingVDS-ss
+      - CloudVK-hys
+      - CloudVK-Tr
+      - CloudVK-ss
       - Socks-local
       - Dom-ss
       - Selectel-hys
