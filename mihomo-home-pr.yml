@@ -187,6 +187,68 @@ proxies:
       enabled: false
     ip-version: ipv4
 
+  - name: CloudVK-Vm
+    type: vmess
+    server: 212.233.78.4
+    port: 64851
+    uuid: 59f2503a-9506-4c14-9293-bbb4964a75b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: cloudvk.ydns.eu
+      max-early-data:
+      early-data-header-name:
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    smux:
+      enabled: true
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
+    ip-version: ipv4
+    client-fingerprint: random
+
+  - name: CloudVK-Vl
+    type: vless
+    server: 212.233.78.4
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: cloudvk.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: cloudvk.ydns.eu
+      max-early-data:
+      early-data-header-name:
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    smux:
+      enabled: true
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
+    ip-version: ipv4
+    client-fingerprint: random
+
   - name: Socks-local
     type: socks5
     server: 192.168.1.151
@@ -250,6 +312,68 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
+
+  - name: Selectel-Vm
+    type: vmess
+    server: 188.68.221.199
+    port: 64851
+    uuid: 59f2503a-9506-4c14-9293-bbb4964a75b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: selectel-spb.ydns.eu
+      max-early-data:
+      early-data-header-name:
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    smux:
+      enabled: true
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
+    ip-version: ipv4
+    client-fingerprint: random
+
+  - name: Selectel-Vl
+    type: vless
+    server: 188.68.221.199
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: selectel-spb.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: selectel-spb.ydns.eu
+      max-early-data:
+      early-data-header-name:
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    smux:
+      enabled: true
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
+    ip-version: ipv4
+    client-fingerprint: random
 
   - name: H2nexus-hys
     type: hysteria2
@@ -439,11 +563,15 @@ proxy-groups:
       - CloudVK-hys
       - CloudVK-Tr
       - CloudVK-ss
-      - Socks-local
-      - Dom-ss
+      - CloudVK-Vm
+      - CloudVK-Vl
       - Selectel-hys
       - Selectel-Tr
       - Selectel-ss
+      - Selectel-Vm
+      - Selectel-Vl
+      - Socks-local
+      - Dom-ss
       - H2nexus-hys
       - H2nexus-Tr
       - H2nexus-ss
