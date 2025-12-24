@@ -181,12 +181,27 @@ proxies:
     alpn:
     - h2
     - http/1.1
-    client-fingerprint: random
     skip-cert-verify: false
-    network: tcp
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: cloudvk.ydns.eu
+      max-early-data:
+      early-data-header-name:
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: false
+      enabled: true
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
     ip-version: ipv4
+    client-fingerprint: random
 
   - name: CloudVK-ss
     type: ss
@@ -314,12 +329,27 @@ proxies:
     alpn:
     - h2
     - http/1.1
-    client-fingerprint: random
     skip-cert-verify: false
-    network: tcp
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: selectel-spb.ydns.eu
+      max-early-data:
+      early-data-header-name:
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: false
+      enabled: true
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
     ip-version: ipv4
+    client-fingerprint: random
   
   - name: Selectel-ss
     type: ss
@@ -328,9 +358,17 @@ proxies:
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    smux:
-      enabled: false
+    mux:
+      enabled: true
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
     ip-version: ipv4
+    client-fingerprint: random
 
   - name: Selectel-Vm
     type: vmess
