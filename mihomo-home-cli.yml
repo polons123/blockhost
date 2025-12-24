@@ -196,7 +196,14 @@ proxies:
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
     smux:
-      enabled: false
+      enabled: true
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
     ip-version: ipv4
 
   - name: CloudVK-Vm
