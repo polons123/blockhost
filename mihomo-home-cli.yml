@@ -586,7 +586,7 @@ proxy-groups:
       - "🛠 Manual"         # Ручной выбор конкретного сервера
 
   # =========================================================
-  # 2. БАЛАНСИРОВЩИК (Только SS и Trojan)
+  # 2. БАЛАНСИРОВЩИК CloudVK
   # =========================================================
   - name: "⚖️ Load Balance-CloudVK"
     type: load-balance
@@ -595,11 +595,11 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 30
     proxies:
-      - CloudVK-Tr
+      - CloudVK-Vl
       - CloudVK-ss
 
   # =========================================================
-  # 3. БАЛАНСИРОВЩИК (Только SS и Trojan)
+  # 3. БАЛАНСИРОВЩИК Selectel
   # =========================================================
   - name: "⚖️ Load Balance-Selectel"
     type: load-balance
@@ -608,7 +608,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 30
     proxies:
-      - Selectel-Tr
+      - Selectel-Vl
       - Selectel-ss
 
   # =========================================================
