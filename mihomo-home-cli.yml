@@ -192,7 +192,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -211,7 +211,7 @@ proxies:
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -239,7 +239,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -272,7 +272,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -340,7 +340,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -358,8 +358,8 @@ proxies:
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    mux:
-      enabled: true
+    smux:
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -388,7 +388,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -421,7 +421,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
