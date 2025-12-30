@@ -152,12 +152,27 @@ proxies:
     alpn:
     - h2
     - http/1.1
-    client-fingerprint: random
     skip-cert-verify: false
-    network: tcp
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: cloudvk.ydns.eu
+      max-early-data:
+      early-data-header-name:
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
     ip-version: ipv4
+    client-fingerprint: random
 
   - name: CloudVK-ss
     type: ss
@@ -168,6 +183,13 @@ proxies:
     udp: true
     smux:
       enabled: false
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
     ip-version: ipv4
 
   - name: CloudVK-Vm
@@ -188,7 +210,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -221,7 +243,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -278,12 +300,27 @@ proxies:
     alpn:
     - h2
     - http/1.1
-    client-fingerprint: random
     skip-cert-verify: false
-    network: tcp
+    network: ws
+    ws-opts:
+      path: /Video-data
+      headers:
+        Host: selectel-spb.ydns.eu
+      max-early-data:
+      early-data-header-name:
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
     ip-version: ipv4
+    client-fingerprint: random
   
   - name: Selectel-ss
     type: ss
@@ -294,7 +331,15 @@ proxies:
     udp: true
     smux:
       enabled: false
+      protocol: smux
+      #max-connections: 8
+      #min-streams: 4
+      max-streams: 128
+      statistic: false
+      only-tcp: false
+      padding: false
     ip-version: ipv4
+    client-fingerprint: random
 
   - name: Selectel-Vm
     type: vmess
@@ -314,7 +359,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -347,7 +392,7 @@ proxies:
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     smux:
-      enabled: true
+      enabled: false
       protocol: smux
       #max-connections: 8
       #min-streams: 4
@@ -525,58 +570,58 @@ proxy-groups:
       - Waicore-Tr
       - Waicore-ss
 
-rule-providers:
-  geosite-google:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
-    path: ./geosite-google.mrs
-    interval: 259200  
-  geosite-apple:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs"
-    path: ./geosite-apple.mrs
-    interval: 259200
-  geosite-youtube:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"
-    path: ./geosite-youtube.mrs   
-    interval: 259200
-  geoip-google:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"
-    path: ./geoip-google.mrs
-    interval: 259200
-  geoip-apple:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"
-    path: ./geoip-apple.mrs
-    interval: 259200
-  geoip-ru:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
-    path: ./geoip-ru.mrs
-    interval: 259200
+#rule-providers:
+#  geosite-google:
+#    type: http
+#    behavior: domain
+#    format: mrs
+#    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
+#    path: ./geosite-google.mrs
+#    interval: 259200  
+#  geosite-apple:
+#    type: http
+#    behavior: domain
+#    format: mrs
+#    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs"
+#    path: ./geosite-apple.mrs
+#    interval: 259200
+#  geosite-youtube:
+#    type: http
+#    behavior: domain
+#    format: mrs
+#    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"
+#    path: ./geosite-youtube.mrs   
+#    interval: 259200
+#  geoip-google:
+#    type: http
+#    behavior: ipcidr
+#    format: mrs
+#    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"
+#    path: ./geoip-google.mrs
+#    interval: 259200
+#  geoip-apple:
+#    type: http
+#    behavior: ipcidr
+#    format: mrs
+#    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"
+#    path: ./geoip-apple.mrs
+#    interval: 259200
+#  geoip-ru:
+#    type: http
+#    behavior: ipcidr
+#    format: mrs
+#    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
+#    path: ./geoip-ru.mrs
+#    interval: 259200
 
 rules:
   # Блокировка quic google ip
   #- AND,((RULE-SET,geoip-google),(NETWORK,udp),(DST-PORT,443)),REJECT
-  - DST-PORT,25,DIRECT
-  - DST-PORT,465,DIRECT
-  - DST-PORT,587,DIRECT
-  - DST-PORT,993,DIRECT
-  - DST-PORT,995,DIRECT
+  #- DST-PORT,25,DIRECT
+  #- DST-PORT,465,DIRECT
+  #- DST-PORT,587,DIRECT
+  #- DST-PORT,993,DIRECT
+  #- DST-PORT,995,DIRECT
   - DST-PORT,18090,DIRECT
   - DST-PORT,18092,DIRECT
   - DST-PORT,32400,DIRECT
@@ -587,35 +632,29 @@ rules:
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
   - IP-CIDR,::1/128,DIRECT
-  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-  - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
-  - IP-CIDR,::1/128,DIRECT
-
-  - RULE-SET,geosite-google,PROXY
-  - RULE-SET,geosite-apple,PROXY
-  - RULE-SET,geosite-youtube,PROXY
-
-  - RULE-SET,geoip-google,PROXY
-  - RULE-SET,geoip-apple,PROXY
   
-  - DOMAIN,kino.pub,PROXY
-  - DOMAIN-KEYWORD,habr,PROXY
-  - DOMAIN-SUFFIX,themoviedb.org,PROXY
-  - DOMAIN-SUFFIX,tmdb.org,PROXY
-  - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
-  - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
+  #- RULE-SET,geosite-google,PROXY
+  #- RULE-SET,geosite-apple,PROXY
+  #- RULE-SET,geosite-youtube,PROXY
+
+  #- RULE-SET,geoip-google,PROXY
+  #- RULE-SET,geoip-apple,PROXY
   
-  - DOMAIN-SUFFIX,ru,DIRECT
-  - DOMAIN-SUFFIX,su,DIRECT
-  - DOMAIN-SUFFIX,xn--p1ai,DIRECT
-  - DOMAIN-SUFFIX,vokino.tv,DIRECT
-  - DOMAIN-SUFFIX,yandex.net,DIRECT
-  - DOMAIN,polons.synology.me,DIRECT
-  - DOMAIN,evpolondacha.keenetic.link,DIRECT
-  - DOMAIN,evpolondom.keenetic.name,DIRECT
-  - RULE-SET,geoip-ru,DIRECT
+  #- DOMAIN,kino.pub,PROXY
+  #- DOMAIN-KEYWORD,habr,PROXY
+  #- DOMAIN-SUFFIX,themoviedb.org,PROXY
+  #- DOMAIN-SUFFIX,tmdb.org,PROXY
+  #- DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
+  #- DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
+  
+  #- DOMAIN-SUFFIX,ru,DIRECT
+  #- DOMAIN-SUFFIX,su,DIRECT
+  #- DOMAIN-SUFFIX,xn--p1ai,DIRECT
+  #- DOMAIN-SUFFIX,vokino.tv,DIRECT
+  #- DOMAIN-SUFFIX,yandex.net,DIRECT
+  #- DOMAIN,polons.synology.me,DIRECT
+  #- DOMAIN,evpolondacha.keenetic.link,DIRECT
+  #- DOMAIN,evpolondom.keenetic.name,DIRECT
+  #- RULE-SET,geoip-ru,DIRECT
   #- GEOIP,RU,DIRECT
   - MATCH,PROXY
