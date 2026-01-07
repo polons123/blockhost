@@ -183,15 +183,8 @@ proxies:
     - http/1.1
     skip-cert-verify: false
     network: tcp
-    #smux:
-      #enabled: true
-      #protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      #max-streams: 128
-      #statistic: false
-      #only-tcp: false
-      #padding: false
+    smux:
+      enabled: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -204,13 +197,6 @@ proxies:
     udp: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
 
   - name: CloudVK-Vm
@@ -232,13 +218,6 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -265,13 +244,6 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -323,15 +295,8 @@ proxies:
     - http/1.1
     skip-cert-verify: false
     network: tcp
-    #smux:
-      #enabled: true
-      #protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      #max-streams: 128
-      #statistic: false
-      #only-tcp: false
-      #padding: false
+    smux:
+      enabled: false
     ip-version: ipv4
     client-fingerprint: random
   
@@ -344,13 +309,6 @@ proxies:
     udp: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -373,13 +331,6 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -406,13 +357,6 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
