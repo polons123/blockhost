@@ -153,24 +153,9 @@ proxies:
     - h2
     - http/1.1
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: cloudvk.ydns.eu
-      max-early-data:
-      early-data-header-name:
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
+    network: tcp
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -183,13 +168,6 @@ proxies:
     udp: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
 
   - name: CloudVK-Vm
@@ -211,13 +189,6 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -244,13 +215,6 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -301,24 +265,9 @@ proxies:
     - h2
     - http/1.1
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-      headers:
-        Host: selectel-spb.ydns.eu
-      max-early-data:
-      early-data-header-name:
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
+    network: tcp
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
   
@@ -331,13 +280,6 @@ proxies:
     udp: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -360,13 +302,6 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
@@ -393,13 +328,6 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
-      protocol: smux
-      #max-connections: 8
-      #min-streams: 4
-      max-streams: 128
-      statistic: false
-      only-tcp: false
-      padding: false
     ip-version: ipv4
     client-fingerprint: random
 
