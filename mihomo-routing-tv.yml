@@ -181,12 +181,6 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
-      headers:
-        Host: cloudvk.ydns.eu
-      max-early-data:
-      early-data-header-name:
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
     ip-version: ipv4
@@ -207,12 +201,6 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
-      headers:
-        Host: cloudvk.ydns.eu
-      max-early-data:
-      early-data-header-name:
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
     ip-version: ipv4
@@ -294,12 +282,6 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
-      headers:
-        Host: selectel-spb.ydns.eu
-      max-early-data:
-      early-data-header-name:
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
     ip-version: ipv4
@@ -320,12 +302,6 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
-      headers:
-        Host: selectel-spb.ydns.eu
-      max-early-data:
-      early-data-header-name:
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
     smux:
       enabled: false
     ip-version: ipv4
