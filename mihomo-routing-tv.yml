@@ -17,67 +17,18 @@ dns:
   - 77.88.8.8
   - system
   nameserver:
-  - tls://cloud-ru-fr.ydns.eu:853
-  - tls://vdska-fin.ydns.eu:853
-  # - tls://vdska-fin.ydns.eu:853
-  # - https://vdska-pl.ydns.eu/dns-query
+  - https://dns.nextdns.io/6fe67c/CloudRu1
   proxy-server-nameserver:
-  - tls://cloud-ru-fr.ydns.eu:853
-  - tls://vdska-fin.ydns.eu:853
-  # - tls://vdska-fin.ydns.eu:853
-  # - https://vdska-pl.ydns.eu/dns-query
+  - https://dns.nextdns.io/6fe67c/CloudRu1
   respect-rules: false
   use-hosts: false
   use-system-hosts: false
   direct-nameserver-follow-policy: false
-  enhanced-mode: fake-ip # redir-host  or fake-ip
-  fake-ip-filter:
-  # LAN домены
-  - '+.lan'
-  - '+.localdomain'
-  - '+.example'
-  - '+.invalid'
-  - '+.localhost'
-  - '+.test'
-  - '+.local'
-  - '+.home.arpa'
-  - '+.direct'
-    
-  # NTP сервисы (синхронизация времени)
-  - 'time.*.com'
-  - 'time.*.gov'
-  - 'time.*.edu.cn'
-  - 'time.*.apple.com'
-  - 'time-ios.apple.com'
-  - 'time1.*.com'
-  - 'time2.*.com'
-  - 'time3.*.com'
-  - 'time4.*.com'
-  - 'time5.*.com'
-  - 'time6.*.com'
-  - 'time7.*.com'
-  - 'ntp.*.com'
-  - 'ntp1.*.com'
-  - 'ntp2.*.com'
-  - 'ntp3.*.com'
-  - 'ntp4.*.com'
-  - 'ntp5.*.com'
-  - 'ntp6.*.com'
-  - 'ntp7.*.com'
-  - '+.time.edu.cn'
-  - '+.ntp.org.cn'
-  - '+.pool.ntp.org'
-  # Дополнительные системные домены
-  - '+.msftconnecttest.com'
-  - '+.connectivitycheck.gstatic.com'
-  - 'captive.apple.com'
-  - 'detectportal.firefox.com'
-  fake-ip-filter-mode: blacklist
-  fake-ip-range: 198.18.0.1/16
+  enhanced-mode: redir-host # redir-host  or fake-ip
 profile:
   store-selected: true
   store-fake-ip: false
-
+  
 tun:
   enable: true
   stack: system
@@ -122,46 +73,10 @@ sniffer:
   enable: false
 
 proxies:
-      
-  - name: CloudVK-hys
-    type: hysteria2
-    server: 212.233.78.4
-    port: 8443
-    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "0 Mbps"
-    down: "0 Mbps"
-    sni: "cloudvk.ydns.eu"
-    skip-cert-verify: false
-    #fingerprint: xxxx
-    alpn:
-      - h3
-    ip-version: ipv4
-    congestion-control: brutal
-    brutal-opts:
-      enabled: true
-      up: "0 Mbps"
-      down: "0 Mbps"
-  
-  - name: CloudVK-Tr
-    type: trojan
-    server: 212.233.78.4
-    port: 443
-    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
-    udp: true
-    sni: cloudvk.ydns.eu
-    alpn:
-    - h2
-    - http/1.1
-    skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
-    ip-version: ipv4
-    client-fingerprint: random
 
-  - name: CloudVK-ss
+  - name: CloudRU-1-ss
     type: ss
-    server: 212.233.78.4
+    server: 95.174.95.70
     port: 64850
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
@@ -169,31 +84,15 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-
-  - name: CloudVK-Vm
-    type: vmess
-    server: 212.233.78.4
-    port: 64851
-    uuid: 59f2503a-9506-4c14-9293-bbb4964a75b8
-    alterId: 0
-    cipher: auto
-    udp: true
-    network: ws
-    ws-opts:
-      path: /Video-data
-    smux:
-      enabled: false
-    ip-version: ipv4
-    client-fingerprint: random
-
-  - name: CloudVK-Vl
+    
+  - name: CloudRU-1-Vl
     type: vless
-    server: 212.233.78.4
+    server: 95.174.95.70
     port: 10443
     uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
     udp: true
     tls: true
-    servername: cloudvk.ydns.eu
+    servername: cloud-ru.ydns.eu
     alpn:
       - h2
       - http/1.1
@@ -223,45 +122,9 @@ proxies:
       enabled: false
     ip-version: ipv4
 
-  - name: Selectel-hys
-    type: hysteria2
-    server: 188.68.221.199
-    port: 8443
-    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "0 Mbps"
-    down: "0 Mbps"
-    sni: "selectel-spb.ydns.eu"
-    skip-cert-verify: false
-    #fingerprint: xxxx
-    alpn:
-      - h3
-    ip-version: ipv4
-    congestion-control: brutal
-    brutal-opts:
-      enabled: true
-      up: "0 Mbps"
-      down: "0 Mbps"
-
-  - name: Selectel-Tr
-    type: trojan
-    server: 188.68.221.199
-    port: 443
-    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
-    udp: true
-    sni: selectel-spb.ydns.eu
-    alpn:
-    - h2
-    - http/1.1
-    skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
-    ip-version: ipv4
-    client-fingerprint: random
-  
-  - name: Selectel-ss
+  - name: CloudRU-3-ss
     type: ss
-    server: 188.68.221.199
+    server: 176.108.246.17
     port: 64850
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
@@ -269,32 +132,15 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-    client-fingerprint: random
-
-  - name: Selectel-Vm
-    type: vmess
-    server: 188.68.221.199
-    port: 64851
-    uuid: 59f2503a-9506-4c14-9293-bbb4964a75b8
-    alterId: 0
-    cipher: auto
-    udp: true
-    network: ws
-    ws-opts:
-      path: /Video-data
-    smux:
-      enabled: false
-    ip-version: ipv4
-    client-fingerprint: random
-
-  - name: Selectel-Vl
+    
+  - name: CloudRU-3-Vl
     type: vless
-    server: 188.68.221.199
+    server: 176.108.246.17
     port: 10443
     uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
     udp: true
     tls: true
-    servername: selectel-spb.ydns.eu
+    servername: cloud-ru-3.ydns.eu
     alpn:
       - h2
       - http/1.1
@@ -307,42 +153,6 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: H2nexus-hys
-    type: hysteria2
-    server: 45.144.52.52
-    port: 8443
-    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "0 Mbps"
-    down: "0 Mbps"
-    sni: "h2nexus.ddns.net"
-    skip-cert-verify: false
-    #fingerprint: xxxx
-    alpn:
-      - h3
-    ip-version: ipv4
-    congestion-control: brutal
-    brutal-opts:
-      enabled: true
-      up: "0 Mbps"
-      down: "0 Mbps"
-
-  - name: H2nexus-Tr
-    type: trojan
-    server: 45.144.52.52
-    port: 443
-    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
-    udp: true
-    sni: h2nexus.ddns.net
-    alpn:
-    - h2
-    - http/1.1
-    client-fingerprint: random
-    skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
-    ip-version: ipv4
-
   - name: H2nexus-ss
     type: ss
     server: 45.144.52.52
@@ -353,43 +163,7 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-
-  - name: H2nexus-Pol-hys
-    type: hysteria2
-    server: 144.31.0.59
-    port: 8443
-    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "0 Mbps"
-    down: "0 Mbps"
-    sni: "h2nexus-p.ydns.eu"
-    skip-cert-verify: false
-    #fingerprint: xxxx
-    alpn:
-      - h3
-    ip-version: ipv4
-    congestion-control: brutal
-    brutal-opts:
-      enabled: true
-      up: "0 Mbps"
-      down: "0 Mbps"
     
-  - name: H2nexus-Pol-Tr
-    type: trojan
-    server: 144.31.0.59
-    port: 443
-    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
-    udp: true
-    sni: h2nexus-p.ydns.eu
-    alpn:
-    - h2
-    - http/1.1
-    client-fingerprint: random
-    skip-cert-verify: false
-    network: tcp
-    smux:
-      enabled: false
-    ip-version: ipv4
-
   - name: H2nexus-Pol-ss
     type: ss
     server: 144.31.0.59
@@ -397,42 +171,6 @@ proxies:
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
-
-  - name: Waicore-hys
-    type: hysteria2
-    server: 193.233.134.245
-    port: 8443
-    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "0 Mbps"
-    down: "0 Mbps"
-    sni: "waicore-ger.ddns.net"
-    skip-cert-verify: false
-    #fingerprint: xxxx
-    alpn:
-      - h3
-    ip-version: ipv4
-    congestion-control: brutal
-    brutal-opts:
-      enabled: true
-      up: "0 Mbps"
-      down: "0 Mbps"
-
-  - name: Waicore-Tr
-    type: trojan
-    server: 193.233.134.245
-    port: 443
-    password: bb08f215-cbc4-4db5-8925-ce274dd71b04
-    udp: true
-    sni: waicore-ger.ddns.net
-    alpn:
-    - h2
-    - http/1.1
-    client-fingerprint: random
-    skip-cert-verify: false
-    network: tcp
     smux:
       enabled: false
     ip-version: ipv4
@@ -449,29 +187,57 @@ proxies:
     ip-version: ipv4
     
 proxy-groups:
+  # =========================================================
+  # 1. ГЛАВНЫЙ ПЕРЕКЛЮЧАТЕЛЬ (Logic Switch)
+  # Выбираем: Либо балансировщик, либо ручной список
+  # =========================================================
   - name: "PROXY"
     type: select
     proxies:
-      - CloudVK-hys
-      - CloudVK-Tr
-      - CloudVK-ss
-      - CloudVK-Vm
-      - CloudVK-Vl
-      - Selectel-hys
-      - Selectel-Tr
-      - Selectel-ss
-      - Selectel-Vm
-      - Selectel-Vl
+      - "⚖️ Load Balance-CloudRU-1"   # Автоматическое распределение
+      - "⚖️ Load Balance-CloudRU-3"   # Автоматическое распределение
+      - "🛠 Manual"         # Ручной выбор конкретного сервера
+
+  # =========================================================
+  # 2. БАЛАНСИРОВЩИК CloudRU-1
+  # =========================================================
+  - name: "⚖️ Load Balance-CloudRU-1"
+    type: load-balance
+    strategy: consistent-hashing # "Липкая" сессия (IP не скачет на одном сайте)
+    # Если нужна максимальная скорость загрузки (торренты), можно поменять на round-robin
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 30
+    proxies:
+      - CloudRU-1-Vl
+      - CloudRU-1-ss
+
+  # =========================================================
+  # 3. БАЛАНСИРОВЩИК CloudRU-3
+  # =========================================================
+  - name: "⚖️ Load Balance-CloudRU-3"
+    type: load-balance
+    strategy: consistent-hashing # "Липкая" сессия (IP не скачет на одном сайте)
+    # Если нужна максимальная скорость загрузки (торренты), можно поменять на round-robin
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 33
+    proxies:
+      - CloudRU-3-Vl
+      - CloudRU-3-ss
+
+  # =========================================================
+  # 3. РУЧНОЙ ВЫБОР (Все доступные прокси)
+  # =========================================================
+  - name: "🛠 Manual"
+    type: select
+    proxies:
+      - CloudRU-1-Vl
+      - CloudRU-1-ss
+      - CloudRU-3-Vl
+      - CloudRU-3-ss
       - Socks-local
       - Dom-ss
-      - H2nexus-hys
-      - H2nexus-Tr
       - H2nexus-ss
-      - H2nexus-Pol-hys
-      - H2nexus-Pol-Tr
       - H2nexus-Pol-ss
-      - Waicore-hys
-      - Waicore-Tr
       - Waicore-ss
 
 #rule-providers:
