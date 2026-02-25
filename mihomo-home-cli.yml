@@ -702,7 +702,7 @@ rule-providers:
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-platforms-download.mrs"
-    path: ./game-download:.mrs
+    path: ./game-download.mrs
     interval: 86400
 
 rules:
