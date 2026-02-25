@@ -6,7 +6,7 @@ ipv6: false
 external-controller: 0.0.0.0:59095
 secret: 'Na.pole.tanki'
 external-ui: ./ui
-external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
+external-ui-url: "https://github.com/metacubex/metacubexd/archive/refs/heads/gh-pages.zip"
 external-controller-cors:
   allow-private-network: true
   allow-origins:
@@ -16,26 +16,49 @@ tcp-concurrent: false
 find-process-mode: strict
 
 dns:
-  enable: true
-  cache-algorithm: arc
-  prefer-h3: false
-  ipv6: false
-  listen: :53
   default-nameserver:
   - 77.88.8.8
   - system
+  direct-nameserver-follow-policy: false
+  enable: true
+  enhanced-mode: fake-ip # redir-host  or fake-ip
+  fake-ip-filter:
+    # Системные проверки (Captive Portal)
+    - 'connectivitycheck.gstatic.com'
+    - 'connectivitycheck.android.com'
+    - 'msftconnecttest.com'
+    - 'msftncsi.com'
+    - 'captive.apple.com'
+    - 'localhost.pt'
+    # Локальная сеть и твои домены
+    - '+.lan'
+    - '+.local'
+    - '+.direct'
+    - '+.home.arpa'
+    - 'polons.synology.me'
+    - 'evpolondacha.keenetic.link'
+    - 'evpolondom.keenetic.name'
+    - '*.keenetic.link'
+    - '*.keenetic.name'
+    # Российский сегмент (для банков и госуслуг)
+    - '+.ru'
+    - '+.su'
+    - '+.xn--p1ai'
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
+  listen: :53
+  ipv6: false
   nameserver:
-  - https://dns.nextdns.io/6fe67c/CloudRu1
+  - https://dns.nextdns.io/6fe67c/MiniServer
+  prefer-h3: false
   proxy-server-nameserver:
-  - https://dns.nextdns.io/6fe67c/CloudRu1
-  respect-rules: false
+  - https://dns.nextdns.io/6fe67c/MiniServer
+  respect-rules: true
   use-hosts: false
   use-system-hosts: false
-  direct-nameserver-follow-policy: false
-  enhanced-mode: redir-host # redir-host  or fake-ip
 profile:
   store-selected: true
-  store-fake-ip: false
+  store-fake-ip: true
 
 tun:
   enable: true
@@ -79,18 +102,100 @@ keep-alive-idle: 10
 
 sniffer:
   enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
   sniff:
-    HTTP:
-      ports: [80, 8080-8880]
+    QUIC:
+      ports: [443, 8443]
       override-destination: true
     TLS:
       ports: [443, 8443]
       override-destination: true
-    QUIC:
-      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
       override-destination: true
+  force-domain:
+    - "+.google.com"
+    - "+.youtube.com"
+    - "+.googlevideo.com"
+    - "+.ytimg.com"
+    - "+.youtu.be"
+    - "+.youtubei.googleapis.com"
+    - "+.youtube-ui.l.google.com"
+    - "+.yt.be"
+    - "yt3.ggpht.com"
+    - "yt3.googleusercontent.com"
+    - "wide-youtube.l.google.com"
+    - "ggpht.com"
+    - "youtubeembeddedplayer.googleapis.com"
   skip-domain:
+    # LAN домены - полностью переносим
+    - '+.lan'
+    - '+.localdomain'
+    - '+.example'
+    - '+.invalid'
+    - '+.localhost'
+    - '+.test'
+    - '+.local'
+    - '+.home.arpa'
+    - '+.direct'
+    
+    # NTP сервисы - полностью переносим (UDP протокол)
+    - 'time.*.com'
+    - 'time.*.gov'
+    - 'time.*.edu.cn'
+    - 'time.*.apple.com'
+    - 'time-ios.apple.com'
+    - 'time1.*.com'
+    - 'time2.*.com'
+    - 'time3.*.com'
+    - 'time4.*.com'
+    - 'time5.*.com'
+    - 'time6.*.com'
+    - 'time7.*.com'
+    - 'ntp.*.com'
+    - 'ntp1.*.com'
+    - 'ntp2.*.com'
+    - 'ntp3.*.com'
+    - 'ntp4.*.com'
+    - 'ntp5.*.com'
+    - 'ntp6.*.com'
+    - 'ntp7.*.com'
+    - '+.time.edu.cn'
+    - '+.ntp.org.cn'
+    - '+.pool.ntp.org'
+    
+    # STUN сервисы - полностью переносим (UDP протокол)
+    - 'stun.*.*'
+    - 'stun.*.*.*'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+    
+    # Push-уведомления и системные проверки
     - "+.push.apple.com"
+    - "captive.apple.com"
+    - "ocsp.apple.com"
+    - "ocsp2.apple.com"
+    - "mesu.apple.com"
+    - "swscan.apple.com"
+    - "swquery.apple.com"
+    - "swdownload.apple.com"
+    - "swcdn.apple.com"
+    - "swdist.apple.com"
+    - "configuration.apple.com"
+    - "setup.icloud.com"
+    - "p*.mail.icloud.com"
+    - '+.fcm.googleapis.com'
+    - '+.android.googleapis.com'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - 'captive.apple.com'
+    - 'detectportal.firefox.com'
+    - '+.connectivitycheck.gstatic.com'
+    - '+.ru'
 
 listeners:
   - name: ss-in
@@ -134,22 +239,6 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: Socks-local
-    type: socks5
-    server: 192.168.1.151
-    port: 7897
-    udp: true
-    
-  - name: Dom-ss
-    type: ss
-    server: 95.165.6.169
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
 
   - name: CloudRU-3-ss
     type: ss
@@ -182,9 +271,9 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: H2nexus-ss
+  - name: Selectel-ss
     type: ss
-    server: 45.144.52.52
+    server: 188.68.221.199
     port: 64850
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
@@ -193,6 +282,53 @@ proxies:
       enabled: false
     ip-version: ipv4
     
+  - name: Selectel-Vl
+    type: vless
+    server: 188.68.221.199
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: selectel-spb.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: random
+
+  - name: H2nexus-ss
+    type: ss
+    server: 45.144.52.52
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    ip-version: ipv4
+
+  - name: H2nexus-Vl
+    type: vless
+    server: 45.144.52.52
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: h2nexus.ddns.net
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+    ip-version: ipv4
+    client-fingerprint: random
+
   - name: H2nexus-Pol-ss
     type: ss
     server: 144.31.0.59
@@ -200,9 +336,25 @@ proxies:
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    smux:
-      enabled: false
     ip-version: ipv4
+
+  - name: H2nexus-Pol-Vl
+    type: vless
+    server: 144.31.0.59
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: h2nexus-p.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+    ip-version: ipv4
+    client-fingerprint: random
 
   - name: Waicore-ss
     type: ss
@@ -211,63 +363,115 @@ proxies:
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
-    smux:
-      enabled: false
     ip-version: ipv4
+
+  - name: Waicore-Vl
+    type: vless
+    server: 193.233.134.245
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: waicore-ger.ddns.net
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+    ip-version: ipv4
+    client-fingerprint: random
+
+  #- name: Waicore-Sud
+  #  type: sudoku
+  #  server: 193.233.134.245
+  #  port: 59064
+  #  key: "A7F2CEF0-EC00-4E9F-BEF1-D47B8ABADB1E"
+  #  aead-method: chacha20-poly1305
+  #  padding-min: 2
+  #  padding-max: 20
+  #  table-type: prefer_ascii
+  #  http-mask: true
+  #  http-mask-mode: auto
+  #  enable-pure-downlink: false
+  #  path-root: "sync"
+
+  - name: Intezio-ss
+    type: ss
+    server: 213.165.53.17
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    ip-version: ipv4
+
+  - name: Intezio-Vl
+    type: vless
+    server: 213.165.53.17
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: intezio.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+    ip-version: ipv4
+    client-fingerprint: random
+
+  - name: 4vps-ss
+    type: ss
+    server: 45.82.13.131
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    ip-version: ipv4
+
+  - name: 4vps-Vl
+    type: vless
+    server: 45.82.13.131
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: 4vps.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+    ip-version: ipv4
+    client-fingerprint: random
     
 proxy-groups:
-  # =========================================================
-  # 1. ГЛАВНЫЙ ПЕРЕКЛЮЧАТЕЛЬ (Logic Switch)
-  # Выбираем: Либо балансировщик, либо ручной список
-  # =========================================================
+
   - name: "PROXY"
     type: select
     proxies:
-      - "⚖️ Load Balance-CloudRU-1"   # Автоматическое распределение
-      - "⚖️ Load Balance-CloudRU-3"   # Автоматическое распределение
-      - "🛠 Manual"         # Ручной выбор конкретного сервера
-
-  # =========================================================
-  # 2. БАЛАНСИРОВЩИК CloudRU-1
-  # =========================================================
-  - name: "⚖️ Load Balance-CloudRU-1"
-    type: load-balance
-    strategy: consistent-hashing # "Липкая" сессия (IP не скачет на одном сайте)
-    # Если нужна максимальная скорость загрузки (торренты), можно поменять на round-robin
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 30
-    proxies:
-      - CloudRU-1-Vl
-      - CloudRU-1-ss
-
-  # =========================================================
-  # 3. БАЛАНСИРОВЩИК CloudRU-3
-  # =========================================================
-  - name: "⚖️ Load Balance-CloudRU-3"
-    type: load-balance
-    strategy: consistent-hashing # "Липкая" сессия (IP не скачет на одном сайте)
-    # Если нужна максимальная скорость загрузки (торренты), можно поменять на round-robin
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 33
-    proxies:
-      - CloudRU-3-Vl
-      - CloudRU-3-ss
-
-  # =========================================================
-  # 3. РУЧНОЙ ВЫБОР (Все доступные прокси)
-  # =========================================================
-  - name: "🛠 Manual"
-    type: select
-    proxies:
       - CloudRU-1-Vl
       - CloudRU-1-ss
       - CloudRU-3-Vl
       - CloudRU-3-ss
-      - Socks-local
-      - Dom-ss
+      - Selectel-ss
+      - Selectel-Vl
       - H2nexus-ss
-      - H2nexus-Pol-ss
+      - H2nexus-Vl
       - Waicore-ss
+      - Waicore-Vl
+      - H2nexus-Pol-ss
+      - H2nexus-Pol-Vl
+      - 4vps-ss
+      - 4vps-Vl
+      - Intezio-ss
+      - Intezio-Vl
       
 rule-providers:
   geosite-yandex:
@@ -297,7 +501,7 @@ rule-providers:
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
     path: ./geosite-google.mrs
-    interval: 86400  
+    interval: 86400 
   geosite-apple:
     type: http
     behavior: domain
@@ -367,6 +571,13 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xai.mrs"
     path: ./geosite-xai.mrs   
     interval: 86400
+  geosite-perplexity:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/perplexity.mrs"
+    path: ./geosite-perplexity.mrs   
+    interval: 86400
   geosite-tiktok:
     type: http
     behavior: domain
@@ -401,7 +612,21 @@ rule-providers:
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/spotify.mrs"
     path: ./geosite-spotify.mrs
-    interval: 86400      
+    interval: 86400
+  geosite-signal:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/signal.mrs"
+    path: ./geosite-signal.mrs
+    interval: 86400
+  geosite-matrix:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/matrix.mrs"
+    path: ./geosite-matrix.mrs
+    interval: 86400    
   geoip-facebook:
     type: http
     behavior: ipcidr
@@ -458,134 +683,113 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
     path: ./geoip-ru.mrs
     interval: 86400
+  oisd_big:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/oisd/big.mrs"
+    path: ./big.mrs
+    interval: 86400
+  game:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games.mrs"
+    path: ./game.mrs
+    interval: 86400
+  game-download:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-platforms-download.mrs"
+    path: ./game-download:.mrs
+    interval: 86400
 
 rules:
+
   #- RULE-SET,oisd_big,REJECT
-  # Блокировка quic google ip
-  # - AND,((RULE-SET,geoip-google),(NETWORK,udp),(DST-PORT,443)),REJECT
-  - DOMAIN,kino.pub,PROXY
-  - DOMAIN-KEYWORD,habr,PROXY
-  - DOMAIN-SUFFIX,themoviedb.org,PROXY
-  - DOMAIN-SUFFIX,tmdb.org,PROXY
-  - DOMAIN-SUFFIX,themoviedb.org,PROXY
-  - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
-  - PROCESS-NAME,uTorrent.exe,DIRECT
-  - PROCESS-NAME,BitTorrent.exe,DIRECT
-  - PROCESS-NAME,utweb.exe,DIRECT
-  - PROCESS-NAME,btweb.exe,DIRECT
-  - PROCESS-NAME,utorrentie.exe,DIRECT
-  - PROCESS-NAME,bittorrentie.exe,DIRECT
-  - PROCESS-NAME,qbittorrent.exe,DIRECT
-  - PROCESS-NAME,deluge.exe,DIRECT
-  - PROCESS-NAME,Azureus.exe,DIRECT
-  - PROCESS-NAME,tixati.exe,DIRECT
-  - PROCESS-NAME,transmission-qt.exe,DIRECT
-  - PROCESS-NAME,transmission-daemon.exe,DIRECT
-  - PROCESS-NAME,WebTorrent.exe,DIRECT
-  - PROCESS-NAME,PicoTorrent.exe,DIRECT
-  - PROCESS-NAME,FrostWire.exe,DIRECT
-  - PROCESS-NAME,Tribler.exe,DIRECT
-  - PROCESS-NAME,BitComet.exe,DIRECT
-  - PROCESS-NAME,mediaget.exe,DIRECT
-  - PROCESS-NAME,mediaget_crashpad_handler.exe,DIRECT
-  - PROCESS-NAME,uFiler.exe,DIRECT
-  - PROCESS-NAME,TorrServer-windows-386.exe,DIRECT
-  - PROCESS-NAME,TorrServer-windows-amd64.exe,DIRECT
-  - PROCESS-NAME,Transmission,DIRECT
-  - PROCESS-NAME,qBittorrent,DIRECT
-  - PROCESS-NAME,BitTorrent Web,DIRECT
-  - PROCESS-NAME,BitTorrent,DIRECT
-  - PROCESS-NAME,uTorrent Web,DIRECT
-  - PROCESS-NAME,uTorrent,DIRECT
-  - PROCESS-NAME,Folx,DIRECT
-  - PROCESS-NAME,Deluge,DIRECT
-  - PROCESS-NAME,Vuze,DIRECT
-  - PROCESS-NAME,FrostWire,DIRECT
-  - PROCESS-NAME,BiglyBT,DIRECT
-  - PROCESS-NAME,BitLord,DIRECT
-  - PROCESS-NAME,BitComet,DIRECT
-  - PROCESS-NAME,bitlord,DIRECT
-  - PROCESS-NAME,tribler,DIRECT
-  - PROCESS-NAME,WebTorrent,DIRECT
-  - PROCESS-NAME,WebTorrent Helper,DIRECT
-  - PROCESS-NAME,WebTorrent Helper (GPU),DIRECT
-  - PROCESS-NAME,WebTorrent Helper (Renderer),DIRECT
-  - PROCESS-NAME,mediaget,DIRECT
-  - PROCESS-NAME,fdm,DIRECT
-  - PROCESS-NAME,Free Download Manager,DIRECT
-  - PROCESS-NAME,qbittorrent,DIRECT
-  - PROCESS-NAME,qbittorrent-nox,DIRECT
-  - PROCESS-NAME,transmission-qt,DIRECT
-  - PROCESS-NAME,transmission-gtk,DIRECT
-  - PROCESS-NAME,transmission-daemon,DIRECT
-  - PROCESS-NAME,deluged,DIRECT
-  - PROCESS-NAME,deluge-gtk,DIRECT
-  - PROCESS-NAME,fragments,DIRECT
-  - PROCESS-NAME,tixati,DIRECT
-  - PROCESS-NAME,frostwire,DIRECT
-  - PROCESS-NAME,vuze,DIRECT
-  - PROCESS-NAME,azureus,DIRECT
-  - PROCESS-NAME,ktorrent,DIRECT
-  - PROCESS-NAME,rtorrent,DIRECT
-  - PROCESS-NAME,tribler,DIRECT
-  - PROCESS-NAME,torrserver,DIRECT
-  - PROCESS-NAME,EmbyServer.exe,DIRECT
-  - PROCESS-NAME,embytray.exe,DIRECT
-  - PROCESS-NAME-REGEX,.*plex.*,DIRECT
-  - DST-PORT,25,DIRECT
-  - DST-PORT,465,DIRECT
-  - DST-PORT,587,DIRECT
-  - DST-PORT,993,DIRECT
-  - DST-PORT,995,DIRECT
-  - DST-PORT,18090,DIRECT
-  - DST-PORT,18092,DIRECT
-  - DST-PORT,32400,DIRECT
-  - DST-PORT,32401,DIRECT
+  - DST-PORT,25/465/587/993/995/18090/18092/59090/59095/59096,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-  - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
   - IP-CIDR,::1/128,DIRECT
-  
-  - RULE-SET,geosite-yandex,DIRECT
-  - RULE-SET,geosite-vk,DIRECT
-  - RULE-SET,geosite-mailru,DIRECT
-  
-  - RULE-SET,geosite-google,PROXY
-  - RULE-SET,geosite-apple,PROXY
-  - RULE-SET,geosite-facebook,PROXY
-  - RULE-SET,geosite-instagram,PROXY
-  - RULE-SET,geosite-whatsapp,PROXY
-  - RULE-SET,geosite-oculus,PROXY
-  - RULE-SET,geosite-telegram,PROXY
-  - RULE-SET,geosite-youtube,PROXY
+
+  - DOMAIN-SUFFIX,vokino.pro,DIRECT
+  - DOMAIN-SUFFIX,videobase.biz,DIRECT
+
+  - DOMAIN-SUFFIX,evernote.com,PROXY
+  - DOMAIN,habr.com,PROXY
+  - DOMAIN-SUFFIX,habr.com,PROXY
+  - DOMAIN-SUFFIX,habrastorage.org,PROXY
+
   - RULE-SET,geosite-openai,PROXY
   - RULE-SET,geosite-google-gemini,PROXY
   - RULE-SET,geosite-xai,PROXY
+  - RULE-SET,geosite-perplexity,PROXY
+
+  - RULE-SET,game,PROXY
+  - RULE-SET,game-download,PROXY
+
+  # Блокировка quic youtube
+  #- AND,((NETWORK,UDP),(DST-PORT,443),(OR,((RULE-SET,geosite-youtube),(RULE-SET,geosite-google),(RULE-SET,geoip-google)))),REJECT
+  - RULE-SET,geosite-youtube,PROXY
+  - RULE-SET,geosite-google,PROXY
+  - RULE-SET,geoip-google,PROXY
+
+  - RULE-SET,geosite-apple,PROXY
+  - RULE-SET,geoip-apple,PROXY
+  
+  - RULE-SET,geosite-oculus,PROXY
+  - RULE-SET,geosite-facebook,PROXY
+  - RULE-SET,geosite-instagram,PROXY
+  - RULE-SET,geoip-facebook,PROXY
+  - RULE-SET,geoip-twitter,PROXY
+  
+  - RULE-SET,geosite-whatsapp,PROXY
+  - RULE-SET,geosite-telegram,PROXY
+  - RULE-SET,geoip-telegram,PROXY
+  - RULE-SET,geosite-signal,PROXY
+  - RULE-SET,geosite-matrix,PROXY
+  
   - RULE-SET,geosite-tiktok,PROXY
+
   - RULE-SET,geosite-discord,PROXY
-  - RULE-SET,geosite-microsoft,PROXY
+  - RULE-SET,geoip-discord-voice,PROXY
   - RULE-SET,geosite-netflix,PROXY
   - RULE-SET,geosite-spotify,PROXY
-
-  - RULE-SET,geoip-google,PROXY
-  - RULE-SET,geoip-facebook,PROXY
-  - RULE-SET,geoip-telegram,PROXY
-  - RULE-SET,geoip-twitter,PROXY
-  - RULE-SET,geoip-apple,PROXY
   - RULE-SET,geoip-netflix,PROXY
-  - RULE-SET,geoip-discord-voice,PROXY
-  
-  - DOMAIN-KEYWORD,plex,DIRECT
+
+  - RULE-SET,geosite-microsoft,PROXY
+
+  - DOMAIN,kino.pub,PROXY
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb.org,PROXY
+
+  - DOMAIN-SUFFIX,getsession.org,PROXY
+  - DOMAIN-SUFFIX,session.network,PROXY
+  - DOMAIN-SUFFIX,threema.ch,PROXY
+  - DOMAIN-SUFFIX,talk.threema.ch,PROXY
+  - DOMAIN-SUFFIX,simplex.chat,PROXY
+  - DOMAIN,simplex.im,PROXY
+  - IP-CIDR,91.212.58.0/24,PROXY,no-resolve #threema
+
+  - RULE-SET,geosite-yandex,DIRECT
+  - RULE-SET,geosite-vk,DIRECT
+  - RULE-SET,geosite-mailru,DIRECT
   - DOMAIN-SUFFIX,ru,DIRECT
   - DOMAIN-SUFFIX,su,DIRECT
-  - DOMAIN-SUFFIX,xn--p1ai,DIRECT
   - DOMAIN-SUFFIX,vokino.tv,DIRECT
   - DOMAIN-SUFFIX,yandex.net,DIRECT
   - DOMAIN,polons.synology.me,DIRECT
+  - DOMAIN,vdska-fin.ydns.eu,DIRECT
+  - DOMAIN,vdska-pl.ydns.eu,DIRECT
   - DOMAIN,evpolondacha.keenetic.link,DIRECT
   - DOMAIN,evpolondom.keenetic.name,DIRECT
+  - DOMAIN,eeeboo.me,DIRECT
+  - DOMAIN,kinogo-go.tv,DIRECT
+  - DOMAIN-SUFFIX,stloadi.live,DIRECT
+  - DOMAIN-SUFFIX,stream-balancer-allo-1.live,DIRECT
   - RULE-SET,geoip-ru,DIRECT
-  #- GEOIP,RU,DIRECT
+
   - MATCH,PROXY
