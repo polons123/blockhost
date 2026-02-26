@@ -49,10 +49,10 @@ dns:
   listen: :53
   ipv6: false
   nameserver:
-  - https://dns.nextdns.io/6fe67c/MiniServer
+  - https://dns.nextdns.io/6fe67c/Mihomo-cl
   prefer-h3: false
   proxy-server-nameserver:
-  - https://dns.nextdns.io/6fe67c/MiniServer
+  - https://dns.nextdns.io/6fe67c/Mihomo-cl
   respect-rules: true
   use-hosts: false
   use-system-hosts: false
@@ -782,8 +782,6 @@ rules:
   - DOMAIN-SUFFIX,vokino.tv,DIRECT
   - DOMAIN-SUFFIX,yandex.net,DIRECT
   - DOMAIN,polons.synology.me,DIRECT
-  - DOMAIN,vdska-fin.ydns.eu,DIRECT
-  - DOMAIN,vdska-pl.ydns.eu,DIRECT
   - DOMAIN,evpolondacha.keenetic.link,DIRECT
   - DOMAIN,evpolondom.keenetic.name,DIRECT
   - DOMAIN,eeeboo.me,DIRECT
