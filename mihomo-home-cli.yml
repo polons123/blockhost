@@ -17,8 +17,8 @@ find-process-mode: strict
 
 dns:
   default-nameserver:
-  - 77.88.8.8
-  - system
+  - 185.222.222.222
+  - 8.8.8.8
   direct-nameserver-follow-policy: false
   enable: true
   enhanced-mode: fake-ip # redir-host  or fake-ip
