@@ -1,57 +1,35 @@
 mode: rule
 mixed-port: 7897
-allow-lan: false
+allow-lan: true
 log-level: error
 ipv6: false
+external-controller-cors:
+  allow-private-network: true
+  allow-origins:
+  - '*'
 unified-delay: false
 tcp-concurrent: false
-find-process-mode: strict
-
+find-process-mode: off
 dns:
-  default-nameserver:
-  - 77.88.8.8
-  - system
-  direct-nameserver-follow-policy: false
   enable: true
-  enhanced-mode: fake-ip # redir-host  or fake-ip
-  fake-ip-filter:
-    # Системные проверки (Captive Portal)
-    - 'connectivitycheck.gstatic.com'
-    - 'connectivitycheck.android.com'
-    - 'msftconnecttest.com'
-    - 'msftncsi.com'
-    - 'captive.apple.com'
-    - 'localhost.pt'
-    # Локальная сеть и твои домены
-    - '+.lan'
-    - '+.local'
-    - '+.direct'
-    - '+.home.arpa'
-    - 'polons.synology.me'
-    - 'evpolondacha.keenetic.link'
-    - 'evpolondom.keenetic.name'
-    - '*.keenetic.link'
-    - '*.keenetic.name'
-    # Российский сегмент (для банков и госуслуг)
-    - '+.ru'
-    - '+.su'
-    - '+.xn--p1ai'
-  fake-ip-filter-mode: blacklist
-  fake-ip-range: 198.18.0.1/16
-  listen: :53
-  ipv6: false
-  nameserver:
-  - https://dns.nextdns.io/6fe67c/Mihomo-cl
+  cache-algorithm: arc
   prefer-h3: false
+  ipv6: false
+  listen: :53
+  default-nameserver:
+  - 185.222.222.222
+  nameserver:
+  - https://dns.nextdns.io/6fe67c/CloudRu1
   proxy-server-nameserver:
-  - https://dns.nextdns.io/6fe67c/Mihomo-cl
-  respect-rules: true
+  - https://dns.nextdns.io/6fe67c/CloudRu1
+  respect-rules: false
   use-hosts: false
   use-system-hosts: false
+  direct-nameserver-follow-policy: false
+  enhanced-mode: redir-host
 profile:
   store-selected: true
-  store-fake-ip: true
-  
+  store-fake-ip: false
 tun:
   enable: true
   stack: system
@@ -59,7 +37,6 @@ tun:
   auto-route: true
   strict-route: true
   gso: false
-  # gso-max-size: 65536
   udp-timeout: 300
   iproute2-table-index: 2022
   iproute2-rule-index: 9000
@@ -84,30 +61,11 @@ tun:
   - 224.0.0.0/4
   - 255.255.255.255/32
   - 239.255.255.250/32
-
-#  TCP keep alive interval
-#  15  для компьютера
-#  1800 для телефона, увеличение интервала экономит батарею 
-keep-alive-interval: 10
-keep-alive-idle: 10
-#disable-keep-alive: true
-
+keep-alive-interval: 1800
+keep-alive-idle: 1800
 sniffer:
   enable: false
-
 proxies:
-
-  - name: CloudRU-1-ss
-    type: ss
-    server: 95.174.95.70
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
-    
   - name: CloudRU-1-Vl
     type: vless
     server: 95.174.95.70
@@ -127,19 +85,6 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: random
-
-
-  - name: CloudRU-3-ss
-    type: ss
-    server: 176.108.246.17
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
-    
   - name: CloudRU-3-Vl
     type: vless
     server: 176.108.246.17
@@ -159,47 +104,6 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: random
-
-  - name: Selectel-ss
-    type: ss
-    server: 188.68.221.199
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
-    
-  - name: Selectel-Vl
-    type: vless
-    server: 188.68.221.199
-    port: 10443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    udp: true
-    tls: true
-    servername: selectel-spb.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-    smux:
-      enabled: false
-    ip-version: ipv4
-    client-fingerprint: random
-
-  - name: H2nexus-ss
-    type: ss
-    server: 45.144.52.52
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    ip-version: ipv4
-
   - name: H2nexus-Vl
     type: vless
     server: 45.144.52.52
@@ -217,16 +121,18 @@ proxies:
       path: /Video-data
     ip-version: ipv4
     client-fingerprint: random
-
-  - name: H2nexus-Pol-ss
-    type: ss
-    server: 144.31.0.59
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+  - name: H2nexus-Vl-enc
+    type: vless
+    server: 45.144.52.52
+    port: 8443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    network: tcp
+    tls: false
     udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
     ip-version: ipv4
-
+    smux:
+      enabled: false
   - name: H2nexus-Pol-Vl
     type: vless
     server: 144.31.0.59
@@ -243,8 +149,19 @@ proxies:
     ws-opts:
       path: /Video-data
     ip-version: ipv4
-    client-fingerprint: random
-
+    client-fingerprint: random    
+  - name: H2nexus-Pol-Vl-enc
+    type: vless
+    server: 144.31.0.59
+    port: 8443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
   - name: Waicore-ss
     type: ss
     server: 193.233.134.245
@@ -252,116 +169,20 @@ proxies:
     cipher: 2022-blake3-chacha20-poly1305
     password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
     udp: true
+    smux:
+      enabled: false
     ip-version: ipv4
-
-  - name: Waicore-Vl
-    type: vless
-    server: 193.233.134.245
-    port: 10443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    udp: true
-    tls: true
-    servername: waicore-ger.ddns.net
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-    ip-version: ipv4
-    client-fingerprint: random
-
-  #- name: Waicore-Sud
-  #  type: sudoku
-  #  server: 193.233.134.245
-  #  port: 59064
-  #  key: "A7F2CEF0-EC00-4E9F-BEF1-D47B8ABADB1E"
-  #  aead-method: chacha20-poly1305
-  #  padding-min: 2
-  #  padding-max: 20
-  #  table-type: prefer_ascii
-  #  http-mask: true
-  #  http-mask-mode: auto
-  #  enable-pure-downlink: false
-  #  path-root: "sync"
-
-  - name: Intezio-ss
-    type: ss
-    server: 213.165.53.17
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    ip-version: ipv4
-
-  - name: Intezio-Vl
-    type: vless
-    server: 213.165.53.17
-    port: 10443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    udp: true
-    tls: true
-    servername: intezio.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-    ip-version: ipv4
-    client-fingerprint: random
-
-  - name: 4vps-ss
-    type: ss
-    server: 45.82.13.131
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    ip-version: ipv4
-
-  - name: 4vps-Vl
-    type: vless
-    server: 45.82.13.131
-    port: 10443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    udp: true
-    tls: true
-    servername: 4vps.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-    ip-version: ipv4
-    client-fingerprint: random
-    
 proxy-groups:
-
   - name: "PROXY"
     type: select
     proxies:
       - CloudRU-1-Vl
-      - CloudRU-1-ss
       - CloudRU-3-Vl
-      - CloudRU-3-ss
-      - Selectel-ss
-      - Selectel-Vl
-      - H2nexus-ss
       - H2nexus-Vl
-      - Waicore-ss
-      - Waicore-Vl
-      - H2nexus-Pol-ss
+      - H2nexus-Vl-enc
       - H2nexus-Pol-Vl
-      - 4vps-ss
-      - 4vps-Vl
-      - Intezio-ss
-      - Intezio-Vl
-
+      - H2nexus-Pol-Vl-enc
+      - Waicore-ss
 rule-providers:
   geosite-yandex:
     type: http
@@ -369,306 +190,75 @@ rule-providers:
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/yandex.mrs"
     path: ./geosite-yandex.mrs
-    interval: 86400
+    interval: 604800
   geosite-vk:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/vk.mrs"
     path: ./geosite-vk.mrs
-    interval: 86400
+    interval: 604800
   geosite-mailru:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/mailru.mrs"
     path: ./geosite-mailru.mrs
-    interval: 86400
+    interval: 604800
   geosite-google:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
     path: ./geosite-google.mrs
-    interval: 86400 
+    interval: 604800
   geosite-apple:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs"
     path: ./geosite-apple.mrs
-    interval: 86400
-  geosite-facebook:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/facebook.mrs"
-    path: ./geosite-facebook.mrs
-    interval: 86400
-  geosite-instagram:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/instagram.mrs"
-    path: ./geosite-instagram.mrs
-  geosite-whatsapp:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/whatsapp.mrs"
-    path: ./geosite-whatsapp.mrs   
-    interval: 86400
-  geosite-oculus:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/oculus.mrs"
-    path: ./geosite-oculus.mrs   
-    interval: 86400
+    interval: 604800
   geosite-telegram:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/telegram.mrs"
-    path: ./geosite-telegram.mrs   
-    interval: 86400
-  geosite-youtube:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"
-    path: ./geosite-youtube.mrs   
-    interval: 86400
-  geosite-openai:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"
-    path: ./geosite-openai.mrs   
-    interval: 86400
-  geosite-google-gemini:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google-gemini.mrs"
-    path: ./geosite-google-gemini.mrs   
-    interval: 86400
-  geosite-xai:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xai.mrs"
-    path: ./geosite-xai.mrs   
-    interval: 86400
-  geosite-perplexity:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/perplexity.mrs"
-    path: ./geosite-perplexity.mrs   
-    interval: 86400
-  geosite-tiktok:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/tiktok.mrs"
-    path: ./geosite-tiktok.mrs   
-    interval: 86400
-  geosite-discord:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/discord.mrs"
-    path: ./geosite-discord.mrs  
-    interval: 86400
-  geosite-microsoft:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/microsoft.mrs"
-    path: ./geosite-microsoft.mrs
-    interval: 86400
-  geosite-netflix:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/netflix.mrs"
-    path: ./geosite-netflix.mrs
-    interval: 86400
-  geosite-spotify:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/spotify.mrs"
-    path: ./geosite-spotify.mrs
-    interval: 86400
-  geosite-signal:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/signal.mrs"
-    path: ./geosite-signal.mrs
-    interval: 86400
-  geosite-matrix:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/matrix.mrs"
-    path: ./geosite-matrix.mrs
-    interval: 86400    
-  geoip-facebook:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/facebook.mrs"
-    path: ./geoip-facebook.mrs
-    interval: 86400  
-  geoip-google:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"
-    path: ./geoip-google.mrs
-    interval: 86400
-  geoip-telegram:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/telegram.mrs"
-    path: ./geoip-telegram.mrs
-    interval: 86400
-  geoip-twitter:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/twitter.mrs"
-    path: ./geoip-twitter.mrs
-    interval: 86400
-  geoip-apple:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"
-    path: ./geoip-apple.mrs
-    interval: 86400
-  geoip-netflix:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/netflix.mrs"
-    path: ./geoip-netflix.mrs
-    interval: 86400
-  geoip-discord-voice:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/other/discord-voice-ip-list.mrs"
-    path: ./geoip-discord-voice.mrs
-    interval: 86400        
+    path: ./geosite-telegram.mrs
+    interval: 604800
   geoip-ru:
     type: http
     behavior: ipcidr
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
     path: ./geoip-ru.mrs
-    interval: 86400
-  game:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games.mrs"
-    path: ./game.mrs
-    interval: 86400
-  game-download:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-platforms-download.mrs"
-    path: ./game-download.mrs
-    interval: 86400
-
+    interval: 604800
 rules:
-
-  #- RULE-SET,oisd_big,REJECT
-  - DST-PORT,25/465/587/993/995/18090/18092/32400/32401/59090/59095/59096,DIRECT
+  - DOMAIN,kino.pub,PROXY
+  - DOMAIN-KEYWORD,habr,PROXY
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
+  - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
+  - DST-PORT,25,DIRECT
+  - DST-PORT,465,DIRECT
+  - DST-PORT,587,DIRECT
+  - DST-PORT,993,DIRECT
+  - DST-PORT,995,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
   - IP-CIDR,::1/128,DIRECT
-
-  - DOMAIN-SUFFIX,vokino.pro,DIRECT
-  - DOMAIN-SUFFIX,videobase.biz,DIRECT
-
-  - DOMAIN-SUFFIX,evernote.com,PROXY
-  - DOMAIN,habr.com,PROXY
-  - DOMAIN-SUFFIX,habr.com,PROXY
-  - DOMAIN-SUFFIX,habrastorage.org,PROXY
-
-  - RULE-SET,geosite-openai,PROXY
-  - RULE-SET,geosite-google-gemini,PROXY
-  - RULE-SET,geosite-xai,PROXY
-  - RULE-SET,geosite-perplexity,PROXY
-
-  - RULE-SET,game,PROXY
-  - RULE-SET,game-download,PROXY
-
-  # Блокировка quic youtube
-  #- AND,((NETWORK,UDP),(DST-PORT,443),(OR,((RULE-SET,geosite-youtube),(RULE-SET,geosite-google),(RULE-SET,geoip-google)))),REJECT
-  - RULE-SET,geosite-youtube,PROXY
-  - RULE-SET,geosite-google,PROXY
-  - RULE-SET,geoip-google,PROXY
-
-  - RULE-SET,geosite-apple,PROXY
-  - RULE-SET,geoip-apple,PROXY
-  
-  - RULE-SET,geosite-oculus,PROXY
-  - RULE-SET,geosite-facebook,PROXY
-  - RULE-SET,geosite-instagram,PROXY
-  - RULE-SET,geoip-facebook,PROXY
-  - RULE-SET,geoip-twitter,PROXY
-  
-  - RULE-SET,geosite-whatsapp,PROXY
-  - RULE-SET,geosite-telegram,PROXY
-  - RULE-SET,geoip-telegram,PROXY
-  - RULE-SET,geosite-signal,PROXY
-  - RULE-SET,geosite-matrix,PROXY
-  
-  - RULE-SET,geosite-tiktok,PROXY
-
-  - RULE-SET,geosite-discord,PROXY
-  - RULE-SET,geoip-discord-voice,PROXY
-  - RULE-SET,geosite-netflix,PROXY
-  - RULE-SET,geosite-spotify,PROXY
-  - RULE-SET,geoip-netflix,PROXY
-
-  - RULE-SET,geosite-microsoft,PROXY
-
-  - DOMAIN,kino.pub,PROXY
-  - DOMAIN-SUFFIX,themoviedb.org,PROXY
-  - DOMAIN-SUFFIX,tmdb.org,PROXY
-
-  - DOMAIN-SUFFIX,getsession.org,PROXY
-  - DOMAIN-SUFFIX,session.network,PROXY
-  - DOMAIN-SUFFIX,threema.ch,PROXY
-  - DOMAIN-SUFFIX,talk.threema.ch,PROXY
-  - DOMAIN-SUFFIX,simplex.chat,PROXY
-  - DOMAIN,simplex.im,PROXY
-  - IP-CIDR,91.212.58.0/24,PROXY,no-resolve #threema
-
   - RULE-SET,geosite-yandex,DIRECT
   - RULE-SET,geosite-vk,DIRECT
   - RULE-SET,geosite-mailru,DIRECT
+  - RULE-SET,geosite-google,PROXY
+  - RULE-SET,geosite-apple,PROXY
+  - RULE-SET,geosite-telegram,PROXY
+  - RULE-SET,geoip-ru,DIRECT
   - DOMAIN-SUFFIX,ru,DIRECT
   - DOMAIN-SUFFIX,su,DIRECT
-  - DOMAIN-SUFFIX,yandex.net,DIRECT
-  - DOMAIN,polons.synology.me,DIRECT
-  - DOMAIN,evpolondacha.keenetic.link,DIRECT
-  - DOMAIN,evpolondom.keenetic.name,DIRECT
-  - DOMAIN,eeeboo.me,DIRECT
-  - DOMAIN,kinogo-go.tv,DIRECT
-  - DOMAIN-SUFFIX,stloadi.live,DIRECT
-  - DOMAIN-SUFFIX,stream-balancer-allo-1.live,DIRECT
-  - RULE-SET,geoip-ru,DIRECT
-
+  - DOMAIN-REGEX,^.*xn--.*$,DIRECT
   - MATCH,PROXY
