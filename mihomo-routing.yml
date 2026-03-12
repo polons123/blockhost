@@ -1,6 +1,6 @@
 mode: rule
 mixed-port: 7897
-allow-lan: true
+allow-lan: false
 log-level: error
 ipv6: false
 external-controller-cors:
