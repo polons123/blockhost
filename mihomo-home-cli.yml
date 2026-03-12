@@ -21,7 +21,7 @@ dns:
   - 8.8.8.8
   direct-nameserver-follow-policy: false
   enable: true
-  enhanced-mode: fake-ip # redir-host  or fake-ip
+  enhanced-mode: redir-host # redir-host  or fake-ip
   fake-ip-filter:
     # Системные проверки (Captive Portal)
     - 'connectivitycheck.gstatic.com'
@@ -283,6 +283,19 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
+  - name: CloudRU-3-Vl-enc
+    type: vless
+    server: 176.108.246.17
+    port: 8443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
+
   - name: Selectel-ss
     type: ss
     server: 188.68.221.199
@@ -314,6 +327,19 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
+  - name: Selectel-Vl-enc
+    type: vless
+    server: 188.68.221.199
+    port: 8443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
+
   - name: H2nexus-ss
     type: ss
     server: 45.144.52.52
@@ -340,6 +366,19 @@ proxies:
       path: /Video-data
     ip-version: ipv4
     client-fingerprint: random
+
+  - name: H2nexus-Vl-enc
+    type: vless
+    server: 45.144.52.52
+    port: 8443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
 
   - name: H2nexus-Pol-ss
     type: ss
@@ -368,6 +407,19 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
+  - name: H2nexus-Pol-Vl-enc
+    type: vless
+    server: 144.31.0.59
+    port: 8443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
+
   - name: Waicore-ss
     type: ss
     server: 193.233.134.245
@@ -395,6 +447,19 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
+  - name: Waicore-Vl-enc
+    type: vless
+    server: 193.233.134.245
+    port: 8443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
+
   #- name: Waicore-Sud
   #  type: sudoku
   #  server: 193.233.134.245
@@ -408,33 +473,6 @@ proxies:
   #  http-mask-mode: auto
   #  enable-pure-downlink: false
   #  path-root: "sync"
-
-  - name: Intezio-ss
-    type: ss
-    server: 213.165.53.17
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    ip-version: ipv4
-
-  - name: Intezio-Vl
-    type: vless
-    server: 213.165.53.17
-    port: 10443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    udp: true
-    tls: true
-    servername: intezio.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-    ip-version: ipv4
-    client-fingerprint: random
 
   - name: 4vps-ss
     type: ss
@@ -462,29 +500,54 @@ proxies:
       path: /Video-data
     ip-version: ipv4
     client-fingerprint: random
+
+  - name: 4vps-Vl-enc
+    type: vless
+    server: 45.82.13.131
+    port: 8443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
     
 proxy-groups:
 
   - name: "PROXY"
     type: select
     proxies:
+      - CloudRU-1-ss
       - CloudRU-1-Vl
       - CloudRU-1-Vl-enc
-      - CloudRU-1-ss
-      - CloudRU-3-Vl
       - CloudRU-3-ss
+      - CloudRU-3-Vl
+      - CloudRU-3-Vl-enc
       - Selectel-ss
       - Selectel-Vl
+      - Selectel-Vl-enc
       - H2nexus-ss
       - H2nexus-Vl
-      - Waicore-ss
-      - Waicore-Vl
+      - H2nexus-Vl-enc
       - H2nexus-Pol-ss
       - H2nexus-Pol-Vl
+      - H2nexus-Pol-Vl-enc
+      - Waicore-ss
+      - Waicore-Vl
+      - Waicore-Vl-enc
       - 4vps-ss
       - 4vps-Vl
-      - Intezio-ss
-      - Intezio-Vl
+      - 4vps-Vl-enc
+
+  - name: "YOUTUBE"
+    type: select
+    proxies:
+      - 4vps-ss
+      - 4vps-Vl
+      - 4vps-Vl-enc
+      - PROXY
       
 rule-providers:
   geosite-yandex:
@@ -784,7 +847,8 @@ rules:
   - PROCESS-NAME,EmbyServer.exe,DIRECT
   - PROCESS-NAME,embytray.exe,DIRECT
   - PROCESS-NAME-REGEX,.*plex.*,DIRECT
-  - DST-PORT,25/465/587/993/995/18090/18092/32400/32401/59090/59095/59096,DIRECT
+
+  - DST-PORT,25/465/587/993/995,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
@@ -794,6 +858,7 @@ rules:
   - DOMAIN-SUFFIX,vokino.pro,DIRECT
   - DOMAIN-SUFFIX,videobase.biz,DIRECT
 
+  - DOMAIN,kino.pub,PROXY
   - DOMAIN-SUFFIX,evernote.com,PROXY
   - DOMAIN,habr.com,PROXY
   - DOMAIN-SUFFIX,habr.com,PROXY
@@ -809,9 +874,9 @@ rules:
 
   # Блокировка quic youtube
   #- AND,((NETWORK,UDP),(DST-PORT,443),(OR,((RULE-SET,geosite-youtube),(RULE-SET,geosite-google),(RULE-SET,geoip-google)))),REJECT
-  - RULE-SET,geosite-youtube,PROXY
-  - RULE-SET,geosite-google,PROXY
-  - RULE-SET,geoip-google,PROXY
+  - RULE-SET,geosite-youtube,YOUTUBE
+  - RULE-SET,geosite-google,YOUTUBE
+  - RULE-SET,geoip-google,YOUTUBE
 
   - RULE-SET,geosite-apple,PROXY
   - RULE-SET,geoip-apple,PROXY
@@ -828,7 +893,7 @@ rules:
   - RULE-SET,geosite-signal,PROXY
   - RULE-SET,geosite-matrix,PROXY
   
-  - RULE-SET,geosite-tiktok,PROXY
+  - RULE-SET,geosite-tiktok,YOUTUBE
 
   - RULE-SET,geosite-discord,PROXY
   - RULE-SET,geoip-discord-voice,PROXY
@@ -855,6 +920,7 @@ rules:
   - RULE-SET,geosite-mailru,DIRECT
   - DOMAIN-SUFFIX,ru,DIRECT
   - DOMAIN-SUFFIX,su,DIRECT
+  - DOMAIN-REGEX,^.*xn--.*$,DIRECT
   - DOMAIN-SUFFIX,vokino.tv,DIRECT
   - DOMAIN-SUFFIX,yandex.net,DIRECT
   - DOMAIN,polons.synology.me,DIRECT
