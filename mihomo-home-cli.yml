@@ -864,10 +864,10 @@ rules:
   - DOMAIN-SUFFIX,habr.com,PROXY
   - DOMAIN-SUFFIX,habrastorage.org,PROXY
 
-  - RULE-SET,geosite-openai,PROXY
-  - RULE-SET,geosite-google-gemini,PROXY
-  - RULE-SET,geosite-xai,PROXY
-  - RULE-SET,geosite-perplexity,PROXY
+  - RULE-SET,geosite-openai,YOUTUBE
+  - RULE-SET,geosite-google-gemini,YOUTUBE
+  - RULE-SET,geosite-xai,YOUTUBE
+  - RULE-SET,geosite-perplexity,YOUTUBE
 
   - RULE-SET,game,PROXY
   - RULE-SET,game-download,PROXY
