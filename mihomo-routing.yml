@@ -400,14 +400,6 @@ proxy-groups:
       - 4vps-Vl
       - 4vps-Vl-enc
 
-  - name: "YOUTUBE"
-    type: select
-    proxies:
-      - 4vps-ss
-      - 4vps-Vl
-      - 4vps-Vl-enc
-      - PROXY
-
 rule-providers:
   geosite-yandex:
     type: http
@@ -516,15 +508,15 @@ rules:
   - RULE-SET,geosite-vk,DIRECT
   - RULE-SET,geosite-mailru,DIRECT
   
-  - RULE-SET,geosite-youtube,YOUTUBE
-  - RULE-SET,geosite-google,YOUTUBE
-  - RULE-SET,geoip-google,YOUTUBE
+  - RULE-SET,geosite-youtube,PROXY
+  - RULE-SET,geosite-google,PROXY
+  - RULE-SET,geoip-google,PROXY
 
   - RULE-SET,geosite-apple,PROXY
   - RULE-SET,geoip-apple,PROXY
   - RULE-SET,geosite-telegram,PROXY
   - RULE-SET,geoip-telegram,PROXY
-  - RULE-SET,geosite-tiktok,YOUTUBE
+  - RULE-SET,geosite-tiktok,PROXY
   - RULE-SET,geoip-ru,DIRECT
   - DOMAIN-SUFFIX,ru,DIRECT
   - DOMAIN-SUFFIX,su,DIRECT
