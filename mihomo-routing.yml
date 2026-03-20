@@ -67,29 +67,6 @@ sniffer:
   enable: false
 proxies:
 
-  - name: EOF-RU-SS
-    type: ss
-    server: 158.160.135.222
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: YHTQSDJcf3unp8Dg5c91yda_kgbqX-hu
-    udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
-
-  - name: CloudRU-1-ss-WL
-    dialer-proxy: EOF-RU-SS
-    type: ss
-    server: 95.174.95.70
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
-
   - name: CloudRU-1-ss
     type: ss
     server: 95.174.95.70
@@ -401,8 +378,6 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - EOF-RU-SS
-      - CloudRU-1-ss-WL
       - CloudRU-1-ss
       - CloudRU-1-Vl
       - CloudRU-1-Vl-enc
