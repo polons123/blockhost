@@ -196,15 +196,6 @@ sniffer:
     - 'detectportal.firefox.com'
     - '+.connectivitycheck.gstatic.com'
     - '+.ru'
-
-listeners:
-  - name: ss-in
-    type: shadowsocks
-    port: 64850
-    listen: 0.0.0.0
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
         
 proxies:
 
