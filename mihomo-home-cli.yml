@@ -244,6 +244,7 @@ proxies:
     server: 95.174.95.70
     port: 8443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
     network: tcp
     tls: false
     udp: true
@@ -288,6 +289,7 @@ proxies:
     server: 176.108.246.17
     port: 8443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
     network: tcp
     tls: false
     udp: true
@@ -332,6 +334,7 @@ proxies:
     server: 188.68.221.199
     port: 8443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
     network: tcp
     tls: false
     udp: true
@@ -372,6 +375,7 @@ proxies:
     server: 45.144.52.52
     port: 8443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
     network: tcp
     tls: false
     udp: true
@@ -412,6 +416,7 @@ proxies:
     server: 144.31.0.59
     port: 8443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
     network: tcp
     tls: false
     udp: true
@@ -452,6 +457,7 @@ proxies:
     server: 193.233.134.245
     port: 8443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
     network: tcp
     tls: false
     udp: true
@@ -506,6 +512,7 @@ proxies:
     server: 45.82.13.131
     port: 8443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
     network: tcp
     tls: false
     udp: true
