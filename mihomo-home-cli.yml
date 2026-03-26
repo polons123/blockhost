@@ -17,8 +17,9 @@ find-process-mode: strict
 
 dns:
   default-nameserver:
-  - 185.222.222.222
-  - 8.8.8.8
+  - system
+  #- 185.222.222.222
+  #- 8.8.8.8
   direct-nameserver-follow-policy: false
   enable: true
   enhanced-mode: redir-host # redir-host  or fake-ip
@@ -838,7 +839,18 @@ rules:
   - PROCESS-NAME,embytray.exe,DIRECT
   - PROCESS-NAME-REGEX,.*plex.*,DIRECT
 
-  - DST-PORT,25/465/587/993/995,DIRECT
+  - DST-PORT,25,DIRECT
+  - DST-PORT,465,DIRECT
+  - DST-PORT,587,DIRECT
+  - DST-PORT,993,DIRECT
+  - DST-PORT,995,DIRECT
+  - DST-PORT,18090,DIRECT
+  - DST-PORT,18092,DIRECT
+  - DST-PORT,9117,PROXY
+  - DST-PORT,59095,PROXY
+  - DST-PORT,59096,PROXY
+  - DST-PORT,59755,PROXY
+  - DST-PORT,59756,PROXY
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
