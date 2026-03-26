@@ -1,5 +1,4 @@
 mode: rule
-pro-mode: on
 mixed-port: 7897
 allow-lan: false
 log-level: error
@@ -8,7 +7,7 @@ external-controller-cors:
   allow-private-network: true
   allow-origins:
   - '*'
-unified-delay: false
+unified-delay: true
 tcp-concurrent: false
 find-process-mode: off
 dns:
