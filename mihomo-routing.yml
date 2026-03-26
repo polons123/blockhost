@@ -22,8 +22,8 @@ dns:
   ipv6: false
   listen: :53
   default-nameserver:
-    #- 185.222.222.222
-    - system
+    - 185.222.222.222
+    - 77.88.8.8
   nameserver:
     - https://dns.nextdns.io/6fe67c/MobCl
   proxy-server-nameserver:
