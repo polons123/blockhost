@@ -5,9 +5,9 @@ allow-lan: false
 log-level: error
 ipv6: false
 #external-controller: 0.0.0.0:59095
-# secret: 'Na.pole.tanki'
+#secret: 'Na.pole.tanki'
 #external-ui: ./ui
-# external-ui-url: "https://github.com/metacubex/metacubexd/archive/refs/heads/gh-pages.zip"
+#external-ui-url: "https://github.com/metacubex/metacubexd/archive/refs/heads/gh-pages.zip"
 external-controller-cors:
   allow-private-network: true
   allow-origins:
@@ -22,7 +22,8 @@ dns:
   ipv6: false
   listen: :53
   default-nameserver:
-    - 185.222.222.222
+    #- 185.222.222.222
+    - system
   nameserver:
     - https://dns.nextdns.io/6fe67c/MobCl
   proxy-server-nameserver:
@@ -421,8 +422,6 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - H2nexus-Vl-enc-WL
-      - EOF-WL
       - CloudRU-1-ss
       - CloudRU-1-Vl
       - CloudRU-1-Vl-enc
@@ -444,6 +443,8 @@ proxy-groups:
       - 4vps-ss
       - 4vps-Vl
       - 4vps-Vl-enc
+      - H2nexus-Vl-enc-WL
+      - EOF-WL
 
 rule-providers:
   geosite-yandex:
@@ -544,6 +545,11 @@ rules:
   - DST-PORT,587,DIRECT
   - DST-PORT,993,DIRECT
   - DST-PORT,995,DIRECT
+  - DST-PORT,9117,PROXY
+  - DST-PORT,59095,PROXY
+  - DST-PORT,59096,PROXY
+  - DST-PORT,59755,PROXY
+  - DST-PORT,59756,PROXY
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
