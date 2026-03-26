@@ -11,8 +11,8 @@ external-controller-cors:
   allow-private-network: true
   allow-origins:
   - '*'
-unified-delay: false
-tcp-concurrent: false
+unified-delay: true
+tcp-concurrent: true
 find-process-mode: strict
 
 dns:
