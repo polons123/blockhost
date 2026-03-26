@@ -1,4 +1,5 @@
 mode: rule
+pro-mode: on
 mixed-port: 7897
 allow-lan: false
 log-level: error
