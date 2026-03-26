@@ -1,15 +1,19 @@
-#SUBSCRIBED https://raw.githubusercontent.com/polons123/blockhost/refs/heads/main/stash-routing.yml
 mode: rule
+#pro-mode: on
 mixed-port: 7897
 allow-lan: false
 log-level: error
 ipv6: false
+external-controller: 0.0.0.0:59095
+# secret: 'Na.pole.tanki'
+external-ui: ./ui
+# external-ui-url: "https://github.com/metacubex/metacubexd/archive/refs/heads/gh-pages.zip"
 external-controller-cors:
   allow-private-network: true
   allow-origins:
     - '*'
-unified-delay: false
-tcp-concurrent: false
+unified-delay: true
+tcp-concurrent: true
 find-process-mode: off
 dns:
   enable: true
@@ -66,7 +70,20 @@ keep-alive-interval: 30
 keep-alive-idle: 30
 sniffer:
   enable: false
+
 proxies:
+
+  - name: CloudRU-1-ss
+    type: ss
+    server: 95.174.95.70
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    smux:
+      enabled: false
+    ip-version: ipv4
+    
   - name: CloudRU-1-Vl
     type: vless
     server: 95.174.95.70
@@ -86,6 +103,7 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: random
+
   - name: CloudRU-1-Vl-enc
     type: vless
     server: 95.174.95.70
@@ -95,10 +113,22 @@ proxies:
     network: tcp
     tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0" # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
     ip-version: ipv4
     smux:
       enabled: false
+
+  - name: CloudRU-3-ss
+    type: ss
+    server: 176.108.246.17
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    smux:
+      enabled: false
+    ip-version: ipv4
+    
   - name: CloudRU-3-Vl
     type: vless
     server: 176.108.246.17
@@ -118,6 +148,7 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: random
+
   - name: CloudRU-3-Vl-enc
     type: vless
     server: 176.108.246.17
@@ -127,10 +158,22 @@ proxies:
     network: tcp
     tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0" # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
     ip-version: ipv4
     smux:
       enabled: false
+
+  - name: Selectel-ss
+    type: ss
+    server: 188.68.221.199
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    smux:
+      enabled: false
+    ip-version: ipv4
+    
   - name: Selectel-Vl
     type: vless
     server: 188.68.221.199
@@ -150,6 +193,7 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: random
+
   - name: Selectel-Vl-enc
     type: vless
     server: 188.68.221.199
@@ -159,10 +203,20 @@ proxies:
     network: tcp
     tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0" # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
     ip-version: ipv4
     smux:
       enabled: false
+
+  - name: H2nexus-ss
+    type: ss
+    server: 45.144.52.52
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    ip-version: ipv4
+
   - name: H2nexus-Vl
     type: vless
     server: 45.144.52.52
@@ -180,6 +234,7 @@ proxies:
       path: /Video-data
     ip-version: ipv4
     client-fingerprint: random
+
   - name: H2nexus-Vl-enc
     type: vless
     server: 45.144.52.52
@@ -189,10 +244,20 @@ proxies:
     network: tcp
     tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0" # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
     ip-version: ipv4
     smux:
       enabled: false
+
+  - name: H2nexus-Pol-ss
+    type: ss
+    server: 144.31.0.59
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    ip-version: ipv4
+
   - name: H2nexus-Pol-Vl
     type: vless
     server: 144.31.0.59
@@ -210,6 +275,7 @@ proxies:
       path: /Video-data
     ip-version: ipv4
     client-fingerprint: random
+
   - name: H2nexus-Pol-Vl-enc
     type: vless
     server: 144.31.0.59
@@ -219,10 +285,20 @@ proxies:
     network: tcp
     tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0" # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
     ip-version: ipv4
     smux:
       enabled: false
+
+  - name: Waicore-ss
+    type: ss
+    server: 193.233.134.245
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    ip-version: ipv4
+
   - name: Waicore-Vl
     type: vless
     server: 193.233.134.245
@@ -240,6 +316,7 @@ proxies:
       path: /Video-data
     ip-version: ipv4
     client-fingerprint: random
+
   - name: Waicore-Vl-enc
     type: vless
     server: 193.233.134.245
@@ -249,10 +326,11 @@ proxies:
     network: tcp
     tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0" # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
     ip-version: ipv4
     smux:
       enabled: false
+
   #- name: Waicore-Sud
   #  type: sudoku
   #  server: 193.233.134.245
@@ -266,6 +344,16 @@ proxies:
   #  http-mask-mode: auto
   #  enable-pure-downlink: false
   #  path-root: "sync"
+
+  - name: 4vps-ss
+    type: ss
+    server: 45.82.13.131
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    ip-version: ipv4
+
   - name: 4vps-Vl
     type: vless
     server: 45.82.13.131
@@ -283,6 +371,7 @@ proxies:
       path: /Video-data
     ip-version: ipv4
     client-fingerprint: random
+
   - name: 4vps-Vl-enc
     type: vless
     server: 45.82.13.131
@@ -292,28 +381,38 @@ proxies:
     network: tcp
     tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0" # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
     ip-version: ipv4
     smux:
       enabled: false
+    
 proxy-groups:
+
   - name: "PROXY"
     type: select
     proxies:
+      - CloudRU-1-ss
       - CloudRU-1-Vl
       - CloudRU-1-Vl-enc
+      - CloudRU-3-ss
       - CloudRU-3-Vl
       - CloudRU-3-Vl-enc
+      - Selectel-ss
       - Selectel-Vl
       - Selectel-Vl-enc
+      - H2nexus-ss
       - H2nexus-Vl
       - H2nexus-Vl-enc
+      - H2nexus-Pol-ss
       - H2nexus-Pol-Vl
       - H2nexus-Pol-Vl-enc
+      - Waicore-ss
       - Waicore-Vl
       - Waicore-Vl-enc
+      - 4vps-ss
       - 4vps-Vl
       - 4vps-Vl-enc
+
 rule-providers:
   geosite-yandex:
     type: http
@@ -406,6 +505,8 @@ rules:
   - DOMAIN-SUFFIX,tmdb.org,PROXY
   - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
   - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
+  - DOMAIN-SUFFIX,vokino.pro,DIRECT
+  - DOMAIN-SUFFIX,videobase.biz,DIRECT
   - DST-PORT,25,DIRECT
   - DST-PORT,465,DIRECT
   - DST-PORT,587,DIRECT
