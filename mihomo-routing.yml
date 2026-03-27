@@ -32,17 +32,37 @@ dns:
   use-hosts: false
   use-system-hosts: false
   direct-nameserver-follow-policy: false
-  enhanced-mode: redir-host
+  enhanced-mode: fake-ip # redir-host  or fake-ip
+  fake-ip-filter:
+    # Системные проверки (Captive Portal)
+    - 'connectivitycheck.gstatic.com'
+    - 'connectivitycheck.android.com'
+    - 'msftconnecttest.com'
+    - 'msftncsi.com'
+    - 'captive.apple.com'
+    - 'localhost.pt'
+    # Локальная сеть и твои домены
+    - '+.lan'
+    - '+.local'
+    - '+.direct'
+    - '+.home.arpa'
+    # Российский сегмент (для банков и госуслуг)
+    - '+.ru'
+    - '+.su'
+    - '+.xn--p1ai'
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
+
 profile:
   store-selected: true
-  store-fake-ip: false
+  store-fake-ip: true
 tun:
   enable: true
   stack: system
   mtu: 1500
   auto-route: true
   strict-route: true
-  gso: false
+  gso: true
   udp-timeout: 300
   iproute2-table-index: 2022
   iproute2-rule-index: 9000
@@ -69,103 +89,11 @@ tun:
     - 239.255.255.250/32
 disable-keep-alive: false
 keep-alive-interval: 600
-keep-alive-idle: 60
+keep-alive-idle: 120
 
 sniffer:
   enable: false
-  force-dns-mapping: true
-  parse-pure-ip: true
-  #override-destination: true
-  sniff:
-    QUIC:
-      ports: [443, 8443]
-      override-destination: true
-    TLS:
-      ports: [443, 8443]
-      override-destination: true
-    HTTP:
-      ports: [80, 8080-8880]
-      override-destination: true
-  force-domain:
-    - "+.google.com"
-    - "+.youtube.com"
-    - "+.googlevideo.com"
-    - "+.ytimg.com"
-    - "+.youtu.be"
-    - "+.youtubei.googleapis.com"
-    - "+.youtube-ui.l.google.com"
-    - "+.yt.be"
-    - "yt3.ggpht.com"
-    - "yt3.googleusercontent.com"
-    - "wide-youtube.l.google.com"
-    - "ggpht.com"
-    - "youtubeembeddedplayer.googleapis.com"
-  skip-domain:
-    # LAN домены - полностью переносим
-    - '+.lan'
-    - '+.localdomain'
-    - '+.example'
-    - '+.invalid'
-    - '+.localhost'
-    - '+.test'
-    - '+.local'
-    - '+.home.arpa'
-    - '+.direct'
-    
-    # NTP сервисы - полностью переносим (UDP протокол)
-    - 'time.*.com'
-    - 'time.*.gov'
-    - 'time.*.edu.cn'
-    - 'time.*.apple.com'
-    - 'time-ios.apple.com'
-    - 'time1.*.com'
-    - 'time2.*.com'
-    - 'time3.*.com'
-    - 'time4.*.com'
-    - 'time5.*.com'
-    - 'time6.*.com'
-    - 'time7.*.com'
-    - 'ntp.*.com'
-    - 'ntp1.*.com'
-    - 'ntp2.*.com'
-    - 'ntp3.*.com'
-    - 'ntp4.*.com'
-    - 'ntp5.*.com'
-    - 'ntp6.*.com'
-    - 'ntp7.*.com'
-    - '+.time.edu.cn'
-    - '+.ntp.org.cn'
-    - '+.pool.ntp.org'
-    
-    # STUN сервисы - полностью переносим (UDP протокол)
-    - 'stun.*.*'
-    - 'stun.*.*.*'
-    - '+.stun.*.*'
-    - '+.stun.*.*.*'
-    - '+.stun.*.*.*.*'
-    - '+.stun.*.*.*.*.*'
-    
-    # Push-уведомления и системные проверки
-    - "+.push.apple.com"
-    - "captive.apple.com"
-    - "ocsp.apple.com"
-    - "ocsp2.apple.com"
-    - "mesu.apple.com"
-    - "swscan.apple.com"
-    - "swquery.apple.com"
-    - "swdownload.apple.com"
-    - "swcdn.apple.com"
-    - "swdist.apple.com"
-    - "configuration.apple.com"
-    - "setup.icloud.com"
-    - "p*.mail.icloud.com"
-    - '+.fcm.googleapis.com'
-    - '+.android.googleapis.com'
-    - '+.msftconnecttest.com'
-    - '+.msftncsi.com'
-    - 'captive.apple.com'
-    - 'detectportal.firefox.com'
-    - '+.connectivitycheck.gstatic.com'
+  
 
 proxies:
 
