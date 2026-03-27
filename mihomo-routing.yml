@@ -72,7 +72,7 @@ keep-alive-interval: 600
 keep-alive-idle: 60
 
 sniffer:
-  enable: true
+  enable: false
   force-dns-mapping: true
   parse-pure-ip: true
   #override-destination: true
