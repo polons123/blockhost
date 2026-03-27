@@ -88,8 +88,8 @@ tun:
     - 255.255.255.255/32
     - 239.255.255.250/32
 disable-keep-alive: false
-keep-alive-interval: 600
-keep-alive-idle: 120
+keep-alive-interval: 300
+keep-alive-idle: 60
 
 sniffer:
   enable: false
