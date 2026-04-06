@@ -552,7 +552,7 @@ rules:
   - RULE-SET,geosite-apple,PROXY
   - RULE-SET,geoip-apple,PROXY
   - RULE-SET,geosite-telegram,PROXY
-  - RULE-SET,geoip-telegram,PROXY
+  - RULE-SET,geoip-telegram,PROXY,no-resolve
   - RULE-SET,geosite-tiktok,PROXY
   - RULE-SET,geoip-ru,DIRECT
   - DOMAIN-SUFFIX,ru,DIRECT
