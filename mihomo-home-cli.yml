@@ -890,7 +890,7 @@ rules:
   
   - RULE-SET,geosite-whatsapp,PROXY
   - RULE-SET,geosite-telegram,PROXY
-  - RULE-SET,geoip-telegram,PROXY
+  - RULE-SET,geoip-telegram,PROXY,no-resolve
   - RULE-SET,geosite-signal,PROXY
   - RULE-SET,geosite-matrix,PROXY
   
