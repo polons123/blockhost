@@ -23,7 +23,7 @@ dns:
   listen: :53
   default-nameserver:
     - 185.222.222.222
-    - 8.8.8.8
+    - 9.9.9.10
   nameserver:
     - https://dns.nextdns.io/6fe67c/MobCl
   proxy-server-nameserver:
@@ -52,10 +52,10 @@ dns:
     - '+.xn--p1ai'
   fake-ip-filter-mode: blacklist
   fake-ip-range: 198.18.0.1/16
-
 profile:
   store-selected: true
   store-fake-ip: true
+
 tun:
   enable: true
   stack: system
@@ -88,27 +88,14 @@ tun:
     - 255.255.255.255/32
     - 239.255.255.250/32
 disable-keep-alive: false
-keep-alive-interval: 600
-keep-alive-idle: 120
+keep-alive-interval: 300
+keep-alive-idle: 60
 
 sniffer:
   enable: false
   
-
 proxies:
-
-  - name: CloudRU-1-ss
-    type: ss
-    server: 95.174.95.70
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
-    
-  - name: CloudRU-1-Vl
+  - name: CloudRU-1-ws
     type: vless
     server: 95.174.95.70
     port: 10443
@@ -128,32 +115,25 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: CloudRU-1-Vl-enc
+  - name: CloudRU-1-Vl
     type: vless
     server: 95.174.95.70
-    port: 8443
+    port: 443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
     flow: xtls-rprx-vision
-    network: tcp
-    tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
-    ip-version: ipv4
-    smux:
-      enabled: false
-
-  - name: CloudRU-3-ss
-    type: ss
-    server: 176.108.246.17
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
+    tls: true
+    servername: cloud-ru.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
     smux:
       enabled: false
     ip-version: ipv4
+    client-fingerprint: random
     
-  - name: CloudRU-3-Vl
+  - name: CloudRU-3-ws
     type: vless
     server: 176.108.246.17
     port: 10443
@@ -173,32 +153,25 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: CloudRU-3-Vl-enc
+  - name: CloudRU-3-Vl
     type: vless
     server: 176.108.246.17
-    port: 8443
+    port: 443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
     flow: xtls-rprx-vision
-    network: tcp
-    tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
-    ip-version: ipv4
-    smux:
-      enabled: false
-
-  - name: Selectel-ss
-    type: ss
-    server: 188.68.221.199
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
+    tls: true
+    servername: cloud-ru-3.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
     smux:
       enabled: false
     ip-version: ipv4
+    client-fingerprint: random
     
-  - name: Selectel-Vl
+  - name: Selectel-ws
     type: vless
     server: 188.68.221.199
     port: 10443
@@ -218,30 +191,25 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: Selectel-Vl-enc
+  - name: Selectel-Vl
     type: vless
     server: 188.68.221.199
-    port: 8443
+    port: 443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
     flow: xtls-rprx-vision
-    network: tcp
-    tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
-    ip-version: ipv4
+    tls: true
+    servername: selectel-spb.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
     smux:
       enabled: false
-
-  - name: H2nexus-ss
-    type: ss
-    server: 45.144.52.52
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
     ip-version: ipv4
+    client-fingerprint: random
 
-  - name: H2nexus-Vl
+  - name: H2nexus-ws
     type: vless
     server: 45.144.52.52
     port: 10443
@@ -259,30 +227,25 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: H2nexus-Vl-enc
+  - name: H2nexus-Vl
     type: vless
     server: 45.144.52.52
-    port: 8443
+    port: 443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
     flow: xtls-rprx-vision
-    network: tcp
-    tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
-    ip-version: ipv4
+    tls: true
+    servername: h2nexus.ddns.net
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
     smux:
       enabled: false
-
-  - name: H2nexus-Pol-ss
-    type: ss
-    server: 144.31.0.59
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
     ip-version: ipv4
+    client-fingerprint: random
 
-  - name: H2nexus-Pol-Vl
+  - name: H2nexus-Pol-ws
     type: vless
     server: 144.31.0.59
     port: 10443
@@ -300,30 +263,25 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: H2nexus-Pol-Vl-enc
+  - name: H2nexus-Pol-Vl
     type: vless
     server: 144.31.0.59
-    port: 8443
+    port: 443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
     flow: xtls-rprx-vision
-    network: tcp
-    tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
-    ip-version: ipv4
+    tls: true
+    servername: h2nexus-p.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
     smux:
       enabled: false
-
-  - name: Waicore-ss
-    type: ss
-    server: 193.233.134.245
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
     ip-version: ipv4
+    client-fingerprint: random
 
-  - name: Waicore-Vl
+  - name: Waicore-ws
     type: vless
     server: 193.233.134.245
     port: 10443
@@ -341,44 +299,25 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: Waicore-Vl-enc
+  - name: Waicore-Vl
     type: vless
     server: 193.233.134.245
-    port: 8443
+    port: 443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
     flow: xtls-rprx-vision
-    network: tcp
-    tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
-    ip-version: ipv4
+    tls: true
+    servername: waicore-ger.ddns.net
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
     smux:
       enabled: false
-
-  #- name: Waicore-Sud
-  #  type: sudoku
-  #  server: 193.233.134.245
-  #  port: 59064
-  #  key: "A7F2CEF0-EC00-4E9F-BEF1-D47B8ABADB1E"
-  #  aead-method: chacha20-poly1305
-  #  padding-min: 2
-  #  padding-max: 20
-  #  table-type: prefer_ascii
-  #  http-mask: true
-  #  http-mask-mode: auto
-  #  enable-pure-downlink: false
-  #  path-root: "sync"
-
-  - name: 4vps-ss
-    type: ss
-    server: 45.82.13.131
-    port: 64850
-    cipher: 2022-blake3-chacha20-poly1305
-    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
-    udp: true
     ip-version: ipv4
+    client-fingerprint: random
 
-  - name: 4vps-Vl
+  - name: 4vps-ws
     type: vless
     server: 45.82.13.131
     port: 10443
@@ -396,46 +335,43 @@ proxies:
     ip-version: ipv4
     client-fingerprint: random
 
-  - name: 4vps-Vl-enc
+  - name: 4vps-Vl
     type: vless
     server: 45.82.13.131
-    port: 8443
+    port: 443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
     flow: xtls-rprx-vision
-    network: tcp
-    tls: false
     udp: true
-    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
-    ip-version: ipv4
+    tls: true
+    servername: 4vps.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
     smux:
       enabled: false
+    ip-version: ipv4
+    client-fingerprint: random
     
 proxy-groups:
 
   - name: "PROXY"
     type: select
     proxies:
-      - CloudRU-1-ss
+      - CloudRU-1-ws
       - CloudRU-1-Vl
-      - CloudRU-1-Vl-enc
-      - CloudRU-3-ss
+      - CloudRU-3-ws
       - CloudRU-3-Vl
-      - CloudRU-3-Vl-enc
-      - Selectel-ss
+      - Selectel-ws
       - Selectel-Vl
-      - Selectel-Vl-enc
-      - H2nexus-ss
+      - H2nexus-ws
       - H2nexus-Vl
-      - H2nexus-Vl-enc
-      - H2nexus-Pol-ss
+      - H2nexus-Pol-ws
       - H2nexus-Pol-Vl
-      - H2nexus-Pol-Vl-enc
-      - Waicore-ss
+      - Waicore-ws
       - Waicore-Vl
-      - Waicore-Vl-enc
-      - 4vps-ss
+      - 4vps-ws
       - 4vps-Vl
-      - 4vps-Vl-enc
 
 rule-providers:
   geosite-yandex:
@@ -522,7 +458,24 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
     path: ./geoip-ru.mrs
     interval: 604800
+  oisd_small:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/small.mrs"
+    path: ./small.mrs
+    interval: 86400
+  oisd_nsfw_small:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/nsfw_small.mrs"
+    path: ./nsfw_small.mrs
+    interval: 86400
+
 rules:
+  - RULE-SET,oisd_small,REJECT
+  - RULE-SET,oisd_nsfw_small,REJECT
   - DOMAIN,kino.pub,PROXY
   - DOMAIN-KEYWORD,habr,PROXY
   - DOMAIN-SUFFIX,themoviedb.org,PROXY
@@ -554,7 +507,7 @@ rules:
   - RULE-SET,geosite-telegram,PROXY
   - RULE-SET,geoip-telegram,PROXY,no-resolve
   - RULE-SET,geosite-tiktok,PROXY
-  - RULE-SET,geoip-ru,DIRECT
+  - RULE-SET,geoip-ru,DIRECT,no-resolve
   - DOMAIN-SUFFIX,ru,DIRECT
   - DOMAIN-SUFFIX,su,DIRECT
   - DOMAIN-REGEX,^.*xn--.*$,DIRECT
