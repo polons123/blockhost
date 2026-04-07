@@ -725,7 +725,27 @@ rule-providers:
     url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/oisd/big.mrs"
     path: ./big.mrs
     interval: 86400
-    proxy: PROXY
+  oisd_small:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/small.mrs"
+    path: ./small.mrs
+    interval: 86400
+  oisd_nsfw_small:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/nsfw_small.mrs"
+    path: ./nsfw_small.mrs
+    interval: 86400
+  oisd_nsfw_big:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/nsfw.mrs"
+    path: ./nsfw_big.mrs
+    interval: 86400
   game:
     type: http
     behavior: domain
@@ -733,19 +753,19 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games.mrs"
     path: ./game.mrs
     interval: 86400
-    proxy: PROXY
   game-download:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-platforms-download.mrs"
-    path: ./game-download.mrs
+    path: ./game-download:.mrs
     interval: 86400
-    proxy: PROXY
 
 rules:
-
   - RULE-SET,oisd_big,REJECT
+  - RULE-SET,oisd_small,REJECT
+  - RULE-SET,oisd_nsfw_big,REJECT
+  - RULE-SET,oisd_nsfw_small,REJECT
   - PROCESS-NAME,uTorrent.exe,DIRECT
   - PROCESS-NAME,BitTorrent.exe,DIRECT
   - PROCESS-NAME,utweb.exe,DIRECT
