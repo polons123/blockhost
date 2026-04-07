@@ -47,9 +47,9 @@ dns:
     - '+.direct'
     - '+.home.arpa'
     # Российский сегмент (для банков и госуслуг)
-    - '+.ru'
-    - '+.su'
-    - '+.xn--p1ai'
+    #- '+.ru'
+    #- '+.su'
+    #- '+.xn--p1ai'
   fake-ip-filter-mode: blacklist
   fake-ip-range: 198.18.0.1/16
 profile:
