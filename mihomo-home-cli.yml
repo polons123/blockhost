@@ -547,6 +547,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/yandex.mrs"
     path: ./geosite-yandex.mrs
     interval: 86400
+    proxy: PROXY
   geosite-vk:
     type: http
     behavior: domain
@@ -554,6 +555,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/vk.mrs"
     path: ./geosite-vk.mrs
     interval: 86400
+    proxy: PROXY
   geosite-mailru:
     type: http
     behavior: domain
@@ -561,13 +563,15 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/mailru.mrs"
     path: ./geosite-mailru.mrs
     interval: 86400
+    proxy: PROXY
   geosite-google:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
     path: ./geosite-google.mrs
-    interval: 86400 
+    interval: 86400
+    proxy: PROXY
   geosite-apple:
     type: http
     behavior: domain
@@ -575,6 +579,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs"
     path: ./geosite-apple.mrs
     interval: 86400
+    proxy: PROXY
   geosite-facebook:
     type: http
     behavior: domain
@@ -582,12 +587,15 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/facebook.mrs"
     path: ./geosite-facebook.mrs
     interval: 86400
+    proxy: PROXY
   geosite-instagram:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/instagram.mrs"
     path: ./geosite-instagram.mrs
+    interval: 86400
+    proxy: PROXY
   geosite-whatsapp:
     type: http
     behavior: domain
@@ -595,6 +603,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/whatsapp.mrs"
     path: ./geosite-whatsapp.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-oculus:
     type: http
     behavior: domain
@@ -602,6 +611,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/oculus.mrs"
     path: ./geosite-oculus.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-telegram:
     type: http
     behavior: domain
@@ -609,6 +619,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/telegram.mrs"
     path: ./geosite-telegram.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-youtube:
     type: http
     behavior: domain
@@ -616,6 +627,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"
     path: ./geosite-youtube.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-openai:
     type: http
     behavior: domain
@@ -623,6 +635,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"
     path: ./geosite-openai.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-google-gemini:
     type: http
     behavior: domain
@@ -630,6 +643,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google-gemini.mrs"
     path: ./geosite-google-gemini.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-xai:
     type: http
     behavior: domain
@@ -637,6 +651,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xai.mrs"
     path: ./geosite-xai.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-perplexity:
     type: http
     behavior: domain
@@ -644,6 +659,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/perplexity.mrs"
     path: ./geosite-perplexity.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-tiktok:
     type: http
     behavior: domain
@@ -651,6 +667,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/tiktok.mrs"
     path: ./geosite-tiktok.mrs   
     interval: 86400
+    proxy: PROXY
   geosite-discord:
     type: http
     behavior: domain
@@ -658,6 +675,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/discord.mrs"
     path: ./geosite-discord.mrs  
     interval: 86400
+    proxy: PROXY
   geosite-microsoft:
     type: http
     behavior: domain
@@ -665,6 +683,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/microsoft.mrs"
     path: ./geosite-microsoft.mrs
     interval: 86400
+    proxy: PROXY
   geosite-netflix:
     type: http
     behavior: domain
@@ -672,6 +691,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/netflix.mrs"
     path: ./geosite-netflix.mrs
     interval: 86400
+    proxy: PROXY
   geosite-spotify:
     type: http
     behavior: domain
@@ -679,6 +699,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/spotify.mrs"
     path: ./geosite-spotify.mrs
     interval: 86400
+    proxy: PROXY
   geosite-signal:
     type: http
     behavior: domain
@@ -686,20 +707,23 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/signal.mrs"
     path: ./geosite-signal.mrs
     interval: 86400
+    proxy: PROXY
   geosite-matrix:
     type: http
     behavior: domain
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/matrix.mrs"
     path: ./geosite-matrix.mrs
-    interval: 86400    
+    interval: 86400
+    proxy: PROXY
   geoip-facebook:
     type: http
     behavior: ipcidr
     format: mrs
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/facebook.mrs"
     path: ./geoip-facebook.mrs
-    interval: 86400  
+    interval: 86400
+    proxy: PROXY
   geoip-google:
     type: http
     behavior: ipcidr
@@ -707,6 +731,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"
     path: ./geoip-google.mrs
     interval: 86400
+    proxy: PROXY
   geoip-telegram:
     type: http
     behavior: ipcidr
@@ -714,6 +739,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/telegram.mrs"
     path: ./geoip-telegram.mrs
     interval: 86400
+    proxy: PROXY
   geoip-twitter:
     type: http
     behavior: ipcidr
@@ -721,6 +747,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/twitter.mrs"
     path: ./geoip-twitter.mrs
     interval: 86400
+    proxy: PROXY
   geoip-apple:
     type: http
     behavior: ipcidr
@@ -728,6 +755,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"
     path: ./geoip-apple.mrs
     interval: 86400
+    proxy: PROXY
   geoip-netflix:
     type: http
     behavior: ipcidr
@@ -735,13 +763,15 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/netflix.mrs"
     path: ./geoip-netflix.mrs
     interval: 86400
+    proxy: PROXY
   geoip-discord-voice:
     type: http
     behavior: ipcidr
     format: mrs
     url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/other/discord-voice-ip-list.mrs"
     path: ./geoip-discord-voice.mrs
-    interval: 86400        
+    interval: 86400
+    proxy: PROXY
   geoip-ru:
     type: http
     behavior: ipcidr
@@ -749,6 +779,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
     path: ./geoip-ru.mrs
     interval: 86400
+    proxy: PROXY
   oisd_big:
     type: http
     behavior: domain
@@ -756,6 +787,7 @@ rule-providers:
     url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/refs/heads/main/oisd/big.mrs"
     path: ./big.mrs
     interval: 86400
+    proxy: PROXY
   game:
     type: http
     behavior: domain
@@ -763,6 +795,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games.mrs"
     path: ./game.mrs
     interval: 86400
+    proxy: PROXY
   game-download:
     type: http
     behavior: domain
@@ -770,6 +803,7 @@ rule-providers:
     url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-platforms-download.mrs"
     path: ./game-download.mrs
     interval: 86400
+    proxy: PROXY
 
 rules:
 
