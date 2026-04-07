@@ -53,6 +53,15 @@ dns:
   prefer-h3: false
   proxy-server-nameserver:
   - https://dns.nextdns.io/6fe67c/Mihomo-cl
+  nameserver-policy:
+    "rule-set:oisd_big":
+    - rcode://success
+    "rule-set:oisd_small":
+    - rcode://success
+    "rule-set:oisd_nsfw_big":
+    - rcode://success
+    "rule-set:oisd_nsfw_small":
+    - rcode://success
   respect-rules: true
   use-hosts: false
   use-system-hosts: false
