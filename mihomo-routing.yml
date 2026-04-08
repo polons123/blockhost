@@ -1,6 +1,6 @@
 mode: rule
 #pro-mode: on
-mixed-port: 7897
+#mixed-port: 7897
 allow-lan: false
 log-level: error
 ipv6: false
