@@ -1,5 +1,5 @@
 mode: rule
-#mixed-port: 
+mixed-port: 0 
 allow-lan: false
 log-level: error
 ipv6: false
