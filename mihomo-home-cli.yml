@@ -292,7 +292,7 @@ proxies:
   - name: CloudRU-3-Vl-enc
     type: vless
     server: 176.108.246.17
-    port: 62073
+    port: 8443
     uuid: 4f02e4a9-a325-4a2b-a527-9d3e0d3ed349
     flow: xtls-rprx-vision
     network: tcp
@@ -512,7 +512,7 @@ proxy-groups:
       - CloudRU-3-Vl-enc
       - Selectel-ws
       - Selectel-Vl
-      - CloudRU-3-Vl-enc
+      - Selectel-Vl-enc
       - H2nexus-ws
       - H2nexus-Vl
       - H2nexus-Pol-ws
