@@ -326,7 +326,7 @@ proxies:
   - name: Selectel-Vl
     type: vless
     server: 188.68.221.199
-    port: 443
+    port: 8443
     uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
     flow: xtls-rprx-vision
     udp: true
@@ -344,7 +344,7 @@ proxies:
   - name: Selectel-Vl-enc
     type: vless
     server: 188.68.221.199
-    port: 8443
+    port: 443
     uuid: 4f02e4a9-a325-4a2b-a527-9d3e0d3ed349
     flow: xtls-rprx-vision
     network: tcp
