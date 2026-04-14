@@ -895,6 +895,9 @@ rules:
 
   - DOMAIN-SUFFIX,vokino.pro,DIRECT
   - DOMAIN-SUFFIX,videobase.biz,DIRECT
+  - DOMAIN-SUFFIX,cdntogo.net,DIRECT #kinopub
+  - DOMAIN-SUFFIX,werkecdn.me,DIRECT # filmix
+  - DOMAIN-SUFFIX,zerocdn.com,DIRECT #getstv
 
   - DOMAIN,kino.pub,PROXY
   - DOMAIN-SUFFIX,evernote.com,PROXY
