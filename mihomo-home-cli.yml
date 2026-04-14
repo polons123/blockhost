@@ -214,7 +214,7 @@ proxies:
     ws-opts:
       path: /Video-data
       headers:
-        Host: h2nexus.ddns.net
+        Host: cloud-ru.ydns.eu
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
@@ -268,7 +268,7 @@ proxies:
     ws-opts:
       path: /Video-data
       headers:
-        Host: h2nexus.ddns.net
+        Host: cloud-ru-3.ydns.eu
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
@@ -321,7 +321,7 @@ proxies:
     ws-opts:
       path: /Video-data
       headers:
-        Host: h2nexus.ddns.net
+        Host: selectel-spb.ydns.eu
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
@@ -399,6 +399,20 @@ proxies:
     ip-version: ipv4
     client-fingerprint: chrome
 
+  - name: H2nexus-Vl-enc
+    type: vless
+    server: 45.144.52.52
+    port: 62073
+    uuid: 4f02e4a9-a325-4a2b-a527-9d3e0d3ed349
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
+
   - name: H2nexus-Pol-ws
     type: vless
     server: 144.31.0.59
@@ -415,7 +429,7 @@ proxies:
     ws-opts:
       path: /Video-data
       headers:
-        Host: h2nexus.ddns.net
+        Host: h2nexus-p.ydns.eu
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
@@ -439,6 +453,20 @@ proxies:
     ip-version: ipv4
     client-fingerprint: chrome
 
+  - name: H2nexus-Pol-enc
+    type: vless
+    server: 144.31.0.59
+    port: 62073
+    uuid: 4f02e4a9-a325-4a2b-a527-9d3e0d3ed349
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
+
   - name: Waicore-ws
     type: vless
     server: 193.233.134.245
@@ -451,10 +479,11 @@ proxies:
       - h2
       - http/1.1
     skip-cert-verify: false
+    network: ws
     ws-opts:
       path: /Video-data
       headers:
-        Host: h2nexus.ddns.net
+        Host: waicore-ger.ddns.net
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
@@ -478,6 +507,34 @@ proxies:
     ip-version: ipv4
     client-fingerprint: chrome
 
+  - name: Waicore-Vl-enc
+    type: vless
+    server: 193.233.134.245
+    port: 62073
+    uuid: 4f02e4a9-a325-4a2b-a527-9d3e0d3ed349
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
+
+  #- name: Waicore-Sud
+  #  type: sudoku
+  #  server: 193.233.134.245
+  #  port: 59064
+  #  key: "A7F2CEF0-EC00-4E9F-BEF1-D47B8ABADB1E"
+  #  aead-method: chacha20-poly1305
+  #  padding-min: 2
+  #  padding-max: 20
+  #  table-type: prefer_ascii
+  #  http-mask: true
+  #  http-mask-mode: auto
+  #  enable-pure-downlink: false
+  #  path-root: "sync"
+
   - name: 4vps-ws
     type: vless
     server: 45.82.13.131
@@ -494,7 +551,7 @@ proxies:
     ws-opts:
       path: /Video-data
       headers:
-        Host: h2nexus.ddns.net
+        Host: 4vps.ydns.eu
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
@@ -517,6 +574,20 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: chrome
+
+  - name: 4vps-Vl-enc
+    type: vless
+    server: 45.82.13.131
+    port: 62073
+    uuid: 4f02e4a9-a325-4a2b-a527-9d3e0d3ed349
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: false
+    udp: true
+    encryption: "mlkem768x25519plus.native.0rtt.xiOC_sHD85WT_tMoaIu_d3mbJUidSL2aow0U5cRs_Rk.RmgZ3RmDYhuUe9JmS9dcTUl3_bjJhBuRwVgYoncGW7WE2fliC_A5BaubwhImoQuQL-tZ3cKRBmp2islUuySWicbFinG5emk5TvJqVWAEoeGk2hwcJpcFabIQiLWYykG1nANA9-E7Uqy7jriD8iUstrZ5J4A442gZS5Jyd3Olk0t--UFScQeM_tJCXig4DBFZQDEFbEsfArhM7AVAaCcWGWB4_Lq0_BGZnqaVjkIDL4StFDeohVp1TOxCl1GtqUM0Zmd_38VqVlEksKc0BzckphpBtZR67UiS3lx6mNsfkBeVgtd0-eXE-vFzBEGiv3Rw4pqqVMAjlAJaLkxHpMd7IuIZZZdsatUNZWCMuRta2lZewAuBveRUp-ERSLRgUAobPAqYbak0TUckBaQ70QeejjCrmdYe9XIri8hFxyMSgGGKyzCpOTA95wpqpnSj5AsE5cF_gBtKwLpEQyGB1fIo7qyHo3oZ1sG5bQvB66SOK5QcOhKkFOlfwKaSi-m3iGk6drnKqCjJyTiPZjC_WxIsk3g1JCUze7lOENdCt5yKhrDJ_7ac9XZx3cUfYSjIGXOQ-usUNJOzkayQn6uKJlXA73EAyPISxQpcp0FcB1NCl0bGl_S6Rzd8SkuvlMnIPAUrdtEVuItoHsRLzELPZ0imOidyYLyQ-6Rdh4JADuuWSJlEJgGr-7N1YuldoZJOzALMVhDC4SaMGRODOWqyelzFelUfeKagUtBDpVyLrRonc4AGwpCwyWSxrCGOO3M-lIyglMk6MwAlaocE6WcDsekQL0h5pECtXzWU2KtG1CFHhDW_zERdHGt3uBJzWjMPzWZ2ZcZ-GmSGLjghfip3YVNpRZO3XiK5MKKgIYKRejo-7aeGK2B44Jiu7HsA9EqvRtPH3aGrQToYAwUz2kK4P0eP3IuJcpuoz9drrjYkNcJa_ABEVoJuomzIOegDN5CzAiAJlLU87iIZhMOEb3HNuLUw9asn3emE-PurDTqtVOknRFepuLgqpiW4IxFtyAhjuTywNzh-YYSmuehXHYATSxJIbEGZWLGpiwJLLqRAvyUKH7zOmLBIEbuOleMXh2F3bFOJNlKK3lqwfkOi0UEco-Z1QdCvp7EI2lAa4dZnNXcUS3RSC6ogkUxaAoUzekO0RSTGomFnzfggQDg9XtA0dsm90pQ6C1t-rUtB2IN3HzM6Z6x3q_zJ_csDVGILTKeuMBTPwGmB03AJfJnPU2chGhOToggbKXt5GSaddtON2gArvFm3xIdI7PODXpKIxEdQ1hWoR7bAdAGkv4rE8AgiTwd3T9M4j7IcwtKrN1oWDAyzwbPDXEmFPmZRBisEnUuJQ5VyzLW4puoojjhyDLNw-0mgWNKgqppGxiITAabCZ4Jk-ewFXeRojiRrkiKFNaHHA8VfppTBufUOy3YPqLcA90IMjzqsBPQqjpHC5OCmLMVepNuyHEZZsYMC0DumtUqvy_mZlVSWb1uR8EyDrsgheAmJG9OiuJYDAyeM9rAP-uqb25OTDOHH4VY6jQIKHLUQ1NqPElETYWlVfCC0WD_IQmxijhuThhdicTCVzYGg-vb-Zj0"  # Client encryption: X25519 Password + ML-KEM Client (concatenated)
+    ip-version: ipv4
+    smux:
+      enabled: false
     
 proxy-groups:
 
