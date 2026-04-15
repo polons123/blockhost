@@ -211,6 +211,7 @@ proxies:
       - h2
       - http/1.1
     skip-cert-verify: false
+    network: ws
     ws-opts:
       path: /Video-data
       headers:
@@ -318,6 +319,7 @@ proxies:
       - h2
       - http/1.1
     skip-cert-verify: false
+    network: ws
     ws-opts:
       path: /Video-data
       headers:
