@@ -95,6 +95,7 @@ sniffer:
   enable: false
   
 proxies:
+    
   - name: CloudRU-1-ws
     type: vless
     server: 95.174.95.70
@@ -110,10 +111,10 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
-    smux:
-      enabled: false
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: CloudRU-1-Vl
     type: vless
@@ -131,7 +132,7 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
     
   - name: CloudRU-3-ws
     type: vless
@@ -148,10 +149,10 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
-    smux:
-      enabled: false
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: CloudRU-3-Vl
     type: vless
@@ -169,7 +170,7 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
     
   - name: Selectel-ws
     type: vless
@@ -186,10 +187,10 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
-    smux:
-      enabled: false
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: Selectel-Vl
     type: vless
@@ -207,7 +208,7 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: H2nexus-ws
     type: vless
@@ -224,8 +225,10 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: H2nexus-Vl
     type: vless
@@ -243,7 +246,7 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: H2nexus-Pol-ws
     type: vless
@@ -260,8 +263,10 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: H2nexus-Pol-Vl
     type: vless
@@ -279,7 +284,7 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: Waicore-ws
     type: vless
@@ -296,8 +301,10 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: Waicore-Vl
     type: vless
@@ -315,7 +322,21 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
+
+  #- name: Waicore-Sud
+  #  type: sudoku
+  #  server: 193.233.134.245
+  #  port: 59064
+  #  key: "A7F2CEF0-EC00-4E9F-BEF1-D47B8ABADB1E"
+  #  aead-method: chacha20-poly1305
+  #  padding-min: 2
+  #  padding-max: 20
+  #  table-type: prefer_ascii
+  #  http-mask: true
+  #  http-mask-mode: auto
+  #  enable-pure-downlink: false
+  #  path-root: "sync"
 
   - name: 4vps-ws
     type: vless
@@ -332,8 +353,10 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
 
   - name: 4vps-Vl
     type: vless
@@ -351,7 +374,7 @@ proxies:
     smux:
       enabled: false
     ip-version: ipv4
-    client-fingerprint: random
+    client-fingerprint: chrome
     
 proxy-groups:
 
