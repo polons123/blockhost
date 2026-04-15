@@ -214,8 +214,8 @@ proxies:
     network: ws
     ws-opts:
       path: /Video-data
-      headers:
-        Host: cloud-ru.ydns.eu
+     # headers:
+      #  Host: cloud-ru.ydns.eu
       v2ray-http-upgrade: true
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
