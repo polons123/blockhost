@@ -337,44 +337,6 @@ proxies:
   #  http-mask-mode: auto
   #  enable-pure-downlink: false
   #  path-root: "sync"
-
-  - name: 4vps-ws
-    type: vless
-    server: 45.82.13.131
-    port: 10443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    udp: true
-    tls: true
-    servername: 4vps.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
-    ip-version: ipv4
-    client-fingerprint: chrome
-
-  - name: 4vps-Vl
-    type: vless
-    server: 45.82.13.131
-    port: 443
-    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
-    flow: xtls-rprx-vision
-    udp: true
-    tls: true
-    servername: 4vps.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    smux:
-      enabled: false
-    ip-version: ipv4
-    client-fingerprint: chrome
     
 proxy-groups:
 
@@ -393,8 +355,6 @@ proxy-groups:
       - H2nexus-Pol-Vl
       - Waicore-ws
       - Waicore-Vl
-      - 4vps-ws
-      - 4vps-Vl
 
 rule-providers:
   geosite-yandex:
@@ -499,6 +459,31 @@ rule-providers:
 rules:
   - RULE-SET,oisd_small,REJECT
   - RULE-SET,oisd_nsfw_small,REJECT
+  
+  - DST-PORT,25,DIRECT
+  - DST-PORT,465,DIRECT
+  - DST-PORT,587,DIRECT
+  - DST-PORT,993,DIRECT
+  - DST-PORT,995,DIRECT
+  - DST-PORT,18090,DIRECT #torrserver
+  - DST-PORT,18092,DIRECT #lampac
+  - DST-PORT,9117,DIRECT #jacket
+  - DST-PORT,59095,PROXY #mihomo
+  - DST-PORT,59096,PROXY #sing-box
+  - DST-PORT,59755,DIRECT #prowlarr
+  - DST-PORT,59756,PROXY
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,::1/128,DIRECT
+
+  - DOMAIN-SUFFIX,vokino.pro,DIRECT
+  - DOMAIN-SUFFIX,videobase.biz,DIRECT
+  - DOMAIN-SUFFIX,cdntogo.net,DIRECT #kinopub
+  - DOMAIN-SUFFIX,werkecdn.me,DIRECT # filmix
+  - DOMAIN-SUFFIX,zerocdn.com,DIRECT #getstv
+
   - DOMAIN,kino.pub,PROXY
   - DOMAIN-KEYWORD,habr,PROXY
   - DOMAIN-SUFFIX,themoviedb.org,PROXY
@@ -506,17 +491,6 @@ rules:
   - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
   - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
   
-  - DST-PORT,25,DIRECT
-  - DST-PORT,465,DIRECT
-  - DST-PORT,587,DIRECT
-  - DST-PORT,993,DIRECT
-  - DST-PORT,995,DIRECT
-  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-  - IP-CIDR,95.165.6.169/32,DIRECT,no-resolve
-  - IP-CIDR,::1/128,DIRECT
   - RULE-SET,geosite-yandex,DIRECT
   - RULE-SET,geosite-vk,DIRECT
   - RULE-SET,geosite-mailru,DIRECT
