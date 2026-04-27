@@ -208,9 +208,8 @@ listeners:
     certificate: ./server.crt
     private-key: ./server.key
     padding-scheme: |
-      stop=0
-     # stop=1
-     # 0=0-20
+      stop=1
+      0=0-20
 
   #- name: socks-in
   #  type: socks
