@@ -1,0 +1,161 @@
+mode: rule
+#pro-mode: on
+mixed-port:
+allow-lan: false
+log-level: error
+ipv6: false
+#external-controller: 0.0.0.0:59095
+#secret: 'Na.pole.tanki'
+#external-ui: ./ui
+#external-ui-url: "https://github.com/metacubex/metacubexd/archive/refs/heads/gh-pages.zip"
+#external-controller-cors:
+#  allow-private-network: true
+#  allow-origins:
+#    - '*'
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: off
+dns:
+  enable: true
+  cache-algorithm: arc
+  prefer-h3: false
+  ipv6: false
+  listen: :1053
+  default-nameserver:
+    - 185.222.222.222
+    - 9.9.9.10
+  nameserver:
+    - https://dns.nextdns.io/6fe67c/MobCl
+  proxy-server-nameserver:
+    - https://dns.nextdns.io/6fe67c/MobCl
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: false
+  direct-nameserver-follow-policy: false
+  enhanced-mode: fake-ip # redir-host  or fake-ip
+  fake-ip-filter:
+    # Системные проверки (Captive Portal)
+    - 'connectivitycheck.gstatic.com'
+    - 'connectivitycheck.android.com'
+    - 'msftconnecttest.com'
+    - 'msftncsi.com'
+    - 'captive.apple.com'
+    - 'localhost.pt'
+    # Локальная сеть и твои домены
+    - '+.lan'
+    - '+.local'
+    - '+.direct'
+    - '+.home.arpa'
+    # Российский сегмент (для банков и госуслуг)
+    #- '+.ru'
+    #- '+.su'
+    #- '+.xn--p1ai'
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+tun:
+  enable: true
+  stack: system
+  mtu: 1500
+  auto-route: true
+  strict-route: true
+  gso: true
+  udp-timeout: 300
+  iproute2-table-index: 2022
+  iproute2-rule-index: 9000
+  endpoint-independent-nat: false
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  device: utun11
+  route-exclude-address:
+    - 0.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/4
+    - 255.255.255.255/32
+    - 239.255.255.250/32
+disable-keep-alive: false
+keep-alive-interval: 300
+keep-alive-idle: 60
+
+sniffer:
+  enable: false
+
+proxies:
+  
+  - name: Dom-ss
+    type: ss
+    server: 95.165.6.169
+    port: 64850
+    cipher: 2022-blake3-aes-256-gcm
+    password: Lk7HNcEK9mbfz/gmt1djU53UR38xwTmGBUqtjwCrHDs=
+    udp: true
+    smux:
+      enabled: false
+    ip-version: ipv4
+
+  - name: CloudRU-1-ws
+    type: vless
+    server: 95.174.95.70
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: cloud-ru.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+    
+  - name: CloudRU-3-ws
+    type: vless
+    server: 176.108.246.17
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: cloud-ru-3.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  
+proxy-groups:
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - Dom-ss
+      - CloudRU-1-ws
+      - CloudRU-3-ws
+
+rules:
+  - MATCH,PROXY
