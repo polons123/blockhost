@@ -96,15 +96,21 @@ sniffer:
 
 proxies:
   
-  - name: Dom-ss
-    type: ss
+  - name: Dom-tls
+    type: anytls
     server: 95.165.6.169
-    port: 64850
-    cipher: 2022-blake3-aes-256-gcm
-    password: Lk7HNcEK9mbfz/gmt1djU53UR38xwTmGBUqtjwCrHDs=
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
     udp: true
-    smux:
-      enabled: false
+    iidle-session-check-interval: 60
+    idle-session-timeout: 600
+    min-idle-session: 1
+    sni: "evpolondom.keenetic.name"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: true
     ip-version: ipv4
 
   - name: CloudRU-1-ws
@@ -146,14 +152,13 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
     client-fingerprint: chrome
-
-  
+    
 proxy-groups:
 
   - name: "PROXY"
     type: select
     proxies:
-      - Dom-ss
+      - Dom-tls
       - CloudRU-1-ws
       - CloudRU-3-ws
 
