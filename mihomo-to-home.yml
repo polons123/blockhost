@@ -103,7 +103,7 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    iidle-session-check-interval: 60
+    idle-session-check-interval: 60
     idle-session-timeout: 600
     min-idle-session: 1
     sni: "evpolondom.keenetic.name"
