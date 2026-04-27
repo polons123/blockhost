@@ -96,6 +96,23 @@ sniffer:
   
 proxies:
     
+  - name: Dom-tls
+    type: anytls
+    server: 95.165.6.169
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 2
+    sni: "evpolondom.keenetic.name"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: true
+    ip-version: ipv4
+
   - name: CloudRU-1-ws
     type: vless
     server: 95.174.95.70
@@ -133,6 +150,23 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: chrome
+
+  - name: CloudRU-1-tls
+    type: anytls
+    server: 95.174.95.70
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 2
+    sni: "cloud-ru.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
     
   - name: CloudRU-3-ws
     type: vless
@@ -171,6 +205,23 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: chrome
+ 
+  - name: CloudRU-3-tls
+    type: anytls
+    server: 176.108.246.17
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 2
+    sni: "cloud-ru-3.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
     
   - name: Selectel-ws
     type: vless
@@ -209,6 +260,23 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: chrome
+
+  - name: Selectel-tls
+    type: anytls
+    server: 188.68.221.199
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 2
+    sni: "selectel-spb.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
 
   - name: H2nexus-ws
     type: vless
@@ -329,12 +397,16 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
+      - Dom-tls
       - CloudRU-1-ws
       - CloudRU-1-Vl
+      - CloudRU-1-tls
       - CloudRU-3-ws
       - CloudRU-3-Vl
+      - CloudRU-3-tls
       - Selectel-ws
       - Selectel-Vl
+      - Selectel-tls
       - H2nexus-ws
       - H2nexus-Vl
       - H2nexus-Pol-ws
