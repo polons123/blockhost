@@ -222,18 +222,6 @@ listeners:
   #      password: AezaServer
 
 proxies:
-    
-  
-  - name: Dom-ss
-    type: ss
-    server: 95.165.6.169
-    port: 64850
-    cipher: 2022-blake3-aes-256-gcm
-    password: Lk7HNcEK9mbfz/gmt1djU53UR38xwTmGBUqtjwCrHDs=
-    udp: true
-    smux:
-      enabled: false
-    ip-version: ipv4
 
   - name: CloudRU-1-ws
     type: vless
@@ -483,7 +471,6 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - Dom-ss
       - CloudRU-1-ws
       - CloudRU-1-Vl
       - CloudRU-3-ws
