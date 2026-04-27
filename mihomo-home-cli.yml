@@ -199,13 +199,18 @@ sniffer:
         
 listeners:
  
-  - name: ss-in
-    type: shadowsocks
-    port: 64850
+  - name: anytls-in-1
+    type: anytls
+    port: 8443
     listen: 0.0.0.0
-    cipher: 2022-blake3-aes-256-gcm
-    password: Lk7HNcEK9mbfz/gmt1djU53UR38xwTmGBUqtjwCrHDs=
-    udp: true
+    users:
+      DI9gVWk75PnVB0: ff8VNdkh6nQZSp
+    certificate: ./server.crt
+    private-key: ./server.key
+    padding-scheme: |
+      stop=0
+     # stop=1
+     # 0=0-20
 
   #- name: socks-in
   #  type: socks
