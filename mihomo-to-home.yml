@@ -295,4 +295,21 @@ proxy-groups:
       - Selectel-tls
 
 rules:
+  - DST-PORT,25,DIRECT
+  - DST-PORT,465,DIRECT
+  - DST-PORT,587,DIRECT
+  - DST-PORT,993,DIRECT
+  - DST-PORT,995,DIRECT
+  - DST-PORT,18090,DIRECT #torrserver
+  - DST-PORT,18092,DIRECT #lampac
+  - DST-PORT,9117,DIRECT #jacket
+  - DST-PORT,59095,PROXY #mihomo
+  - DST-PORT,59096,PROXY #sing-box
+  - DST-PORT,59755,DIRECT #prowlarr
+  - DST-PORT,59756,PROXY
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,::1/128,DIRECT
   - MATCH,PROXY
