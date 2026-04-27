@@ -132,6 +132,41 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
     client-fingerprint: chrome
+
+  - name: CloudRU-1-Vl
+    type: vless
+    server: 95.174.95.70
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: cloud-ru.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: CloudRU-1-tls
+    type: anytls
+    server: 95.174.95.70
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 60
+    idle-session-timeout: 600
+    min-idle-session: 1
+    sni: "cloud-ru.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
     
   - name: CloudRU-3-ws
     type: vless
@@ -152,6 +187,96 @@ proxies:
       v2ray-http-upgrade-fast-open: true
     ip-version: ipv4
     client-fingerprint: chrome
+
+  - name: CloudRU-3-Vl
+    type: vless
+    server: 176.108.246.17
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: cloud-ru-3.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+ 
+  - name: CloudRU-3-tls
+    type: anytls
+    server: 176.108.246.17
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 60
+    idle-session-timeout: 600
+    min-idle-session: 1
+    sni: "cloud-ru-3.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
+    
+  - name: Selectel-ws
+    type: vless
+    server: 188.68.221.199
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: selectel-spb.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: Selectel-Vl
+    type: vless
+    server: 188.68.221.199
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: selectel-spb.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: Selectel-tls
+    type: anytls
+    server: 188.68.221.199
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 60
+    idle-session-timeout: 600
+    min-idle-session: 1
+    sni: "selectel-spb.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
     
 proxy-groups:
 
@@ -160,7 +285,14 @@ proxy-groups:
     proxies:
       - Dom-tls
       - CloudRU-1-ws
+      - CloudRU-1-Vl
+      - CloudRU-1-tls
       - CloudRU-3-ws
+      - CloudRU-3-Vl
+      - CloudRU-3-tls
+      - Selectel-ws
+      - Selectel-Vl
+      - Selectel-tls
 
 rules:
   - MATCH,PROXY
