@@ -197,8 +197,39 @@ sniffer:
     - '+.connectivitycheck.gstatic.com'
     - '+.ru'
         
+listeners:
+ 
+  - name: ss-in
+    type: shadowsocks
+    port: 64850
+    listen: 0.0.0.0
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+
+  #- name: socks-in
+  #  type: socks
+  #  port: 64581
+  #  listen: 0.0.0.0
+  #  udp: true
+  #  users:
+  #    - username: polons123
+  #      password: AezaServer
+
 proxies:
     
+  
+  - name: Dom-ss
+    type: ss
+    server: 95.165.6.169
+    port: 64850
+    cipher: 2022-blake3-chacha20-poly1305
+    password: JQs1ueGrJERWAJAVI7C25El8Vu5NWwYatyCF/lrjVJE=
+    udp: true
+    smux:
+      enabled: false
+    ip-version: ipv4
+
   - name: CloudRU-1-ws
     type: vless
     server: 95.174.95.70
@@ -447,6 +478,7 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
+      - Dom-ss
       - CloudRU-1-ws
       - CloudRU-1-Vl
       - CloudRU-3-ws
