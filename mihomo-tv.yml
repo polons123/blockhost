@@ -1,0 +1,497 @@
+mode: rule
+#pro-mode: on
+mixed-port:
+allow-lan: false
+log-level: error
+ipv6: false
+#external-controller: 0.0.0.0:59095
+#secret: 'Na.pole.tanki'
+#external-ui: ./ui
+#external-ui-url: "https://github.com/metacubex/metacubexd/archive/refs/heads/gh-pages.zip"
+external-controller-cors:
+  allow-private-network: true
+  allow-origins:
+    - '*'
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: off
+dns:
+  enable: true
+  cache-algorithm: arc
+  prefer-h3: false
+  ipv6: false
+  listen: :53
+  default-nameserver:
+    - 185.222.222.222
+    - 9.9.9.10
+  nameserver:
+    - https://dns.nextdns.io/6fe67c/MobCl
+  proxy-server-nameserver:
+    - https://dns.nextdns.io/6fe67c/MobCl
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: false
+  direct-nameserver-follow-policy: false
+  enhanced-mode: fake-ip # redir-host  or fake-ip
+  fake-ip-filter:
+    # Системные проверки (Captive Portal)
+    - 'connectivitycheck.gstatic.com'
+    - 'connectivitycheck.android.com'
+    - 'msftconnecttest.com'
+    - 'msftncsi.com'
+    - 'captive.apple.com'
+    - 'localhost.pt'
+    # Локальная сеть и твои домены
+    - '+.lan'
+    - '+.local'
+    - '+.direct'
+    - '+.home.arpa'
+    # Российский сегмент (для банков и госуслуг)
+    #- '+.ru'
+    #- '+.su'
+    #- '+.xn--p1ai'
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+tun:
+  enable: true
+  stack: system
+  mtu: 1500
+  auto-route: true
+  strict-route: true
+  gso: true
+  udp-timeout: 300
+  iproute2-table-index: 2022
+  iproute2-rule-index: 9000
+  endpoint-independent-nat: false
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  device: utun11
+  route-exclude-address:
+    - 0.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/4
+    - 255.255.255.255/32
+    - 239.255.255.250/32
+disable-keep-alive: false
+keep-alive-interval: 10
+keep-alive-idle: 10
+
+sniffer:
+  enable: false
+  
+proxies:
+    
+  - name: CloudRU-1-ws
+    type: vless
+    server: 95.174.95.70
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: cloud-ru.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: CloudRU-1-Vl
+    type: vless
+    server: 95.174.95.70
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: cloud-ru.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+    
+  - name: CloudRU-3-ws
+    type: vless
+    server: 176.108.246.17
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: cloud-ru-3.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: CloudRU-3-Vl
+    type: vless
+    server: 176.108.246.17
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: cloud-ru-3.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+    
+  - name: Selectel-ws
+    type: vless
+    server: 188.68.221.199
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: selectel-spb.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: Selectel-Vl
+    type: vless
+    server: 188.68.221.199
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: selectel-spb.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: H2nexus-ws
+    type: vless
+    server: 45.144.52.52
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: h2nexus.ddns.net
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: H2nexus-Vl
+    type: vless
+    server: 45.144.52.52
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: h2nexus.ddns.net
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: H2nexus-Pol-ws
+    type: vless
+    server: 144.31.0.59
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: h2nexus-p.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: H2nexus-Pol-Vl
+    type: vless
+    server: 144.31.0.59
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: h2nexus-p.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: Waicore-ws
+    type: vless
+    server: 193.233.134.245
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: waicore-ger.ddns.net
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: Waicore-Vl
+    type: vless
+    server: 193.233.134.245
+    port: 443
+    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
+    flow: xtls-rprx-vision
+    udp: true
+    tls: true
+    servername: waicore-ger.ddns.net
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    smux:
+      enabled: false
+    ip-version: ipv4
+    client-fingerprint: chrome
+    
+proxy-groups:
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - CloudRU-1-ws
+      - CloudRU-1-Vl
+      - CloudRU-3-ws
+      - CloudRU-3-Vl
+      - Selectel-ws
+      - Selectel-Vl
+      - H2nexus-ws
+      - H2nexus-Vl
+      - H2nexus-Pol-ws
+      - H2nexus-Pol-Vl
+      - Waicore-ws
+      - Waicore-Vl
+
+rule-providers:
+  geosite-yandex:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/yandex.mrs"
+    path: ./geosite-yandex.mrs
+    interval: 604800
+  geosite-vk:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/vk.mrs"
+    path: ./geosite-vk.mrs
+    interval: 604800
+  geosite-mailru:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/mailru.mrs"
+    path: ./geosite-mailru.mrs
+    interval: 604800
+  geosite-google:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
+    path: ./geosite-google.mrs
+    interval: 604800
+  geosite-youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"
+    path: ./geosite-youtube.mrs   
+    interval: 604800
+  geosite-apple:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs"
+    path: ./geosite-apple.mrs
+    interval: 604800
+  geosite-telegram:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/telegram.mrs"
+    path: ./geosite-telegram.mrs
+    interval: 604800
+  geosite-tiktok:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/tiktok.mrs"
+    path: ./geosite-tiktok.mrs   
+    interval: 604800
+  geoip-google:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"
+    path: ./geoip-google.mrs
+    interval: 604800
+  geoip-telegram:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/telegram.mrs"
+    path: ./geoip-telegram.mrs
+    interval: 604800
+  geoip-apple:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs"
+    path: ./geoip-apple.mrs
+    interval: 604800
+  geoip-ru:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/ru.mrs"
+    path: ./geoip-ru.mrs
+    interval: 604800
+  oisd_small:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/small.mrs"
+    path: ./small.mrs
+    interval: 86400
+  oisd_nsfw_small:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/nsfw_small.mrs"
+    path: ./nsfw_small.mrs
+    interval: 86400
+
+rules:
+  - RULE-SET,oisd_small,REJECT
+  - RULE-SET,oisd_nsfw_small,REJECT
+  
+  - DST-PORT,25,DIRECT
+  - DST-PORT,465,DIRECT
+  - DST-PORT,587,DIRECT
+  - DST-PORT,993,DIRECT
+  - DST-PORT,995,DIRECT
+  - DST-PORT,18090,DIRECT #torrserver
+  - DST-PORT,18092,DIRECT #lampac
+  - DST-PORT,9117,DIRECT #jacket
+  - DST-PORT,59095,PROXY #mihomo
+  - DST-PORT,59096,PROXY #sing-box
+  - DST-PORT,59755,DIRECT #prowlarr
+  - DST-PORT,59756,PROXY
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,::1/128,DIRECT
+
+  - DOMAIN-SUFFIX,vokino.pro,DIRECT
+  - DOMAIN-SUFFIX,videobase.biz,DIRECT
+  - DOMAIN-SUFFIX,cdntogo.net,DIRECT #kinopub
+  - DOMAIN-SUFFIX,werkecdn.me,DIRECT # filmix
+  - DOMAIN-SUFFIX,zerocdn.com,DIRECT #getstv
+
+  - DOMAIN,kino.pub,PROXY
+  - DOMAIN-KEYWORD,habr,PROXY
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb.org,PROXY
+  - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
+  - DOMAIN-SUFFIX,cdn.cookielaw.org,PROXY
+  
+  - RULE-SET,geosite-yandex,DIRECT
+  - RULE-SET,geosite-vk,DIRECT
+  - RULE-SET,geosite-mailru,DIRECT
+  
+  - RULE-SET,geosite-youtube,PROXY
+  - RULE-SET,geosite-google,PROXY
+  - RULE-SET,geoip-google,PROXY
+  - RULE-SET,geosite-apple,PROXY
+  - RULE-SET,geoip-apple,PROXY
+  - RULE-SET,geosite-telegram,PROXY
+  - RULE-SET,geoip-telegram,PROXY,no-resolve
+  - RULE-SET,geosite-tiktok,PROXY
+  
+  - RULE-SET,geoip-ru,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,ru,DIRECT
+  - DOMAIN-SUFFIX,su,DIRECT
+  - DOMAIN-REGEX,^.*xn--.*$,DIRECT
+  - MATCH,PROXY
