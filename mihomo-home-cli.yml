@@ -441,44 +441,7 @@ proxies:
   #  enable-pure-downlink: false
   #  path-root: "sync"
 
-  - name: 4vps-ws
-    type: vless
-    server: 45.82.13.131
-    port: 10443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    udp: true
-    tls: true
-    servername: 4vps.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
-    ip-version: ipv4
-    client-fingerprint: chrome
-
-  - name: 4vps-Vl
-    type: vless
-    server: 45.82.13.131
-    port: 443
-    uuid: 3d667781-7e90-41e6-996c-2727dcfb4542
-    flow: xtls-rprx-vision
-    udp: true
-    tls: true
-    servername: 4vps.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    smux:
-      enabled: false
-    ip-version: ipv4
-    client-fingerprint: chrome
-    
+  
 proxy-groups:
 
   - name: "PROXY"
@@ -496,8 +459,6 @@ proxy-groups:
       - H2nexus-Pol-Vl
       - Waicore-ws
       - Waicore-Vl
-      - 4vps-ws
-      - 4vps-Vl
       
 rule-providers:
   geosite-yandex:
