@@ -88,8 +88,8 @@ tun:
     - 255.255.255.255/32
     - 239.255.255.250/32
 disable-keep-alive: false
-keep-alive-interval: 300
-keep-alive-idle: 60
+keep-alive-interval: 150
+keep-alive-idle: 30
 
 sniffer:
   enable: false
@@ -103,8 +103,8 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 600
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
     min-idle-session: 1
     sni: "evpolondom.keenetic.name"
     alpn:
