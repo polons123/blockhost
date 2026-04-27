@@ -20,7 +20,7 @@ dns:
   cache-algorithm: arc
   prefer-h3: false
   ipv6: false
-  listen: :1053
+  listen: :53
   default-nameserver:
     - 185.222.222.222
     - 9.9.9.10
