@@ -88,8 +88,8 @@ tun:
 #  TCP keep alive interval
 #  15  для компьютера
 #  1800 для телефона, увеличение интервала экономит батарею 
-keep-alive-interval: 10
-keep-alive-idle: 10
+keep-alive-interval: 30
+keep-alive-idle: 30
 #disable-keep-alive: true
 
 sniffer:
@@ -198,9 +198,9 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 2
+    idle-session-check-interval: 60
+    idle-session-timeout: 120
+    min-idle-session: 4
     sni: "evpolondom.keenetic.name"
     alpn:
       - h2
@@ -253,9 +253,9 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 2
+    idle-session-check-interval: 60
+    idle-session-timeout: 120
+    min-idle-session: 4
     sni: "cloud-ru.ydns.eu"
     alpn:
       - h2
@@ -308,9 +308,9 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 2
+    idle-session-check-interval: 60
+    idle-session-timeout: 120
+    min-idle-session: 4
     sni: "cloud-ru-3.ydns.eu"
     alpn:
       - h2
@@ -363,9 +363,9 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 2
+    idle-session-check-interval: 60
+    idle-session-timeout: 120
+    min-idle-session: 4
     sni: "selectel-spb.ydns.eu"
     alpn:
       - h2
