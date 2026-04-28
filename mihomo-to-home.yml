@@ -88,8 +88,8 @@ tun:
     - 255.255.255.255/32
     - 239.255.255.250/32
 disable-keep-alive: false
-keep-alive-interval: 150
-keep-alive-idle: 30
+keep-alive-interval: 240
+keep-alive-idle: 75
 
 sniffer:
   enable: false
@@ -103,8 +103,8 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
+    idle-session-check-interval: 120
+    idle-session-timeout: 420
     min-idle-session: 1
     sni: "evpolondom.keenetic.name"
     alpn:
@@ -158,8 +158,8 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 600
+    idle-session-check-interval: 120
+    idle-session-timeout: 420
     min-idle-session: 1
     sni: "cloud-ru.ydns.eu"
     alpn:
@@ -213,8 +213,8 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 600
+    idle-session-check-interval: 120
+    idle-session-timeout: 420
     min-idle-session: 1
     sni: "cloud-ru-3.ydns.eu"
     alpn:
@@ -268,8 +268,8 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 600
+    idle-session-check-interval: 120
+    idle-session-timeout: 420
     min-idle-session: 1
     sni: "selectel-spb.ydns.eu"
     alpn:
@@ -301,7 +301,7 @@ rules:
   - DST-PORT,993,DIRECT
   - DST-PORT,995,DIRECT
   - DST-PORT,18090,DIRECT #torrserver
-  - DST-PORT,18092,DIRECT #lampac
+  - DST-PORT,18092,PROXY #lampac
   - DST-PORT,9117,DIRECT #jacket
   - DST-PORT,59095,PROXY #mihomo
   - DST-PORT,59096,PROXY #sing-box
