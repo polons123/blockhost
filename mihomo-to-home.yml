@@ -87,9 +87,9 @@ tun:
     - 224.0.0.0/4
     - 255.255.255.255/32
     - 239.255.255.250/32
-disable-keep-alive: false
-keep-alive-interval: 240
-keep-alive-idle: 75
+disable-keep-alive: true
+#keep-alive-interval: 240
+#keep-alive-idle: 75
 
 sniffer:
   enable: false
@@ -215,7 +215,7 @@ proxies:
     udp: true
     idle-session-check-interval: 120
     idle-session-timeout: 420
-    min-idle-session: 1
+    min-idle-session: 0
     sni: "cloud-ru-3.ydns.eu"
     alpn:
       - h2
