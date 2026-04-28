@@ -914,7 +914,7 @@ rules:
   - DST-PORT,993,DIRECT
   - DST-PORT,995,DIRECT
   - DST-PORT,18090,DIRECT #torrserver
-  - DST-PORT,18092,DIRECT #lampac
+  - DST-PORT,18092,PROXY #lampac
   - DST-PORT,9117,DIRECT #jacket
   - DST-PORT,59095,PROXY #mihomo
   - DST-PORT,59096,PROXY #sing-box
