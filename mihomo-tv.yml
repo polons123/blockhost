@@ -8,13 +8,13 @@ ipv6: false
 #secret: 'Na.pole.tanki'
 #external-ui: ./ui
 #external-ui-url: "https://github.com/metacubex/metacubexd/archive/refs/heads/gh-pages.zip"
-external-controller-cors:
-  allow-private-network: true
-  allow-origins:
-    - '*'
+#external-controller-cors:
+#  allow-private-network: true
+#  allow-origins:
+#    - '*'
 unified-delay: true
 tcp-concurrent: true
-find-process-mode: off
+find-process-mode: true
 dns:
   enable: true
   cache-algorithm: arc
@@ -88,8 +88,8 @@ tun:
     - 255.255.255.255/32
     - 239.255.255.250/32
 disable-keep-alive: false
-keep-alive-interval: 10
-keep-alive-idle: 10
+keep-alive-interval: 30
+keep-alive-idle: 30
 
 sniffer:
   enable: false
@@ -103,9 +103,9 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 2
+    idle-session-check-interval: 60
+    idle-session-timeout: 120
+    min-idle-session: 4
     sni: "evpolondom.keenetic.name"
     alpn:
       - h2
@@ -158,9 +158,9 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 2
+    idle-session-check-interval: 60
+    idle-session-timeout: 120
+    min-idle-session: 4
     sni: "cloud-ru.ydns.eu"
     alpn:
       - h2
@@ -213,9 +213,9 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 2
+    idle-session-check-interval: 60
+    idle-session-timeout: 120
+    min-idle-session: 4
     sni: "cloud-ru-3.ydns.eu"
     alpn:
       - h2
@@ -268,9 +268,9 @@ proxies:
     password: ff8VNdkh6nQZSp
     client-fingerprint: chrome
     udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 2
+    idle-session-check-interval: 60
+    idle-session-timeout: 120
+    min-idle-session: 4
     sni: "selectel-spb.ydns.eu"
     alpn:
       - h2
