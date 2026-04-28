@@ -813,6 +813,10 @@ rules:
   - RULE-SET,oisd_small,REJECT
   - RULE-SET,oisd_nsfw_big,REJECT
   - RULE-SET,oisd_nsfw_small,REJECT
+  
+  - DOMAIN-SUFFIX,themoviedb.org,PROXY #для
+  - DOMAIN-SUFFIX,tmdb.org,PROXY       #plex
+  
   - PROCESS-NAME,uTorrent.exe,DIRECT
   - PROCESS-NAME,BitTorrent.exe,DIRECT
   - PROCESS-NAME,utweb.exe,DIRECT
@@ -875,7 +879,9 @@ rules:
   - PROCESS-NAME,torrserver,DIRECT
   - PROCESS-NAME,EmbyServer.exe,DIRECT
   - PROCESS-NAME,embytray.exe,DIRECT
+  
   - PROCESS-NAME-REGEX,.*plex.*,DIRECT
+  - DOMAIN-SUFFIX,plex.tv,DIRECT
 
   - DST-PORT,25,DIRECT
   - DST-PORT,465,DIRECT
@@ -945,10 +951,6 @@ rules:
   - RULE-SET,geoip-netflix,PROXY
 
   - RULE-SET,geosite-microsoft,PROXY
-
-  - DOMAIN,kino.pub,PROXY
-  - DOMAIN-SUFFIX,themoviedb.org,PROXY
-  - DOMAIN-SUFFIX,tmdb.org,PROXY
 
   - DOMAIN-SUFFIX,getsession.org,PROXY
   - DOMAIN-SUFFIX,session.network,PROXY
