@@ -922,6 +922,8 @@ rules:
   - DST-PORT,18090,DIRECT #torrserver
   - DST-PORT,18092,PROXY #lampac
   - DST-PORT,9117,DIRECT #jacket
+  - DST-PORT,32400,DIRECT #plex
+  - DST-PORT,32401,DIRECT #plex
   - DST-PORT,59095,PROXY #mihomo
   - DST-PORT,59096,PROXY #sing-box
   - DST-PORT,59755,DIRECT #prowlarr
