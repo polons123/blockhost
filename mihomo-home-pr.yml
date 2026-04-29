@@ -191,22 +191,22 @@ sniffer:
         
 proxies:
 
-  - name: Dom-tls
-    type: anytls
-    server: 95.165.6.169
-    port: 8443
-    password: ff8VNdkh6nQZSp
-    client-fingerprint: chrome
-    udp: true
-    idle-session-check-interval: 60
-    idle-session-timeout: 120
-    min-idle-session: 4
-    sni: "evpolondom.keenetic.name"
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: true
-    ip-version: ipv4
+  #- name: Dom-tls
+  #  type: anytls
+  #  server: 95.165.6.169
+  #  port: 8443
+  #  password: ff8VNdkh6nQZSp
+  #  client-fingerprint: chrome
+  #  udp: true
+  #  idle-session-check-interval: 60
+  #  idle-session-timeout: 120
+  #  min-idle-session: 4
+  #  sni: "evpolondom.keenetic.name"
+  #  alpn:
+  #    - h2
+  #    - http/1.1
+  #  skip-cert-verify: true
+  #  ip-version: ipv4
 
   - name: CloudRU-1-ws
     type: vless
@@ -891,6 +891,8 @@ rules:
   - DST-PORT,18090,DIRECT #torrserver
   - DST-PORT,18092,PROXY #lampac
   - DST-PORT,9117,DIRECT #jacket
+  - DST-PORT,32400,DIRECT #plex
+  - DST-PORT,32401,DIRECT #plex
   - DST-PORT,59095,PROXY #mihomo
   - DST-PORT,59096,PROXY #sing-box
   - DST-PORT,59755,DIRECT #prowlarr
