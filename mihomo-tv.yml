@@ -14,7 +14,7 @@ ipv6: false
 #    - '*'
 unified-delay: true
 tcp-concurrent: true
-find-process-mode: true
+find-process-mode: strict
 dns:
   enable: true
   cache-algorithm: arc
@@ -316,6 +316,23 @@ proxies:
     ip-version: ipv4
     client-fingerprint: chrome
 
+  - name: H2nexus-tls
+    type: anytls
+    server: 45.144.52.52
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 2
+    sni: "h2nexus.ddns.net"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
+
   - name: H2nexus-Pol-ws
     type: vless
     server: 144.31.0.59
@@ -354,6 +371,23 @@ proxies:
     ip-version: ipv4
     client-fingerprint: chrome
 
+  - name: H2nexus-Pol-tls
+    type: anytls
+    server: 144.31.0.59
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 2
+    sni: "h2nexus-p.ydns.eu"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
+
   - name: Waicore-ws
     type: vless
     server: 193.233.134.245
@@ -391,13 +425,73 @@ proxies:
       enabled: false
     ip-version: ipv4
     client-fingerprint: chrome
-    
+
+  - name: Waicore-tls
+    type: anytls
+    server: 193.233.134.245
+    port: 8443
+    password: ff8VNdkh6nQZSp
+    client-fingerprint: chrome
+    udp: true
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 2
+    sni: "waicore-ger.ddns.net"
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    ip-version: ipv4
+
+  - name: HostVDS
+    type: vless
+    server: 45.38.60.48
+    port: 10443
+    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
+    udp: true
+    tls: true
+    servername: hostvds-hk.ydns.eu
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /Video-data
+      v2ray-http-upgrade: true
+      v2ray-http-upgrade-fast-open: true
+    ip-version: ipv4
+    client-fingerprint: chrome
+
+  - name: HostVDS-hys
+    type: hysteria2
+    server: 45.38.60.48
+    port: 8443
+    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
+    up: "150 Mbps"
+    down: "150 Mbps"
+    sni: "hostvds-hk.ydns.eu"
+    skip-cert-verify: false
+    #fingerprint: xxxx
+    alpn:
+      - h3
+    ip-version: ipv4
+    initial-stream-receive-window: 67108864
+    max-stream-receive-window: 134217728 
+    initial-connection-receive-window: 134217728
+    max-connection-receive-window: 268435456
+    congestion-control: brutal
+    brutal-opts:
+      enabled: true
+      up: "150 Mbps"
+      down: "150 Mbps"
+
+  
 proxy-groups:
 
   - name: "PROXY"
     type: select
     proxies:
-      - Dom-tls
       - CloudRU-1-ws
       - CloudRU-1-Vl
       - CloudRU-1-tls
@@ -407,12 +501,17 @@ proxy-groups:
       - Selectel-ws
       - Selectel-Vl
       - Selectel-tls
-      - H2nexus-ws
       - H2nexus-Vl
-      - H2nexus-Pol-ws
+      - H2nexus-ws
+      - H2nexus-tls
       - H2nexus-Pol-Vl
-      - Waicore-ws
+      - H2nexus-Pol-ws
+      - H2nexus-Pol-tls
       - Waicore-Vl
+      - Waicore-ws
+      - Waicore-tls
+      - HostVDS
+      - HostVDS-hys
 
 rule-providers:
   geosite-yandex:
