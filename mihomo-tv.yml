@@ -443,49 +443,6 @@ proxies:
     skip-cert-verify: false
     ip-version: ipv4
 
-  - name: HostVDS
-    type: vless
-    server: 45.38.60.48
-    port: 10443
-    uuid: b68ab9f0-60a2-43bb-befb-ea72cc9400b2
-    udp: true
-    tls: true
-    servername: hostvds-hk.ydns.eu
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /Video-data
-      v2ray-http-upgrade: true
-      v2ray-http-upgrade-fast-open: true
-    ip-version: ipv4
-    client-fingerprint: chrome
-
-  - name: HostVDS-hys
-    type: hysteria2
-    server: 45.38.60.48
-    port: 8443
-    password: wDRp8/cK4TIlLl6z2t/RrgtUu1lkIQ0nCi9lzwudZRY=
-    up: "150 Mbps"
-    down: "150 Mbps"
-    sni: "hostvds-hk.ydns.eu"
-    skip-cert-verify: false
-    #fingerprint: xxxx
-    alpn:
-      - h3
-    ip-version: ipv4
-    initial-stream-receive-window: 67108864
-    max-stream-receive-window: 134217728 
-    initial-connection-receive-window: 134217728
-    max-connection-receive-window: 268435456
-    congestion-control: brutal
-    brutal-opts:
-      enabled: true
-      up: "150 Mbps"
-      down: "150 Mbps"
-
   
 proxy-groups:
 
@@ -510,8 +467,6 @@ proxy-groups:
       - Waicore-Vl
       - Waicore-ws
       - Waicore-tls
-      - HostVDS
-      - HostVDS-hys
 
 rule-providers:
   geosite-yandex:
@@ -644,7 +599,11 @@ rules:
   - DOMAIN-SUFFIX,zerocdn.com,DIRECT #getstv
 
   - DOMAIN,kino.pub,PROXY
-  - DOMAIN-KEYWORD,habr,PROXY
+  - DOMAIN-SUFFIX,lampa.mx,PROXY
+  - DOMAIN,lampa.mx,PROXY
+  - DOMAIN,habr.com,PROXY
+  - DOMAIN-SUFFIX,habr.com,PROXY
+  - DOMAIN-SUFFIX,habrastorage.org,PROXY
   - DOMAIN-SUFFIX,themoviedb.org,PROXY
   - DOMAIN-SUFFIX,tmdb.org,PROXY
   - DOMAIN-SUFFIX,tmdb-image-prod.b-cdn.net,PROXY
