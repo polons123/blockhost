@@ -552,13 +552,13 @@ proxy-groups:
       - Selectel-ws
       - Selectel-Vl
       - Selectel-tls
-      - H2nexus-Vl
+      #- H2nexus-Vl
       - H2nexus-ws
       - H2nexus-tls
-      - H2nexus-Pol-Vl
+      #- H2nexus-Pol-Vl
       - H2nexus-Pol-ws
       - H2nexus-Pol-tls
-      - Waicore-Vl
+      #- Waicore-Vl
       - Waicore-ws
       - Waicore-tls
       
