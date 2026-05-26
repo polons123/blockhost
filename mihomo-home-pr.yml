@@ -544,13 +544,13 @@ proxy-groups:
     type: select
     proxies:
       - CloudRU-1-ws
-      - CloudRU-1-Vl
+      #- CloudRU-1-Vl
       - CloudRU-1-tls
       - CloudRU-3-ws
-      - CloudRU-3-Vl
+      #- CloudRU-3-Vl
       - CloudRU-3-tls
       - Selectel-ws
-      - Selectel-Vl
+      #- Selectel-Vl
       - Selectel-tls
       #- H2nexus-Vl
       - H2nexus-ws
