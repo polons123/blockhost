@@ -449,6 +449,7 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
+      - Dom-tls
       - CloudRU-1-ws
       #- CloudRU-1-Vl
       - CloudRU-1-tls
