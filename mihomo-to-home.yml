@@ -371,4 +371,9 @@ rules:
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,::1/128,DIRECT
+  - DOMAIN-SUFFIX,vokino.pro,DIRECT
+  - DOMAIN-SUFFIX,videobase.biz,DIRECT
+  - DOMAIN-SUFFIX,cdntogo.net,DIRECT #kinopub
+  - DOMAIN-SUFFIX,werkecdn.me,DIRECT # filmix
+  - DOMAIN-SUFFIX,zerocdn.com,DIRECT #getstv
   - MATCH,PROXY
